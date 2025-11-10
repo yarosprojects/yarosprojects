@@ -1,0 +1,230 @@
+---
+import { imageConfig } from "astro:assets";
+import avatar from "../../public/img/avatar.png";
+
+const { creador, translate, locale } = Astro.props;
+const cfgs_started_at = 2022;
+
+const FRAMEWORKS = [
+    {
+        name: 'React',
+        animation_delay: '0',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
+    },
+    {
+        name: 'Angular',
+        animation_delay: '100',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg',
+    },
+    {
+        name: 'Laravel',
+        animation_delay: '300',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg',
+    },
+    {
+        name: 'Django',
+        animation_delay: '500',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg',
+    },
+    {
+        name: 'Astro',
+        animation_delay: '800',
+        img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/astro/astro-original.svg',
+    }
+];
+
+const LANGUAGES = [
+    {
+        name: 'Html',
+        animation_delay: '0',
+        img: '/img/programming-languages/html5.webp',
+    },
+    {
+        name: 'Css',
+        animation_delay: '100',
+        img: '/img/programming-languages/css.webp',
+    },
+    {
+        name: 'JavaScript',
+        animation_delay: '200',
+        img: '/img/programming-languages/js.webp',
+    },
+    {
+        name: 'Java',
+        animation_delay: '300',
+        img: '/img/programming-languages/java.webp',
+    },
+    {
+        name: 'Python',
+        animation_delay: '400',
+        img: '/img/programming-languages/python.webp',
+    },
+    {
+        name: 'Php',
+        animation_delay: '500',
+        img: '/img/programming-languages/php.webp',
+    }
+];
+---
+<div
+    class="flex justify-start pt-15 md:pt-30 items-center flex-col min-h-screen w-full relative z-10"
+>
+    <div
+        class="py-5 md:w-2xl w-full flex flex-col md:flex-row justify-start items-start"
+    >
+        <img
+            src={avatar.src}
+            alt="Avatar Yaroslav Klymko"
+            class="w-40 mx-auto md:mx-0 h-auto rounded-full animate-fade-in-down"
+        />
+        <div
+            class="flex flex-1 p-4 md:px-8 md:py-15 flex-col items-center md:items-start justify-start w-full h-full"
+        >
+            <span
+                class="text-white text-center md:text-left text-3xl font-extrabold animate-fade-in animate-duration-50"
+            >
+                {creador}
+            </span>
+            <div class="py-2 w-full">
+                <hr class="w-full" />
+            </div>
+            <div
+                class="flex m-0 p-0 justify-center md:justify-start w-full overflow-hidden"
+            >
+                <span
+                    class="text-yellow-400 font-bold animate-fade-in-up animate-duration-800 animate-delay-250 text-xl selection:bg-transparent
+                    selection:backdrop-blur-3xl selection:text-white/70 text-center md:text-left"
+                >
+                    {translate.intro.fullstack_web_developer}
+                </span>
+            </div>
+            <div class="flex flex-col w-full text-sm pt-5 pb-3 md:py-3">
+                <a
+                    href="https://www.linkedin.com/in/yaroslav-klymko-psip"
+                    target="_blank"
+                    rel="noopener"
+                    class="px-4 py-2 bg-gray-800 hover:bg-gray-700 transition-all hover:scale-105 rounded-full shadow-lg shadow-white/20 w-fit md:mx-0 mx-auto text-green-300"
+                    aria-label="Enlace a LinkedIn"
+                >
+                    #OpenToWork
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="w-full flex justify-center items-center">
+        <div
+            class="text-white flex flex-row w-full justify-center items-center text-center text-3xl"
+        >
+            <p class="scale-120 text-blue-700">+</p>
+            <div
+                class="text-blue-700 scale-170 px-3 font-extrabold rotate-10 animate-swing-drop-in"
+            >
+                {new Date().getFullYear() - cfgs_started_at}
+            </div>
+            <div class="flex flex-col px-2">
+                <p class="text-yellow-50 font-bold uppercase text-2xl">{translate.intro.years_of_experience}</p>
+                <span class="text-white/75 text-sm">
+                    {translate.intro.work_plus_personal_experience}
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="w-full flex justify-center items-center py-15">
+        <div class="flex flex-col justify-start items-center md:items-start w-full md:w-2xl mx-0 md:mx-auto px-4 md:px-0">
+            <div class="w-full flex justify-center md:justify-start h-auto md:h-10 items-start flex-row overflow-hidden m-0 p-0">
+                <div class="hidden md:flex w-1 h-full animate-h-full bg-white rounded-full mr-2"></div>
+                <h2 class="text-white animate-none md:animate-translate-x-delay-500 translate-x-0 invisible text-4xl items-center justify-start flex flex-col md:flex-row font-black tracking-wider text-center md:text-left" id="greetings_iam">
+                    <span class="text-white/70 italic">{translate.intro.hello_iam}</span> 
+                    <span class="block md:inline-block mt-1.5 md:mt-0 mx-3">
+                        {translate.creator_name},
+                    </span>
+                </h2>
+            </div>
+            <div class="flex md:hidden w-1/2 h-0.5 bg-white rounded-full mt-5">
+
+            </div>
+            <p class="text-white/70 text-xl text-center md:text-left my-5 selection:bg-yellow-500 selection:text-black">
+                <span class="text-yellow-300 font-extrabold">
+                    {locale === "en-GB" ? translate.intro.web_applications.charAt(0).toUpperCase() + translate.intro.web_applications.slice(1) : translate.intro.developer}
+                    { (locale === "es-ES" || locale === "ca-ES") && (
+                        <span class="text-white/70">{locale === "ca-ES" ? 'dels' : 'de'}</span>
+                    ) }
+                    {locale === "en-GB" ? translate.intro.developer.toLowerCase() : translate.intro.web_applications}
+                </span>
+                {translate.intro.bioinformatical_profile}
+                <span class="text-yellow-100 relative before:absolute before:content-[''] before:left-0 before:top-full before:w-0 before:h-px before:bg-yellow-100 before:animate-width-to-full">
+                    {translate.intro.bioinformatical}
+                </span>
+                <br>
+                {translate.intro.from} 
+                <a href="https://maps.app.goo.gl/7TDSxg5tGKfRuGfc6" target="_blank" class="hover:text-white inline-block backdrop-blur-3xl hover:px-2 hover:scale-105 transition-all mt-1">{translate.cities.psip}</a>, {translate.countries.spain}.
+                <br>
+            </p>
+            <p class="text-white/70 text-xl text-center md:text-left selection:bg-yellow-500 selection:text-black">
+                {translate.intro.focused_on} <span class="text-yellow-100">{translate.intro.creation}</span>, <span class="text-yellow-100">{translate.intro.maintenance}</span> {translate.intro.and} <span class="text-yellow-100">{translate.intro.resolution}</span> {translate.intro.of_the} <span class="text-yellow-100">{translate.intro.vulnerability}</span> {translate.intro.of_normal} {translate.intro.of_static_and_dynamic_web_pages} <span class="text-yellow-100">{translate.intro.statics}</span> {translate.intro.and_normal} <span class="text-yellow-100">{translate.intro.dynamics}</span> 
+                {translate.intro.websites}
+                .
+            </p>
+            <div class="flex flex-col gap-15 md:gap-3 w-full py-13 md:py-7">
+                <div class="flex flex-col w-full gap-7">
+                    <div class="w-full flex justify-center md:justify-start items-center flex-wrap flex-row gap-3">
+                        {
+                            FRAMEWORKS.map((framework) => {
+                                const { name, animation_delay, img } = framework;
+                                return (
+                                    <div class={`flex flex-row justify-center items-center gap-2 px-5 md:px-4 py-2 md:py-2 rounded-full bg-gray-800 animate-fade-in animate-delay-${animation_delay}`}>
+                                        <img src={img} alt={`Image of ${name}`} class={`size-5 ${name.toLowerCase() === "java" ? '-translate-y-0.75' : ''}`} />
+                                        <span>
+                                            {name}
+                                        </span>
+                                    </div>
+                                )
+                            })
+                        }
+                        <div class="hidden md:flex flex-row gap-1 mt-auto">
+                            <div class="w-0.5 h-0.5 mt-auto mb-2 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                            <div class="w-0.5 h-0.5 mt-auto mb-2 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                            <div class="w-0.5 h-0.5 mt-auto mb-2 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                            <div class="w-0.5 h-0.5 mt-auto mb-2 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                        </div>
+                    </div>
+                    <div class="flex md:hidden flex-row gap-1 w-full justify-center">
+                        <div class="w-0.5 h-0.5 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                        <div class="w-0.5 h-0.5 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                        <div class="w-0.5 h-0.5 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                        <div class="w-0.5 h-0.5 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                    </div>
+                </div>
+                <div class="flex flex-col w-full gap-7 pt-7">
+                    <div class="w-full flex justify-center md:justify-start items-center flex-wrap flex-row gap-3">
+                        {
+                            LANGUAGES.map((language) => {
+                                const { name, animation_delay, img } = language;
+                                return  (
+                                    <div class={`flex flex-row justify-center items-center gap-2 px-5 md:px-4 py-2 md:py-2 rounded-full bg-gray-800 animate-fade-in animate-delay-${animation_delay}`}>
+                                        <img src={img} alt={`Image of ${name}`} class={`size-5 ${name.toLowerCase() === "java" ? '-translate-y-0.75' : ''}`} />
+                                        <span>
+                                            {name}
+                                        </span>
+                                    </div>
+                                )
+                            })
+                        }
+                        <div class="hidden md:flex flex-row gap-1 mt-auto">
+                            <div class="w-0.5 h-0.5 mt-auto mb-2 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                            <div class="w-0.5 h-0.5 mt-auto mb-2 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                            <div class="w-0.5 h-0.5 mt-auto mb-2 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                            <div class="w-0.5 h-0.5 mt-auto mb-2 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                        </div>
+                    </div>
+                    <div class="flex md:hidden flex-row gap-1 w-full justify-center">
+                        <div class="w-0.5 h-0.5 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                        <div class="w-0.5 h-0.5 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                        <div class="w-0.5 h-0.5 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                        <div class="w-0.5 h-0.5 bg-white/70 rounded-full animate-fade-in animate-delay-900"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

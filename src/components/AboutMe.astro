@@ -1,0 +1,12 @@
+---
+const { creador, translate, locale } = Astro.props;
+---
+
+<div
+    class="pt-(--header-h) w-full flex flex-col justify-center items-center text-center"
+>
+    <h1 class="text-4xl text-white mb-4">{translate.nav.about_me}</h1>
+    <p class="max-w-2xl text-white/80 text-lg">
+        {translate.temporary_text}
+    </p>
+</div>

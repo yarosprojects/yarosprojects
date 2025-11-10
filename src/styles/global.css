@@ -1,0 +1,104 @@
+@import "tailwindcss";
+@plugin '@midudev/tailwind-animations';
+@plugin "@iconify/tailwind4";
+
+:root {
+    --primary-color: rgb(2, 6, 24);
+}
+
+@font-face {
+    font-family: 'font-md';
+    src: url('../../public/font/Onest-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@utility primary-color {
+    background-color: var(--primary-color);
+}
+
+@utility animate-width-to-full {
+    animation: width-to-full 1s forwards;
+}
+
+@utility animate-translate-x-full {
+    animation: translate-x-full .5s forwards;
+}
+
+@utility animate-transl-x-full-opacity {
+    animation: translate-x-full-op .5s forwards;
+}
+
+@utility animate-h-full {
+    animation: animate-h-to-full .5s forwards;
+}
+
+@utility animate-translate-x-delay-500 {
+    animation: translate-x-full .5s forwards;
+    animation-delay: 500ms;
+}
+
+@utility animate-height-to-full {
+    animation: animate-h-full 2s forwards;
+}
+
+@keyframes drawBg {
+    0% {
+        background-color: transparent;
+    } 100% {
+        background-color: var(--nav-color);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    @keyframes drawBg {
+        0% {
+            background-color: transparent;
+        } 100% {
+            background-color: rgb(31, 41, 55, .5);
+        }
+    } 
+}
+
+@keyframes width-to-full {
+    from {
+        width: 0;
+    } to {
+        width: 100%;
+    }
+}
+
+@keyframes translate-x-full {
+    from {
+        transform: translateX(-100%);
+    } to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes translate-x-full-op {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    } to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes animate-h-to-full {
+    from {
+        height: 0;
+    } to {
+        height: 100%;
+    }
+}
+
+@keyframes animate-h-full {
+    from {
+        height: 0;
+    } to {
+        height: 100%;
+    }
+}

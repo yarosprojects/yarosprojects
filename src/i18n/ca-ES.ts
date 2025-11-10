@@ -1,0 +1,107 @@
+export default {
+    months: {
+        january: 'Gener',
+        february: 'Febrer',
+        march: 'Març',
+        april: 'Abril',
+        may: 'Maig',
+        june: 'Juny',
+        july: 'Juliol',
+        august: 'Agost',
+        september: 'Setembre',
+        october: 'Octubre',
+        november: 'Novembre',
+        december: 'Desembre'
+    },
+      
+
+    cities: {
+        psip: "Palau-solità i Plegamans",
+        barcelona: "Barcelona",
+    },
+
+    regions: {
+        catalonia: "Catalunya",
+    },
+
+    countries: {
+        spain: "Espanya",
+    },
+
+
+    creator_name: "Yaroslav Klymko",
+    all_rights_reserved: 'Tots els drets reservats',
+    work_experience: 'Experiència laboral',
+    section_in_mantainance: "Aquesta secció es troba en tasques de manteniment i millora. Disculpeu les molèsties i gràcies per la vostra paciència.",
+
+    nav: {
+        intro: 'Intro',
+        experience: 'Experiència',
+        projects: 'Projectes',
+        about_me: 'Sobre mi',
+        contact: 'Contacte',
+    },
+
+    intro: {
+        hello_iam: "Hola, sóc",
+        fullstack_web_developer: "Desenvolupador web full stack",
+        years_of_experience: "anys d'experiència",
+        work_plus_personal_experience: "Laboral + Personal",
+        developer: "Desenvolupador",
+        web_applications: "aplicacions web",
+        bioinformatical_profile: "perfil",
+        bioinformatical: "bioinformàtic",
+        from: "de",
+        focused_on: "Enfocat en la",
+        creation: "creació",
+        maintenance: "mantenimient",
+        resolution: "resolució",
+        and: "i la",
+        vulnerability: "vulnerabilitats",
+        of_static_and_dynamic_web_pages: "de les pàgines webs",
+        and_normal: "i",
+        of_normal: "",
+        of_the: "de les",
+        statics: "estàtiques",
+        dynamics: "dinàmiques",
+        websites: "",
+    },
+
+    trajectory: {
+        title: 'Trajectòria',
+        actually: 'Actualitat...',
+        experiences: {
+            'angular': {
+                role: 'Desenvolupador Frontend d\'Angular',
+                description: "Desenvolupament d'interfícies web amb Angular i optimització del rendiment a l'oficina de cartografia de la Diputació de Barcelona."
+            },
+            'peon': {
+                role: "Peó",
+                description: "Manteniment i neteja de les màquines de producció."
+            },
+            'peon-administrativo': {
+                role: "Peó - Administratiu",
+                description: "Manteniment i neteja de les màquines de producció - Registrant factures, realitzant albarans i altres tipus de tasques d’ofimàtica."
+            },
+        },
+    },
+
+    404: {
+        error_code: 404,
+        error_title: 'Pàgina no trobada',
+        go_back: 'Tornar enrere',
+        opps: 'Ups!',
+        had_trouble: 'He tingut problemes per trobar la pàgina sol·licitada',
+        consider_is_error: 'Creus que es tracta d’un error?',
+        contact_me: 'Contacta amb mi',
+    },
+
+    temporary_text: `Soc Yaroslav Klymko, graduat en Desenvolupament Web, amb experiència
+        en una àmplia varietat de llenguatges i tecnologies. M'encanta crear
+        projectes innovadors que combinen funcionalitat i disseny, explorant
+        des d'aplicacions web fins a experiments creatius. Cada projecte és
+        una oportunitat d'aprendre, millorar i compartir la meva passió per
+        la programació amb la comunitat.
+    `,
+
+}

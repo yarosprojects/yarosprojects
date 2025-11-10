@@ -1,16 +1,40 @@
-## Hi there 👋
+# 👋 Welcome to My Personal Projects Web Page
 
-<!--
-**yarosprojects/yarosprojects** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+---
 
-Here are some ideas to get you started:
+## 🚀 About
+Welcome! This is my personal space where I **store and showcase all my projects** that I’ve created.  
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Here you’ll find a variety of projects, from web development to other coding experiments.  
+
+---
+
+## 📂 Projects
+Some highlights of what you’ll find here:
+
+- Pending to update
+
+*(More projects will be added regularly!)*
+
+---
+
+## 🔧 Technologies & Tools
+Some of the technologies I use:
+
+- HTML, CSS, JavaScript
+- React, Node.js
+- Git, GitHub
+- Other personal favorites
+### Pedning to update...
+
+---
+
+## 📫 Connect with Me
+Feel free to check my projects, star, fork, or reach out:
+
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=flat-square&logo=github)](https://github.com/yourusername)
+
+---
+
+> “Code is like humor. When you have to explain it, it’s bad.” – Cory House
+

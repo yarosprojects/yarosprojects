@@ -1,0 +1,326 @@
+---
+import "@styles/global.css";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
+import Header from '@src/components/Header.astro';
+import Footer from "@src/components/Footer.astro";
+import type { Language } from "../types/language.type";
+import { preview } from "astro";
+
+const locale = Astro.params.locale as Language;
+const { title } = Astro.props;
+const previewImage = new URL('/img/preview.png', Astro.site).href;
+---
+
+<!doctype html>
+<html lang={`${locale || "es-ES"}`}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/x-icon" href="/yk_round.ico" />
+		<meta name="description" content="My personal web page where I store and showcase all the projects I've built — web apps, experiments, and creative ideas." />
+		<meta name="keywords" content="Yaros, Yaros projects, Yaros proyectos, portfolio, portfolio Yaroslav Klymko, portfolio Yaros projects, web development, projects, frontend, Yaroslav Klymko desarollador web, Yaroslav Klymko web developer" />
+		<meta name="author" content="Yaroslav Klymko" />
+		<meta property="og:title" content="Yaros (Yaroslav Klymko) | Personal Projects" />
+		<meta property="og:description" content="Explore my personal projects, web experiments, and creative builds. Yaroslav Klymko projects" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://yarosprojects.github.io/es-ES/" />
+		<meta property="og:image" content={previewImage} />
+		<meta property="og:image:alt" content="Preview of Yaros' (Yaroslav Klymko) personal projects site" />
+		<meta property="og:site_name" content="Yaros (Yaroslav Klymko) Projects" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Yaros (Yaroslav Klymko) | Personal Projects" />
+		<meta name="twitter:description" content="Explore my web projects and creative experiments. | Yaros (Yaroslav Klymko) projects" />
+		<meta name="twitter:image" content={previewImage} />
+		<!-- <meta name="twitter:creator" content="@tu_usuario_twitter" /> I don't have twitter (X) account -->
+		<link rel="canonical" href="https://yarosprojects.github.io/es-ES/" />
+
+		<title>{title}</title>
+
+		
+		<!-- Google tag (gtag.js) -->
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-W83KYME5P9"></script>
+		<script is:inline>
+			{(function() {
+				(window).dataLayer = (window).dataLayer || [];
+				function gtag(...args) {
+					(window).dataLayer.push(args);
+				}
+				gtag('js', new Date());
+				gtag('config', 'G-W83KYME5P9');
+			})()}
+		</script>
+	</head>
+	<body class="bg-slate-950 relative">
+		<div class="fixed top-0 left-0 w-0 bg-yellow-500 h-0.5 z-9998 transition-[width] duration-200 ease-linear" id="web-progress"></div>
+		
+		<Header />
+		<slot />
+		<Footer />
+
+		<button class="fixed outline-none border-none right-4 bottom-4 flex justify-center items-center m-0 rounded-full bg-gray-800 p-1 select-none hover:scale-115 transition-all z-9999 cursor-pointer pointer-events-none opacity-0" aria-label="Botón de desplazamiento para arriba" id="scrollTopBtn">
+			<div class="flex justify-center items-center size-8">
+				<span class="icon-[material-symbols--arrow-upward-rounded] text-lg text-yellow-400"></span>
+			</div>
+		</button>
+		
+	</body>
+</html>
+
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', function() {
+		const $web_progress = document.getElementById('web-progress');
+		const navButtons = document.querySelectorAll('#nav ul li button');
+		const sectionsWrapper = document.getElementById('sections-wrapper');
+		const sections = sectionsWrapper ? Array.from(sectionsWrapper.children).filter(sec => !sec.hasAttribute('data-skip-nav')) : [];
+		const $scrollTopBtn = document.getElementById('scrollTopBtn');
+		const $locales_btn = document.getElementById('locales-btn');
+        const $locales_menu = document.getElementById('locales-menu');
+		const $responsive_nav = document.getElementById('responsive-nav');
+		const $hamburger_btn = document.getElementById('hamburger');
+		const $responsive_nav_items = document.querySelectorAll('#responsive-nav ul li button');
+
+		let hamburgerClicked = false;
+
+		hamburgerOnClick();
+        window.addEventListener('resize', hamburgerOnClick);
+        window.addEventListener('resize', navCheckIfHidden);
+
+		checkActiveSection(window.scrollY);
+		window.addEventListener('scroll', () => checkActiveSection(window.scrollY));
+
+		navButtons.forEach((btn, index) => {
+			btn.addEventListener('click', () => {
+				const section = sections[index];
+				if (section) {
+					section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				}
+			});
+		});
+
+		$responsive_nav_items.forEach((responsive_btn, index) => {
+			responsive_btn.addEventListener('click', () => {
+				const section = sections[index];
+				if(section) {
+					section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					hamburgerClicked = false;
+                    if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
+                    if($responsive_nav.classList.contains('animate-fade-in-down')) $responsive_nav.classList.remove('animate-fade-in-down');
+					if($hamburger_btn.classList.contains('bg-gray-900')) $hamburger_btn.classList.remove('bg-gray-900');
+				}
+			});
+		});
+
+		$scrollTopBtn.addEventListener('click', function() {
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+		});
+
+
+		window.addEventListener('scroll', () => {
+			const scrollTop = window.scrollY;
+			const docHeight = document.body.scrollHeight - window.innerHeight;
+			const scrollPercent = (scrollTop / docHeight) * 100;
+
+			$web_progress.style.width = `${scrollPercent}%`;
+		});
+
+		let lastScroll = 0;
+		window.addEventListener('scroll', function() {
+			const max = 400;
+			const currentScroll = window.scrollY;
+			
+			if(currentScroll > lastScroll && currentScroll > max) {
+				$scrollTopBtn.classList.remove('pointer-events-none');
+				$scrollTopBtn.classList.remove('opacity-0');
+			} else {
+				if(currentScroll < lastScroll && currentScroll <= max) {
+					$scrollTopBtn.classList.add('pointer-events-none');
+					$scrollTopBtn.classList.add('opacity-0');
+				}
+			}
+
+			lastScroll = currentScroll;
+		});
+
+		$hamburger_btn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            hamburgerClicked = !hamburgerClicked;
+
+            if(hamburgerClicked) {
+                $responsive_nav.classList.remove('hidden');
+                $responsive_nav.classList.add('animate-fade-in-down');
+                if(!$hamburger_btn.classList.contains('bg-gray-900')) $hamburger_btn.classList.add('bg-gray-900');
+                locales_opened = false;
+                $locales_menu.classList.remove('mt-3', 'mt-1');
+                $locales_btn.classList.remove('bg-gray-800/60');
+                $locales_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
+                $locales_menu.classList.add('pointer-events-none', 'opacity-0');
+            } else {
+                $responsive_nav.classList.add('hidden');
+                $responsive_nav.classList.remove('animate-fade-in-down');
+                if($hamburger_btn.classList.contains('bg-gray-900')) $hamburger_btn.classList.remove('bg-gray-900');
+            }
+        });
+
+        document.addEventListener('click', function(event) {
+            if(hamburgerClicked) {
+                if (!event.composedPath().includes($responsive_nav) &&
+                    !event.composedPath().includes($hamburger_btn)) {
+                    hamburgerClicked = false;
+                    $responsive_nav.classList.add('hidden');
+                    $responsive_nav.classList.remove('animate-fade-in-down');
+                    if($hamburger_btn.classList.contains('bg-gray-900')) $hamburger_btn.classList.remove('bg-gray-900');
+                }
+            }
+        });
+
+		if(window.innerWidth >= 768) setLocalesBtnBg();
+        window.addEventListener('scroll', function() {
+            if(window.innerWidth >= 768) setLocalesBtnBg();
+        });
+        window.addEventListener('resize', function() { 
+            if(window.innerWidth >= 768) {
+                setLocalesBtnBg() 
+                if($locales_btn.classList.contains('bg-gray-800')) $locales_btn.classList.remove('bg-gray-800')
+            } else {
+                if(window.scrollY <= 50) $locales_btn.classList.remove('bg-gray-800');
+            }
+        });
+        
+        
+        let locales_opened = false;
+        $locales_btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            locales_opened = !locales_opened;
+            
+            setLocalesMenuMargin(locales_opened);
+            if(locales_opened) {
+                const scrollY = window.scrollY;
+                if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
+                hamburgerClicked = false;
+                $locales_menu.classList.add(scrollY > 250 ? 'mt-3' : 'mt-1');
+                $locales_btn.classList.add('bg-gray-800/60');
+                $locales_menu.classList.remove('pointer-events-none', 'opacity-0');
+                $locales_menu.classList.add('animate-fade-in-down', 'animate-duration-300');
+            } else {
+                $locales_menu.classList.remove('mt-3', 'mt-1');
+                $locales_btn.classList.remove('bg-gray-800/60');
+                $locales_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
+                $locales_menu.classList.add('pointer-events-none', 'opacity-0');
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (
+                locales_opened &&
+                !$locales_menu.contains(e.target) &&
+                e.target !== $locales_btn
+            ) {
+                locales_opened = false;
+                $locales_menu.classList.remove('mt-3', 'mt-1');
+                $locales_btn.classList.remove('bg-gray-800/60');
+                $locales_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
+                $locales_menu.classList.add('pointer-events-none', 'opacity-0');
+            }
+        });
+
+        function setLocalesBtnBg() {
+            if(window.scrollY > 50) {
+                $locales_btn.classList.remove('bg-gray-800');
+            } else {
+                $locales_btn.classList.add('bg-gray-800');
+            }
+        }
+
+        function setLocalesMenuMargin(menuIsOpen) {
+            if(menuIsOpen) {
+                let lastScroll = 0
+                window.addEventListener('scroll', function() {
+                    const currentScroll = window.scrollY;
+                    if(currentScroll > lastScroll && currentScroll > 50) {
+                        $locales_menu.classList.remove('mt-1');
+                        $locales_menu.classList.add('mt-3');
+                    } else {
+                        $locales_menu.classList.remove('mt-3');
+                        $locales_menu.classList.add('mt-1');
+                    }
+                });
+            }
+        }
+
+		function checkActiveSection(scrollY = window.scrollY) {
+			const scrollPos = scrollY + window.innerHeight / 4;
+			let activeFound = false;
+
+			sections.forEach((section, index) => {
+				const top = section.offsetTop;
+				const bottom = top + section.offsetHeight;
+
+				if (scrollPos >= top && scrollPos < bottom) {
+					navButtons.forEach(item => item.classList.remove('text-blue-500'));
+					navButtons[index].classList.add('text-blue-500');
+					activeFound = true;
+				}
+			});
+
+			if (!activeFound) {
+				navButtons.forEach(item => item.classList.remove('text-blue-500'));
+			}
+		}
+
+		function hamburgerOnClick() {
+            if(window.innerWidth < 420) {
+                $hamburger_btn.setAttribute('aria-hidden', false);
+            } else {
+                $hamburger_btn.setAttribute('aria-hidden', true);
+            }
+        }
+
+		function navCheckIfHidden() {
+            const $nav = document.querySelector('#nav');
+            if(window.innerWidth < 420) {
+                $nav.setAttribute('aria-hidden', true);
+            } else {
+                $nav.setAttribute('aria-hidden', false);
+            }
+        }
+	});
+</script>
+
+<style is:global>
+	:root {
+		color-scheme: light dark;
+		--header-h: 70px;
+		--nav-color: rgb(20, 26, 49);
+	}
+
+	::-webkit-scrollbar {
+		width: 5px;
+	}
+
+	::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: rgb(216, 216, 2);
+		border-radius: 5px;
+	}
+
+	::-webkit-scrollbar-button {
+		background: transparent;
+		height: 10px;
+		width: 8px;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-family: "font-lg", "font-md", system-ui, sans-serif;
+	}
+</style>

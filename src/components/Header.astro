@@ -1,0 +1,135 @@
+---
+import type { Language } from "../types/language.type";
+import { labelsLocales } from "../consts/locales.labels";
+import { i18n } from "@consts/i18n.files";
+import { getNavContent } from "@consts/nav.content";
+import { email } from '@consts/usefullData';
+
+const locale = Astro.params.locale as Language;
+const translate = i18n[locale];
+const navContent = getNavContent(locale);
+let open = false;
+---
+
+
+<header
+    class="fixed flex-col justify-center items-center inset-0 h-(--header-h) bg-transparent w-full z-9999 py-3 px-1"
+    aria-label="Cabecera de la página"
+>
+
+    <div
+        class="text-base md:text-sm flex flex-col w-full md:w-fit mx-0 px-2 md:px-6 py-1 rounded-full md:mx-auto transition-all backdrop-blur-xl max-[250px]:rounded-xl"
+        id="navigation"
+    >
+        <ul class="relative flex flex-row max-[420px]:justify-between justify-center items-center w-full">
+            <div class="absolute top-full hidden left-0 w-full h-auto py-3 mt-2 bg-gray-900/95 max-[285px]:bg-gray-900 max-[285px]:py-6 rounded-md z-9998 px-4"         id="responsive-nav"
+            >
+                <ul class="flex flex-row justify-between items-center w-full h-full max-[285px]:flex-col max-[285px]:gap-3">
+                {
+                    navContent.map((item) => {
+                        const { label } = item;
+
+                        return(
+                            <li class="m-0 p-0 group max-[315px]:text-sm text-base transition-all">
+                                <button class="text-white">
+                                    { label }
+                                </button>
+                            </li>
+                        )
+                    })
+                }
+                </ul>
+            </div>
+            <button class="max-[420px]:flex hidden justify-center items-center cursor-pointer transition-colors hover:bg-gray-900 rounded-xl mx-3 p-2" id="hamburger" aria-hidden="true">
+                <div class="flex size-5 justify-center items-center flex-col gap-1">
+                    <div class="w-full h-px bg-white rounded-full"></div>
+                    <div class="w-full h-px bg-white rounded-full"></div>
+                    <div class="w-full h-px bg-white rounded-full"></div>
+                </div>
+            </button>
+            <nav class="flex flex-row justify-center items-center animate-fade-in-down max-[420px]:hidden" aria-hidden="false" id="nav">
+                <ul class="w-full flex flex-row justify-center md:justify-between m-0 p-0 text-yellow-100 md:text-white">
+                    {
+                        navContent.map((item) => {
+                            const { label } = item;
+
+                            return (
+                            <li class="m-0 px-2 mx:px-3 py-0 group">
+                                <button class="outline-none border-none group-hover:text-blue-500 transition-colors flex flex-row items-center justify-center gap-1 text-sm font-medium tracking-normal md:tracking-wider">
+                                    { label }
+                                    <i class="icon-[tdesign--work] hidden md:flex"/>
+                                </button>
+                            </li>
+                            )
+                        })
+                    }
+                    <li class="m-0 px-2 md:px-3 py-0 group">
+                        <a href={`mailto:${email}`} 
+                            class="group-hover:text-blue-500 transition-colors flex flex-row items-center justify-center gap-1 text-sm font-medium tracking-normal md:tracking-wider"
+                        >
+                            {translate.nav.contact}
+                            <i class="icon-[mdi-light--email] hidden md:flex ml-1 text-base" />
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            {/* LOCALES BUTTON */}
+            <li class="m-0 p-0 group relative ml-0 md:ml-10">
+                <button
+                    id="locales-btn"
+                    class="border-none outline-none flex justify-center max-[420px]:flex-row-reverse flex-row gap-2 items-center md:size-auto max-[420px]:w-auto w-10 h-auto md:px-3 p-2 md:py-2 hover:bg-gray-800/60 rounded-md cursor-pointer transition-all"
+                    aria-label="Language choice button"
+                >
+                    <span class="max-[420px]:flex max-[420px]:text-sm hidden md:flex text-yellow-300">
+                        {labelsLocales[locale].name}
+                    </span>
+                    <span class={`flex md:hidden! ${labelsLocales[locale].icon}`}></span>
+                    <span class={`hidden! md:flex! ${labelsLocales[locale].icon}`}></span>
+                </button>
+
+                <div
+                    id="locales-menu"
+                    class="pointer-events-none opacity-0 absolute right-0 top-full flex justify-center items-center transition-all bg-gray-900 rounded-md z-9999"
+                    aria-label="Language choice menu"
+                >
+                    <ul
+                        class="flex flex-col items-center rounded-md"
+                    >
+                        {
+                            Object.entries(labelsLocales).map(
+                                ([key, label], index, arr) => (
+                                    <li
+                                        class="w-full"
+                                        data-locale={key}
+                                        aria-label={`Language - ${label.name}`}
+                                    >
+                                        <a
+                                            href={`/${label.code}/`}
+                                            class={`${index === 0 ? 'rounded-t-md' : ''} ${index === arr.length - 1 ? 'rounded-b-md' : ''} flex gap-2 text-sm flex-row text-center px-4 py-3 ${label.code === locale ? 'bg-gray-800' : ''} hover:bg-gray-800 transition-colors w-full`}
+                                        >
+                                            <span class="text-white">
+                                                {label.name}
+                                            </span>
+                                            <span class="text-white/70 ml-auto">
+                                                {!label.multispoken ? '' : (label.multispoken && label.country.simple) ? label.country.simple : label.country.complex}
+                                            </span>
+                                        </a>
+                                    </li>
+                                ),
+                            )
+                        }
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<style>
+    #navigation {
+        animation: drawBg 1s ease both;
+        animation-timeline: scroll();
+        animation-range: 0 250px;
+    }
+</style>
