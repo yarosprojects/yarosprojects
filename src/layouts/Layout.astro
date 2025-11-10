@@ -4,6 +4,7 @@ import "/node_modules/flag-icons/css/flag-icons.min.css";
 import Header from '@src/components/Header.astro';
 import Footer from "@src/components/Footer.astro";
 import type { Language } from "../types/language.type";
+import Analytics from '@vercel/analytics/astro';
 import { preview } from "astro";
 
 const locale = Astro.params.locale as Language;
@@ -38,18 +39,8 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 		<title>{title}</title>
 
 		
-		<!-- Google tag (gtag.js) -->
-		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-W83KYME5P9"></script>
-		<script is:inline>
-			{(function() {
-				(window).dataLayer = (window).dataLayer || [];
-				function gtag(...args) {
-					(window).dataLayer.push(args);
-				}
-				gtag('js', new Date());
-				gtag('config', 'G-W83KYME5P9');
-			})()}
-		</script>
+
+		<Analytics />
 	</head>
 	<body class="bg-slate-950 relative">
 		<div class="fixed top-0 left-0 w-0 bg-yellow-500 h-0.5 z-9998 transition-[width] duration-200 ease-linear" id="web-progress"></div>
@@ -63,7 +54,6 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 				<span class="icon-[material-symbols--arrow-upward-rounded] text-lg text-yellow-400"></span>
 			</div>
 		</button>
-		
 	</body>
 </html>
 

@@ -2,6 +2,7 @@
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import { idiomas, idiomaPorDefecto } from './src/consts/locales';
+import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,4 +21,9 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()],
     },
+    adapter: vercel({
+        webAnalytics: {
+            enabled: true,
+        },
+    }),
 });
