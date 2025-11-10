@@ -12,8 +12,11 @@ export default defineConfig({
             prefixDefaultLocale: true,
         },
     },
-    site: 'https://yarosprojects.github.io',
+    site: 'https://yarosprojects.vercel.app',
     base: '/',
+    redirects: {
+        '/': `/${idiomaPorDefecto}/`,
+    },
     vite: {
         plugins: [tailwindcss()],
     },
