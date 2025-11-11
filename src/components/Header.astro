@@ -17,26 +17,32 @@ const navContent = getNavContent(locale);
 >
 
     <div
-        class="text-base md:text-sm flex flex-col w-full md:w-fit mx-0 px-2 md:px-6 py-1 rounded-full md:mx-auto transition-all backdrop-blur-xl max-[250px]:rounded-xl"
+        class="text-base md:text-sm flex flex-col w-full md:w-fit mx-0 px-2 max-[390px]:px-0 md:px-6 py-1 rounded-full md:mx-auto transition-all backdrop-blur-xl max-[250px]:rounded-xl"
         id="navigation"
     >
         <ul class="relative flex flex-row max-[420px]:justify-between justify-center items-center w-full">
-            <div class="absolute top-full hidden left-0 w-full h-auto py-3 mt-2 bg-gray-900/95 max-[285px]:bg-gray-900 max-[285px]:py-6 rounded-md z-9998 px-4"         id="responsive-nav"
+            <div class="absolute top-full hidden left-0 w-full h-auto py-3 mt-2 bg-gray-900 max-[285px]:py-6 rounded-md z-9998 px-4"         id="responsive-nav"
             >
-                <ul class="flex flex-row justify-between items-center w-full h-full max-[285px]:flex-col max-[285px]:gap-3">
+                <ul class="flex flex-row justify-between items-center w-full h-full max-[390px]:flex-col max-[390px]:gap-4">
                 {
                     navContent.map((item) => {
                         const { label } = item;
 
                         return(
                             <li class="m-0 p-0 group max-[315px]:text-sm text-base transition-all">
-                                <button class="text-white">
+                                <button class="cursor-pointer group-hover:text-blue-500 transition-colors">
                                     { label }
                                 </button>
                             </li>
                         )
                     })
                 }
+                    <li class="m-0 p-0 group max-[315px]:text-sm text-base transition-all" id="responsive-contact-item">
+                        <a href={`mailto:${email}`} class="max-[390px]:text-yellow-200 text-white flex flex-row items-center justify-center gap-2 max-[390px]:uppercase cursor-pointer group-hover:text-blue-700 transition-colors">
+                            {translate.nav.contact}
+                            <i class="text-yellow-200/80 icon-[line-md--email-arrow-right] hidden max-[390px]:flex" />
+                        </a>
+                    </li>
                 </ul>
             </div>
             <button class="max-[420px]:flex hidden justify-center items-center cursor-pointer transition-colors hover:bg-gray-900 rounded-xl mx-3 p-2" id="hamburger" aria-hidden="true">
@@ -74,13 +80,13 @@ const navContent = getNavContent(locale);
             </nav>
 
             {/* LOCALES BUTTON */}
-            <li class="m-0 p-0 group relative ml-0 md:ml-10">
+            <li class="m-0 p-0 group relative ml-0 md:ml-10 max-[420px]:mr-3">
                 <button
                     id="locales-btn"
                     class="border-none outline-none flex justify-center max-[420px]:flex-row-reverse flex-row gap-2 items-center md:size-auto max-[420px]:w-auto w-10 h-auto md:px-3 p-2 md:py-2 hover:bg-gray-800/60 rounded-md cursor-pointer transition-all"
                     aria-label="Language choice button"
                 >
-                    <span class="max-[420px]:flex max-[420px]:text-sm hidden md:flex text-yellow-300">
+                    <span class="max-[420px]:flex max-[185px]:hidden max-[420px]:text-sm hidden md:flex text-yellow-300 transition-all">
                         {labelsLocales[locale].name}
                     </span>
                     <span class={`flex md:hidden! ${labelsLocales[locale].icon}`}></span>
@@ -130,5 +136,12 @@ const navContent = getNavContent(locale);
         animation: drawBg 1s ease both;
         animation-timeline: scroll();
         animation-range: 0 250px;
+    }
+
+    @media screen and (max-width: 387px) {
+        #responsive-contact-item {
+            padding-top: 16px;
+            border-top: 0.25px solid rgb(255, 255, 255, 0.5);
+        }
     }
 </style>

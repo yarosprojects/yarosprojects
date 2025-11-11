@@ -69,12 +69,15 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 		const $responsive_nav = document.getElementById('responsive-nav');
 		const $hamburger_btn = document.getElementById('hamburger');
 		const $responsive_nav_items = document.querySelectorAll('#responsive-nav ul li button');
+		const $footer_links = document.querySelectorAll('#footer-links button');
 
 		let hamburgerClicked = false;
 
 		hamburgerOnClick();
+		checkResponsiveNavAvailability()
         window.addEventListener('resize', hamburgerOnClick);
         window.addEventListener('resize', navCheckIfHidden);
+		window.addEventListener('resize', checkResponsiveNavAvailability);
 
 		checkActiveSection(window.scrollY);
 		window.addEventListener('scroll', () => checkActiveSection(window.scrollY));
@@ -97,6 +100,15 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
                     if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
                     if($responsive_nav.classList.contains('animate-fade-in-down')) $responsive_nav.classList.remove('animate-fade-in-down');
 					if($hamburger_btn.classList.contains('bg-gray-900')) $hamburger_btn.classList.remove('bg-gray-900');
+				}
+			});
+		});
+
+		$footer_links.forEach((footer_link, index) => {
+			footer_link.addEventListener('click', function() {
+				const section = sections[index];
+				if(section) {
+					section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 				}
 			});
 		});
@@ -217,6 +229,15 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
             }
         });
 
+		function checkResponsiveNavAvailability() {
+			if(window.innerWidth >= 420) {
+				if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
+				$responsive_nav.classList.remove('animate-fade-in-down');
+				hamburgerClicked = false;
+				if($hamburger_btn.classList.contains('bg-gray-900')) $hamburger_btn.classList.remove('bg-gray-900');
+			}
+		}
+
         function setLocalesBtnBg() {
             if(window.scrollY > 50) {
                 $locales_btn.classList.remove('bg-gray-800');
@@ -252,12 +273,15 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 				if (scrollPos >= top && scrollPos < bottom) {
 					navButtons.forEach(item => item.classList.remove('text-blue-500'));
 					navButtons[index].classList.add('text-blue-500');
+					$responsive_nav_items.forEach(item => item.classList.remove('text-blue-500'));
+					$responsive_nav_items[index].classList.add('text-blue-500');
 					activeFound = true;
 				}
 			});
 
 			if (!activeFound) {
 				navButtons.forEach(item => item.classList.remove('text-blue-500'));
+				$responsive_nav_items.forEach(item => item.classList.remove('text-blue-500'));
 			}
 		}
 

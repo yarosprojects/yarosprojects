@@ -20,7 +20,7 @@ const navContent = getNavContent(locale);
 
         {/* FAST LINKS */}
         <div class="flex flex-col flex-1 justify-center items-center md:items-start h-full" aria-label="Enlaces rápidos de la página">
-            <div class="flex flex-row gap-2 w-full translate-x-0 md:-translate-x-15 justify-center items-center md:items-start py-1" aria-label="Navegación de pie de la página (enlaces rápidos)">
+            <div class="flex flex-row gap-2 w-full translate-x-0 md:-translate-x-15 justify-center items-center md:items-start py-1" aria-label="Navegación de pie de la página (enlaces rápidos)" id="footer-links">
                 {
                     navContent.map((item) => {
                         const { label } = item;
