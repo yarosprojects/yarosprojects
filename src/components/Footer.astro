@@ -9,43 +9,44 @@ const translate = i18n[locale];
 const navContent = getNavContent(locale);
 ---
 <footer class="flex w-full flex-col px-8" aria-label="Pie de la página">
-    <section class="w-full max-w-full md:max-w-[1400px] transition-all mx-0 md:mx-auto flex flex-col md:flex-row gap-6 md:gap-12 justify-center md:justify-between items-stretch py-3 md:py-10">
-        {/* ABOUT ME - FOOTER */}
-        <div class="flex flex-col w-full max-w-[270px] mx-auto md:mx-0 text-sm text-center md:text-left py-10 md:py-0" aria-label="Sobre mí">
-            <p class="text-white">
-                <span class="text-yellow-100">Desarollador web</span> apasionado por las curiosidades de la <span class="text-yellow-100">programación</span> y 
-                <span class="text-yellow-100">creación de páginas webs</span> y asegurar la calidad para los clientes
-            </p>
-        </div>
-
-        {/* FAST LINKS */}
-        <div class="flex flex-col flex-1 justify-center items-center md:items-start h-full" aria-label="Enlaces rápidos de la página">
-            <div class="flex flex-row gap-2 w-full translate-x-0 md:-translate-x-15 justify-center items-center md:items-start py-1" aria-label="Navegación de pie de la página (enlaces rápidos)" id="footer-links">
-                {
-                    navContent.map((item) => {
-                        const { label } = item;
-                        return (
-                        <button class="cursor-pointer border-none text-center md:text-left outline-none text-white/80 hover:text-white text-sm transition-colors footer-link">
-                            { label }
-                        </button>
-                        )
-                    })
-                }
+    <div class="flex flex-row w-full md:max-w-4xl mx-0 md:mx-auto">
+        <section class="w-full max-w-full md:max-w-[1400px] transition-all mx-0 md:mx-auto flex flex-col md:flex-row gap-6 md:gap-12 justify-center md:justify-between items-stretch py-3 md:py-10">
+            {/* ABOUT ME - FOOTER */}
+            <div class="flex flex-col w-full max-w-[270px] mx-auto md:mx-0 text-sm text-center md:text-left py-3 md:py-0" aria-label="Sobre mí">
+                <p class="text-white">
+                    <span class="text-yellow-100">Desarollador web</span> apasionado por las curiosidades de la <span class="text-yellow-100">programación</span> y 
+                    <span class="text-yellow-100">creación de páginas webs</span> y asegurar la calidad para los clientes
+                </p>
             </div>
-        </div>
-
-        {/* SOCIAL MEDIA CONTACT */}
-        <div class="flex flex-row flex-wrap gap-2 justify-center md:justify-start w-full md:w-fit md:items-start">
-            <a href="" class="py-3">
-                <i class="icon-[line-md--github] text-xl" />
-            </a>
-            <a href={`mailto:${email}`} class="px-4 py-3 text-sm bg-gray-900 rounded-full w-fit h-fit ml-0 md:ml-4 transition-all hover:brightness-125">
-                {translate.nav.contact}
-                <i class="icon-[line-md--email]" />
-            </a>
-        </div>
-    </section>
-
+    
+            {/* FAST LINKS */}
+            <div class="flex flex-col flex-1 justify-center items-center md:items-start h-full pb-5 md:pb-0" aria-label="Enlaces rápidos de la página">
+                <div class="flex flex-col gap-2 w-full translate-x-0 md:-translate-x-15 justify-center items-center py-1" aria-label="Navegación de pie de la página (enlaces rápidos)" id="footer-links">
+                    {
+                        navContent.map((item) => {
+                            const { label } = item;
+                            return (
+                            <button class="cursor-pointer border-none text-center md:text-left outline-none text-white/80 hover:text-white text-sm transition-colors footer-link">
+                                { label }
+                            </button>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+    
+            {/* SOCIAL MEDIA CONTACT */}
+            <div class="flex flex-row flex-wrap gap-2 justify-center md:justify-start w-full md:w-fit md:items-start">
+                <a href="" class="py-3">
+                    <i class="icon-[line-md--github] text-xl" />
+                </a>
+                <a href={`mailto:${email}`} class="px-4 py-3 text-sm bg-gray-900 rounded-full w-fit h-fit ml-0 md:ml-4 transition-all hover:brightness-125">
+                    {translate.nav.contact}
+                    <i class="icon-[line-md--email]" />
+                </a>
+            </div>
+        </section>
+    </div>
     {/* COPYRIGHT */}
     <section class="w-full flex flex-col pt-6 md:pt-0" aria-label="Sección de derechos de autor">
         <div class="w-full flex justify-center items-center py-4 px-4 md:px-0">
@@ -54,9 +55,9 @@ const navContent = getNavContent(locale);
                     &copy; {new Date().getFullYear()} Yaroslav Klymko
                 </span>
                 <span>
-                    Todos los derechos reservados    
+                    {translate.all_rights_reserved}
                 </span> 
             </div>
         </div>
-    </section>
+    </section>  
 </footer>
