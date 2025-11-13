@@ -201,6 +201,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
                 const scrollY = window.scrollY;
                 if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
                 hamburgerClicked = false;
+				if($hamburger_btn.classList.contains('bg-gray-900')) $hamburger_btn.classList.remove('bg-gray-900');
                 $locales_menu.classList.add(scrollY > 250 ? 'mt-3' : 'mt-1');
                 $locales_btn.classList.add('bg-gray-800/60');
                 $locales_menu.classList.remove('pointer-events-none', 'opacity-0');
