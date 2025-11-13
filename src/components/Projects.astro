@@ -32,14 +32,14 @@ const PROJECTS = {
                 const { name, url, frameworks } = project;
                 return(
                     <div class="flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-start group w-full">
-                        <div class="m-0 p-0 overflow-hidden rounded-2xl h-full border border-gray-800 group-hover:border-gray-700 transition-all">
+                        <div class="m-0 p-0 overflow-hidden rounded-2xl border border-gray-800 group-hover:border-gray-700 transition-all">
                             <img 
                                 src={calculator.src} 
                                 alt={`${project} image`} 
                                 class="h-full w-auto object-cover transition-transform duration-300 scale-110 group-hover:scale-100" 
                             />
                         </div>
-                        <div class="flex flex-col justify-start items-center px-1 md:px-4 min-w-[400px] h-full">
+                        <div class="flex flex-col justify-start items-center px-1 md:px-4 w-full md:min-w-[400px] h-full">
                             <div class="flex flex-1 flex-col">
                                 <h3 class="text-yellow-400 text-3xl font-extrabold uppercase">{name}</h3>
                                 <ul class="flex w-full flex-row justify-start items-center my-2">
@@ -58,7 +58,7 @@ const PROJECTS = {
                                         })
                                     }
                                 </ul>
-                                <div class="text-white/85 text-base selection:text-black selection:bg-yellow-400 prose">
+                                <div class="text-white/85 text-base selection:text-black selection:bg-yellow-400">
                                     <p>
                                         Una calculadora que realiza todo tipo de operaciones de "+", "-", "*" y "/".
                                     </p>

@@ -113,13 +113,15 @@ const LANGUAGES = [
     </div>
     <div class="w-full flex justify-center items-center">
         <div
-            class="text-white flex flex-row w-full justify-center items-center text-center text-3xl"
+            class="text-white flex max-[400px]:flex-col flex-row w-full justify-center items-center text-center text-3xl"
         >
-            <p class="scale-120 text-blue-700">+</p>
-            <div
-                class="text-blue-700 scale-170 px-3 font-extrabold rotate-10 animate-swing-drop-in"
-            >
-                {new Date().getFullYear() - cfgs_started_at}
+            <div class="flex flex-row w-fit pb-0 max-[400px]:pb-4">
+                <p class="scale-120 text-blue-700">+</p>
+                <div
+                    class="text-blue-700 scale-170 px-3 font-extrabold rotate-10 animate-swing-drop-in"
+                >
+                    {new Date().getFullYear() - cfgs_started_at}
+                </div>
             </div>
             <div class="flex flex-col px-2">
                 <p class="text-yellow-50 font-bold uppercase text-2xl">{translate.intro.years_of_experience}</p>
