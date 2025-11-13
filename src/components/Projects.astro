@@ -20,9 +20,9 @@ const PROJECTS = {
 }
 ---
 <div class="pt-(--header-h) w-full flex justify-center items-center px-2 md:px-0">
-    <div class="w-full md:max-w-3xl mx-0 md:mx-auto flex justify-start items-center flex-row gap-4">
-        <i class="icon-[gridicons--code] text-3xl text-white/80" />
-        <h1 class="text-center text-4xl text-white font-bold">{translate.nav.projects}</h1>
+    <div class="w-full max-[235px]:flex-col md:max-w-3xl mx-0 md:mx-auto flex justify-start max-[235px]:items-start items-center flex-row gap-4">
+        <i class="icon-[gridicons--code] max-[235px]:text-xl text-3xl text-white/80" />
+        <h1 class="text-center max-[235px]:text-2xl text-4xl text-white font-bold">{translate.nav.projects}</h1>
     </div>
 </div>
 <div class="flex w-full flex-col px-2 md:px-0">
@@ -39,10 +39,10 @@ const PROJECTS = {
                                 class="h-full w-auto object-cover transition-transform duration-300 scale-110 group-hover:scale-100" 
                             />
                         </div>
-                        <div class="flex flex-col justify-start items-center px-1 md:px-4 w-full md:min-w-[400px] h-full">
-                            <div class="flex flex-1 flex-col">
-                                <h3 class="text-yellow-400 text-3xl font-extrabold uppercase">{name}</h3>
-                                <ul class="flex w-full flex-row justify-start items-center my-2">
+                        <div class="flex flex-col justify-start items-start md:items-center px-1 md:px-4 w-full md:min-w-[400px] h-full">
+                            <div class="flex flex-1 flex-col justify-start items-start">
+                                <h3 class="text-yellow-400 text-3xl max-[250px]:text-xl max-[170px]:text-base font-extrabold uppercase">{name}</h3>
+                                <ul class="flex w-full flex-row flex-wrap justify-start items-center my-2 gap-2">
                                     { frameworks &&
                                         Object.values(frameworks).map((framework) => {
                                             const { name, image, mainColor } = framework;
@@ -50,7 +50,7 @@ const PROJECTS = {
                                             return(
                                                 <li class={`rounded-full px-2 py-1 ${mainColor} flex justify-center items-center gap-2`}>
                                                     <img src={image} alt={`${name} frameworks image`} class="size-4" />
-                                                    <span class="text-white text-base md:text-sm">
+                                                    <span class="text-white text-base max-[250px]:text-sm md:text-[13px]">
                                                         {name}
                                                     </span>
                                                 </li>
@@ -58,7 +58,7 @@ const PROJECTS = {
                                         })
                                     }
                                 </ul>
-                                <div class="text-white/85 text-base selection:text-black selection:bg-yellow-400">
+                                <div class="text-white/85 text-base selection:text-black selection:bg-yellow-400 mt-10 md:mt-5">
                                     <p>
                                         Una calculadora que realiza todo tipo de operaciones de "+", "-", "*" y "/".
                                     </p>

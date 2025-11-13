@@ -92,7 +92,7 @@ const LANGUAGES = [
                 class="flex m-0 p-0 justify-center md:justify-start w-full overflow-hidden"
             >
                 <span
-                    class="text-yellow-400 font-bold animate-fade-in-up animate-duration-800 animate-delay-250 text-xl selection:bg-transparent
+                    class="text-yellow-400 font-bold animate-fade-in-up animate-duration-800 animate-delay-250 max-[195px]:text-base text-xl selection:bg-transparent
                     selection:backdrop-blur-3xl selection:text-white/70 text-center md:text-left"
                 >
                     {translate.intro.fullstack_web_developer}
@@ -145,7 +145,7 @@ const LANGUAGES = [
             </div>
             */}
             {/* <div class="flex md:hidden w-1/2 h-0.5 bg-white rounded-full mt-5"></div> */}
-            <p class="text-white/70 text-xl text-center md:text-left mt-20 mb-5 selection:bg-yellow-500 selection:text-black">
+            <p class="text-white/70 max-[195px]:text-base text-xl text-center md:text-left mt-20 mb-5 selection:bg-yellow-500 selection:text-black">
                 <span class="text-yellow-300 font-extrabold">
                     {locale === "en-GB" ? translate.intro.web_applications.charAt(0).toUpperCase() + translate.intro.web_applications.slice(1) : translate.intro.developer}
                     { (locale === "es-ES" || locale === "ca-ES") && (
@@ -162,7 +162,7 @@ const LANGUAGES = [
                 <a href="https://maps.app.goo.gl/7TDSxg5tGKfRuGfc6" target="_blank" class="hover:text-white inline-block backdrop-blur-3xl hover:px-2 hover:scale-105 transition-all mt-1">{translate.cities.psip}</a>, {translate.countries.spain}.
                 <br>
             </p>
-            <p class="text-white/70 text-xl text-center md:text-left selection:bg-yellow-500 selection:text-black">
+            <p class="text-white/70 max-[195px]:text-base text-xl text-center md:text-left selection:bg-yellow-500 selection:text-black">
                 {translate.intro.focused_on} <span class="text-yellow-100">{translate.intro.creation}</span>, <span class="text-yellow-100">{translate.intro.maintenance}</span> {translate.intro.and} <span class="text-yellow-100">{translate.intro.resolution}</span> {translate.intro.of_the} <span class="text-yellow-100">{translate.intro.vulnerability}</span> {translate.intro.of_normal} {translate.intro.of_static_and_dynamic_web_pages} <span class="text-yellow-100">{translate.intro.statics}</span> {translate.intro.and_normal} <span class="text-yellow-100">{translate.intro.dynamics}</span> 
                 {translate.intro.websites}
                 .
