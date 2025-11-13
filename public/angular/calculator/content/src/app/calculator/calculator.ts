@@ -1,22 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef  } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { evaluate } from 'mathjs';
 
 @Component({
   selector: 'app-calculator',
   imports: [NgClass],
   templateUrl: './calculator.html',
-  styleUrl: './calculator.css'
+  styleUrls: ['./calculator.css']
 })
 export class CalculatorComponent {
+  constructor(private cdr: ChangeDetectorRef) {}
+
   /* CONSTS */
   ERRORS_SPEED = 60;
 
+  /* PRIVATE */
+  private errorTimeout: any = null;
+  private errorTimeouts: any[] = [];
+
   /* VARS */
-  
   addingParam = false;
   display: string = '0';
   expressionMemory: string = '';
   isError = false;
+  justEvaluated = false;
   operators = ['+', '-', '/', '*'];
 
   addParam(param: string) {
@@ -67,13 +74,13 @@ export class CalculatorComponent {
     }, 150);    
   }
 
-  eval(param: string = "") {
+  evalOperation(param: string = "") {
     if(param) {
       this.typeError("ERR: Not aviable currently!", this.ERRORS_SPEED);
       this.isError = true;
     } else {
       try {
-        const result = eval(this.display.trim());
+        const result = evaluate(this.display.trim());
       
         if (result === Infinity || result === -Infinity || isNaN(result)) {
           throw new Error('Division by zero');
@@ -85,6 +92,7 @@ export class CalculatorComponent {
         this.expressionMemory = this.display;
         this.display = displayResult;
         this.isError = false;
+        this.justEvaluated = true;
       } catch (err: any) {
         if (err.message.includes('Division by zero')) {
           this.typeError("Error: División por 0", this.ERRORS_SPEED);
@@ -168,12 +176,18 @@ export class CalculatorComponent {
   
 
 
-  typeError(msg: string, speed: number = 75) {
+
+  async typeError(msg: string, speed: number = 75) {
+    this.isError = true;
     this.display = "";
-    for (let i = 0; i < msg.length; i++) {
-      setTimeout(() => {
-        this.display += msg.charAt(i);
-      }, i * speed);
+  
+    for (const char of msg) {
+      this.display += char;
+      this.cdr.detectChanges(); // esto forzará la actualización de ngModel
+      await new Promise(r => setTimeout(r, speed));
     }
   }
+  
+  
+  
 }
