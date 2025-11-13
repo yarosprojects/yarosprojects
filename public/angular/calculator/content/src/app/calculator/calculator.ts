@@ -14,10 +14,6 @@ export class CalculatorComponent {
   /* CONSTS */
   ERRORS_SPEED = 60;
 
-  /* PRIVATE */
-  private errorTimeout: any = null;
-  private errorTimeouts: any[] = [];
-
   /* VARS */
   addingParam = false;
   display: string = '0';
@@ -95,11 +91,11 @@ export class CalculatorComponent {
         this.justEvaluated = true;
       } catch (err: any) {
         if (err.message.includes('Division by zero')) {
-          this.typeError("Error: División por 0", this.ERRORS_SPEED);
+          this.typeError("Error: Division by 0", this.ERRORS_SPEED);
         } else if (err.message.includes('Unexpected end of expression')) {
-          this.typeError("Error de sintaxis", this.ERRORS_SPEED);
+          this.typeError("Syntax error", this.ERRORS_SPEED);
         } else {
-          this.typeError("Operación inválida", this.ERRORS_SPEED);
+          this.typeError("Invalid operation", this.ERRORS_SPEED);
         }
       
         this.isError = true;
@@ -151,23 +147,23 @@ export class CalculatorComponent {
             result = a * (b / 100);
             break;
           case '/':
-            if (b === 0) throw new Error('División por zero');
+            if (b === 0) throw new Error('Division by zero');
             result = a / (b / 100);
             break;
         }
   
         if(isNaN(result)) {
-          this.typeError("El resultado no es numérico", this.ERRORS_SPEED);
+          this.typeError("The result is not numeric number", this.ERRORS_SPEED);
           this.isError = true;
         } else {
           this.display = result.toString();
           this.isError = false;
         }
       } else {
-        throw new Error('Operación inválida');
+        throw new Error('Invalid operation');
       }
     } catch (err) {
-      this.typeError("Error en la operación", this.ERRORS_SPEED);
+      this.typeError("Operation error", this.ERRORS_SPEED);
       
 
       this.isError = true;
