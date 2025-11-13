@@ -1,9 +1,11 @@
 @import "tailwindcss";
 @plugin '@midudev/tailwind-animations';
 @plugin "@iconify/tailwind4";
+@plugin "@tailwindcss/typography";
 
 :root {
     --primary-color: rgb(2, 6, 24);
+    --header-h: 70px;
 }
 
 @font-face {
@@ -12,6 +14,10 @@
     font-weight: 400;
     font-style: normal;
     font-display: swap;
+}
+
+@utility bg-angular {
+    background-color: #c1002a57;
 }
 
 @utility primary-color {
@@ -100,5 +106,13 @@
         height: 0;
     } to {
         height: 100%;
+    }
+}
+
+@keyframes drawBlur2xl {
+    from {
+        backdrop-filter: blur(0px);
+    } to {
+        backdrop-filter: blur(40px);
     }
 }

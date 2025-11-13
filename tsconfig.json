@@ -11,6 +11,8 @@
       "@i18n/*": ["./src/i18n/*"],
       "@components/*": ["./src/components/*"],
       "@consts/*": ["./src/consts/*"],
+      "@angular/*": ["./angular/*"],
+      "@projects/*": ["./src/public/projects/*"],
     }
   }
 }

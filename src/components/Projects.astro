@@ -1,0 +1,82 @@
+---
+import calculator from '../../public/projects/calculator.png';
+
+const { creador, translate, locale } = Astro.props;
+
+const PROJECTS = {
+    calculator: {
+      id: 'calculator',
+      name: 'Calculadora',
+      url: `/${locale}/calculator/`,
+      frameworks: {
+        angular: {
+            id: 'angular-framework',
+            name: 'Angular',
+            image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg',
+            mainColor: 'bg-angular',
+        }
+      }
+    },
+}
+---
+<div class="pt-(--header-h) w-full flex justify-center items-center px-2 md:px-0">
+    <div class="w-full md:max-w-3xl mx-0 md:mx-auto flex justify-start items-center flex-row gap-4">
+        <i class="icon-[gridicons--code] text-3xl text-white/80" />
+        <h1 class="text-center text-4xl text-white font-bold">{translate.nav.projects}</h1>
+    </div>
+</div>
+<div class="flex w-full flex-col px-2 md:px-0">
+    <div class="w-full md:max-w-3xl mx-0 md:mx-auto flex flex-col justify-center items-start my-10 rounded-2xl">
+        {
+            Object.values(PROJECTS).map((project) => {
+                const { name, url, frameworks } = project;
+                return(
+                    <div class="flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-start group w-full">
+                        <div class="m-0 p-0 overflow-hidden rounded-2xl h-full border border-gray-800 group-hover:border-gray-700 transition-all">
+                            <img 
+                                src={calculator.src} 
+                                alt={`${project} image`} 
+                                class="h-full w-auto object-cover transition-transform duration-300 scale-110 group-hover:scale-100" 
+                            />
+                        </div>
+                        <div class="flex flex-col justify-start items-center px-1 md:px-4 min-w-[400px] h-full">
+                            <div class="flex flex-1 flex-col">
+                                <h3 class="text-yellow-400 text-3xl font-extrabold uppercase">{name}</h3>
+                                <ul class="flex w-full flex-row justify-start items-center my-2">
+                                    { frameworks &&
+                                        Object.values(frameworks).map((framework) => {
+                                            const { name, image, mainColor } = framework;
+
+                                            return(
+                                                <li class={`rounded-full px-2 py-1 ${mainColor} flex justify-center items-center gap-2`}>
+                                                    <img src={image} alt={`${name} frameworks image`} class="size-4" />
+                                                    <span class="text-white text-base md:text-sm">
+                                                        {name}
+                                                    </span>
+                                                </li>
+                                            );
+                                        })
+                                    }
+                                </ul>
+                                <div class="text-white/85 text-base selection:text-black selection:bg-yellow-400 prose">
+                                    <p>
+                                        Una calculadora que realiza todo tipo de operaciones de "+", "-", "*" y "/".
+                                    </p>
+                                    <p>
+                                        Y como operaciones adicionales: raíces y porcentajes.
+                                    </p>    
+                                </div>
+                            </div>
+                            <div class="flex w-full flex-row justify-start items-center my-3">
+                                <a href={url} class="text-white hover:brightness-125 transition-all px-3 py-2 rounded-xl flex justify-center gap-2 items-center bg-gray-900 border border-white/30 group">
+                                    <i class="icon-[line-md--link] group-hover:brightness-125" />
+                                    Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                );
+            })
+        }
+    </div>
+</div>

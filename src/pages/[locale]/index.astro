@@ -4,6 +4,7 @@ import { i18n } from "@consts/i18n.files";
 import type { Language } from "@src/types/language.type";
 import IntroSection from '@components/IntroSection.astro';
 import TrajectorySection from '@components/TrajectorySection.astro';
+import Projects from "@src/components/Projects.astro";
 import AboutMe from "@src/components/AboutMe.astro";
 
 export function getStaticPaths() {
@@ -37,15 +38,9 @@ const creador = translate.creator_name;
             <TrajectorySection creador={creador} translate={translate} locale={locale} />
         </section>
 
-        {/* CONTACT SECTION */}
-        <section class="min-h-screen" data-section="projects" aria-label="Projects section">
-            {/* TODO */}
-            <div class="pt-(--header-h) w-full flex justify-center items-center">
-                <h1 class="text-center text-4xl text-white">{translate.nav.projects}</h1>
-            </div>
-            <div class="mt-10 mx-0 md:mx-auto w-full">
-                <p class="text-center text-red-500/70">{translate.section_in_mantainance}</p>
-            </div>
+        {/* PROJECTS SECTION */}
+        <section class="min-h-screen pt-25" data-section="projects" aria-label="Projects section">
+            <Projects creador={creador} translate={translate} locale={locale} />
         </section>
 
         {/* CONTACT SECTION */}
