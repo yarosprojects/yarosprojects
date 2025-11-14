@@ -113,13 +113,13 @@ const cfgs_started_at = 2022;
                 <div class="flex flex-col w-full gap-7">
                     <div
                         id="frameworks-container" 
-                        class="relative w-full flex justify-center md:justify-start items-center flex-wrap flex-row gap-3 overflow-hidden md:overflow-auto max-h-17 md:max-h-full transition-all duration-700"
+                        class="relative w-full flex justify-center md:justify-start items-center flex-wrap flex-row gap-3 overflow-hidden md:overflow-auto max-h-17 md:max-h-full transition-all duration-500"
                     >
                         {
                             FRAMEWORKS.map((framework) => {
                                 const { name, animation_delay, img } = framework;
                                 return (
-                                    <div class="flex flex-row justify-center items-center gap-2 px-5 md:px-4 py-2 md:py-2 rounded-full bg-gray-800 animate-fade-in"
+                                    <div class="flex flex-row justify-center items-center gap-2 px-5 md:px-4 py-2 md:py-2 rounded-full bg-gray-800 animate-fade-in framework-card"
                                         style={`animation-delay: ${animation_delay}ms;`}
                                     >
                                         <img src={img} alt={`Image of ${name}`} class={`size-5 ${name.toLowerCase() === "java" ? '-translate-y-0.75' : ''}`} />
@@ -131,13 +131,13 @@ const cfgs_started_at = 2022;
                             })
                         }
 
-                        <div class="absolute left-0 bottom-0 w-full h-10 bg-linear-to-t from-(--primary-color) to-transparent pointer-events-none opacity-100 transition-opacity" id="frameworks-overlay"></div>
+                        <div class="absolute flex md:hidden left-0 -bottom-1 w-full h-10 bg-linear-to-t from-(--primary-color) to-transparent pointer-events-none opacity-100 transition-opacity" id="frameworks-overlay"></div>
                     </div>
                     <div class="w-full flex md:hidden justify-center items-center px-4 py-5">
                         <button
                             id="show-frameworks-more"
                             type="button"
-                            class="px-4 py-2 rounded-full text-black bg-yellow-500 font-extrabold cursor-pointer"
+                            class="px-4 py-2 rounded-lg text-black bg-yellow-500 font-extrabold cursor-pointer outline-none border-none"
                             data-showMore={translate.intro.show_more}
                             data-showLess={translate.intro.show_less}
                             aria-label="Boton de mostrar más y mostrar menos los frameworks de programación"
@@ -149,13 +149,13 @@ const cfgs_started_at = 2022;
                 <div class="flex flex-col w-full gap-7 pt-7">
                     <div
                         id="languages-container" 
-                        class="relative w-full flex justify-center md:justify-start items-center flex-wrap flex-row gap-3 overflow-hidden md:overflow-auto max-h-15 md:max-h-full transition-all duration-700"
+                        class="relative w-full flex justify-center md:justify-start items-center flex-wrap flex-row gap-3 overflow-hidden md:overflow-auto max-h-15 md:max-h-full transition-all duration-500"
                     >
                         {
                             LANGUAGES.map((language) => {
                                 const { name, animation_delay, img } = language;
                                 return  (
-                                    <div class="flex flex-row justify-center items-center gap-2 px-5 md:px-4 py-2 md:py-2 rounded-full bg-gray-800 animate-fade-in"
+                                    <div class="flex flex-row justify-center items-center gap-2 px-5 md:px-4 py-2 md:py-2 rounded-full bg-gray-800 animate-fade-in language-card"
                                         style={`animation-delay: ${animation_delay}ms;`}
                                     >
                                         <img src={img} alt={`Image of ${name}`} class={`size-5 ${name.toLowerCase() === "java" ? '-translate-y-0.75' : ''}`} />
@@ -166,13 +166,13 @@ const cfgs_started_at = 2022;
                                 )
                             })
                         }
-                        <div class="absolute left-0 bottom-0 w-full h-10 bg-linear-to-t from-(--primary-color) to-transparent pointer-events-none opacity-100 transition-opacity" id="languages-overlay"></div>
+                        <div class="absolute flex md:hidden left-0 -bottom-1 w-full h-10 bg-linear-to-t from-(--primary-color) to-transparent pointer-events-none opacity-100 transition-opacity" id="languages-overlay"></div>
                     </div>
                     <div class="w-full flex md:hidden justify-center items-center px-4 py-5">
                         <button
                             id="show-languages-more"
                             type="button"
-                            class="px-4 py-2 rounded-full text-black bg-yellow-500 font-extrabold cursor-pointer"
+                            class="px-4 py-2 rounded-lg text-black bg-yellow-500 font-extrabold cursor-pointer outline-none border-none"
                             data-showMore={translate.intro.show_more}
                             data-showLess={translate.intro.show_less}
                             aria-label="Boton de mostrar más y mostrar menos los lenguajes de programación"
@@ -190,14 +190,17 @@ const cfgs_started_at = 2022;
     document.addEventListener('DOMContentLoaded', function() {
         const $showMorLanguagesBtn = document.getElementById('show-languages-more');
         const $showMorFrameworksBtn = document.getElementById('show-frameworks-more');
-        const $languagesContainer = document.getElementById('languages-container');
         const $framweworksContainer = document.getElementById('frameworks-container');
+        const $languagesContainer = document.getElementById('languages-container');
         const $frameworksOverlay = document.getElementById('frameworks-overlay');
         const $languagesOverlay = document.getElementById('languages-overlay');
+        const $frameworksCards = $framweworksContainer.querySelectorAll('.framework-card');
+        const $languagesCards = $languagesContainer.querySelectorAll('.language-card');
 
         // FRAMEWORKS
         let frameworksShowed = false;
         $showMorFrameworksBtn?.addEventListener('click', function() {
+            let num_first_frameworks = setFirstFrameworks();
             frameworksShowed = !frameworksShowed
             
             if(frameworksShowed) {
@@ -206,6 +209,13 @@ const cfgs_started_at = 2022;
                 $framweworksContainer?.classList.remove('max-h-17');
                 $framweworksContainer?.classList.add('max-h-100');
                 $showMorFrameworksBtn.innerHTML = $showMorFrameworksBtn.getAttribute('data-showLess');
+                $frameworksCards.forEach((card, index) => {
+                    if(index >= num_first_frameworks){
+                        card.classList.remove('animate-fade-in');
+                        void card.offsetWidth;
+                        card.classList.add('animate-fade-in');
+                    }
+                });
             } else {
                 $framweworksContainer?.classList.remove('max-h-100');
                 $framweworksContainer?.classList.add('max-h-17');
@@ -213,7 +223,7 @@ const cfgs_started_at = 2022;
                     $frameworksOverlay.classList.remove('opacity-0');
                     $frameworksOverlay.classList.add('opacity-100');
                     $showMorFrameworksBtn.innerHTML = $showMorFrameworksBtn.getAttribute('data-showMore');
-                }, 500);
+                }, 150);
             }
         });
 
@@ -221,6 +231,7 @@ const cfgs_started_at = 2022;
         // PROGRAMMING LANGUAGES
         let languagesShowed = false;
         $showMorLanguagesBtn?.addEventListener('click', function() {
+            let num_first_languages = setFirstLanguages();
             languagesShowed = !languagesShowed
             
             if(languagesShowed) {
@@ -229,6 +240,13 @@ const cfgs_started_at = 2022;
                 $languagesContainer?.classList.remove('max-h-15');
                 $languagesContainer?.classList.add('max-h-100');
                 $showMorLanguagesBtn.innerHTML = $showMorLanguagesBtn.getAttribute('data-showLess');
+                $languagesCards.forEach((card, index) => {
+                    if(index >= num_first_languages){
+                        card.classList.remove('animate-fade-in');
+                        void card.offsetWidth;
+                        card.classList.add('animate-fade-in');
+                    }
+                });
             } else {
                 $languagesContainer?.classList.remove('max-h-100');
                 $languagesContainer?.classList.add('max-h-15');
@@ -236,8 +254,27 @@ const cfgs_started_at = 2022;
                     $languagesOverlay.classList.remove('opacity-0');
                     $languagesOverlay.classList.add('opacity-100');
                     $showMorLanguagesBtn.innerHTML = $showMorLanguagesBtn.getAttribute('data-showMore');
-                }, 500);
+                }, 150);
             }
         });
+
+
+        function setFirstFrameworks() {
+            if(window.innerWidth > 286 && window.innerWidth <= 419) return 2;
+            if(window.innerWidth > 419 && window.innerWidth <= 553) return 3;
+            if(window.innerWidth > 553 && window.innerWidth <= 672) return 4; 
+            if(window.innerWidth > 672) return 5; 
+
+            return 1;
+        }
+
+        function setFirstLanguages() {
+            if(window.innerWidth > 246 && window.innerWidth <= 406) return 2;
+            if(window.innerWidth > 406 && window.innerWidth <= 567) return 3;
+            if(window.innerWidth > 567 && window.innerWidth <= 682) return 4;
+            if(window.innerWidth > 682) return 5;
+
+            return 1;
+        }
     });
 </script>
