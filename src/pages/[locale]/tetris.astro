@@ -1,0 +1,16 @@
+---
+import "@styles/global.css";
+export function getStaticPaths() {
+    return [
+        { params: { locale: "es-ES" } },
+        { params: { locale: "ca-ES" } },
+        { params: { locale: "en-GB" } },
+        { params: { locale: "ua-UK" } },
+    ];
+}
+
+const svelteLogo = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/svelte/svelte-original.svg";
+const locale = Astro.params.locale || "es-ES";
+---
+
+<iframe src="/svelte/tetris/index.html" frameborder="0" class="w-full min-h-screen"></iframe>
