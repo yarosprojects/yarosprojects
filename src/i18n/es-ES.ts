@@ -85,6 +85,20 @@ export default {
         },
     },
 
+    projects: {
+        preview: 'Preview',
+        calculator: {
+            name: 'Calculadora',
+            paragraph_1: "Una calculadora que realiza todo tipo de operaciones de '+', '-', '*' y '/'.",
+            paragraph_2: "Y como operaciones adicionales: raíces y porcentajes.",
+        },
+        tetris: {
+            name: 'Tetris',
+            paragraph_1: "Un juego clásico de Tetris hecho en Svelte.",
+            paragraph_2: "Incluye controles móviles y de teclado, puntajes y niveles progresivos.",
+        },
+    },
+
     404: {
         error_code: 404,
         error_title: 'Página no encontrada',

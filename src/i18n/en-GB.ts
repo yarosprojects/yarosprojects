@@ -85,6 +85,20 @@ export default {
         },
     },
 
+    projects: {
+        preview: 'Preview',
+        calculator: {
+            name: 'Calculator',
+            paragraph_1: "A calculator that performs all types of operations '+', '-', '*' and '/'.",
+            paragraph_2: "And additional operations: roots and percentages.",
+        },
+        tetris: {
+            name: 'Tetris',
+            paragraph_1: "A classic Tetris game made in Svelte.",
+            paragraph_2: "Includes mobile and keyboard controls, scores, and progressive levels.",
+        },
+    },
+
     404: {
         error_code: 404,
         error_title: 'Page not found',

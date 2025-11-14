@@ -20,6 +20,18 @@
     background-color: #c1002a57;
 }
 
+@utility bg-svelte {
+    background-color: rgba(255, 62, 0, 0.35);
+}
+
+@utility bg-typescript {
+    background-color: rgba(49, 120, 198, 0.15);
+}
+
+@utility bg-tailwindcss {
+    background-color: #003159;
+}
+
 @utility primary-color {
     background-color: var(--primary-color);
 }

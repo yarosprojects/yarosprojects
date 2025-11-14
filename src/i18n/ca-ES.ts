@@ -86,6 +86,20 @@ export default {
         },
     },
 
+    projects: {
+        preview: 'Preview',
+        calculator: {
+            name: 'Calculadora',
+            paragraph_1: "Una calculadora que realitza tot tipus d'operacions '+', '-', '*' i '/'.",
+            paragraph_2: "I com a operacions addicionals: arrels i percentatges.",
+        },
+        tetris: {
+            name: 'Tetris',
+            paragraph_1: "Un joc clàssic de Tetris fet en Svelte.",
+            paragraph_2: "Inclou controls mòbils i de teclat, puntuacions i nivells progressius.",
+        },
+    },
+
     404: {
         error_code: 404,
         error_title: 'Pàgina no trobada',

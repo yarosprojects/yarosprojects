@@ -1,20 +1,69 @@
 ---
-import calculator from '../../public/projects/calculator.png';
+import calculatorImg from '../../public/projects/calculator.png';
+import tetrisImg from '../../public/projects/tetris.png';
 
 const { creador, translate, locale } = Astro.props;
 
 const PROJECTS = {
     calculator: {
       id: 'calculator',
-      name: 'Calculadora',
+      name: translate.projects.calculator.name,
       url: `https://calculator-yarosprojects.vercel.app`,
+      image: calculatorImg.src,
+      description: [
+        translate.projects.calculator.paragraph_1,
+        translate.projects.calculator.paragraph_2,
+      ],
+
       frameworks: {
         angular: {
             id: 'angular-framework',
             name: 'Angular',
             image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg',
             mainColor: 'bg-angular',
-        }
+        },
+        typescript: {
+            id: 'typescript-framework',
+            name: 'TypeScript',
+            image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+            mainColor: 'bg-typescript',
+        },
+        tailwind: {
+            id: 'tailwindcss-framework',
+            name: 'TailwindCSS',
+            image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+            mainColor: 'bg-tailwindcss',
+        },
+      }
+    },
+    tetris: {
+      id: 'tetris',
+      name: translate.projects.tetris.name,
+      url: `https://tetris-yarosprojects.vercel.app`,
+      image: tetrisImg.src,
+      description: [
+        translate.projects.tetris.paragraph_1,
+        translate.projects.tetris.paragraph_2,
+      ],
+      frameworks: {
+        angular: {
+            id: 'svelte-framework',
+            name: 'Svelte',
+            image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/svelte/svelte-original.svg',
+            mainColor: 'bg-svelte',
+        },
+        typescript: {
+            id: 'typescript-framework',
+            name: 'TypeScript',
+            image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+            mainColor: 'bg-typescript',
+        },
+        tailwind: {
+            id: 'tailwindcss-framework',
+            name: 'TailwindCSS',
+            image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+            mainColor: 'bg-tailwindcss',
+        },
       }
     },
 }
@@ -26,15 +75,15 @@ const PROJECTS = {
     </div>
 </div>
 <div class="flex w-full flex-col px-2 md:px-0">
-    <div class="w-full md:max-w-3xl mx-0 md:mx-auto flex flex-col justify-center items-start my-10 rounded-2xl overflow-hidden" id="projects-container">
+    <div class="w-full md:max-w-3xl mx-0 md:mx-auto flex flex-col gap-25 md:gap-15 justify-center items-start my-10 rounded-2xl overflow-hidden" id="projects-container">
         {
             Object.values(PROJECTS).map((project) => {
-                const { name, url, frameworks } = project;
+                const { name, url, image, frameworks } = project;
                 return(
                     <div class="flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-start group w-full opacity-0 project-card">
                         <div class="m-0 p-0 overflow-hidden rounded-2xl border border-gray-800 group-hover:border-gray-700 transition-all">
                             <img 
-                                src={calculator.src} 
+                                src={image} 
                                 alt={`${project} image`} 
                                 class="h-full w-auto object-cover transition-transform duration-300 scale-110 group-hover:scale-100" 
                             />
@@ -59,18 +108,15 @@ const PROJECTS = {
                                     }
                                 </ul>
                                 <div class="text-white/85 text-base selection:text-black selection:bg-yellow-400 mt-10 md:mt-5">
-                                    <p>
-                                        Una calculadora que realiza todo tipo de operaciones de "+", "-", "*" y "/".
-                                    </p>
-                                    <p>
-                                        Y como operaciones adicionales: raíces y porcentajes.
-                                    </p>    
+                                    {project.description.map(line => (
+                                        <p class="mt-2">{line}</p>
+                                    ))}
                                 </div>
                             </div>
                             <div class="flex w-full flex-row justify-start items-center my-3">
                                 <a href={url} class="text-white hover:brightness-125 transition-all px-3 py-2 rounded-xl flex justify-center gap-2 items-center bg-gray-900 border border-white/30 group">
                                     <i class="icon-[line-md--link] group-hover:brightness-125" />
-                                    Preview
+                                    {translate.projects.preview}
                                 </a>
                             </div>
                         </div>
