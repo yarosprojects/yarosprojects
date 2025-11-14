@@ -43,6 +43,8 @@ export default {
     },
 
     intro: {
+        show_more: "Показати більше",
+        show_less: 'Показати менше',
         hello_iam: "Привіт, я",
         fullstack_web_developer: "Розробник вебзастосунків повного циклу",
         years_of_experience: "роки досвіду",

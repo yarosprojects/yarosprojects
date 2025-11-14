@@ -42,6 +42,8 @@ export default {
     },
 
     intro: {
+        show_more: "Mostrar más",
+        show_less: 'Mostrar menos',
         hello_iam: "Hola, soy",
         fullstack_web_developer: "Desarrollador web full stack",
         years_of_experience: "años de experiencia",
