@@ -8,6 +8,12 @@
     --header-h: 70px;
 }
 
+html:not(.dark) {
+    --primary-color: rgb(235, 242, 255);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
     font-family: 'font-md';
     src: url('../../public/font/Onest-VariableFont_wght.ttf') format('truetype');
@@ -62,21 +68,12 @@
 }
 
 @keyframes drawBg {
-    0% {
-        background-color: transparent;
-    } 100% {
-        background-color: var(--nav-color);
+    to {
+        backdrop-filter: blur(15px);
+        border-color: var(--nav-border-color);
+        background-color: var(--drawBg);
+        box-shadow: var(--nav-shadow);
     }
-}
-
-@media screen and (max-width: 768px) {
-    @keyframes drawBg {
-        0% {
-            background-color: transparent;
-        } 100% {
-            background-color: rgb(31, 41, 55, .5);
-        }
-    } 
 }
 
 @keyframes width-to-full {

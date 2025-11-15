@@ -40,14 +40,14 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 
 		<Analytics />
 	</head>
-	<body class="bg-slate-950 relative">
-		<div class="fixed top-0 left-0 w-0 bg-yellow-500 h-0.5 z-9998 transition-[width] duration-200 ease-linear" id="web-progress"></div>
+	<body class="bg-slate-50 dark:bg-slate-950 relative">
+		<div class="fixed top-0 left-0 w-0 dark:bg-yellow-500 bg-yellow-600 dark:h-0.5 h-1 z-9998 transition-[width] duration-200 ease-linear" id="web-progress"></div>
 		
 		<Header />
 		<slot />
 		<Footer />
 
-		<button class="fixed outline-none border-none right-6 bottom-10 flex justify-center items-center m-0 rounded-full bg-gray-800 p-1 select-none hover:scale-115 transition-all z-9999 cursor-pointer pointer-events-none opacity-0" aria-label="Botón de desplazamiento para arriba" id="scrollTopBtn">
+		<button class="fixed outline-none border-none right-6 bottom-10 flex justify-center items-center m-0 rounded-full dark:bg-gray-50 dark:bg-gray-800 p-1 select-none hover:scale-115 transition-all z-9999 cursor-pointer pointer-events-none opacity-0" aria-label="Botón de desplazamiento para arriba" id="scrollTopBtn">
 			<div class="flex justify-center items-center size-8">
 				<span class="icon-[material-symbols--arrow-upward-rounded] text-lg text-yellow-400"></span>
 			</div>
@@ -63,13 +63,25 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 		const sections = sectionsWrapper ? Array.from(sectionsWrapper.children).filter(sec => !sec.hasAttribute('data-skip-nav')) : [];
 		const $scrollTopBtn = document.getElementById('scrollTopBtn');
 		const $locales_btn = document.getElementById('locales-btn');
+		const $theme_btn = document.getElementById('theme-swithcer');
         const $locales_menu = document.getElementById('locales-menu');
+		const $theme_menu = document.getElementById('themes-menu');
 		const $responsive_nav = document.getElementById('responsive-nav');
 		const $hamburger_btn = document.getElementById('hamburger');
 		const $responsive_nav_items = document.querySelectorAll('#responsive-nav ul li button');
 		const $footer_links = document.querySelectorAll('#footer-links button');
 
 		let hamburgerClicked = false;
+		let locales_opened = false;
+		let themes_opened = false;
+		let savedTheme = localStorage.getItem('theme') || 'dark';
+		applyTheme(savedTheme);
+
+		if (savedTheme === 'system') {
+			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+				applyTheme('system');
+			});
+		}
 
 		hamburgerOnClick();
 		checkResponsiveNavAvailability()
@@ -97,7 +109,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 					hamburgerClicked = false;
                     if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
                     if($responsive_nav.classList.contains('animate-fade-in-down')) $responsive_nav.classList.remove('animate-fade-in-down');
-					if($hamburger_btn.classList.contains('bg-gray-900')) $hamburger_btn.classList.remove('bg-gray-900');
+					if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
 				}
 			});
 		});
@@ -111,6 +123,8 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 			});
 		});
 
+
+		// SCROLL TOP BUTTON ON CLICK
 		$scrollTopBtn.addEventListener('click', function() {
 			window.scrollTo({
 				top: 0,
@@ -119,6 +133,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 		});
 
 
+		// SCROLL BAR
 		window.addEventListener('scroll', () => {
 			const scrollTop = window.scrollY;
 			const docHeight = document.body.scrollHeight - window.innerHeight;
@@ -127,6 +142,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 			$web_progress.style.width = `${scrollPercent}%`;
 		});
 
+		// SCROLL TOP BUTTON SHOW
 		let lastScroll = 0;
 		window.addEventListener('scroll', function() {
 			const max = 400;
@@ -145,23 +161,41 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 			lastScroll = currentScroll;
 		});
 
+		// HAMBURGER BUTTON CLICK EVENT
 		$hamburger_btn.addEventListener('click', function(event) {
             event.stopPropagation();
             hamburgerClicked = !hamburgerClicked;
 
+			setMenuMargin(locales_opened, $locales_menu);
+			setMenuMargin(themes_opened, $theme_menu);
             if(hamburgerClicked) {
+                locales_opened = false;
+				themes_opened = false;
                 $responsive_nav.classList.remove('hidden');
                 $responsive_nav.classList.add('animate-fade-in-down');
-                if(!$hamburger_btn.classList.contains('bg-gray-900')) $hamburger_btn.classList.add('bg-gray-900');
-                locales_opened = false;
+                if(!$hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.add('bg-gray-300/60', 'dark:bg-gray-800/60');
+				if($theme_btn.classList.contains('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white')) $theme_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
+				if(!$theme_btn.classList.contains('text-black/80', 'dark:text-white/80')) $theme_btn.classList.add('text-black/80', 'dark:text-white/80');
                 $locales_menu.classList.remove('mt-3', 'mt-1');
-                $locales_btn.classList.remove('bg-gray-800/60');
+
+				if($locales_btn.classList.contains('dark:bg-gray-800', 'bg-gray-300')) {
+					$locales_btn.classList.remove('dark:bg-gray-800', 'bg-gray-300');
+					if(window.innerWidth > 768) setLocalesBtnBg();
+				}
                 $locales_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
-                $locales_menu.classList.add('pointer-events-none', 'opacity-0');
+                $locales_menu.classList.add('hidden');
+				$theme_menu.setAttribute('aria-hidden', true);
+				$locales_menu.setAttribute('aria-hidden', true);
+				$responsive_nav.setAttribute('aria-hidden', false);
+				$theme_menu.classList.remove('mt-3', 'mt-1');
+                $theme_menu.classList.remove('bg-gray-800/60');
+                $theme_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
+                $theme_menu.classList.add('hidden');
             } else {
                 $responsive_nav.classList.add('hidden');
                 $responsive_nav.classList.remove('animate-fade-in-down');
-                if($hamburger_btn.classList.contains('bg-gray-900')) $hamburger_btn.classList.remove('bg-gray-900');
+                if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
+				$responsive_nav.setAttribute('aria-hidden', true);
             }
         });
 
@@ -172,7 +206,8 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
                     hamburgerClicked = false;
                     $responsive_nav.classList.add('hidden');
                     $responsive_nav.classList.remove('animate-fade-in-down');
-                    if($hamburger_btn.classList.contains('bg-gray-900')) $hamburger_btn.classList.remove('bg-gray-900');
+                    if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
+					$responsive_nav.setAttribute('aria-hidden', true);
                 }
             }
         });
@@ -183,36 +218,82 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
         });
         window.addEventListener('resize', function() { 
             if(window.innerWidth >= 768) {
-                setLocalesBtnBg() 
-                if($locales_btn.classList.contains('bg-gray-800')) $locales_btn.classList.remove('bg-gray-800')
+                $locales_btn.classList.add('dark:bg-gray-800/60', 'bg-gray-300');
             } else {
-                if(window.scrollY <= 50) $locales_btn.classList.remove('bg-gray-800');
+                $locales_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300');
             }
         });
         
-        
-        let locales_opened = false;
         $locales_btn.addEventListener('click', function(e) {
             e.stopPropagation();
             locales_opened = !locales_opened;
             
-            setLocalesMenuMargin(locales_opened);
+            setMenuMargin(locales_opened, $locales_menu);
             if(locales_opened) {
                 const scrollY = window.scrollY;
-                if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
                 hamburgerClicked = false;
-				if($hamburger_btn.classList.contains('bg-gray-900')) $hamburger_btn.classList.remove('bg-gray-900');
+				themes_opened = false;
+                if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
+				if($responsive_nav.classList.contains('animate-fade-in-down')) $responsive_nav.classList.remove('animate-fade-in-down');
+				if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
+				if(!$theme_menu.classList.contains('hidden')) $theme_menu.classList.add('hidden');
+				if($theme_btn.classList.contains('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white')) $theme_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
+				if(!$theme_btn.classList.contains('text-black/80', 'dark:text-white/80')) $theme_btn.classList.add('text-black/80', 'dark:text-white/80');
+				$locales_menu.setAttribute('aria-hidden', false);
+				$theme_menu.setAttribute('aria-hidden', true);
+				$responsive_nav.setAttribute('aria-hidden', true);
                 $locales_menu.classList.add(scrollY > 250 ? 'mt-3' : 'mt-1');
-                $locales_btn.classList.add('bg-gray-800/60');
-                $locales_menu.classList.remove('pointer-events-none', 'opacity-0');
+				if($locales_btn.classList.contains('bg-gray-300/50', 'dark:bg-gray-800/60')) $locales_btn.classList.remove('bg-gray-300/50', 'dark:bg-gray-800/60');
+                $locales_btn.classList.add('dark:bg-gray-800', 'bg-gray-300');
+                $locales_menu.classList.remove('hidden');
                 $locales_menu.classList.add('animate-fade-in-down', 'animate-duration-300');
             } else {
                 $locales_menu.classList.remove('mt-3', 'mt-1');
-                $locales_btn.classList.remove('bg-gray-800/60');
                 $locales_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
-                $locales_menu.classList.add('pointer-events-none', 'opacity-0');
+                $locales_menu.classList.add('hidden');
+				$locales_menu.setAttribute('aria-hidden', true);
+				if($locales_btn.classList.contains('dark:bg-gray-800', 'bg-gray-300')) {
+					$locales_btn.classList.remove('dark:bg-gray-800', 'bg-gray-300');
+					if(window.innerWidth > 768) setLocalesBtnBg();
+				}
             }
         });
+
+		$theme_btn.addEventListener('click', function(e) {
+			e.stopPropagation();
+			themes_opened = !themes_opened;
+
+			setMenuMargin(themes_opened, $theme_menu);
+			if(themes_opened) {
+				const scrollY = window.scrollY;
+				hamburgerClicked = false;
+				locales_opened = false;
+				if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
+				if($responsive_nav.classList.contains('animate-fade-in-down')) $responsive_nav.classList.remove('animate-fade-in-down');
+				if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
+				if(!$locales_menu.classList.contains('hidden')) $locales_menu.classList.add('hidden');
+				if($locales_menu.classList.contains('animate-fade-in-down', 'animate-duration-100')) $locales_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
+
+				if($locales_btn.classList.contains('dark:bg-gray-800', 'bg-gray-300')) {
+					$locales_btn.classList.remove('dark:bg-gray-800', 'bg-gray-300');
+					if(window.innerWidth > 768) setLocalesBtnBg();
+				}
+				$theme_menu.classList.add(scrollY > 250 ? 'mt-3' : 'mt-1');
+				$theme_btn.classList.add('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
+				$theme_menu.classList.remove('hidden');
+				$theme_menu.classList.add('animate-fade-in-down', 'animate-duration-100');
+				$theme_menu.setAttribute('aria-hidden', false);
+				$locales_menu.setAttribute('aria-hidden', true);
+				$responsive_nav.setAttribute('aria-hidden', true);
+			} else {
+				$theme_menu.classList.remove('mt-3', 'mt-1');
+				$theme_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
+				$theme_btn.classList.add('text-black/80', 'dark:text-white/80');
+                $theme_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
+                $theme_menu.classList.add('hidden');
+				$theme_menu.setAttribute('aria-hidden', true);
+			}
+		});
 
         document.addEventListener('click', function(e) {
             if (
@@ -222,10 +303,40 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
             ) {
                 locales_opened = false;
                 $locales_menu.classList.remove('mt-3', 'mt-1');
-                $locales_btn.classList.remove('bg-gray-800/60');
                 $locales_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
-                $locales_menu.classList.add('pointer-events-none', 'opacity-0');
+                $locales_menu.classList.add('hidden');
+				$locales_menu.setAttribute('aria-hidden', true);
+				if($locales_btn.classList.contains('dark:bg-gray-800', 'bg-gray-300')) {
+					$locales_btn.classList.remove('dark:bg-gray-800', 'bg-gray-300');
+					if(window.innerWidth > 768) setLocalesBtnBg();
+				}
             }
+        });
+
+		document.addEventListener('click', function(e) {
+            if (
+                themes_opened &&
+                !$theme_menu.contains(e.target) &&
+                e.target !== $theme_btn
+            ) {
+                themes_opened = false;
+                $theme_menu.classList.remove('mt-3', 'mt-1');
+				$theme_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
+				$theme_btn.classList.add('text-black/80', 'dark:text-white/80');
+                $theme_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
+                $theme_menu.classList.add('hidden');
+				$theme_menu.setAttribute('aria-hidden', true);
+            }
+        });
+
+
+		// THEME CHOICE
+		document.querySelectorAll('[data-themeChoice]').forEach(el => {
+            el.addEventListener('click', () => {
+                const chosenTheme = el.getAttribute('data-themeChoice');
+                localStorage.setItem('theme', chosenTheme);
+                applyTheme(chosenTheme);
+            });
         });
 
 		function checkResponsiveNavAvailability() {
@@ -234,33 +345,44 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 				$responsive_nav.classList.remove('animate-fade-in-down');
 				hamburgerClicked = false;
 				if($hamburger_btn.classList.contains('bg-gray-900')) $hamburger_btn.classList.remove('bg-gray-900');
+				$responsive_nav.setAttribute('aria-hidden', true);
 			}
 		}
 
+		window.addEventListener('resize', function() {
+			if(this.window.innerWidth > 768) {
+				setLocalesBtnBg();
+			} else {
+				$locales_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300/50');
+			}
+		});
+
         function setLocalesBtnBg() {
             if(window.scrollY > 50) {
-                $locales_btn.classList.remove('bg-gray-800');
+				$locales_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300/50');
             } else {
-                $locales_btn.classList.add('bg-gray-800');
+                $locales_btn.classList.add('dark:bg-gray-800/60', 'bg-gray-300/50');
             }
         }
 
-        function setLocalesMenuMargin(menuIsOpen) {
+		// SET MARGIN OF ELEMENT MENU
+        function setMenuMargin(menuIsOpen, el) {
             if(menuIsOpen) {
                 let lastScroll = 0
                 window.addEventListener('scroll', function() {
                     const currentScroll = window.scrollY;
                     if(currentScroll > lastScroll && currentScroll > 50) {
-                        $locales_menu.classList.remove('mt-1');
-                        $locales_menu.classList.add('mt-3');
+                        el.classList.remove('mt-1');
+                        el.classList.add('mt-3');
                     } else {
-                        $locales_menu.classList.remove('mt-3');
-                        $locales_menu.classList.add('mt-1');
+                        el.classList.remove('mt-3');
+                        el.classList.add('mt-1');
                     }
                 });
             }
         }
 
+		// CHECK ACTIVE SECTION
 		function checkActiveSection(scrollY = window.scrollY) {
 			const scrollPos = scrollY + window.innerHeight / 4;
 			let activeFound = false;
@@ -270,17 +392,31 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 				const bottom = top + section.offsetHeight;
 
 				if (scrollPos >= top && scrollPos < bottom) {
-					navButtons.forEach(item => item.classList.remove('text-blue-500'));
-					navButtons[index].classList.add('text-blue-500');
-					$responsive_nav_items.forEach(item => item.classList.remove('text-blue-500'));
-					$responsive_nav_items[index].classList.add('text-blue-500');
+					navButtons.forEach((item) => {
+						item.classList.remove('dark:text-blue-500', 'text-blue-700');
+						item.classList.add('dark:text-white', 'text-black');
+					});
+					navButtons[index].classList.remove('dark:text-white', 'text-black');
+					navButtons[index].classList.add('dark:text-blue-500', 'text-blue-700');
+					$responsive_nav_items.forEach((item) => {
+						item.classList.remove('dark:text-blue-500', 'text-blue-700');
+						item.classList.add('dark:text-white', 'text-black');
+					});
+					$responsive_nav_items[index].classList.remove('dark:text-white', 'text-black');
+					$responsive_nav_items[index].classList.add('dark:text-blue-500', 'text-blue-700');
 					activeFound = true;
 				}
 			});
 
 			if (!activeFound) {
-				navButtons.forEach(item => item.classList.remove('text-blue-500'));
-				$responsive_nav_items.forEach(item => item.classList.remove('text-blue-500'));
+				navButtons.forEach((item) => {
+					item.classList.remove('dark:text-blue-500', 'text-blue-700');
+					item.classList.add('dark:text-white', 'text-black');
+				});
+				$responsive_nav_items.forEach((item) => {
+					item.classList.remove('dark:text-blue-500', 'text-blue-700');
+					item.classList.add('dark:text-white', 'text-black');
+				});
 			}
 		}
 
@@ -300,6 +436,60 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
                 $nav.setAttribute('aria-hidden', false);
             }
         }
+
+		// APPLY THEME ON CHOOSE
+		function applyTheme(theme) {
+			const html = document.documentElement;
+			setThemeIcon(theme);
+			setActiveTheme(theme);
+			checkActiveSection();
+			if (theme === 'dark') {
+				html.classList.add('dark');
+			} else if (theme === 'light') {
+				html.classList.remove('dark');
+			} else { // system
+				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					html.classList.add('dark');
+				} else {
+					html.classList.remove('dark');
+				}
+			}
+
+			// Cerrar menú de temas
+			themes_opened = false;
+			$theme_menu.classList.remove('mt-3', 'mt-1');
+			$theme_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
+			$theme_btn.classList.add('text-black/80', 'dark:text-white/80');
+			$theme_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
+			$theme_menu.classList.add('hidden');
+			$theme_menu.setAttribute('aria-hidden', true);
+		}
+
+		// SET THEME ICON ON CHOOSE THEME
+		function setThemeIcon(theme) {
+			const icon = document.getElementById('theme-icon');
+			icon.classList.remove('icon-[carbon--light]', 'icon-[material-symbols--dark-mode-outline-rounded]', 'icon-[ion--md-desktop]');
+
+			if (theme === 'dark') {
+				icon.classList.add('icon-[material-symbols--dark-mode-outline-rounded]');
+			} else if (theme === 'light') {
+				icon.classList.add('icon-[carbon--light]');
+			} else { // system
+				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					icon.classList.add('icon-[ion--md-desktop]');
+				} else {
+					icon.classList.add('icon-[ion--md-desktop]');
+				}
+			}
+		}
+
+		function setActiveTheme(theme) {
+			const tema = document.querySelector(`[data-themechoice=${theme}]`);
+			document.querySelectorAll('[data-themechoice]').forEach(tema => {
+				tema.classList.remove('dark:bg-gray-800', 'bg-gray-300');
+			});
+			tema.classList.add('dark:bg-gray-800', 'bg-gray-300');
+		}
 	});
 </script>
 
@@ -307,7 +497,26 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 	:root {
 		color-scheme: light dark;
 		--nav-color: rgb(20, 26, 49);
+		--drawBg: rgba(231, 231, 231, 0.5);
+		--nav-border-color: transparent;
+		--nav-shadow: 
+			0px 5px 50px -5px rgba(0, 0, 0, 0.1),
+			0px 0px 0 1px rgba(0, 0, 0, 0.3);
 	}
+
+
+	html.dark {
+		--drawBg: rgb(20, 26, 49);
+		--nav-border-color: rgb(255, 255, 255, .2);
+		--nav-shadow: none;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+
 
 	::-webkit-scrollbar {
 		width: 5px;
@@ -332,7 +541,13 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 		box-sizing: border-box;
 	}
 
+	html {
+		scroll-behavior: smooth;
+	}
+
 	body {
 		font-family: "font-lg", "font-md", system-ui, sans-serif;
+		overscroll-behavior: none;
+		min-height: 100vh;
 	}
 </style>

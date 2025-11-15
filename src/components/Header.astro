@@ -1,6 +1,7 @@
 ---
 import type { Language } from "../types/language.type";
-import { labelsLocales } from "../consts/locales.labels";
+import { labelsLocales } from "@consts/locales.labels";
+import { THEMES } from "@consts/themes";
 import { i18n } from "@consts/i18n.files";
 import { getNavContent } from "@consts/nav.content";
 import { email } from '@consts/usefullData';
@@ -17,11 +18,14 @@ const navContent = getNavContent(locale);
 >
 
     <div
-        class="text-base md:text-sm flex flex-col w-full md:w-fit mx-0 px-2 max-[390px]:px-0 md:px-6 py-1 rounded-full md:mx-auto transition-all backdrop-blur-xl max-[250px]:rounded-xl"
+        class="text-base md:text-sm flex flex-col w-full md:w-fit mx-0 px-2 max-[390px]:pl-0 max-[390px]:pr-3 md:px-6 py-1 rounded-full md:mx-auto transition-all max-[250px]:rounded-xl"
         id="navigation"
     >
-        <ul class="relative flex flex-row max-[420px]:justify-between justify-center items-center w-full">
-            <div class="absolute top-full hidden left-0 w-full h-auto py-3 mt-2 bg-gray-900 max-[285px]:py-6 rounded-md z-9998 px-4"         id="responsive-nav"
+        <ul class="relative flex flex-row max-[440px]:justify-between justify-center items-center w-full">
+            <div 
+                class="absolute top-full hidden left-0 w-full h-auto py-3 mt-2 dark:bg-gray-900 bg-gray-300 max-[285px]:py-6 rounded-md z-9998 px-4"
+                id="responsive-nav"
+                aria-hidden="true"
             >
                 <ul class="flex flex-row justify-between items-center w-full h-full max-[390px]:flex-col max-[390px]:gap-4">
                 {
@@ -37,40 +41,44 @@ const navContent = getNavContent(locale);
                         )
                     })
                 }
-                    <li class="m-0 p-0 group max-[315px]:text-sm text-base transition-all" id="responsive-contact-item">
-                        <a href={`mailto:${email}`} class="max-[390px]:text-yellow-200 text-white flex flex-row items-center justify-center gap-2 max-[390px]:uppercase cursor-pointer group-hover:text-blue-700 transition-colors">
+                    <li class="m-0 p-0 group max-[315px]:text-sm text-base transition-all group" id="responsive-contact-item">
+                        <a href={`mailto:${email}`} class="max-[390px]:dark:text-yellow-200 max-[390px]:text-yellow-500 dark:text-white text-black flex flex-row items-center justify-center gap-2 max-[390px]:uppercase cursor-pointer group-hover:text-blue-700 transition-colors">
                             {translate.nav.contact}
-                            <i class="text-yellow-200/80 icon-[line-md--email-arrow-right] hidden max-[390px]:flex" />
+                            <i class="dark:text-yellow-200/80 transition-colors text-yellow-500/80 group-hover:text-blue-700 icon-[line-md--email-arrow-right] hidden max-[390px]:flex" />
                         </a>
                     </li>
                 </ul>
             </div>
-            <button class="max-[420px]:flex hidden justify-center items-center cursor-pointer transition-colors hover:bg-gray-900 rounded-xl mx-3 p-2" id="hamburger" aria-hidden="true">
+            <button 
+                class="max-[440px]:flex hidden justify-center items-center cursor-pointer transition-colors hover:bg-gray-300/60 dark:hover:bg-gray-800/60 rounded-xl mx-3 p-2" 
+                id="hamburger"
+                aria-label="Hamburger menu"
+            >
                 <div class="flex size-5 justify-center items-center flex-col gap-1">
-                    <div class="w-full h-px bg-white rounded-full"></div>
-                    <div class="w-full h-px bg-white rounded-full"></div>
-                    <div class="w-full h-px bg-white rounded-full"></div>
+                    <div class="w-full h-px dark:bg-white bg-black rounded-full"></div>
+                    <div class="w-full h-px dark:bg-white bg-black rounded-full"></div>
+                    <div class="w-full h-px dark:bg-white bg-black rounded-full"></div>
                 </div>
             </button>
-            <nav class="flex flex-row justify-center items-center animate-fade-in-down max-[420px]:hidden" aria-hidden="false" id="nav">
+            <nav class="flex flex-row justify-center items-center animate-fade-in-down max-[440px]:hidden" aria-hidden="false" id="nav">
                 <ul class="w-full flex flex-row justify-center md:justify-between m-0 p-0 text-yellow-100 md:text-white">
                     {
                         navContent.map((item) => {
                             const { label } = item;
 
                             return (
-                            <li class="m-0 px-2 mx:px-3 py-0 group">
-                                <button class="outline-none border-none group-hover:text-blue-500 transition-colors flex flex-row items-center justify-center gap-1 text-sm font-medium tracking-normal md:tracking-wider">
-                                    { label }
-                                    <i class="icon-[tdesign--work] hidden md:flex"/>
-                                </button>
-                            </li>
+                                <li class="m-0 px-2 mx:px-3 py-0 group">
+                                    <button class="outline-none border-none group-hover:text-blue-500 transition-colors flex flex-row items-center justify-center gap-1 text-sm font-medium tracking-normal md:tracking-wider">
+                                        { label }
+                                        <i class="icon-[tdesign--work] hidden md:flex"/>
+                                    </button>
+                                </li>
                             )
                         })
                     }
                     <li class="m-0 px-2 md:px-3 py-0 group">
                         <a href={`mailto:${email}`} 
-                            class="group-hover:text-blue-500 transition-colors flex flex-row items-center justify-center gap-1 text-sm font-medium tracking-normal md:tracking-wider"
+                            class="group-hover:text-blue-500 transition-colors flex flex-row items-center justify-center gap-1 text-sm font-medium tracking-normal md:tracking-wider dark:text-white text-black"
                         >
                             {translate.nav.contact}
                             <i class="icon-[mdi-light--email] hidden md:flex ml-1 text-base" />
@@ -79,54 +87,98 @@ const navContent = getNavContent(locale);
                 </ul>
             </nav>
 
-            {/* LOCALES BUTTON */}
-            <li class="m-0 p-0 group relative ml-0 md:ml-10 max-[420px]:mr-3">
-                <button
-                    id="locales-btn"
-                    class="border-none outline-none flex justify-center max-[420px]:flex-row-reverse flex-row gap-2 items-center md:size-auto max-[420px]:w-auto w-10 h-auto md:px-3 p-2 md:py-2 hover:bg-gray-800/60 rounded-md cursor-pointer transition-all"
-                    aria-label="Language choice button"
-                >
-                    <span class="max-[420px]:flex max-[185px]:hidden max-[420px]:text-sm hidden md:flex text-yellow-300 transition-all">
-                        {labelsLocales[locale].name}
-                    </span>
-                    <span class={`flex md:hidden! ${labelsLocales[locale].icon}`}></span>
-                    <span class={`hidden! md:flex! ${labelsLocales[locale].icon}`}></span>
-                </button>
-
-                <div
-                    id="locales-menu"
-                    class="pointer-events-none opacity-0 absolute max-[175px]:-right-2 max-[160px]:-right-4 right-0 top-full flex justify-center items-center transition-all bg-gray-900 rounded-md z-9999"
-                    aria-label="Language choice menu"
-                >
-                    <ul
-                        class="flex flex-col items-center rounded-md"
+            {/* THEME SWITCHER & LOCALES BUTTON */}
+            <div class="flex flex-row gap-1 justify-center items-center">
+                {/* THEME SWITCHER */}
+                <li class="m-0 p-0 md:ml-10 group relative" aria-label="Theme switcher">
+                    <button 
+                        type="button" 
+                        class="p-2.5 hover:text-black dark:hover:text-white rounded-lg flex justify-center items-center cursor-pointer hover:scale-110 transition-all outline-none border-none" 
+                        id="theme-swithcer"
+                        data-theme="system"
                     >
-                        {
-                            Object.entries(labelsLocales).map(
-                                ([key, label], index, arr) => (
-                                    <li
-                                        class="w-full"
-                                        data-locale={key}
-                                        aria-label={`Language - ${label.name}`}
-                                    >
-                                        <a
-                                            href={`/${label.code}/`}
-                                            class={`${index === 0 ? 'rounded-t-md' : ''} ${index === arr.length - 1 ? 'rounded-b-md' : ''} flex gap-2 text-sm flex-row text-center px-4 py-3 ${label.code === locale ? 'bg-gray-800' : ''} hover:bg-gray-800 transition-colors w-full`}
+                        <i class="text-base" id="theme-icon" />
+                    </button>
+
+                    <div 
+                        id="themes-menu"
+                        class="min-w-[150px] absolute right-0 top-full transition-all dark:bg-gray-900 bg-gray-200 rounded-md z-9997 hidden max-[220px]:-right-13"
+                        aria-label="Theme choice menu"
+                        aria-hidden="true"
+                    >
+                        <ul class="flex flex-col items-center rounded-md w-full p-1 gap-1">
+                            {
+                                Object.entries(THEMES).map(
+                                    ([key, theme], index, arr) => {
+                                        const { id, label, icon } = theme;
+                                        return(
+                                            <li
+                                                id={`${id}-theme`}
+                                                class="w-full flex justify-between items-center group transition-colors px-3 py-2 rounded-md dark:hover:bg-gray-800 hover:bg-gray-300"
+                                                aria-label={`${label} theme choice`}
+                                                data-themeChoice={`${id}`}
+                                            >
+                                                <span class="select-none text-sm dark:text-white text-black">{label}</span>
+                                                <i class={`${icon} text-base dark:text-white text-black`} />
+                                            </li>
+                                        )
+                                    }
+                                )
+                            }
+                        </ul>
+                    </div>
+                </li>
+
+                {/* LOCALE BUTTON */}
+                <li class="m-0 p-0 group relative" aria-label="Locale button">
+                    <button
+                        id="locales-btn"
+                        class="border-none outline-none flex justify-center max-[440px]:flex-row-reverse flex-row gap-2 items-center md:size-auto max-[440px]:w-auto w-10 h-auto md:px-3 p-2 md:py-2 dark:hover:bg-gray-800 hover:bg-gray-300 rounded-md cursor-pointer transition-all"
+                        aria-label="Language choice button"
+                    >
+                        <span class="max-[185px]:hidden max-[440px]:text-sm hidden md:flex dark:text-yellow-300 text-black transition-all">
+                            {labelsLocales[locale].name}
+                        </span>
+                        <span class={`flex md:hidden! ${labelsLocales[locale].icon}`}></span>
+                        <span class={`hidden! md:flex! ${labelsLocales[locale].icon}`}></span>
+                    </button>
+    
+                    <div
+                        id="locales-menu"
+                        class="absolute right-0 top-full hidden transition-all dark:bg-gray-900 bg-gray-200 rounded-md z-9997"
+                        aria-label="Language choice menu"
+                        aria-hidden="true"
+                    >
+                        <ul
+                            class="flex flex-col items-center rounded-md p-1 gap-1"
+                        >
+                            {
+                                Object.entries(labelsLocales).map(
+                                    ([key, label], index, arr) => (
+                                        <li
+                                            class="w-full"
+                                            data-locale={key}
+                                            aria-label={`Language - ${label.name}`}
                                         >
-                                            <span class="text-white">
-                                                {label.name}
-                                            </span>
-                                            <span class="text-white/70 ml-auto">
-                                                {!label.multispoken ? '' : (label.multispoken && label.country.simple) ? label.country.simple : label.country.complex}
-                                            </span>
-                                        </a>
-                                    </li>
-                                ),
-                            )
-                        }
-                    </ul>
-                </div>
-            </li>
+                                            <a
+                                                href={`/${label.code}/`}
+                                                class={`rounded-md flex gap-2 text-sm flex-row text-center px-3 py-2 ${label.code === locale ? 'dark:bg-gray-800 bg-gray-300' : ''} dark:hover:bg-gray-800 hover:bg-gray-300 transition-colors w-full cursor-default`}
+                                            >
+                                                <span class="dark:text-white text-black">
+                                                    {label.name}
+                                                </span>
+                                                <span class="dark:text-white/70 text-black/70 ml-auto">
+                                                    {!label.multispoken ? '' : (label.multispoken && label.country.simple) ? label.country.simple : label.country.complex}
+                                                </span>
+                                            </a>
+                                        </li>
+                                    ),
+                                )
+                            }
+                        </ul>
+                    </div>
+                </li>
+            </div>
         </ul>
     </div>
 </header>
@@ -136,6 +188,7 @@ const navContent = getNavContent(locale);
         animation: drawBg 1s ease both;
         animation-timeline: scroll();
         animation-range: 0 250px;
+        border: 1px solid transparent;
     }
 
     @media screen and (max-width: 387px) {
