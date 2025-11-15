@@ -12,7 +12,7 @@ const navContent = getNavContent(locale);
     <div class="flex flex-row w-full md:max-w-4xl mx-0 md:mx-auto">
         <section class="w-full max-w-full md:max-w-[1400px] transition-all mx-0 md:mx-auto flex flex-col md:flex-row gap-6 md:gap-12 justify-center md:justify-between items-stretch py-3 md:py-10">
             {/* ABOUT ME - FOOTER */}
-            <div class="flex flex-col w-full max-w-[270px] mx-auto md:mx-0 text-sm text-center md:text-left py-3 md:py-0" aria-label="Sobre mí">
+            <div class="flex flex-col w-full max-w-[270px] mx-auto md:mx-0 text-base text-center md:text-left py-3 md:py-0" aria-label="Sobre mí">
                 <p class="dark:text-white text-black">
                     <span class="dark:text-yellow-100 text-yellow-500">Desarollador web</span> apasionado por las curiosidades de la <span class="dark:text-yellow-100 text-yellow-500">programación</span> y 
                     <span class="dark:text-yellow-100 text-yellow-500">creación de páginas webs</span> y asegurar la calidad para los clientes
@@ -26,7 +26,7 @@ const navContent = getNavContent(locale);
                         navContent.map((item) => {
                             const { label } = item;
                             return (
-                            <button class="cursor-pointer border-none text-center md:text-left outline-none dark:text-white/80 text-black/80 dark:hover:text-white hover:text-black text-sm transition-colors footer-link">
+                            <button class="cursor-pointer border-none text-center md:text-left outline-none dark:text-white/80 text-black/80 dark:hover:text-white hover:text-black text-base transition-colors footer-link">
                                 { label }
                             </button>
                             )
@@ -40,7 +40,7 @@ const navContent = getNavContent(locale);
                 <a href="https://github.com/yarosprojects?tab=repositories" target="_blank" class="py-3">
                     <i class="icon-[line-md--github] text-xl" />
                 </a>
-                <a href={`mailto:${email}`} class="px-4 py-2 text-sm dark:bg-gray-900 bg-gray-300 rounded-full w-fit h-fit ml-0 md:ml-4 transition-all dark:hover:brightness-125 hover:brightness-90">
+                <a href={`mailto:${email}`} class="px-4 py-2 text-base dark:bg-gray-900 bg-gray-300 rounded-full w-fit h-fit ml-0 md:ml-4 transition-all dark:hover:brightness-125 hover:brightness-90">
                     <span class="dark:text-white text-black">{translate.nav.contact}</span>
                     <i class="icon-[line-md--email] dark:text-white text-black/80" />
                 </a>
