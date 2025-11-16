@@ -9,7 +9,7 @@
 }
 
 html:not(.dark) {
-    --primary-color: rgb(235, 242, 255);
+    --primary-color: rgb(235, 255, 255, .6);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));

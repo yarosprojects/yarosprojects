@@ -47,7 +47,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 		<slot />
 		<Footer />
 
-		<button class="fixed outline-none border-none right-6 bottom-10 flex justify-center items-center m-0 rounded-full dark:bg-gray-800 shadow-lg bg-gray-200 p-1 select-none hover:scale-115 transition-all z-9999 cursor-pointer pointer-events-none opacity-0" aria-label="Botón de desplazamiento para arriba" id="scrollTopBtn">
+		<button class="fixed outline-none border-none right-6 bottom-10 flex justify-center items-center m-0 rounded-full dark:bg-gray-800 shadow-lg bg-gray-100 dark:drop-shadow-white/20 active:scale-90 drop-shadow-md drop-shadow-black/50 p-1 select-none hover:scale-115 transition-all z-9999 cursor-pointer pointer-events-none opacity-0" aria-label="Botón de desplazamiento para arriba" id="scrollTopBtn">
 			<div class="flex justify-center items-center size-8">
 				<span class="icon-[material-symbols--arrow-upward-rounded] text-xl font-extrabold dark:text-yellow-400 text-black"></span>
 			</div>
@@ -518,8 +518,20 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 	}
 
 
-	::-webkit-scrollbar {
+	html.dark ::-webkit-scrollbar {
 		width: 5px;
+	}
+
+	html ::-webkit-scrollbar {
+		width: 6px;
+	}
+
+	html.dark ::-webkit-scrollbar-thumb {
+		background-color: rgb(216, 216, 2);
+	}
+
+	html ::-webkit-scrollbar-thumb {
+		background-color: rgb(163, 163, 1);
 	}
 
 	::-webkit-scrollbar-track {
@@ -527,7 +539,6 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 	}
 
 	::-webkit-scrollbar-thumb {
-		background-color: rgb(216, 216, 2);
 		border-radius: 5px;
 	}
 

@@ -3,10 +3,10 @@ import FRAMEWORKS from '@consts/frameworks';
 import LANGUAGES from '@consts/languages';
 import { imageConfig } from "astro:assets";
 import avatar from "../../public/img/avatar.png";
+import locations from '@consts/locations';
 
 const { creador, translate, locale } = Astro.props;
 const cfgs_started_at = 2022;
-
 ---
 <div
     class="flex justify-start pt-15 md:pt-30 items-center flex-col min-h-screen w-full relative z-10"
@@ -66,7 +66,7 @@ const cfgs_started_at = 2022;
             </div>
             <div class="flex flex-col px-2">
                 <p class="dark:text-yellow-50 text-yellow-500 font-bold uppercase text-2xl">{translate.intro.years_of_experience}</p>
-                <span class="dark:text-white/75 text-black/75 text-sm">
+                <span class="dark:text-white/75 text-black/75 dark:text-sm text-base">
                     {translate.intro.work_plus_personal_experience}
                 </span>
             </div>
@@ -86,39 +86,41 @@ const cfgs_started_at = 2022;
             </div>
             */}
             {/* <div class="flex md:hidden w-1/2 h-0.5 bg-white rounded-full mt-5"></div> */}
-            <p class="dark:text-white/70 text-black/70 max-[195px]:text-base text-xl text-center md:text-left mt-20 mb-5 selection:bg-yellow-500 selection:text-black">
-                <span class="dark:text-yellow-300 text-yellow-500 font-extrabold">
-                    {locale === "en-GB" ? translate.intro.web_applications.charAt(0).toUpperCase() + translate.intro.web_applications.slice(1) : translate.intro.developer}
-                    { (locale === "es-ES" || locale === "ca-ES") && (
-                        <span class="text-white/70">{locale === "ca-ES" ? 'dels' : 'de'}</span>
-                    ) }
-                    {locale === "en-GB" ? translate.intro.developer.toLowerCase() : translate.intro.web_applications}
-                </span>
-                {translate.intro.bioinformatical_profile}
-                <span class="dark:text-yellow-100 text-yellow-500 relative before:absolute before:content-[''] before:left-0 before:top-full before:w-0 before:h-px dark:before:bg-yellow-100 before:bg-yellow-500 before:animate-width-to-full">
-                    {translate.intro.bioinformatical}
-                </span>
-                <br>
-                {translate.intro.from} 
-                <a href="https://maps.app.goo.gl/7TDSxg5tGKfRuGfc6" target="_blank" class="dark:hover:text-white hover:text-black inline-block backdrop-blur-3xl hover:px-2 dark:hover:bg-transparent hover:bg-gray-900/10 hover:scale-105 transition-all mt-1">{translate.cities.psip}</a>, {translate.countries.spain}.
-                <br>
-            </p>
-            <p class="dark:text-white/70 text-black/70 max-[195px]:text-base text-xl text-center md:text-left selection:bg-yellow-500 selection:text-black mt-8 md:mb-0 mb-5 md:mt-0">
-                {translate.intro.focused_on} <span class="dark:text-yellow-100 text-yellow-500">{translate.intro.creation}</span>, <span class="dark:text-yellow-100 text-yellow-500">{translate.intro.maintenance}</span> {translate.intro.and} <span class="dark:text-yellow-100 text-yellow-500">{translate.intro.resolution}</span> {translate.intro.of_the} <span class="dark:text-yellow-100 text-yellow-500">{translate.intro.vulnerability}</span> {translate.intro.of_normal} {translate.intro.of_static_and_dynamic_web_pages} <span class="dark:text-yellow-100 text-yellow-500">{translate.intro.statics}</span> {translate.intro.and_normal} <span class="dark:text-yellow-100 text-yellow-500">{translate.intro.dynamics}</span> 
-                {translate.intro.websites}
-                .
-            </p>
+            <div class="w-full flex flex-col p-0 md:p-2">
+                <p class="dark:text-white/70 text-black/70 max-[195px]:text-base text-xl text-center md:text-left mt-20 mb-5 selection:bg-yellow-500 selection:text-black">
+                    <span class="dark:text-yellow-300 text-yellow-500 font-extrabold">
+                        {locale === "en-GB" ? translate.intro.web_applications.charAt(0).toUpperCase() + translate.intro.web_applications.slice(1) : translate.intro.developer}
+                        { (locale === "es-ES" || locale === "ca-ES") && (
+                            <span class="dark:text-white/70 text-black/70 font-normal">{locale === "ca-ES" ? 'dels' : 'de'}</span>
+                        ) }
+                        {locale === "en-GB" ? translate.intro.developer.toLowerCase() : translate.intro.web_applications}
+                    </span>
+                    {translate.intro.bioinformatical_profile}
+                    <span class="dark:text-yellow-100 text-yellow-500 relative before:absolute before:content-[''] before:left-0 before:top-full before:w-0 before:h-px dark:before:bg-yellow-100 before:bg-yellow-500 before:animate-width-to-full">
+                        {translate.intro.bioinformatical}
+                    </span>
+                    <br>
+                    {translate.intro.from} 
+                    <a href={locations(locale).psip.location} target="_blank" class="dark:hover:text-white hover:text-black inline-block backdrop-blur-3xl hover:px-2 dark:hover:bg-transparent hover:bg-gray-900/10 hover:scale-105 transition-all mt-1">{locations(locale).psip.name}</a>, {locations(locale).spain.name}.
+                    <br>
+                </p>
+                <p class="dark:text-white/70 text-black/70 max-[195px]:text-base text-xl text-center md:text-left selection:bg-yellow-500 selection:text-black mt-8 md:mb-0 mb-5 md:mt-0">
+                    {translate.intro.focused_on} <span class="dark:text-yellow-100 text-yellow-500">{translate.intro.creation}</span>, <span class="dark:text-yellow-100 text-yellow-500">{translate.intro.maintenance}</span> {translate.intro.and} <span class="dark:text-yellow-100 text-yellow-500">{translate.intro.resolution}</span> {translate.intro.of_the} <span class="dark:text-yellow-100 text-yellow-500">{translate.intro.vulnerability}</span> {translate.intro.of_normal} {translate.intro.of_static_and_dynamic_web_pages} <span class="dark:text-yellow-100 text-yellow-500">{translate.intro.statics}</span> {translate.intro.and_normal} <span class="dark:text-yellow-100 text-yellow-500">{translate.intro.dynamics}</span> 
+                    {translate.intro.websites}
+                    .
+                </p>
+            </div>
             <div class="flex flex-col gap-15 md:gap-3 w-full py-13 md:py-7">
                 <div class="flex flex-col w-full gap-7">
                     <div
                         id="frameworks-container" 
-                        class="relative w-full flex justify-center md:justify-start items-center flex-wrap flex-row gap-3 overflow-hidden md:overflow-auto max-h-17 md:max-h-full transition-all duration-500"
+                        class="relative w-full flex justify-center md:justify-start items-center flex-wrap flex-row gap-3 overflow-hidden md:overflow-auto max-h-17 md:max-h-full transition-all duration-500 px-0 py-3 md:p-2"
                     >
                         {
                             FRAMEWORKS.map((framework) => {
                                 const { name, animation_delay, img } = framework;
                                 return (
-                                    <div class="flex flex-row justify-center items-center gap-2 px-5 md:px-4 py-2 md:py-2 rounded-full dark:bg-gray-800 bg-gray-300 animate-fade-in framework-card"
+                                    <div class="flex flex-row justify-center items-center gap-2 px-5 md:px-4 py-2 md:py-2 rounded-full dark:bg-gray-800 bg-gray-100 animate-fade-in framework-card dark:drop-shadow-none drop-shadow-sm drop-shadow-black/50"
                                         style={`animation-delay: ${animation_delay}ms;`}
                                     >
                                         <img src={img} alt={`Image of ${name}`} class={`size-5 ${name.toLowerCase() === "java" ? '-translate-y-0.75' : ''}`} />
@@ -148,13 +150,13 @@ const cfgs_started_at = 2022;
                 <div class="flex flex-col w-full gap-7 pt-7">
                     <div
                         id="languages-container" 
-                        class="relative w-full flex justify-center md:justify-start items-center flex-wrap flex-row gap-3 overflow-hidden md:overflow-auto max-h-15 md:max-h-full transition-all duration-500"
+                        class="relative w-full flex justify-center md:justify-start items-center flex-wrap flex-row gap-3 overflow-hidden md:overflow-auto max-h-15 md:max-h-full transition-all duration-500 px-0 py-3 md:p-2"
                     >
                         {
                             LANGUAGES.map((language) => {
                                 const { name, animation_delay, img } = language;
                                 return  (
-                                    <div class="flex flex-row justify-center items-center gap-2 px-5 md:px-4 py-2 md:py-2 rounded-full dark:bg-gray-800 bg-gray-300 animate-fade-in language-card"
+                                    <div class="flex flex-row justify-center items-center gap-2 px-5 md:px-4 py-2 md:py-2 rounded-full dark:bg-gray-800 bg-gray-100 animate-fade-in language-card dark:drop-shadow-none drop-shadow-sm drop-shadow-black/50"
                                         style={`animation-delay: ${animation_delay}ms;`}
                                     >
                                         <img src={img} alt={`Image of ${name}`} class={`size-5 ${name.toLowerCase() === "java" ? '-translate-y-0.75' : ''}`} />
