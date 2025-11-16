@@ -72,6 +72,7 @@ export default {
     trajectory: {
         title: 'Траєкоторія',
         actually: 'Актуально...',
+        intership_message: 'Контракт стажера',
         experiences: {
             'angular': {
                 role: "Фронтенд-розробник Angular",

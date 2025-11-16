@@ -9,6 +9,7 @@ const EXPERIENCES = [
         start: `${translate.months.june.slice(0, 3)} 2023`,
         end: `${translate.months.may.slice(0, 3)} 2024`,
         description: translate.trajectory.experiences['angular'].description,
+        interShip: true,
     },
     {
         id: 'peon',
@@ -17,6 +18,7 @@ const EXPERIENCES = [
         start: `${translate.months.june.slice(0, 3)} 2024`,
         end: `${translate.months.august.slice(0, 3)} 2024`,
         description: translate.trajectory.experiences['peon'].description,
+        interShip: false,
     },
     {
         id: 'peon-administrativo',
@@ -25,6 +27,7 @@ const EXPERIENCES = [
         start: `${translate.months.september.slice(0, 3)} 2024`,
         end: translate.trajectory.actually,
         description: translate.trajectory.experiences['peon-administrativo'].description,
+        interShip: false,
     },
 ];
 ---
@@ -49,11 +52,11 @@ const EXPERIENCES = [
         </div>
         {
             EXPERIENCES.map((experience, index) => {
-                const { company, role, start, end, description } = experience;
+                const { company, role, start, end, description, interShip } = experience;
 
                 return (
                     <section
-                        class={`mb-12 flex w-full items-center max-[180px]:pl-2 pl-5 md:pl-0 ${
+                        class={`mb-20 md:mb-12 flex w-full items-center max-[180px]:pl-2 pl-5 md:pl-0 ${
                             index % 2 === 0 ? "justify-start" : "justify-start md:justify-end"
                         }`}
                     >
@@ -86,6 +89,13 @@ const EXPERIENCES = [
                                     </p>
                                     <p class="dark:text-gray-300 text-gray-800 mt-2 text-ellipsis">{description}</p>
                                 </div>
+                                { interShip &&
+                                    <div class="w-full flex justify-start items-center mt-5">
+                                        <span class="dark:text-yellow-500 text-yellow-600 text-sm dark:bg-yellow-500/15 bg-yellow-300/20 dark:drop-shadow-none drop-shadow-md drop-shadow-yellow-300 px-2 py-1 md:py-0.5 rounded-full border dark:border-transparent border-yellow-300/60">
+                                            {translate.trajectory.intership_message}
+                                        </span>
+                                    </div>
+                                }
                             </div>
                         </div>
                     </section>

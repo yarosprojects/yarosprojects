@@ -71,6 +71,7 @@ export default {
     trajectory: {
         title: 'Trayectoria',
         actually: 'Actualidad...',
+        intership_message: 'Contrato de práticas',
         experiences: {
             'angular': {
                 role: 'Desarollador Frontend de Angular',
