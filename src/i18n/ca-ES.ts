@@ -102,6 +102,15 @@ export default {
         },
     },
 
+    footer: {
+        web_developer: "Desenvolupador web",
+        apasionated: "apasionat per les curiositats de la",
+        programming: "programació",
+        and: "i",
+        web_pages_creation: "la creació de les pàgines webs",
+        ensure_quality_for_clients: "assegurar la qualitat per els clientes",
+    },
+
     404: {
         error_code: 404,
         error_title: 'Pàgina no trobada',

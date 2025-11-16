@@ -102,6 +102,15 @@ export default {
         },
     },
 
+    footer: {
+        web_developer: "Веб-розробник",
+        apasionated: "захоплений цікавими аспектами",
+        programming: "програмування",
+        and: "та",
+        web_pages_creation: "створення веб-сторінок",
+        ensure_quality_for_clients: "забезпечуючи якість для клієнтів",
+    },    
+
     404: {
         error_code: 404,
         error_title: 'Сторінку не знайдено',

@@ -14,8 +14,8 @@ const navContent = getNavContent(locale);
             {/* ABOUT ME - FOOTER */}
             <div class="flex flex-col w-full max-w-[270px] mx-auto md:mx-0 text-base text-center md:text-left py-3 md:py-0" aria-label="Sobre mí">
                 <p class="dark:text-white text-black/80">
-                    <span class="dark:text-yellow-100 text-yellow-500">Desarollador web</span> apasionado por las curiosidades de la <span class="dark:text-yellow-100 text-yellow-500">programación</span> y 
-                    <span class="dark:text-yellow-100 text-yellow-500">creación de páginas webs</span> y asegurar la calidad para los clientes
+                    <span class="dark:text-yellow-100 text-yellow-500">{translate.footer.web_developer}</span> {translate.footer.apasionated} <span class="dark:text-yellow-100 text-yellow-500">{translate.footer.programming}</span> {translate.footer.and} 
+                    <span class="dark:text-yellow-100 text-yellow-500">{translate.footer.web_pages_creation}</span> {locale === 'ua-UK' ? '' : translate.footer.and} {translate.footer.ensure_quality_for_clients}
                 </p>
             </div>
     

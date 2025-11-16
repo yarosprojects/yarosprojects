@@ -101,6 +101,15 @@ export default {
         },
     },
 
+    footer: {
+        web_developer: "Desarollador web",
+        apasionated: "apasionado por las curiosidades de la",
+        programming: "programación",
+        and: "y",
+        web_pages_creation: "creación de páginas webs",
+        ensure_quality_for_clients: "asegurar la calidad para los clientes",
+    },
+
     404: {
         error_code: 404,
         error_title: 'Página no encontrada',
