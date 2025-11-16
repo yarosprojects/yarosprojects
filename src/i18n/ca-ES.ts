@@ -89,6 +89,7 @@ export default {
     },
 
     projects: {
+        code_btn: 'Codi',
         preview: 'Preview',
         calculator: {
             name: 'Calculadora',

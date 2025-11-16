@@ -6,10 +6,14 @@
 :root {
     --primary-color: rgb(2, 6, 24);
     --header-h: 70px;
+    --angular-bg: rgb(221, 0, 49, .4);
+    --svelte-bg: rgba(255, 62, 0, 0.35);
 }
 
 html:not(.dark) {
     --primary-color: rgb(235, 255, 255, .6);
+    --angular-bg: rgb(221, 0, 49, .4);
+    --svelte-bg: rgba(255, 62, 0, .6);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -23,15 +27,15 @@ html:not(.dark) {
 }
 
 @utility bg-angular {
-    background-color: #c1002a57;
+    background-color: var(--angular-bg);
 }
 
 @utility bg-svelte {
-    background-color: rgba(255, 62, 0, 0.35);
+    background-color: var(--svelte-bg);
 }
 
 @utility bg-typescript {
-    background-color: rgba(49, 120, 198, 0.15);
+    background-color: rgb(1, 44, 90, .7);
 }
 
 @utility bg-tailwindcss {
