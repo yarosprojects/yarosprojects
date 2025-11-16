@@ -17,7 +17,7 @@ const cfgs_started_at = 2022;
         <img
             src={avatar.src}
             alt="Avatar Yaroslav Klymko"
-            class="w-40 mx-auto md:mx-0 h-auto rounded-full animate-fade-in-down"
+            class="w-40 mx-auto md:mx-0 h-auto rounded-full animate-fade-in-down mask-avatar"
         />
         <div
             class="flex flex-1 p-4 md:px-8 md:py-15 flex-col items-center md:items-start justify-start w-full h-full"
@@ -44,7 +44,7 @@ const cfgs_started_at = 2022;
                     href="https://www.linkedin.com/in/yaroslav-klymko-psip"
                     target="_blank"
                     rel="noopener"
-                    class="px-3 py-1 dark:bg-gray-800 bg-green-300/50 dark:hover:bg-gray-700 hover:bg-green-300/50 transition-all hover:scale-105 rounded-full shadow-lg shadow-white/20 w-fit md:mx-0 mx-auto dark:text-green-300 text-green-700 border dark:border-transparent border-green-500"
+                    class="px-3 py-2 md:py-1 text-[15px] md:text-sm dark:bg-gray-800 bg-green-300/50 dark:hover:bg-gray-700 hover:bg-green-300/50 transition-all hover:scale-105 rounded-full shadow-md dark:shadow-green-300/25 w-fit md:mx-0 mx-auto dark:text-green-300 text-green-700 border dark:border-green-300/20 border-green-500"
                     aria-label="Enlace a LinkedIn"
                 >
                     #OpenToWork
@@ -279,3 +279,30 @@ const cfgs_started_at = 2022;
         }
     });
 </script>
+
+<style>
+    html.dark .mask-avatar {
+        -webkit-mask-image: radial-gradient(circle, rgba(255,255,255,1) 30%, rgba(0,0,0,0) 100%);
+        mask-image: radial-gradient(circle, rgba(255,255,255,1) 40%, rgba(0,0,0,0) 65%);
+    }
+    .mask-avatar {
+        border-radius: 50%;
+        -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+        mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 70%);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        -webkit-mask-size: cover;
+        mask-size: cover;
+        animation: invertShow 1s forwards;
+    }
+
+    @keyframes invertShow {
+        from {
+            filter: invert(.3);
+        } to {
+            filter: invert(0);
+        }
+    }
+</style>
