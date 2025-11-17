@@ -165,12 +165,12 @@ const navContent = getNavContent(locale);
                                         >
                                             <a
                                                 href={`/${label.code}/`}
-                                                class={`rounded-md flex gap-2 text-sm flex-row text-center px-3 py-2 ${label.code === locale ? 'dark:bg-gray-800 bg-gray-300' : ''} dark:hover:bg-gray-800 hover:bg-gray-300 transition-colors w-full cursor-default`}
+                                                class={`rounded-md flex max-[165px]:gap-2 gap-5 text-sm flex-row text-center px-3 py-2 ${label.code === locale ? 'dark:bg-gray-800 bg-gray-300' : ''} dark:hover:bg-gray-800 hover:bg-gray-300 transition-colors w-full cursor-default`}
                                             >
                                                 <span class="dark:text-white text-black">
                                                     {label.name}
                                                 </span>
-                                                <span class="dark:text-white/70 text-black/70 ml-auto">
+                                                <span class="dark:text-white/70 text-right text-black/70 ml-auto">
                                                     {!label.multispoken ? '' : (label.multispoken && label.country.simple) ? label.country.simple : label.country.complex}
                                                 </span>
                                             </a>
