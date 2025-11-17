@@ -8,12 +8,12 @@ const locale = Astro.params.locale as Language;
 const translate = i18n[locale];
 const navContent = getNavContent(locale);
 ---
-<footer class="flex w-full flex-col px-8 md:opacity-100 opacity-0 md:animate-duration-0 animate-duration-700" aria-label="Pie de la página" id="footer">
+<footer class="flex w-full flex-col px-2 md:px-8 md:opacity-100 opacity-0 md:animate-duration-0 animate-duration-700" aria-label="Pie de la página" id="footer">
     <div class="flex flex-row w-full md:max-w-4xl mx-0 md:mx-auto">
         <section class="w-full max-w-full md:max-w-[1400px] transition-all mx-0 md:mx-auto flex flex-col md:flex-row gap-6 md:gap-12 justify-center md:justify-between items-stretch py-3 md:py-10">
             {/* ABOUT ME - FOOTER */}
             <div class="flex flex-col w-full max-w-[270px] mx-auto md:mx-0 text-center md:text-left py-3 md:py-0" aria-label="Sobre mí">
-                <p class="dark:text-white text-black/80 text-xl md:text-base">
+                <p class="dark:text-white text-black/80 text-base">
                     <span class="dark:text-yellow-100 text-yellow-500">{translate.footer.web_developer}</span> {translate.footer.apasionated} <span class="dark:text-yellow-100 text-yellow-500">{translate.footer.programming}</span> {translate.footer.and} 
                     <span class="dark:text-yellow-100 text-yellow-500">{translate.footer.web_pages_creation}</span> {locale === 'ua-UK' ? '' : translate.footer.and} {translate.footer.ensure_quality_for_clients}
                 </p>
@@ -26,7 +26,7 @@ const navContent = getNavContent(locale);
                         navContent.map((item) => {
                             const { label } = item;
                             return (
-                            <button class="cursor-pointer border-none text-center md:text-left outline-none dark:text-white/55 text-black/55 dark:hover:text-white hover:text-black text-xl md:text-base transition-colors footer-link">
+                            <button class="cursor-pointer border-none text-center md:text-left outline-none dark:text-white/55 text-black/55 dark:hover:text-white hover:text-black text-base transition-colors footer-link">
                                 { label }
                             </button>
                             )
@@ -40,9 +40,9 @@ const navContent = getNavContent(locale);
                 <a href="https://github.com/yarosprojects?tab=repositories" target="_blank" class="py-3 dark:text-white/80 dark:hover:text-white hover:text-black text-black/80 hover:scale-110 active:scale-90 transition-all mx-auto md:mx-0">
                     <i class="icon-[line-md--github] text-2xl md:text-xl" />
                 </a>
-                <a href={`mailto:${email}`} class="px-4 py-2 text-[18px] md:text-base dark:bg-gray-900 bg-gray-100 dark:drop-shadow-none drop-shadow-md drop-shadow-black/20 rounded-full w-fit h-fit transition-all dark:hover:bg-gray-800 hover:bg-gray-200 flex flex-row justify-center items-center gap-1 mx-auto md:mx-0">
-                    <span class="dark:text-white text-black">{translate.nav.contact}</span>
-                    <i class="icon-[line-md--email] dark:text-white text-black/80 text-[18px]" />
+                <a href={`mailto:${email}`} class="px-4 py-2 text-[18px] dark:bg-gray-900 bg-gray-100 dark:drop-shadow-none drop-shadow-md drop-shadow-black/20 rounded-full w-fit h-fit transition-all dark:hover:bg-gray-800 hover:bg-gray-200 flex flex-row justify-center items-center gap-1 mx-auto md:mx-0">
+                    <span class="dark:text-white text-black text-base">{translate.nav.contact}</span>
+                    <i class="icon-[line-md--email] dark:text-white text-black/80 text-base md:text-[18px]" />
                 </a>
             </div>
         </section>

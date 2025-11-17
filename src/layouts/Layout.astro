@@ -90,6 +90,15 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
         window.addEventListener('resize', navCheckIfHidden);
 		window.addEventListener('resize', checkResponsiveNavAvailability);
 
+		window.addEventListener('resize', function() {
+			if(window.innerWidth >= 450) {
+				if(!$blurredArea.classList.contains('hidden')) $blurredArea.classList.add('hidden');
+				$blurredArea.classList.remove('animate-fade-in');
+				$blurredArea.classList.remove('animate-fade-out');
+				if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
+			}
+		});
+
 		checkActiveSection(window.scrollY);
 		window.addEventListener('scroll', () => checkActiveSection(window.scrollY));
 
@@ -111,12 +120,14 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
                     if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
                     if($responsive_nav.classList.contains('animate-fade-in-down')) $responsive_nav.classList.remove('animate-fade-in-down');
 					if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
-					$blurredArea.classList.remove('animate-fade-in');
-					$blurredArea.classList.add('animate-out-in');
-					setTimeout(function() {
-						$blurredArea.classList.remove('animate-out-in');
-						$blurredArea.classList.add('hidden');
-					}, 100);
+					if(window.innerWidth <= 768) {
+						$blurredArea.classList.remove('animate-fade-in');
+						$blurredArea.classList.add('animate-fade-out');
+						setTimeout(function() {
+							$blurredArea.classList.remove('animate-fade-out');
+							$blurredArea.classList.add('hidden');
+						}, 100);
+					}
 				}
 			});
 		});
@@ -198,16 +209,16 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
                 $theme_menu.classList.remove('dark:bg-gray-800/60');
                 $theme_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
                 $theme_menu.classList.add('hidden');
-				$blurredArea.classList.remove('hidden');
+				if(window.innerWidth <= 768) $blurredArea.classList.remove('hidden');
             } else {
                 $responsive_nav.classList.add('hidden');
                 $responsive_nav.classList.remove('animate-fade-in-down', 'animate-duration-100');
                 if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
 				$responsive_nav.setAttribute('aria-hidden', true);
 				$blurredArea.classList.remove('animate-fade-in');
-				$blurredArea.classList.add('animate-out-in');
+				$blurredArea.classList.add('animate-fade-out');
 				setTimeout(function() {
-					$blurredArea.classList.remove('animate-out-in');
+					$blurredArea.classList.remove('animate-fade-out');
 					$blurredArea.classList.add('hidden');
 				}, 100);
             }
@@ -223,9 +234,9 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
                     if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
 					$responsive_nav.setAttribute('aria-hidden', true);
 					$blurredArea.classList.remove('animate-fade-in');
-					$blurredArea.classList.add('animate-out-in');
+					$blurredArea.classList.add('animate-fade-out');
 					setTimeout(function() {
-						$blurredArea.classList.remove('animate-out-in');
+						$blurredArea.classList.remove('animate-fade-out');
 						$blurredArea.classList.add('hidden');
 					}, 100);
                 }
@@ -263,6 +274,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
                 $locales_btn.classList.add('dark:bg-gray-800', 'bg-gray-300');
                 $locales_menu.classList.remove('hidden');
                 $locales_menu.classList.add('animate-fade-in-down', 'animate-duration-100');
+				if(!$blurredArea.classList.contains('hidden')) $blurredArea.classList.add('hidden');
             } else {
                 $locales_menu.classList.remove('mt-3', 'mt-1');
                 $locales_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
@@ -301,6 +313,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 				$theme_menu.setAttribute('aria-hidden', false);
 				$locales_menu.setAttribute('aria-hidden', true);
 				$responsive_nav.setAttribute('aria-hidden', true);
+				if(!$blurredArea.classList.contains('hidden')) $blurredArea.classList.add('hidden');
 			} else {
 				$theme_menu.classList.remove('mt-3', 'mt-1');
 				$theme_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
@@ -356,7 +369,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
         });
 
 		function checkResponsiveNavAvailability() {
-			if(window.innerWidth >= 420) {
+			if(window.innerWidth >= 450) {
 				if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
 				$responsive_nav.classList.remove('animate-fade-in-down');
 				hamburgerClicked = false;
@@ -437,7 +450,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 		}
 
 		function hamburgerOnClick() {
-            if(window.innerWidth < 420) {
+            if(window.innerWidth < 450) {
                 $hamburger_btn.setAttribute('aria-hidden', false);
             } else {
                 $hamburger_btn.setAttribute('aria-hidden', true);
@@ -446,7 +459,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 
 		function navCheckIfHidden() {
             const $nav = document.querySelector('#nav');
-            if(window.innerWidth < 420) {
+            if(window.innerWidth < 450) {
                 $nav.setAttribute('aria-hidden', true);
             } else {
                 $nav.setAttribute('aria-hidden', false);
