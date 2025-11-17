@@ -34,6 +34,12 @@ export default {
     work_experience: 'Experiència laboral',
     section_in_mantainance: "Aquesta secció es troba en tasques de manteniment i millora. Disculpeu les molèsties i gràcies per la vostra paciència.",
 
+    themes: {
+        light: 'Clar',
+        dark: 'Fosc',
+        system: 'Sistema',
+    },
+
     nav: {
         intro: 'Intro',
         experience: 'Experiència',

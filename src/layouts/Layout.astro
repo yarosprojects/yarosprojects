@@ -488,13 +488,17 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 
 			if (theme === 'dark') {
 				icon.classList.add('icon-[material-symbols--dark-mode-outline-rounded]');
+				setThemeBtnLabel("dark");
 			} else if (theme === 'light') {
 				icon.classList.add('icon-[carbon--light]');
+				setThemeBtnLabel("light");
 			} else { // system
 				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
 					icon.classList.add('icon-[ion--md-desktop]');
+					setThemeBtnLabel("dark");
 				} else {
 					icon.classList.add('icon-[ion--md-desktop]');
+					setThemeBtnLabel("light");
 				}
 			}
 		}
@@ -505,6 +509,11 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 				tema.classList.remove('dark:bg-gray-800', 'bg-gray-300');
 			});
 			tema.classList.add('dark:bg-gray-800', 'bg-gray-300');
+		}
+
+
+		function setThemeBtnLabel(theme) {
+			$theme_btn.setAttribute('data-theme', theme);
 		}
 	});
 </script>

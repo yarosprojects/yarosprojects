@@ -1,7 +1,7 @@
 ---
 import type { Language } from "../types/language.type";
 import { labelsLocales } from "@consts/locales.labels";
-import { THEMES } from "@consts/themes";
+import THEMES from "@consts/themes";
 import { i18n } from "@consts/i18n.files";
 import { getNavContent } from "@consts/nav.content";
 import { email } from '@consts/usefullData';
@@ -96,30 +96,32 @@ const navContent = getNavContent(locale);
                         type="button" 
                         class="p-2.5 hover:text-black dark:hover:text-white rounded-lg flex justify-center items-center cursor-pointer hover:scale-110 transition-all outline-none border-none" 
                         id="theme-swithcer"
-                        data-theme="system"
+                        aria-label="Themes switcher button"
                     >
                         <i class="text-base" id="theme-icon" />
                     </button>
 
                     <div 
                         id="themes-menu"
-                        class="min-w-[150px] absolute right-0 top-full transition-all dark:bg-gray-900 bg-gray-100 dark:drop-shadow-none drop-shadow-md drop-shadow-black/20 rounded-md z-9997 hidden max-[220px]:-right-13"
+                        class={`min-w-[150px] absolute right-0 top-full transition-all dark:bg-gray-900 bg-gray-100 dark:drop-shadow-none drop-shadow-md drop-shadow-black/20 rounded-md z-9997 hidden max-[260px]:-right-10 max-[220px]:-right-13 ${locale === "ua-UK" ? 'max-[220px]:w-full' : ''}`}
                         aria-label="Theme choice menu"
                         aria-hidden="true"
                     >
                         <ul class="flex flex-col items-center rounded-md w-full p-1 gap-1">
                             {
-                                Object.entries(THEMES).map(
+                                Object.entries(THEMES(locale)).map(
                                     ([key, theme], index, arr) => {
-                                        const { id, label, icon } = theme;
+                                        const { id, label, name, icon } = theme;
                                         return(
                                             <li
                                                 id={`${id}-theme`}
-                                                class="w-full flex justify-between items-center group transition-colors px-3 py-2 rounded-md dark:hover:bg-gray-800 hover:bg-gray-300"
+                                                class={`w-full flex max-[220px]:flex-wrap justify-between items-center group transition-colors px-3 py-2 rounded-md dark:hover:bg-gray-800 hover:bg-gray-300 ${locale === "ua-UK" ? 'gap-5 max-[220px]:gap-2' :''}`}
                                                 aria-label={`${label} theme choice`}
                                                 data-themeChoice={`${id}`}
                                             >
-                                                <span class="select-none text-sm dark:text-white text-black">{label}</span>
+                                                <span class={`select-none text-sm dark:text-white text-black ${locale === "ua-UK" ? 'min-w-[125px]' : ''}`}>
+                                                    {name}
+                                                </span>
                                                 <i class={`${icon} text-base dark:text-white text-black`} />
                                             </li>
                                         )

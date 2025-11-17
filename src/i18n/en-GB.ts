@@ -33,6 +33,12 @@ export default {
     work_experience: 'Work Experience',
     section_in_mantainance: "This section is under maintenance and improvement. Sorry for the inconvenience and thank you for your patience.",
 
+    themes: {
+        light: 'Light',
+        dark: 'Dark',
+        system: 'System',
+    },
+
     nav: {
         intro: 'Intro',
         experience: 'Experience',

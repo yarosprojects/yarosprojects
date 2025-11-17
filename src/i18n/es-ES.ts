@@ -33,6 +33,12 @@ export default {
     work_experience: 'Experiencia laboral',
     section_in_mantainance: "Ésta sección se encuentras en tareas de mantenimiendo y mejora. Disuclpe las molestias y gracias por su paciencia",
 
+    themes: {
+        light: 'Claro',
+        dark: 'Oscuro',
+        system: 'Sistema',
+    },
+
     nav: {
         intro: 'Intro',
         experience: 'Experiencia',
