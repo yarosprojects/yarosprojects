@@ -351,6 +351,12 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
             } else {
                 if(locales_opened) {
 					$locales_btn.classList.add('dark:bg-gray-800', 'bg-gray-300');
+				} else {
+					if(window.innerWidth > 768) {
+						$locales_btn.classList.add('dark:bg-gray-800/60', 'bg-gray-300/50')
+					} else {
+						$locales_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300/50')
+					}
 				}
             }
         }
