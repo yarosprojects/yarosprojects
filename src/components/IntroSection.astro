@@ -111,9 +111,6 @@ const cfgs_started_at = 2022;
                 </p>
             </div>
             <div class="flex flex-col gap-15 md:gap-3 w-full py-13 md:py-7">
-                <div class="w-full flex justify-start items-center px-4 pt-2">
-                    <span class="text-white/70 text-sm">Tecnologias que uso:</span>
-                </div>
                 <div class="flex flex-col w-full gap-7">
                     <div
                         id="frameworks-container" 
@@ -137,11 +134,11 @@ const cfgs_started_at = 2022;
 
                         <div class="absolute flex md:hidden left-0 -bottom-1 w-full h-10 bg-linear-to-t from-(--primary-color) to-transparent pointer-events-none opacity-100 transition-opacity" id="frameworks-overlay"></div>
                     </div>
-                    <div class="w-full flex md:hidden justify-center items-center px-4 py-5">
+                    <div class="w-full flex md:hidden justify-center items-center max-[195px]:px-0 px-4 py-5">
                         <button
                             id="show-frameworks-more"
                             type="button"
-                            class="px-4 py-2 rounded-lg text-black bg-yellow-500 font-extrabold cursor-pointer outline-none border-none"
+                            class="px-4 py-2 rounded-lg max-[195px]:w-full w-fit text-black bg-yellow-500 font-extrabold cursor-pointer outline-none border-none max-[195px]:text-sm text-base"
                             data-showMore={translate.intro.show_more}
                             data-showLess={translate.intro.show_less}
                             aria-label="Boton de mostrar más y mostrar menos los frameworks de programación"
@@ -172,11 +169,11 @@ const cfgs_started_at = 2022;
                         }
                         <div class="absolute flex md:hidden left-0 -bottom-1 w-full h-10 bg-linear-to-t from-(--primary-color) to-transparent pointer-events-none opacity-100 transition-opacity" id="languages-overlay"></div>
                     </div>
-                    <div class="w-full flex md:hidden justify-center items-center px-4 py-5">
+                    <div class="w-full flex md:hidden justify-center items-center max-[195px]:px-0 px-4 py-5">
                         <button
                             id="show-languages-more"
                             type="button"
-                            class="px-4 py-2 rounded-lg text-black bg-yellow-500 font-extrabold cursor-pointer outline-none border-none"
+                            class="px-4 py-2 rounded-lg max-[195px]:w-full w-fit text-black bg-yellow-500 font-extrabold cursor-pointer outline-none border-none max-[195px]:text-sm text-base"
                             data-showMore={translate.intro.show_more}
                             data-showLess={translate.intro.show_less}
                             aria-label="Boton de mostrar más y mostrar menos los lenguajes de programación"
