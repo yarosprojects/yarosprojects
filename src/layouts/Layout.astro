@@ -188,7 +188,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 				$locales_menu.setAttribute('aria-hidden', true);
 				$responsive_nav.setAttribute('aria-hidden', false);
 				$theme_menu.classList.remove('mt-3', 'mt-1');
-                $theme_menu.classList.remove('bg-gray-800/60');
+                $theme_menu.classList.remove('dark:bg-gray-800/60');
                 $theme_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
                 $theme_menu.classList.add('hidden');
             } else {
@@ -217,11 +217,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
             if(window.innerWidth >= 768) setLocalesBtnBg();
         });
         window.addEventListener('resize', function() { 
-            if(window.innerWidth >= 768) {
-                $locales_btn.classList.add('dark:bg-gray-800/60', 'bg-gray-300');
-            } else {
-                $locales_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300');
-            }
+            setLocalesBtnBg();
         });
         
         $locales_btn.addEventListener('click', function(e) {
@@ -349,19 +345,13 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 			}
 		}
 
-		window.addEventListener('resize', function() {
-			if(this.window.innerWidth > 768) {
-				setLocalesBtnBg();
-			} else {
-				$locales_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300/50');
-			}
-		});
-
         function setLocalesBtnBg() {
             if(window.scrollY > 50) {
-				$locales_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300/50');
+				$locales_btn.classList.remove('dark:bg-gray-800/60', 'dark:bg-gray-800', 'bg-gray-300/50');
             } else {
-                $locales_btn.classList.add('dark:bg-gray-800/60', 'bg-gray-300/50');
+                if(locales_opened) {
+					$locales_btn.classList.add('dark:bg-gray-800', 'bg-gray-300');
+				}
             }
         }
 
