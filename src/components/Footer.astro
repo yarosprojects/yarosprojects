@@ -8,7 +8,7 @@ const locale = Astro.params.locale as Language;
 const translate = i18n[locale];
 const navContent = getNavContent(locale);
 ---
-<footer class="flex w-full flex-col px-8" aria-label="Pie de la página">
+<footer class="flex w-full flex-col px-8 md:opacity-100 opacity-0 md:animate-duration-0 animate-duration-700" aria-label="Pie de la página" id="footer">
     <div class="flex flex-row w-full md:max-w-4xl mx-0 md:mx-auto">
         <section class="w-full max-w-full md:max-w-[1400px] transition-all mx-0 md:mx-auto flex flex-col md:flex-row gap-6 md:gap-12 justify-center md:justify-between items-stretch py-3 md:py-10">
             {/* ABOUT ME - FOOTER */}
@@ -61,3 +61,25 @@ const navContent = getNavContent(locale);
         </div>
     </section>  
 </footer>
+
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+        const $footer = document.querySelector('#footer');
+        obserervar($footer, ['animate-fade-in-up', 'md:animate-none'])
+        
+        function obserervar(element, className) {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if(entry.isIntersecting) {
+                        element.classList.add(...className);
+
+                        observer.unobserve(entry.target);
+                    } 
+                });
+            }, { threshold: 0.1 });
+
+            observer.observe(element);
+        }
+    });
+</script>
