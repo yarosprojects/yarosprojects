@@ -172,7 +172,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
                 locales_opened = false;
 				themes_opened = false;
                 $responsive_nav.classList.remove('hidden');
-                $responsive_nav.classList.add('animate-fade-in-down');
+                $responsive_nav.classList.add('animate-fade-in-down', 'animate-duration-100');
                 if(!$hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.add('bg-gray-300/60', 'dark:bg-gray-800/60');
 				if($theme_btn.classList.contains('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white')) $theme_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
 				if(!$theme_btn.classList.contains('text-black/80', 'dark:text-white/80')) $theme_btn.classList.add('text-black/80', 'dark:text-white/80');
@@ -193,7 +193,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
                 $theme_menu.classList.add('hidden');
             } else {
                 $responsive_nav.classList.add('hidden');
-                $responsive_nav.classList.remove('animate-fade-in-down');
+                $responsive_nav.classList.remove('animate-fade-in-down', 'animate-duration-100');
                 if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
 				$responsive_nav.setAttribute('aria-hidden', true);
             }
@@ -205,7 +205,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
                     !event.composedPath().includes($hamburger_btn)) {
                     hamburgerClicked = false;
                     $responsive_nav.classList.add('hidden');
-                    $responsive_nav.classList.remove('animate-fade-in-down');
+                    $responsive_nav.classList.remove('animate-fade-in-down', 'animate-duration-100');
                     if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
 					$responsive_nav.setAttribute('aria-hidden', true);
                 }
@@ -230,7 +230,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
                 hamburgerClicked = false;
 				themes_opened = false;
                 if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
-				if($responsive_nav.classList.contains('animate-fade-in-down')) $responsive_nav.classList.remove('animate-fade-in-down');
+				if($responsive_nav.classList.contains('animate-fade-in-down', 'animate-duration-100')) $responsive_nav.classList.remove('animate-fade-in-down', 'animate-duration-100');
 				if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
 				if(!$theme_menu.classList.contains('hidden')) $theme_menu.classList.add('hidden');
 				if($theme_btn.classList.contains('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white')) $theme_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
@@ -242,7 +242,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 				if($locales_btn.classList.contains('bg-gray-300/50', 'dark:bg-gray-800/60')) $locales_btn.classList.remove('bg-gray-300/50', 'dark:bg-gray-800/60');
                 $locales_btn.classList.add('dark:bg-gray-800', 'bg-gray-300');
                 $locales_menu.classList.remove('hidden');
-                $locales_menu.classList.add('animate-fade-in-down', 'animate-duration-300');
+                $locales_menu.classList.add('animate-fade-in-down', 'animate-duration-100');
             } else {
                 $locales_menu.classList.remove('mt-3', 'mt-1');
                 $locales_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
@@ -265,7 +265,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 				hamburgerClicked = false;
 				locales_opened = false;
 				if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
-				if($responsive_nav.classList.contains('animate-fade-in-down')) $responsive_nav.classList.remove('animate-fade-in-down');
+				if($responsive_nav.classList.contains('animate-fade-in-down', 'animate-duration-100')) $responsive_nav.classList.remove('animate-fade-in-down', 'animate-duration-100');
 				if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
 				if(!$locales_menu.classList.contains('hidden')) $locales_menu.classList.add('hidden');
 				if($locales_menu.classList.contains('animate-fade-in-down', 'animate-duration-100')) $locales_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
