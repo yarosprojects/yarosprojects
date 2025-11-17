@@ -21,7 +21,7 @@ const navContent = getNavContent(locale);
         class="text-base md:text-sm flex flex-col w-full md:w-fit mx-0 px-2 max-[390px]:pl-0 max-[390px]:pr-3 md:px-6 py-1 rounded-full md:mx-auto transition-all max-[250px]:rounded-xl"
         id="navigation"
     >
-        <ul class="relative flex flex-row max-[440px]:justify-between justify-center items-center w-full">
+        <ul class="relative flex flex-row max-[450px]:justify-between justify-center items-center w-full">
             <div 
                 class="absolute top-full hidden left-0 w-full h-auto py-3 mt-2 dark:bg-gray-900 bg-gray-100 dark:drop-shadow-none drop-shadow-md drop-shadow-black/20 max-[285px]:py-6 rounded-md z-9998 px-4"
                 id="responsive-nav"
@@ -50,7 +50,7 @@ const navContent = getNavContent(locale);
                 </ul>
             </div>
             <button 
-                class="max-[440px]:flex hidden justify-center items-center cursor-pointer transition-colors hover:bg-gray-300/60 dark:hover:bg-gray-800/60 rounded-xl mx-3 p-2" 
+                class="max-[450px]:flex hidden justify-center items-center cursor-pointer transition-colors hover:bg-gray-300/60 dark:hover:bg-gray-800/60 rounded-md mx-3 p-2" 
                 id="hamburger"
                 aria-label="Hamburger menu"
             >
@@ -60,7 +60,7 @@ const navContent = getNavContent(locale);
                     <div class="w-full h-px dark:bg-white bg-black rounded-full"></div>
                 </div>
             </button>
-            <nav class="flex flex-row justify-center items-center animate-fade-in-down max-[440px]:hidden" aria-hidden="false" id="nav">
+            <nav class="flex flex-row justify-center items-center animate-fade-in-down max-[450px]:hidden" aria-hidden="false" id="nav">
                 <ul class="w-full flex flex-row justify-center md:justify-between m-0 p-0 text-yellow-100 md:text-white">
                     {
                         navContent.map((item) => {
@@ -134,10 +134,10 @@ const navContent = getNavContent(locale);
                 <li class="m-0 p-0 group relative" aria-label="Locale button">
                     <button
                         id="locales-btn"
-                        class="border-none outline-none flex justify-center max-[440px]:flex-row-reverse flex-row gap-2 items-center md:size-auto max-[440px]:w-auto w-10 h-auto md:px-3 p-2 md:py-2 dark:hover:bg-gray-800 hover:bg-gray-300 rounded-md cursor-pointer transition-all"
+                        class="border-none outline-none flex justify-center max-[450px]:flex-row-reverse flex-row gap-2 items-center md:size-auto max-[450px]:w-auto w-10 h-auto md:px-3 p-2 md:py-2 dark:hover:bg-gray-800 hover:bg-gray-300 rounded-md cursor-pointer transition-all"
                         aria-label="Language choice button"
                     >
-                        <span class="max-[185px]:hidden max-[440px]:text-sm hidden md:flex dark:text-yellow-300 text-black transition-all">
+                        <span class="max-[185px]:hidden max-[450px]:text-sm hidden md:flex dark:text-yellow-300 text-black transition-all">
                             {labelsLocales[locale].name}
                         </span>
                         <span class={`flex md:hidden! ${labelsLocales[locale].icon}`}></span>
