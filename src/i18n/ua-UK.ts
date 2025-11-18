@@ -96,6 +96,9 @@ export default {
     },
 
     projects: {
+        labels: {
+            mini_games: 'Міні ігри',
+        },
         code_btn: 'Код',
         preview: 'Попередній перегляд',
         calculator: {

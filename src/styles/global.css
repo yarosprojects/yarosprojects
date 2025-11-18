@@ -26,6 +26,14 @@ html:not(.dark) {
     font-display: swap;
 }
 
+@utility animate-games-down {
+    animation: gamesDown .6s forwards;
+}
+
+@utility animate-games-up {
+    animation: gamesUp .6s forwards;
+}
+
 @utility bg-angular {
     background-color: var(--angular-bg);
 }
@@ -127,5 +135,21 @@ html:not(.dark) {
         backdrop-filter: blur(0px);
     } to {
         backdrop-filter: blur(40px);
+    }
+}
+
+@keyframes gamesDown {
+    from {
+        height: 0;
+    } to {
+        height: auto;
+    }
+}
+
+@keyframes gamesUp {
+    from {
+        height: auto;
+    } to {
+        height: 0;
     }
 }

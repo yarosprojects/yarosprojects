@@ -4,7 +4,7 @@ import tetrisImg from '../../public/projects/tetris.png';
 
 const { creador, translate, locale } = Astro.props;
 
-const PROJECTS = {
+const GAMES = {
     calculator: {
       id: 'calculator',
       name: translate.projects.calculator.name,
@@ -69,6 +69,7 @@ const PROJECTS = {
       }
     },
 }
+
 ---
 <div class="pt-(--header-h) w-full flex justify-center items-center px-2 md:px-0">
     <div class="w-full max-[235px]:flex-col md:max-w-3xl mx-0 md:mx-auto flex justify-start max-[235px]:items-start items-center flex-row gap-4">
@@ -77,78 +78,116 @@ const PROJECTS = {
     </div>
 </div>
 <div class="flex w-full flex-col px-2 md:px-0">
-    <div class="w-full md:max-w-3xl mx-0 md:mx-auto flex flex-col gap-25 md:gap-15 justify-center items-start my-10 rounded-2xl overflow-hidden" id="projects-container">
-        {
-            Object.values(PROJECTS).map((project) => {
-                const { name, url, image, code_link, frameworks } = project;
-                return(
-                    <div class="flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-start group w-full opacity-0 project-card">
-                        <div class="m-0 p-0 overflow-hidden rounded-2xl border border-gray-300 dark:border-gray-800 dark:group-hover:border-gray-700 group-hover:border-gray-900 transition-all">
-                            <img 
-                                src={image} 
-                                alt={`${project} image`} 
-                                class="w-auto h-full object-cover transition-transform duration-300 scale-110 group-hover:scale-100" 
-                            />
-                        </div>
-                        <div class="flex flex-col justify-start items-start md:items-center px-1 md:px-4 w-full md:min-w-[400px] h-full opacity-0 project-description">
-                            <div class="flex flex-1 flex-col justify-start items-start">
-                                <h3 class="dark:text-yellow-400 text-yellow-600 text-3xl max-[250px]:text-xl max-[170px]:text-base font-extrabold uppercase dark:selection:bg-yellow-500 dark:selection:text-black selection:bg-black selection:text-yellow-500">
-                                    {name}
-                                </h3>
-                                <ul class="flex w-full flex-row flex-wrap justify-start items-center my-2 gap-2">
-                                    { frameworks &&
-                                        Object.values(frameworks).map((framework) => {
-                                            const { name, image, mainColor } = framework;
+    <div class="w-full md:max-w-3xl mx-0 md:mx-auto flex flex-col gap-25 md:gap-15 justify-center items-start my-10" id="projects-container">
+        { GAMES &&
+            <div class="flex flex-col gap-5 w-full" id="games-area">
+                <button 
+                    class="w-full text-left rounded-none py-4 hover:px-4 text-xl flex flex-row justify-between items-center dark:hover:bg-gray-800/80 hover:bg-gray-300 border max-[155px]:text-base max-[155px]:hover:text-sm border-x-transparent border-t-transparent dark:border-b-yellow-500/30 border-b-blue-700 cursor-pointer transition-all group outline-none"
+                    id="show-games-button"
+                >
+                    <span class="dark:text-white text-black transition-all">
+                        {translate.projects.labels.mini_games}
+                    </span>
+                    <i class="icon-[line-md--chevron-right] dark:text-white text-black games-chevron transition-all duration-200" />
+                </button>
+                <div class="overflow-hidden transition-all duration-500" style="height: 0px;" id="games-container">
+                    <div class="games-content w-full flex flex-col gap-25 md:gap-8">
+                    {
+                        Object.values(GAMES).map((game) => {
+                            const { id, name, url, image, code_link, frameworks } = game;
+                            return(
+                                <div class="flex flex-col md:flex-row justify-between items-start group w-full opacity-0 game-card" id={`${id}-game`}>
+                                    <div class="m-0 p-0 overflow-hidden rounded-2xl border border-gray-300 dark:border-gray-800 dark:group-hover:border-gray-700 group-hover:border-gray-900 transition-all">
+                                        <img 
+                                            src={image} 
+                                            alt={`${game} image`} 
+                                            class="w-auto h-full object-cover transition-transform duration-300 scale-110 group-hover:scale-100" 
+                                        />
+                                    </div>
+                                    <div class="flex flex-col justify-start items-start md:items-center px-1 md:px-4 w-full md:min-w-[400px] h-full opacity-0 game-description">
+                                        <div class="flex flex-1 flex-col justify-start items-start">
+                                            <h3 class="md:mt-0 mt-2 dark:text-yellow-400 text-yellow-600 text-3xl max-[250px]:text-xl max-[170px]:text-base font-extrabold uppercase dark:selection:bg-yellow-500 dark:selection:text-black selection:bg-black selection:text-yellow-500">
+                                                {name}
+                                            </h3>
+                                            <ul class="flex w-full flex-row flex-wrap justify-start items-center my-2 gap-2">
+                                                { frameworks &&
+                                                    Object.values(frameworks).map((framework) => {
+                                                        const { name, image, mainColor } = framework;
 
-                                            return(
-                                                <li class={`rounded-full px-2 py-1 ${mainColor} flex justify-center items-center gap-2`}>
-                                                    <img src={image} alt={`${name} frameworks image`} class="size-4" />
-                                                    <span class="text-white text-base max-[250px]:text-sm md:text-[13px]">
-                                                        {name}
-                                                    </span>
-                                                </li>
-                                            );
-                                        })
-                                    }
-                                </ul>
-                                <div class="text-white/85 text-base selection:text-black selection:bg-yellow-400 mt-10 md:mt-5">
-                                    {project.description.map(line => (
-                                        <p class="mt-2 dark:text-white text-black">{line}</p>
-                                    ))}
+                                                        return(
+                                                            <li class={`rounded-full px-2 py-1 ${mainColor} flex justify-center items-center gap-2`}>
+                                                                <img src={image} alt={`${name} frameworks image`} class="size-4" />
+                                                                <span class="text-white text-base max-[250px]:text-sm md:text-[13px]">
+                                                                    {name}
+                                                                </span>
+                                                            </li>
+                                                        );
+                                                    })
+                                                }
+                                            </ul>
+                                            <div class="text-white/85 text-base selection:text-black selection:bg-yellow-400 mt-10 md:mt-5">
+                                                {game.description.map(line => (
+                                                    <p class="mt-2 dark:text-white text-black">{line}</p>
+                                                ))}
+                                            </div>
+                                        </div>
+                                        <div class={`flex w-full flex-row ${locale === "ua-UK" ? 'max-[360px]:flex-col justify-start max-[360px]:items-start' : 'max-[250px]:flex-col justify-start max-[240px]:items-start'} items-center my-3 gap-2`}>
+                                            <a href={code_link} target="_blank" class="text-white dark:hover:bg-gray-900/50 hover:bg-gray-200 transition-all px-3 py-2 rounded-xl flex justify-center gap-2 items-center dark:bg-gray-900 bg-gray-100 border dark:border-white/30 dark:hover:border-white/40 hover:border-black/50 border-black/30 dark:drop-shadow-none drop-shadow-md drop-shadow-black/10 group">
+                                                <i class="icon-[line-md--github] dark:group-hover:brightness-125 group-hover:brightness-90 dark:text-white text-black" />
+                                                <span class="dark:text-white text-black max-[240px]:text-sm text-base">{translate.projects.code_btn}</span>
+                                            </a>
+                                            <a href={url} class="text-white dark:hover:bg-gray-900/50 hover:bg-gray-200 transition-all px-3 py-2 rounded-xl flex justify-center gap-2 items-center dark:bg-gray-900 bg-gray-100 border dark:border-white/30 dark:hover:border-white/40 hover:border-black/50 border-black/30 dark:drop-shadow-none drop-shadow-md drop-shadow-black/10 group">
+                                                <i class="icon-[line-md--link] dark:group-hover:brightness-125 group-hover:brightness-90 dark:text-white text-black" />
+                                                <span class="dark:text-white text-black max-[240px]:text-sm text-base">{translate.projects.preview}</span>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class={`flex w-full flex-row ${locale === "ua-UK" ? 'max-[360px]:flex-col justify-start max-[360px]:items-start' : 'max-[250px]:flex-col justify-start max-[240px]:items-start'} items-center my-3 gap-2`}>
-                                <a href={code_link} target="_blank" class="text-white dark:hover:bg-gray-900/50 hover:bg-gray-200 transition-all px-3 py-2 rounded-xl flex justify-center gap-2 items-center dark:bg-gray-900 bg-gray-100 border dark:border-white/30 dark:hover:border-white/40 hover:border-black/50 border-black/30 dark:drop-shadow-none drop-shadow-md drop-shadow-black/10 group">
-                                    <i class="icon-[line-md--github] dark:group-hover:brightness-125 group-hover:brightness-90 dark:text-white text-black" />
-                                    <span class="dark:text-white text-black max-[240px]:text-sm text-base">{translate.projects.code_btn}</span>
-                                </a>
-                                <a href={url} class="text-white dark:hover:bg-gray-900/50 hover:bg-gray-200 transition-all px-3 py-2 rounded-xl flex justify-center gap-2 items-center dark:bg-gray-900 bg-gray-100 border dark:border-white/30 dark:hover:border-white/40 hover:border-black/50 border-black/30 dark:drop-shadow-none drop-shadow-md drop-shadow-black/10 group">
-                                    <i class="icon-[line-md--link] dark:group-hover:brightness-125 group-hover:brightness-90 dark:text-white text-black" />
-                                    <span class="dark:text-white text-black max-[240px]:text-sm text-base">{translate.projects.preview}</span>
-                                </a>
-                            </div>
-                        </div>
+                            );
+                        })
+                    }
                     </div>
-                );
-            })
+                </div>
+            </div>
         }
     </div>
 </div>
 
 <script is:inline>
     document.addEventListener('DOMContentLoaded', function() {
-        const $project_cards = document.getElementById('projects-container').querySelectorAll('.project-card');
+        const $games_container = document.getElementById('games-container');
+        const $games_content = $games_container.querySelector('.games-content');
+        const $game_cards = $games_container.querySelectorAll('.game-card');
+        const $more_games_btn = document.getElementById('show-games-button');
+        const games_btn_classNames = ['dark:bg-gray-800/80', 'bg-gray-300', 'px-4', 'hover:scale-102', 'active:scale-95' , 'rounded-tl-xl', 'rounded-tr-xl'];
+
+        let moreGamesOpened = false;
+        $more_games_btn.addEventListener('click', function() {
+            const height = $games_content.clientHeight;
+            moreGamesOpened = !moreGamesOpened
+            this.querySelector('.games-chevron').classList.toggle('rotate-90');
+            games_btn_classNames.forEach(className => {
+                this.classList.toggle(className, moreGamesOpened);
+            })
+
+            if (moreGamesOpened) {
+                $games_container.style.height = `${height}px`;
+            } else {
+                $games_container.style.height = '0px';
+            }
+
+        });
         
         const observer = new IntersectionObserver((entries, observe) => {
             entries.forEach((entry) => {
                 if(entry.isIntersecting) {
                     entry.target.classList.add('animate-fade-in-up');
-                    entry.target.querySelector('.project-description').classList.add('animate-fade-in-left');
+                    entry.target.querySelector('.game-description').classList.add('animate-fade-in-left');
                     observe.unobserve(entry.target);
                 }
             });
         }, {threshold: 0.1});
 
-        $project_cards.forEach(card => observer.observe(card));
+        $game_cards.forEach(card => observer.observe(card));
     });
 </script>
