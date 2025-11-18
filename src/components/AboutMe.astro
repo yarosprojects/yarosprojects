@@ -1,18 +1,169 @@
 ---
 const { creador, translate, locale } = Astro.props;
+
+import aboutImage from '../../public/img/about-image.png';
+import darkImage from '../../public/img/dark-trident.png';
+import lightImage from '../../public/img/light-trident.png';
 ---
 
-<div class="flex flex-col w-full px-4 md:px-0">
-    <div
-        class="pt-(--header-h) w-full flex flex-col justify-center items-center text-center"
-    >
-        <h1 class="text-4xl dark:text-white text-black mb-4">
-            {translate.nav.about_me}
-        </h1>
-        <p
-            class="max-w-2xl dark:text-white/80 text-black/80 max-[180px]:text-sm text-lg"
+<div class="flex flex-col w-full px-4 md:px-0 pt-(--header-h) overflow-x-hidden">
+	<section class="max-w-4xl mx-auto w-full flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-8">
+		<div class="max-[265px]:size-30 size-55 md:w-70 md:h-auto rounded-4xl md:rounded-4xl overflow-hidden shadow-xl ring-4 ring-blue-500/20 transition-all" id="about-me-image">
+			<img 
+				src={aboutImage.src} 
+				alt="About image"
+				class="w-full h-full object-cover rotate-0 md:hover:rotate-0 md:-rotate-8 transition-all opacity-0 md:opacity-100 md:duration-500 duration-1000 md:rounded-none rounded-4xl md:scale-200 scale-100"
+                aria-label="Mi imagen"
+                loading="lazy"
+			/>
+		</div>
+
+		<div class="relative flex flex-col items-center md:items-start text-center md:text-left
+                before:content-['']
+                before:pointer-events-none
+                before:absolute 
+                md:before:left-1/2
+                md:before:top-1/2
+                before:-translate-y-1/2
+                md:before:block
+                before:hidden
+                before:w-full
+                before:h-full
+                before:bg-[url('/img/dark-trident.png')]
+                dark:before:bg-[url('/img/light-trident.png')]
+                before:bg-contain
+                before:bg-center
+                before:bg-no-repeat
+                before:opacity-25
+                before:z-0
+            " 
+            aria-label="Text explicativo sobre mi"
+            id="trident-mask-container"
         >
-            {translate.temporary_text}
-        </p>
-    </div>
+			<div class="relative w-full flex flex-row gap-1.5 justify-start items-center mb-7">
+                <i class="z-10 icon-[material-symbols--person-pin] -rotate-30 mb-auto max-[235px]:text-base text-[22px] dark:text-yellow-300 text-yellow-800/50" />
+                <div class="z-10 overflow-hidden flex text-left justify-start items-center">
+                    <h1 class="max-[235px]:text-2xl text-4xl font-bold dark:text-white text-black transition-transform translate-y-full opacity-0 duration-500" id="about-title">
+                        {translate.nav.about_me}
+                    </h1>
+                </div>
+                <div class={`
+                    absolute -right-12 top-0 size-50 opacity-25 z-1 flex md:hidden
+                    before:content-['']
+                    before:absolute
+                    max-[210px]:before:hidden
+                    before:block
+                    before:w-full
+                    before:h-full
+                    before:pointer-events-none
+                    before:bg-[url('/img/dark-trident.png')]
+                    dark:before:bg-[url('/img/light-trident.png')]
+                    before:bg-cover
+                    before:bg-center
+                `}></div>
+            </div>
+
+			<div class="max-w-2xl text-lg md:text-xl leading-relaxed flex flex-col z-10">
+                <p class="text-left">
+                    <span class="dark:text-white/80 text-black">{translate.about_me.iam}{locale === "ua-UK" ? '' : ','}</span> 
+                    <span class="dark:text-blue-400 text-blue-700">{translate.creator_name.split(' ')[0]}</span>, 
+                    <span class="dark:text-white/80 text-black">{translate.about_me.graduated_in}</span> 
+                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.web_develpemn_specialist}</span>, 
+                    <span class="dark:text-white/80 text-black">{translate.about_me.with_experience_left}</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80">#backend</span>
+                    <span class="dark:text-white/80 text-black">{translate.about_me.and}</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80">#frontend</span>
+                    <span class={`dark:text-white/80 text-black ${locale === "ua-UK" ? 'md:block inline-flex' : ''}`}>{translate.about_me.with_experience_right}</span>
+                </p>
+                <p class="mt-5 text-left">
+                    <span class="dark:text-white/80 text-black">{translate.about_me.i_like_create}</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.innovative}</span> 
+                    { translate.about_me.projects &&
+                       <span class="dark:text-white/80 text-black">{translate.about_me.projects}</span>
+                    }
+                    <span class="dark:text-white/80 text-black">{translate.about_me.combine}</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.functionality}</span> 
+                    <span class="dark:text-white/80 text-black">{translate.about_me.and}</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.design}</span>
+                    <span class="dark:text-white/80 text-black">{translate.about_me.exploring_to}</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.creative_experiments}</span>
+                    <span class="dark:text-white/80 text-black">.</span>
+                </p>
+                <p class="mt-3 text-left">
+                    <span class="dark:text-white/80 text-black">{translate.about_me.every_project_is}</span>
+                    <span class={`${locale === "ua-UK" ? 'dark:text-white/80 text-black' : 'dark:text-yellow-200 text-yellow-500/80'}`}>
+                        {translate.about_me.opportunity}
+                    </span>
+                    <span class="dark:text-white/80 text-black">{translate.about_me.of_learn}</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.to_learn}</span>
+                    <span class="dark:text-white/80 text-black">,</span> 
+                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.improve}</span>
+                    { translate.about_me.my_habilities &&
+                       <span class="dark:text-white/80 text-black">{translate.about_me.my_habilities}</span>
+                    }
+                    <span class="dark:text-white/80 text-black">{ locale === "ua-UK" ? translate.about_me.and_ua : translate.about_me.and }</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.share}</span>
+                    <span class="dark:text-white/80 text-black">{translate.about_me.my_passion}</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.programming}</span> 
+                    <span class="dark:text-white/80 text-black">{translate.about_me.with_community}</span>
+                    <span class="dark:text-white/80 text-black">.</span>
+                </p>
+			</div>
+
+			<div class="w-0 md:mr-0 mr-auto h-1 bg-blue-600 rounded-full mt-6 transition-all duration-700" id="decorative-bottom-line" aria-label="Línea decorativa"></div>
+		</div>
+
+	</section>
 </div>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', function() {
+        const $image = document.getElementById('about-me-image');
+        const $aboutTitle = document.getElementById('about-title');
+        const $decorativeLine = document.getElementById('decorative-bottom-line');
+
+        window.addEventListener('resize', function() {
+            $image.querySelector('img').classList.add('md:scale-200', 'opacity-0');
+            if(this.window.innerWidth > 768) {
+                $image.querySelector('img').classList.remove('md:scale-200');
+            } else {
+                $image.querySelector('img').classList.remove('opacity-0');
+            }
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    if(window.innerWidth > 768) {
+                        $image.querySelector('img').classList.remove('md:scale-200');
+                    } else {
+                        $image.querySelector('img').classList.remove('opacity-0');
+                    }
+                    $aboutTitle.classList.remove('translate-y-full', 'opacity-0');
+                    observer.unobserve($image, $aboutTitle);
+                }
+            })
+        }, { threshold: 0.1 });
+
+        const decaorativeLineObserve = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if(entry.isIntersecting) {
+                    $decorativeLine.classList.remove('w-0');
+                    $decorativeLine.classList.add('w-20');
+
+                    observer.unobserve($decorativeLine);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        observer.observe($image);
+        decaorativeLineObserve.observe($decorativeLine);
+    });
+</script>
+
+<style>
+    #trident-mask-container::before {
+        -webkit-mask-image: linear-gradient(to right, transparent 20%, black 100%);
+        mask-image: linear-gradient(to right, transparent 10%, black 55%);
+    }
+</style>
