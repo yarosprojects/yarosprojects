@@ -73,7 +73,7 @@ const PROJECTS = {
 <div class="pt-(--header-h) w-full flex justify-center items-center px-2 md:px-0">
     <div class="w-full max-[235px]:flex-col md:max-w-3xl mx-0 md:mx-auto flex justify-start max-[235px]:items-start items-center flex-row gap-4">
         <i class="icon-[gridicons--code] max-[235px]:text-xl text-3xl dark:text-white/80 text-black/80" />
-        <h1 class="text-center max-[235px]:text-2xl text-4xl dark:text-white text-black font-bold">{translate.nav.projects}</h1>
+        <h1 class="text-center max-[235px]:text-2xl text-4xl dark:text-white text-black font-bold dark:selection:bg-white dark:selection:text-blue-700 selection:bg-blue-700 selection:text-white">{translate.nav.projects}</h1>
     </div>
 </div>
 <div class="flex w-full flex-col px-2 md:px-0">
@@ -92,7 +92,9 @@ const PROJECTS = {
                         </div>
                         <div class="flex flex-col justify-start items-start md:items-center px-1 md:px-4 w-full md:min-w-[400px] h-full opacity-0 project-description">
                             <div class="flex flex-1 flex-col justify-start items-start">
-                                <h3 class="dark:text-yellow-400 text-yellow-600 text-3xl max-[250px]:text-xl max-[170px]:text-base font-extrabold uppercase">{name}</h3>
+                                <h3 class="dark:text-yellow-400 text-yellow-600 text-3xl max-[250px]:text-xl max-[170px]:text-base font-extrabold uppercase dark:selection:bg-yellow-500 dark:selection:text-black selection:bg-black selection:text-yellow-500">
+                                    {name}
+                                </h3>
                                 <ul class="flex w-full flex-row flex-wrap justify-start items-center my-2 gap-2">
                                     { frameworks &&
                                         Object.values(frameworks).map((framework) => {

@@ -18,93 +18,64 @@ import lightImage from '../../public/img/light-trident.png';
 			/>
 		</div>
 
-		<div class="relative flex flex-col items-center md:items-start text-center md:text-left
-                before:content-['']
-                before:pointer-events-none
-                before:absolute 
-                md:before:left-1/2
-                md:before:top-1/2
-                before:-translate-y-1/2
-                md:before:block
-                before:hidden
-                before:w-full
-                before:h-full
-                before:bg-[url('/img/dark-trident.png')]
-                dark:before:bg-[url('/img/light-trident.png')]
-                before:bg-contain
-                before:bg-center
-                before:bg-no-repeat
-                before:opacity-25
-                before:z-0
-            " 
+		<div class="relative flex flex-col items-center md:items-start text-center md:text-left before:content-[''] before:pointer-events-none
+                before:absolute md:before:left-1/2 md:before:top-1/2 before:-translate-y-1/2 md:before:block before:hidden before:w-full before:h-full before:bg-[url('/img/dark-trident.png')] dark:before:bg-[url('/img/light-trident.png')] before:bg-contain before:bg-center before:bg-no-repeat before:opacity-25 before:z-0" 
             aria-label="Text explicativo sobre mi"
             id="trident-mask-container"
         >
 			<div class="relative w-full flex flex-row gap-1.5 justify-start items-center mb-7">
                 <i class="z-10 icon-[material-symbols--person-pin] -rotate-30 mb-auto max-[235px]:text-base text-[22px] dark:text-yellow-300 text-yellow-800/50" />
                 <div class="z-10 overflow-hidden flex text-left justify-start items-center">
-                    <h1 class="max-[235px]:text-2xl text-4xl font-bold dark:text-white text-black transition-transform translate-y-full opacity-0 duration-500" id="about-title">
+                    <h1 class="max-[235px]:text-2xl text-4xl font-bold dark:text-white text-black transition-transform translate-y-full opacity-0 duration-500 dark:selection:bg-white dark:selection:text-blue-700 selection:bg-blue-700 selection:text-white" id="about-title">
                         {translate.nav.about_me}
                     </h1>
                 </div>
-                <div class={`
-                    absolute -right-12 top-0 size-50 opacity-25 z-1 flex md:hidden
-                    before:content-['']
-                    before:absolute
-                    max-[210px]:before:hidden
-                    before:block
-                    before:w-full
-                    before:h-full
-                    before:pointer-events-none
-                    before:bg-[url('/img/dark-trident.png')]
-                    dark:before:bg-[url('/img/light-trident.png')]
-                    before:bg-cover
-                    before:bg-center
+                <div class={`absolute -right-12 top-0 size-50 opacity-25 z-1 flex md:hidden before:content-[''] before:absolute max-[210px]:before:hidden before:block before:w-full before:h-full before:pointer-events-none before:bg-[url('/img/dark-trident.png')] dark:before:bg-[url('/img/light-trident.png')] before:bg-cover before:bg-center
                 `}></div>
             </div>
 
-			<div class="max-w-2xl text-lg md:text-xl leading-relaxed flex flex-col z-10">
+			<div class="max-w-2xl text-lg md:text-xl leading-relaxed flex flex-col z-10 selection:bg-yellow-500 selection:text-black">
                 <p class="text-left">
                     <span class="dark:text-white/80 text-black">{translate.about_me.iam}{locale === "ua-UK" ? '' : ','}</span> 
-                    <span class="dark:text-blue-400 text-blue-700">{translate.creator_name.split(' ')[0]}</span>, 
+                    <span class="dark:text-blue-400 text-blue-700 selection:text-white selection:font-bold">{translate.creator_name.split(' ')[0]}</span>, 
                     <span class="dark:text-white/80 text-black">{translate.about_me.graduated_in}</span> 
-                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.web_develpemn_specialist}</span>, 
+                    <span class="dark:text-yellow-200 text-yellow-500/80 selection:text-blue-700">{translate.about_me.web_develpemn_specialist}</span>, 
                     <span class="dark:text-white/80 text-black">{translate.about_me.with_experience_left}</span>
-                    <span class="dark:text-yellow-200 text-yellow-500/80">#backend</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80 selection:text-blue-700">#backend</span>
                     <span class="dark:text-white/80 text-black">{translate.about_me.and}</span>
-                    <span class="dark:text-yellow-200 text-yellow-500/80">#frontend</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80 selection:text-blue-700">#frontend</span>
                     <span class={`dark:text-white/80 text-black ${locale === "ua-UK" ? 'md:block inline-flex' : ''}`}>{translate.about_me.with_experience_right}</span>
                 </p>
                 <p class="mt-5 text-left">
                     <span class="dark:text-white/80 text-black">{translate.about_me.i_like_create}</span>
-                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.innovative}</span> 
+                    <span class="dark:text-yellow-200 text-yellow-500/80 selection:text-blue-700">{translate.about_me.innovative}</span> 
                     { translate.about_me.projects &&
                        <span class="dark:text-white/80 text-black">{translate.about_me.projects}</span>
                     }
                     <span class="dark:text-white/80 text-black">{translate.about_me.combine}</span>
-                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.functionality}</span> 
+                    <span class="dark:text-yellow-200 text-yellow-500/80 selection:text-blue-700">{translate.about_me.functionality}</span> 
                     <span class="dark:text-white/80 text-black">{translate.about_me.and}</span>
-                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.design}</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80 selection:text-blue-700">{translate.about_me.design}</span>
                     <span class="dark:text-white/80 text-black">{translate.about_me.exploring_to}</span>
-                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.creative_experiments}</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80 selection:text-blue-700">{translate.about_me.creative_experiments}</span>
                     <span class="dark:text-white/80 text-black">.</span>
                 </p>
                 <p class="mt-3 text-left">
                     <span class="dark:text-white/80 text-black">{translate.about_me.every_project_is}</span>
-                    <span class={`${locale === "ua-UK" ? 'dark:text-white/80 text-black' : 'dark:text-yellow-200 text-yellow-500/80'}`}>
+                    <span class={`${locale === "ua-UK" ? 'dark:text-white/80 text-black' : 'dark:text-yellow-200 text-yellow-500/80 selection:text-blue-700'}`}>
                         {translate.about_me.opportunity}
                     </span>
                     <span class="dark:text-white/80 text-black">{translate.about_me.of_learn}</span>
-                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.to_learn}</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80 selection:text-blue-700">{translate.about_me.to_learn}</span>
                     <span class="dark:text-white/80 text-black">,</span> 
-                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.improve}</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80 selection:text-blue-700">{translate.about_me.improve}</span>
                     { translate.about_me.my_habilities &&
                        <span class="dark:text-white/80 text-black">{translate.about_me.my_habilities}</span>
                     }
                     <span class="dark:text-white/80 text-black">{ locale === "ua-UK" ? translate.about_me.and_ua : translate.about_me.and }</span>
-                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.share}</span>
+                    <span class="dark:text-yellow-200 text-yellow-500/80 selection:text-blue-700">{translate.about_me.share}</span>
                     <span class="dark:text-white/80 text-black">{translate.about_me.my_passion}</span>
-                    <span class="dark:text-yellow-200 text-yellow-500/80">{translate.about_me.programming}</span> 
+                    <span class="dark:text-yellow-200 text-yellow-500/80 selection:text-blue-700">{translate.about_me.programming}</span> 
                     <span class="dark:text-white/80 text-black">{translate.about_me.with_community}</span>
                     <span class="dark:text-white/80 text-black">.</span>
                 </p>
