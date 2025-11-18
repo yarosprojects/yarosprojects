@@ -26,6 +26,14 @@ html:not(.dark) {
     font-display: swap;
 }
 
+@utility animate-border-reflect {
+    animation: borderReflect 8s linear infinite;
+}
+
+@utility animate-border-reflect-none {
+    animation: none;
+}
+
 @utility animate-games-down {
     animation: gamesDown .6s forwards;
 }
@@ -151,5 +159,14 @@ html:not(.dark) {
         height: auto;
     } to {
         height: 0;
+    }
+}
+
+@keyframes borderReflect {
+    0%, 50%, 100% {
+        box-shadow: 0 0 1.75px yellow, 0 0 2.5px yellow, 0 0 3.75px yellow;
+    }
+    25%, 75% {
+        box-shadow: 0 0 1.75px blue, 0 0 2.5px blue, 0 0 3.75px blue;
     }
 }

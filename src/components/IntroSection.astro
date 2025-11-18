@@ -73,7 +73,7 @@ const cfgs_started_at = 2022;
         </div>
     </div>
     <div class="w-full flex justify-center items-center py-15">
-        <div class="flex flex-col justify-start items-center md:items-start w-full md:w-3xl mx-0 md:mx-auto px-4 md:px-0">
+        <div class="flex flex-col justify-start items-center md:items-start w-full">
             {/*
             <div class="w-full flex justify-center md:justify-start h-auto md:h-10 items-start flex-row overflow-hidden m-0 p-0">
                 <div class="hidden md:flex w-1 h-full animate-h-full bg-white rounded-full mr-2"></div>
@@ -86,7 +86,7 @@ const cfgs_started_at = 2022;
             </div>
             */}
             {/* <div class="flex md:hidden w-1/2 h-0.5 bg-white rounded-full mt-5"></div> */}
-            <div class="w-full flex flex-col p-0 md:p-2">
+            <div class="w-full flex flex-col p-0 md:p-2 md:w-3xl mx-0 md:mx-auto px-4 md:px-0">
                 <p class="dark:text-white/70 text-black/70 max-[195px]:text-base text-xl text-center md:text-left mt-20 mb-5 selection:bg-yellow-500 selection:text-black">
                     <span class="dark:text-yellow-300 text-yellow-500 font-extrabold">
                         {locale === "en-GB" ? translate.intro.web_applications.charAt(0).toUpperCase() + translate.intro.web_applications.slice(1) : translate.intro.developer}
@@ -110,11 +110,11 @@ const cfgs_started_at = 2022;
                     .
                 </p>
             </div>
-            <div class="flex flex-col gap-15 md:gap-3 w-full py-13 md:py-7">
-                <div class="flex flex-col w-full gap-7">
+            <div class="flex flex-col gap-15 md:gap-3 w-full">
+                <div class="flex flex-col w-full gap-7 md:w-3xl mx-0 md:mx-auto px-4 md:px-0" aria-label="Contenedor de frameworks">
                     <div
                         id="frameworks-container" 
-                        class="relative w-full flex justify-center md:justify-start items-center flex-wrap flex-row gap-3 overflow-hidden md:overflow-auto max-h-17 md:max-h-full transition-all duration-500 px-0 py-3 md:p-2"
+                        class="relative w-full flex justify-center md:justify-start items-center flex-wrap flex-row gap-3 overflow-hidden md:overflow-auto max-h-17 md:max-h-full transition-all duration-500 px-0 py-11"
                     >
                         {
                             FRAMEWORKS.map((framework) => {
@@ -147,39 +147,46 @@ const cfgs_started_at = 2022;
                         </button>
                     </div>
                 </div>
-                <div class="flex flex-col w-full gap-7 pt-7">
+                <div class="flex flex-col w-full gap-7 pt-7" aria-label="Contenedor de lenguajes de programación">
                     <div
                         id="languages-container" 
-                        class="relative w-full flex justify-center md:justify-start items-center flex-wrap flex-row gap-3 overflow-hidden md:overflow-auto max-h-15 md:max-h-full transition-all duration-500 px-0 py-3 md:p-2"
+                        class="flex flex-col w-full"
                     >
-                        {
-                            LANGUAGES.map((language) => {
-                                const { name, animation_delay, img } = language;
-                                return  (
-                                    <div class="flex flex-row justify-center items-center gap-2 px-5 md:px-4 py-2 md:py-2 rounded-full dark:bg-gray-800 bg-gray-100 animate-fade-in language-card dark:drop-shadow-none drop-shadow-sm drop-shadow-black/50"
-                                        style={`animation-delay: ${animation_delay}ms;`}
-                                    >
-                                        <img src={img} alt={`Image of ${name}`} class={`size-5 ${name.toLowerCase() === "java" ? '-translate-y-0.75' : ''}`} />
-                                        <span class="dark:text-white text-black">
-                                            {name}
-                                        </span>
-                                    </div>
-                                )
-                            })
-                        }
-                        <div class="absolute flex md:hidden left-0 -bottom-1 w-full h-10 bg-linear-to-t from-(--primary-color) to-transparent pointer-events-none opacity-100 transition-opacity" id="languages-overlay"></div>
-                    </div>
-                    <div class="w-full flex md:hidden justify-center items-center max-[195px]:px-0 px-4 py-5">
-                        <button
-                            id="show-languages-more"
-                            type="button"
-                            class="px-4 py-2 rounded-lg max-[195px]:w-full w-fit text-black bg-yellow-500 font-extrabold cursor-pointer outline-none border-none max-[195px]:text-sm text-base"
-                            data-showMore={translate.intro.show_more}
-                            data-showLess={translate.intro.show_less}
-                            aria-label="Boton de mostrar más y mostrar menos los lenguajes de programación"
-                        >
-                            {translate.intro.show_more}
-                        </button>
+                        <div class="w-full mx-auto max-w-3xl grid grid-cols-2 max-[680px]:grid-cols-1 gap-20 md:gap-8">
+                            {
+                                Object.entries(LANGUAGES).map(([category, categoryName], index) => {
+                                    const { id, name, content } = categoryName;
+                                    return (
+                                        <div class="language-card w-full flex flex-col justify-center items-center md:px-0 px-2" id={`${id}-container`}>
+                                            <div class="w-full flex justify-center items-center py-3" aria-label="Languages title">
+                                                <h2 class="dark:text-yellow-200 text-blue-700 dark:font-normal font-bold md:text-3xl text-2xl">
+                                                    {name}
+                                                </h2>
+                                            </div>
+                                            <div class="language-content relative max-[680px]:min-h-fit min-h-100 h-full dark:grayscale-50 grayscale-0 md:shadow-none shadow-md dark:bg-transparent bg-transparent md:bg-gray-100/80 pb-16 max-w-96 rounded-2xl w-full items-start grid grid-cols-3 max-[415px]:grid-cols-2 max-[415px]:gap-8 justify-center max-[270px]:gap-12 gap-x-3 gap-y-12 overflow-hidden pt-10 px-3 max-[270px]:flex max-[270px]:flex-col md:border-none border dark:border-yellow-100/50 animate-border-reflect md:animate-border-reflect-none">
+                                                <div class="borde absolute md:block hidden"></div>
+                                                <div class="borde absolute md:block hidden"></div>
+                                                <div class="borde absolute md:block hidden"></div>
+                                                <div class="borde absolute md:block hidden"></div>
+                                                {
+                                                    Object.values(content).map(language => {
+                                                        const { id, name, img } = language;
+                                                        return (
+                                                            <div class="w-full flex flex-col justify-center items-center px-4">
+                                                                <img src={img} alt={`${id}-image`} class="max-[270px]:size-25 max-[415px]:size-20 size-15 object-contain" />
+                                                                <span class="dark:text-white text-black mt-2">
+                                                                    {name}
+                                                                </span>
+                                                            </div>
+                                                        )
+                                                    })
+                                                }
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
@@ -189,14 +196,12 @@ const cfgs_started_at = 2022;
 
 <script is:inline>
     document.addEventListener('DOMContentLoaded', function() {
-        const $showMorLanguagesBtn = document.getElementById('show-languages-more');
         const $showMorFrameworksBtn = document.getElementById('show-frameworks-more');
         const $framweworksContainer = document.getElementById('frameworks-container');
         const $languagesContainer = document.getElementById('languages-container');
+        const $language_cards = $languagesContainer.querySelectorAll('.language-card');
         const $frameworksOverlay = document.getElementById('frameworks-overlay');
-        const $languagesOverlay = document.getElementById('languages-overlay');
         const $frameworksCards = $framweworksContainer.querySelectorAll('.framework-card');
-        const $languagesCards = $languagesContainer.querySelectorAll('.language-card');
 
         // FRAMEWORKS
         let frameworksShowed = false;
@@ -230,34 +235,19 @@ const cfgs_started_at = 2022;
 
 
         // PROGRAMMING LANGUAGES
-        let languagesShowed = false;
-        $showMorLanguagesBtn?.addEventListener('click', function() {
-            let num_first_languages = setFirstLanguages();
-            languagesShowed = !languagesShowed
-            
-            if(languagesShowed) {
-                $languagesOverlay.classList.remove('opacity-100');
-                $languagesOverlay.classList.add('opacity-0');
-                $languagesContainer?.classList.remove('max-h-15');
-                $languagesContainer?.classList.add('max-h-100');
-                $showMorLanguagesBtn.innerHTML = $showMorLanguagesBtn.getAttribute('data-showLess');
-                $languagesCards.forEach((card, index) => {
-                    if(index >= num_first_languages){
-                        card.classList.remove('animate-fade-in');
-                        void card.offsetWidth;
-                        card.classList.add('animate-fade-in');
-                    }
-                });
-            } else {
-                $languagesContainer?.classList.remove('max-h-100');
-                $languagesContainer?.classList.add('max-h-15');
-                setTimeout(function() {
-                    $languagesOverlay.classList.remove('opacity-0');
-                    $languagesOverlay.classList.add('opacity-100');
-                    $showMorLanguagesBtn.innerHTML = $showMorLanguagesBtn.getAttribute('data-showMore');
-                }, 150);
-            }
+        
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                    observer.unobserve(entry.target);
+                } 
+            })
         });
+
+        $language_cards.forEach(card => {
+            observer.observe(card);
+        })
 
 
         function setFirstFrameworks() {
@@ -265,15 +255,6 @@ const cfgs_started_at = 2022;
             if(window.innerWidth > 419 && window.innerWidth <= 553) return 3;
             if(window.innerWidth > 553 && window.innerWidth <= 672) return 4; 
             if(window.innerWidth > 672) return 5; 
-
-            return 1;
-        }
-
-        function setFirstLanguages() {
-            if(window.innerWidth > 246 && window.innerWidth <= 406) return 2;
-            if(window.innerWidth > 406 && window.innerWidth <= 567) return 3;
-            if(window.innerWidth > 567 && window.innerWidth <= 682) return 4;
-            if(window.innerWidth > 682) return 5;
 
             return 1;
         }
@@ -297,6 +278,70 @@ const cfgs_started_at = 2022;
         mask-size: cover;
         animation: invertShow 1s forwards;
     }
+
+    /* Top */
+    .language-content .borde:nth-child(1) {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, yellow);
+        animation: borderTop 5s linear infinite;
+    }
+
+    /* Right */
+    .language-content .borde:nth-child(2) {
+        top: -100%;
+        right: 0;
+        width: 1px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, blue);
+        animation: borderRight 5s linear infinite;
+        animation-delay: 2.5s;
+    }
+
+    /* Bottom */
+    .language-content .borde:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(270deg, transparent, yellow);
+        animation: borderBottom 5s linear infinite;
+        animation-delay: 5s;
+    }
+
+    /* Left */
+    .language-content .borde:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 1px;
+        height: 100%;
+        background: linear-gradient(0deg, transparent, blue);
+        animation: borderLeft 5s linear infinite;
+        animation-delay: 7.5s;
+    }
+
+    @keyframes borderTop {
+        0%   { left: -100%; }
+        100% { left: 100%; }
+    }
+
+    @keyframes borderRight {
+        0%   { top: -100%; }
+        100% { top: 100%; }
+    }
+
+    @keyframes borderBottom {
+        0%   { right: -100%; }
+        100% { right: 100%; }
+    }
+
+    @keyframes borderLeft {
+        0%   { bottom: -100%; }
+        100% { bottom: 100%; }
+    }
+
 
     @keyframes invertShow {
         from {
