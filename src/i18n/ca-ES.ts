@@ -117,7 +117,7 @@ export default {
         graduated_in: 'especialista en',
         web_develpemn_specialist: 'Desenvolupament Web',
         with_experience_left: 'amb experiència en una àmplia varietat de llenguatges de programació',
-        with_experience_right: 'altres tecnologies',
+        with_experience_right: 'i altres tecnologies',
         i_like_create: 'M\'agrada crear projectes',
         innovative: 'innovadors',
         projects: '',
