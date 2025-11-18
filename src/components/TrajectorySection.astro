@@ -32,7 +32,7 @@ const EXPERIENCES = [
 ];
 ---
 
-<div class="flex w-full flex-col pt-(--header-h)">
+<div class="flex w-full flex-col pt-(--header-h) overflow-x-hidden">
     <div class="w-full flex justify-center items-center mb-10">
         <div class="flex w-full flex-col justify-center items-center">
             <h1 class="text-center max-[235px]:text-2xl text-4xl dark:selection:bg-white selection:bg-blue-700 dark:selection:text-blue-700 selection:text-white dark:text-white text-black font-extrabold">
@@ -56,7 +56,7 @@ const EXPERIENCES = [
                 const { company, role, start, end, description, interShip } = experience;
 
                 return (
-                    <section
+                    <article
                         class={`mb-20 md:mb-12 flex w-full items-center max-[180px]:pl-2 pl-5 md:pl-0 ${
                             index % 2 === 0 ? "justify-start" : "justify-start md:justify-end"
                         }`}
@@ -105,7 +105,7 @@ const EXPERIENCES = [
                                 }
                             </div>
                         </div>
-                    </section>
+                    </article>
                 );
             })
         }
