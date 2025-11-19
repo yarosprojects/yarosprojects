@@ -110,6 +110,10 @@ export default {
             paragraph_1: "A classic Tetris game made in Svelte.",
             paragraph_2: "Includes mobile and keyboard controls, scores, and progressive levels.",
         },
+        frontend: 'Frontend',
+        backend: 'Backend',
+        fullstack: 'Fullstack',
+        others: 'Others',
     },
 
     about_me: {

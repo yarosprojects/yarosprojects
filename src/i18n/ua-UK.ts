@@ -111,6 +111,10 @@ export default {
             paragraph_1: "Класична гра Тетріс, створена на Svelte.",
             paragraph_2: "Містить мобільні та клавіатурні керування, бали та прогресивні рівні.",
         },
+        frontend: 'Frontend',
+        backend: 'Backend',
+        fullstack: 'Fullstack',
+        others: 'Інші',
     },
 
     about_me: {

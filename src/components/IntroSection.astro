@@ -154,7 +154,7 @@ const cfgs_started_at = 2022;
                     >
                         <div class="w-full mx-auto max-w-3xl grid grid-cols-2 max-[680px]:grid-cols-1 gap-20 md:gap-8">
                             {
-                                Object.entries(LANGUAGES).map(([category, categoryName], index) => {
+                                Object.entries(LANGUAGES(locale)).map(([category, categoryName], index) => {
                                     const { id, name, content } = categoryName;
                                     return (
                                         <div class="language-card w-full flex flex-col justify-center items-center md:px-0 px-2" id={`${id}-container`}>
@@ -163,7 +163,7 @@ const cfgs_started_at = 2022;
                                                     {name}
                                                 </h2>
                                             </div>
-                                            <div class="language-content relative max-[680px]:min-h-fit min-h-100 h-full dark:grayscale-50 grayscale-0 md:shadow-none shadow-md dark:bg-transparent bg-transparent md:bg-gray-100/80 pb-16 max-w-96 rounded-2xl w-full items-start grid grid-cols-3 max-[415px]:grid-cols-2 max-[415px]:gap-8 justify-center max-[270px]:gap-12 gap-x-3 gap-y-12 overflow-hidden pt-10 px-3 max-[270px]:flex max-[270px]:flex-col md:border-none border dark:border-yellow-100/50 animate-border-reflect md:animate-border-reflect-none">
+                                            <div class="language-content relative max-[680px]:min-h-fit min-h-100 h-full dark:grayscale-50 grayscale-0 md:shadow-none shadow-md dark:bg-transparent bg-transparent pb-16 max-w-96 rounded-2xl w-full items-start grid grid-cols-3 max-[415px]:grid-cols-2 max-[415px]:gap-8 justify-center max-[270px]:gap-12 gap-x-3 gap-y-12 overflow-hidden pt-10 px-3 max-[270px]:flex max-[270px]:flex-col md:border-none border dark:border-yellow-100/50 animate-border-reflect md:animate-border-reflect-none">
                                                 <div class="borde absolute md:block hidden"></div>
                                                 <div class="borde absolute md:block hidden"></div>
                                                 <div class="borde absolute md:block hidden"></div>
@@ -262,6 +262,21 @@ const cfgs_started_at = 2022;
 </script>
 
 <style>
+    :root {
+        --border-width: 2px;
+        --border-yellow-color: rgb(175, 175, 0);
+        /* --border-blue-color: ; */
+        --border-yellow-90: linear-gradient(90deg, transparent, var(--border-yellow-color));
+        --border-blue-180: linear-gradient(180deg, transparent, blue);
+        --border-blue-270: linear-gradient(270deg, transparent, var(--border-yellow-color));
+        --border-blue-0: linear-gradient(0deg, transparent, blue);
+    }
+
+    html.dark {
+        --border-width: 1px;
+        --border-yellow-color: yellow;
+    }
+
     html.dark .mask-avatar {
         -webkit-mask-image: radial-gradient(circle, rgba(255,255,255,1) 30%, rgba(0,0,0,0) 100%);
         mask-image: radial-gradient(circle, rgba(255,255,255,1) 40%, rgba(0,0,0,0) 65%);
@@ -284,8 +299,8 @@ const cfgs_started_at = 2022;
         top: 0;
         left: -100%;
         width: 100%;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, yellow);
+        height: var(--border-width);
+        background: var(--border-yellow-90);
         animation: borderTop 5s linear infinite;
     }
 
@@ -293,9 +308,9 @@ const cfgs_started_at = 2022;
     .language-content .borde:nth-child(2) {
         top: -100%;
         right: 0;
-        width: 1px;
+        width: var(--border-width);
         height: 100%;
-        background: linear-gradient(180deg, transparent, blue);
+        background: var(--border-blue-180);
         animation: borderRight 5s linear infinite;
         animation-delay: 2.5s;
     }
@@ -305,8 +320,8 @@ const cfgs_started_at = 2022;
         bottom: 0;
         right: -100%;
         width: 100%;
-        height: 1px;
-        background: linear-gradient(270deg, transparent, yellow);
+        height: var(--border-width);
+        background: var(--border-blue-270);
         animation: borderBottom 5s linear infinite;
         animation-delay: 5s;
     }
@@ -315,9 +330,9 @@ const cfgs_started_at = 2022;
     .language-content .borde:nth-child(4) {
         bottom: -100%;
         left: 0;
-        width: 1px;
+        width: var(--border-width);
         height: 100%;
-        background: linear-gradient(0deg, transparent, blue);
+        background: var(--border-blue-0);
         animation: borderLeft 5s linear infinite;
         animation-delay: 7.5s;
     }

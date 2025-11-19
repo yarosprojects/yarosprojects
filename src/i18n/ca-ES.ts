@@ -111,6 +111,10 @@ export default {
             paragraph_1: "Un joc clàssic de Tetris fet en Svelte.",
             paragraph_2: "Inclou controls mòbils i de teclat, puntuacions i nivells progressius.",
         },
+        frontend: 'Frontend',
+        backend: 'Backend',
+        fullstack: 'Fullstack',
+        others: 'Altres',
     },
 
     about_me: {
