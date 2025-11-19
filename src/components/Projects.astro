@@ -1,6 +1,7 @@
 ---
 import calculatorImg from '../../public/projects/calculator.png';
 import tetrisImg from '../../public/projects/tetris.png';
+import snakeImg from '../../public/projects/snake.png';
 
 const { creador, translate, locale } = Astro.props;
 
@@ -48,7 +49,7 @@ const GAMES = {
         translate.projects.tetris.paragraph_2,
       ],
       frameworks: {
-        angular: {
+        svelte: {
             id: 'svelte-framework',
             name: 'Svelte',
             image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/svelte/svelte-original.svg',
@@ -67,6 +68,44 @@ const GAMES = {
             mainColor: 'bg-tailwindcss',
         },
       }
+    },
+
+    snake: {
+        id: 'snake',
+        name: translate.projects.snake.name,
+        url: `https://snake-yarosprojects.vercel.app`,
+        image: snakeImg.src,
+        code_link: 'https://github.com/yarosprojects/snake-yarosprojects',
+        description: [
+            translate.projects.tetris.paragraph_1,
+            translate.projects.tetris.paragraph_2,
+        ],
+        frameworks: {
+            vite: {
+                id: 'vite-framework',
+                name: 'Vite',
+                image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg',
+                mainColor: 'bg-vite',
+            },
+            svelte: {
+                id: 'svelte-framework',
+                name: 'Svelte',
+                image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/svelte/svelte-original.svg',
+                mainColor: 'bg-svelte',
+            },
+            typescript: {
+                id: 'typescript-framework',
+                name: 'TypeScript',
+                image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+                mainColor: 'bg-typescript',
+            },
+            tailwind: {
+                id: 'tailwindcss-framework',
+                name: 'TailwindCSS',
+                image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+                mainColor: 'bg-tailwindcss',
+            },
+        }
     },
 }
 

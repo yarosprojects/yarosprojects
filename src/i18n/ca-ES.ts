@@ -111,6 +111,12 @@ export default {
             paragraph_1: "Un joc clàssic de Tetris fet en Svelte.",
             paragraph_2: "Inclou controls mòbils i de teclat, puntuacions i nivells progressius.",
         },
+        snake: {
+            name: 'Joc de la Serp',
+            paragraph_1: "Un clàssic joc de la serp desenvolupat a Vite amb Svelte.",
+            paragraph_2: "Inclou controls mòbils i de teclat, puntuació en temps real i augment de dificultat a mesura que la serp creix.",
+        },
+        
         frontend: 'Frontend',
         backend: 'Backend',
         fullstack: 'Fullstack',

@@ -42,6 +42,10 @@ html:not(.dark) {
     animation: gamesUp .6s forwards;
 }
 
+@utility bg-vite {
+    background-color: #320138;
+}
+
 @utility bg-angular {
     background-color: var(--angular-bg);
 }

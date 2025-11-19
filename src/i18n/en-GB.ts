@@ -110,6 +110,12 @@ export default {
             paragraph_1: "A classic Tetris game made in Svelte.",
             paragraph_2: "Includes mobile and keyboard controls, scores, and progressive levels.",
         },
+        snake: {
+            name: 'Snake Game',
+            paragraph_1: "A classic snake game developed in Vite with Svelte.",
+            paragraph_2: "Includes mobile and keyboard controls, real-time scoring, and increasing difficulty as the snake grows.",
+        },
+        
         frontend: 'Frontend',
         backend: 'Backend',
         fullstack: 'Fullstack',

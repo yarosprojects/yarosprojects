@@ -110,6 +110,12 @@ export default {
             paragraph_1: "Un juego clásico de Tetris hecho en Svelte.",
             paragraph_2: "Incluye controles móviles y de teclado, puntajes y niveles progresivos.",
         },
+        snake: {
+            name: 'Juego de la serpiente',
+            paragraph_1: "Un clásico juego de la serpiente desarrollado en Vite con Svelte.",
+            paragraph_2: "Incluye controles móviles y de teclado, puntuación en tiempo real y aumento de dificultad a medida que la serpiente crece.",
+        },
+        
         frontend: 'Frontend',
         backend: 'Backend',
         fullstack: 'Fullstack',
