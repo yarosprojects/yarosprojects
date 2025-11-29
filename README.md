@@ -12,7 +12,10 @@ Here you’ll find a variety of projects, from web development to other coding e
 ## 📂 Projects
 Some highlights of what you’ll find here:
 
-- Pending to update
+- [Portfolio](https://yarosprojects.vercel.app)
+- [Calculator](https://calculator-yarosprojects.vercel.app)
+- [Tetris](https://tetris-yarosprojects.vercel.app)
+- [Snake Game](https://snake-yarosprojects.vercel.app)
 
 *(More projects will be added regularly!)*
 
