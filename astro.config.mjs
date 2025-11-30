@@ -17,7 +17,7 @@ export default defineConfig({
       },
   },
 
-  site: 'https://yarosprojects.vercel.app',
+  site: 'https://yarosprojects.dev',
   base: '/',
 
   redirects: {

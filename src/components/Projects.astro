@@ -4,12 +4,13 @@ import tetrisImg from '../../public/projects/tetris.png';
 import snakeImg from '../../public/projects/snake.png';
 
 const { creador, translate, locale } = Astro.props;
+const DOMAIN_URL = "yarosprojects.dev";
 
 const GAMES = {
     calculator: {
       id: 'calculator',
       name: translate.projects.calculator.name,
-      url: `https://calculator-yarosprojects.vercel.app`,
+      url: `https://calculator.${DOMAIN_URL}`,
       image: calculatorImg.src,
       code_link: 'https://github.com/yarosprojects/calculator-yarosprojects',
       description: [
@@ -41,7 +42,7 @@ const GAMES = {
     tetris: {
       id: 'tetris',
       name: translate.projects.tetris.name,
-      url: `https://tetris-yarosprojects.vercel.app`,
+      url: `https://tetris.${DOMAIN_URL}`,
       image: tetrisImg.src,
       code_link: 'https://github.com/yarosprojects/tetris-yarosprojects',
       description: [
@@ -73,7 +74,7 @@ const GAMES = {
     snake: {
         id: 'snake',
         name: translate.projects.snake.name,
-        url: `https://snake-yarosprojects.vercel.app`,
+        url: `https://snake.${DOMAIN_URL}`,
         image: snakeImg.src,
         code_link: 'https://github.com/yarosprojects/snake-yarosprojects',
         description: [
