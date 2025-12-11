@@ -1,1 +1,1 @@
-export type Language = "es-ES" | "ca-ES" | "en-GB" | "ua-UK";
+export type Language = "es-ES" | "ca-ES" | "en-EN" | "uk-UA" | "pt-PT" | "fr-FR" | "pl-PL";
