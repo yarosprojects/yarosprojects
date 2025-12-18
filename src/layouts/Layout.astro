@@ -244,6 +244,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
         });
 
 		if(window.innerWidth >= 768) setLocalesBtnBg();
+/*
         window.addEventListener('scroll', function() {
             if(window.innerWidth >= 768) setLocalesBtnBg();
         });
@@ -251,6 +252,7 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
             setLocalesBtnBg();
         });
         
+*/
         $locales_btn.addEventListener('click', function(e) {
             e.stopPropagation();
             locales_opened = !locales_opened;
