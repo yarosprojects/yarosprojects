@@ -50,6 +50,10 @@ html:not(.dark) {
     background-color: var(--angular-bg);
 }
 
+@utility bg-astro {
+    @apply bg-linear-to-r from-[#BC52EE] to-[#FF5D01];
+}
+
 @utility bg-svelte {
     background-color: var(--svelte-bg);
 }

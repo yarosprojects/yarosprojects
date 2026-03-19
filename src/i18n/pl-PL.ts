@@ -96,6 +96,7 @@ export default {
     projects: {
         labels: {
             mini_games: 'Mini gry',
+            webs: "Strony internetowe",
         },
         code_btn: 'Kod',
         preview: 'Podgląd',
@@ -113,6 +114,11 @@ export default {
             name: 'Gra w węża',
             paragraph_1: "Klasyczna gra w węża stworzona w Vite z Svelte.",
             paragraph_2: "Zawiera sterowanie mobilne i klawiaturowe, wynik w czasie rzeczywistym oraz zwiększający się poziom trudności wraz ze wzrostem węża.",
+        },
+        joanolive: {
+            name: 'Zamówienia Joan Olivé',
+            paragraph_1: "Profesjonalna platforma internetowa opracowana dla Joan Olivé, S.L., która umożliwia klientom składanie zamówień online w szybki, bezpieczny sposób i jest dostępna 24 godziny na dobę.",
+            paragraph_2: "Ponadto zespół zarządzający może nadzorować zamówienia w czasie rzeczywistym, aktualizować ich status, edytować je, usuwać oraz sprawnie zarządzać całym procesem z jednego interfejsu.",
         },
 
         frontend: 'Frontend',

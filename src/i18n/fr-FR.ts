@@ -96,6 +96,7 @@ export default {
     projects: {
         labels: {
             mini_games: 'Mini-jeux',
+            webs: 'Applications web',
         },
         code_btn: 'Code',
         preview: 'Aperçu',
@@ -113,6 +114,11 @@ export default {
             name: 'Jeu du serpent',
             paragraph_1: "Un jeu classique du serpent développé avec Vite et Svelte.",
             paragraph_2: "Inclut des contrôles mobiles et clavier, score en temps réel et augmentation progressive de la difficulté.",
+        },
+        joanolive: {
+            name: 'Commandes Joan Olivé',
+            paragraph_1: "Une plateforme web professionnelle développée pour Joan Olivé, S.L., qui permet à ses clients d’enregistrer leurs commandes en ligne de manière rapide, sécurisée et disponible 24 heures sur 24.",
+            paragraph_2: "De plus, l’équipe de gestion peut superviser les commandes en temps réel, mettre à jour leur statut, les modifier, les supprimer et administrer l’ensemble du processus de manière efficace depuis une interface unique.",
         },
 
         frontend: 'Frontend',

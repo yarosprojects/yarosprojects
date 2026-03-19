@@ -89,7 +89,7 @@ export default {
             },
             'peon-administrativo': {
                 role: "Laborer - Administrative",
-                description: "Maintenance and cleaning of production machines - Recording invoices, creating delivery notes, and performing other office tasks"                
+                description: "Maintenance and cleaning of production machines - Recording invoices, creating delivery notes, and performing other office tasks"
             },
         },
     },
@@ -97,6 +97,7 @@ export default {
     projects: {
         labels: {
             mini_games: 'Mini games',
+            webs: "Web pages",
         },
         code_btn: 'Code',
         preview: 'Preview',
@@ -115,7 +116,12 @@ export default {
             paragraph_1: "A classic snake game developed in Vite with Svelte.",
             paragraph_2: "Includes mobile and keyboard controls, real-time scoring, and increasing difficulty as the snake grows.",
         },
-        
+        joanolive: {
+            name: 'Joan Olivé Orders',
+            paragraph_1: "A professional web platform developed for Joan Olivé, S.L., allowing its clients to place orders online in a fast, secure, and 24/7 available environment.",
+            paragraph_2: "In addition, the management team can monitor orders in real time, update their status, edit or delete them, and manage the entire process efficiently from a single interface.",
+        },
+
         frontend: 'Frontend',
         backend: 'Backend',
         fullstack: 'Fullstack',

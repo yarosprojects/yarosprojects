@@ -13,7 +13,7 @@ export default {
         november: 'Novembre',
         december: 'Desembre'
     },
-      
+
 
     cities: {
         psip: "Palau-solità i Plegamans",
@@ -98,6 +98,7 @@ export default {
     projects: {
         labels: {
             mini_games: 'Mini jocs',
+            webs: "Pàgines web",
         },
         code_btn: 'Codi',
         preview: 'Preview',
@@ -116,7 +117,12 @@ export default {
             paragraph_1: "Un clàssic joc de la serp desenvolupat a Vite amb Svelte.",
             paragraph_2: "Inclou controls mòbils i de teclat, puntuació en temps real i augment de dificultat a mesura que la serp creix.",
         },
-        
+        joanolive: {
+            name: 'Comandes Joan Olivé',
+            paragraph_1: "Una plataforma web professional desenvolupada per a Joan Olivé, S.L., que permet als seus clients registrar comandes en línia de manera àgil, segura i disponible les 24 hores del dia.",
+            paragraph_2: "A més, l’equip de gestió pot supervisar les comandes en temps real, actualitzar-ne l’estat, editar-les, eliminar-les i administrar tot el procés de manera eficient des d’una única interfície.",
+        },
+
         frontend: 'Frontend',
         backend: 'Backend',
         fullstack: 'Fullstack',

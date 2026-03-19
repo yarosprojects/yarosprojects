@@ -96,6 +96,7 @@ export default {
     projects: {
         labels: {
             mini_games: 'Mini jogos',
+            webs: 'Aplicações web',
         },
         code_btn: 'Código',
         preview: 'Prévia',
@@ -113,6 +114,11 @@ export default {
             name: 'Jogo da cobra',
             paragraph_1: "Um clássico jogo da cobra desenvolvido em Vite com Svelte.",
             paragraph_2: "Inclui controles móveis e teclado, pontuação em tempo real e dificuldade crescente conforme a cobra aumenta.",
+        },
+        joanolive: {
+            name: 'Encomendas Joan Olivé',
+            paragraph_1: "Uma plataforma web profissional desenvolvida para a Joan Olivé, S.L., que permite aos seus clientes registar encomendas online de forma ágil, segura e disponível 24 horas por dia.",
+            paragraph_2: "Além disso, a equipa de gestão pode supervisionar as encomendas em tempo real, atualizar o seu estado, editá-las, eliminá-las e administrar todo o processo de forma eficiente a partir de uma única interface.",
         },
 
         frontend: 'Frontend',

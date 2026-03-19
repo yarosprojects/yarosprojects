@@ -13,7 +13,7 @@ export default {
         november: 'Noviembre',
         december: 'Diciembre'
     },
-      
+
 
     cities: {
         psip: "Palau-solità i Plegamans",
@@ -72,7 +72,7 @@ export default {
         statics: "estáticas",
         dynamics: "dinámicas",
         websites: "",
-    },  
+    },
 
     trajectory: {
         title: 'Trayectoria',
@@ -97,6 +97,7 @@ export default {
     projects: {
         labels: {
             mini_games: 'Mini juegos',
+            webs: "Páginas web",
         },
         code_btn: 'Código',
         preview: 'Preview',
@@ -115,7 +116,12 @@ export default {
             paragraph_1: "Un clásico juego de la serpiente desarrollado en Vite con Svelte.",
             paragraph_2: "Incluye controles móviles y de teclado, puntuación en tiempo real y aumento de dificultad a medida que la serpiente crece.",
         },
-        
+        joanolive: {
+            name: 'Pedidos Joan Olivé',
+            paragraph_1: "Una plataforma web profesional desarrollada para Joan Olivé, S.L., que permite a sus clientes registrar pedidos en línea de forma ágil, segura y disponible las 24 horas del día.",
+            paragraph_2: "Además, el equipo de gestión puede supervisar los pedidos en tiempo real, actualizar su estado, editarlos, eliminarlos y administrar todo el proceso de forma eficiente desde una única interfaz.",
+        },
+
         frontend: 'Frontend',
         backend: 'Backend',
         fullstack: 'Fullstack',
