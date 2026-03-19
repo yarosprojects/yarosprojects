@@ -20,7 +20,7 @@ const GAMES = {
             translate.projects.calculator.paragraph_1,
             translate.projects.calculator.paragraph_2,
         ],
-        frameworks: {
+        tecnologies: {
             angular: {
                 id: "angular-framework",
                 name: "Angular",
@@ -52,7 +52,7 @@ const GAMES = {
             translate.projects.tetris.paragraph_1,
             translate.projects.tetris.paragraph_2,
         ],
-        frameworks: {
+        tecnologies: {
             svelte: {
                 id: "svelte-framework",
                 name: "Svelte",
@@ -84,7 +84,7 @@ const GAMES = {
             translate.projects.snake.paragraph_1,
             translate.projects.snake.paragraph_2,
         ],
-        frameworks: {
+        tecnologies: {
             vite: {
                 id: "vite-framework",
                 name: "Vite",
@@ -124,7 +124,7 @@ const WEBS = {
             translate.projects.joanolive.paragraph_1,
             translate.projects.joanolive.paragraph_2,
         ],
-        frameworks: {
+        tecnologies: {
             astro: {
                 id: "astro-framework",
                 name: "Astro",
@@ -142,6 +142,12 @@ const WEBS = {
                 name: "TailwindCSS",
                 image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
                 mainColor: "bg-tailwindcss",
+            },
+            supabase: {
+                id: "supabase-framework",
+                name: "Supabase",
+                image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg",
+                mainColor: "bg-supabase",
             },
         },
     },
@@ -212,7 +218,7 @@ const SECTIONS = [
                                     url,
                                     image,
                                     code_link,
-                                    frameworks,
+                                    tecnologies,
                                     description,
                                 } = item;
 
@@ -236,15 +242,15 @@ const SECTIONS = [
                                                 </h3>
 
                                                 <ul class="flex w-full flex-row flex-wrap justify-start items-center my-2 gap-2">
-                                                    {frameworks &&
+                                                    {tecnologies &&
                                                         Object.values(
-                                                            frameworks,
-                                                        ).map((framework) => {
+                                                            tecnologies,
+                                                        ).map((tecnology) => {
                                                             const {
                                                                 name,
                                                                 image,
                                                                 mainColor,
-                                                            } = framework;
+                                                            } = tecnology;
 
                                                             return (
                                                                 <li

@@ -17,13 +17,13 @@ const cfgs_started_at = 2022;
         <img
             src={avatar.src}
             alt="Avatar Yaroslav Klymko"
-            class="w-40 mx-auto md:mx-0 h-auto rounded-full animate-fade-in-down mask-avatar"
+            class="w-40 mx-auto md:mx-0 h-auto rounded-full animate-fade-in-down mask-avatar img-scroll"
         />
         <div
             class="flex flex-1 p-4 md:px-8 md:py-15 flex-col items-center md:items-start justify-start w-full h-full"
         >
             <span
-                class="dark:text-white text-black text-center md:text-left text-3xl font-extrabold animate-fade-in animate-duration-50"
+                class="dark:text-white text-black text-center md:text-left text-3xl font-extrabold animate-fade-in animate-duration-50 gsap-animation-name"
             >
                 {creador}
             </span>
@@ -194,6 +194,26 @@ const cfgs_started_at = 2022;
     </div>
 </div>
 
+<script>
+    import gsap from 'gsap';
+    import SplitText from 'gsap/SplitText';
+
+    gsap.registerPlugin(SplitText);
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const name = document.querySelector('.gsap-animation-name');
+        const split = new SplitText(name, { type: 'chars' });
+
+        gsap.from(split.chars, {
+            opacity: 0,
+            y: 20,
+            stagger: 0.05,
+            ease: 'power2.out',
+            duration: 0.6,
+        });
+    });
+</script>
+
 <script is:inline>
     document.addEventListener('DOMContentLoaded', function() {
         const $showMorFrameworksBtn = document.getElementById('show-frameworks-more');
@@ -281,6 +301,7 @@ const cfgs_started_at = 2022;
         -webkit-mask-image: radial-gradient(circle, rgba(255,255,255,1) 30%, rgba(0,0,0,0) 100%);
         mask-image: radial-gradient(circle, rgba(255,255,255,1) 40%, rgba(0,0,0,0) 65%);
     }
+
     .mask-avatar {
         border-radius: 50%;
         -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
