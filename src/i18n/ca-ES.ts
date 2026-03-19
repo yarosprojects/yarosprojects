@@ -88,9 +88,14 @@ export default {
                 role: "Peó",
                 description: "Manteniment i neteja de les màquines de producció."
             },
-            'peon-administrativo': {
-                role: "Peó - Administratiu",
-                description: "Manteniment i neteja de les màquines de producció - Registrant factures, realitzant albarans i altres tipus de tasques d’ofimàtica."
+            'peon-administrativo-desarollador': {
+                role: "Peó - Administratiu - Desenvolupador",
+                description: `
+                    <p>Manteniment i neteja de maquinària de producció.</p>
+                    <p>Tasques administratives, incloent-hi el registre de factures, l’elaboració d’albarans i altres feines d’ofimàtica.</p>
+                    <p>A més, vaig desenvolupar una <strong>aplicació web per a l’empresa</strong> per gestionar les comandes dels clients, agilitzant el registre i el seguiment de comandes, millorant l’eficiència operativa i oferint una experiència més fluida tant per als clients com per a l’equip de gestió.</p>
+                    <p>Actualment, continuo encarregant-me del <strong>manteniment, la millora contínua i les actualitzacions de l’aplicació</strong>, implementant noves funcionalitats i millores sol·licitades per l’empresa per garantir un funcionament òptim i la seva evolució constant.</p>
+                `,
             },
         },
     },
@@ -156,6 +161,8 @@ export default {
         programming: 'programació',
         with_community: 'amb la comunitat',
     },
+
+    read_more: 'Llegir més',
 
     footer: {
         web_developer: "Desenvolupador web",

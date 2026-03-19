@@ -87,9 +87,14 @@ export default {
                 role: "Laborer",
                 description: "Maintenance and cleaning of production machines.",
             },
-            'peon-administrativo': {
-                role: "Laborer - Administrative",
-                description: "Maintenance and cleaning of production machines - Recording invoices, creating delivery notes, and performing other office tasks"
+            'peon-administrativo-desarollador': {
+                role: "Production Operator - Administrative Assistant - Developer",
+                description: `
+                    <p>Maintenance and cleaning of production machinery.</p>
+                    <p>Administrative tasks, including invoice registration, delivery note preparation, and general office work.</p>
+                    <p>Additionally, I developed a <strong>web application for the company</strong> to manage customer orders, streamlining order registration and tracking, improving operational efficiency, and providing a smoother experience for both clients and the management team.</p>
+                    <p>Currently, I am responsible for the <strong>maintenance, continuous improvement, and updates of the application</strong>, implementing new features and company-requested enhancements to ensure optimal performance and ongoing evolution.</p>
+                `,
             },
         },
     },
@@ -155,6 +160,8 @@ export default {
         programming: 'programming',
         with_community: 'with the community',
     },
+
+    read_more: 'Read more',
 
     footer: {
         web_developer: "Web devoloper",

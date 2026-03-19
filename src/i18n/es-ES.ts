@@ -80,16 +80,20 @@ export default {
         intership_message: 'Contrato de práticas',
         experiences: {
             'angular': {
-                role: 'Desarollador Frontend de Angular',
-                description: "Desarrollo de interfaces web con Angular y optimización de rendimiento en la oficina de la cartografia de la Diputación de Barcelona.",
+                role: 'Desarrollador Frontend Angular',
+                description: "Desarrollo de interfaces web con <strong>Angular</strong> y optimización del rendimiento en la oficina de cartografía de la Diputación de Barcelona.",
             },
             'peon': {
                 role: "Peón",
-                description: "Mantenimiento y limpieza de maquinas de producción.",
+                description: "Mantenimiento y limpieza de máquinas de producción.",
             },
-            'peon-administrativo': {
-                role: "Peón - Administrativo",
-                description: "Mantenimiento y limpieza de maquinas de producción - Registrando facturas, realizando albaranes y otros tipos de tareas de la ofimática.",
+            'peon-administrativo-desarollador': {
+                role: "Peón - Administrativo - Desarrollador",
+                description: `
+                    <p>Mantenimiento y limpieza de máquinas de producción.</p>
+                    <p>Registro de facturas, elaboración de albaranes y otras tareas administrativas y de ofimática.</p>
+                    <p>Además, desarrollé una <strong>aplicación web para la empresa</strong> para gestionar los pedidos de los clientes, agilizando el registro y seguimiento de pedidos, mejorando la eficiencia operativa y ofreciendo una experiencia más fluida tanto para los clientes como para el equipo de gestión.</p>
+                `,
             },
         },
     },
@@ -155,6 +159,8 @@ export default {
         programming: 'programación',
         with_community: 'con la comunidad',
     },
+
+    read_more: 'Leer más',
 
     footer: {
         web_developer: "Desarollador web",

@@ -60,7 +60,7 @@ export const labelsLocales = {
         label: 'fr',
         country: {
             simple: '',
-            complex: 'FRANCE',
+            complex: '',
         },
         multispoken: true,
         icon: 'fi fi-fr',

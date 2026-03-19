@@ -86,9 +86,14 @@ export default {
                 role: "Pracownik fizyczny",
                 description: "Utrzymanie i czyszczenie maszyn produkcyjnych.",
             },
-            'peon-administrativo': {
-                role: "Pracownik fizyczny – Administracyjny",
-                description: "Utrzymanie i czyszczenie maszyn produkcyjnych – Rejestrowanie faktur, przygotowywanie dokumentów dostawy i inne prace biurowe.",
+            'peon-administrativo-desarollador': {
+                role: "Pracownik produkcji - Pracownik administracyjny - Programista",
+                description: `
+                    <p>Konserwacja i czyszczenie maszyn produkcyjnych.</p>
+                    <p>Zadania administracyjne, w tym rejestrowanie faktur, przygotowywanie dokumentów dostawy oraz inne prace biurowe.</p>
+                    <p>Ponadto opracowałem <strong>aplikację internetową dla firmy</strong> do zarządzania zamówieniami klientów, usprawniając rejestrowanie i śledzenie zamówień, poprawiając efektywność operacyjną oraz zapewniając płynniejsze doświadczenie zarówno klientom, jak i zespołowi zarządzającemu.</p>
+                    <p>Obecnie nadal odpowiadam za <strong>utrzymanie, ciągłe doskonalenie i aktualizacje aplikacji</strong>, wdrażając nowe funkcjonalności oraz usprawnienia wymagane przez firmę, aby zapewnić jej optymalne działanie i stały rozwój.</p>
+                `,
             },
         },
     },
@@ -154,6 +159,8 @@ export default {
         programming: 'programowania',
         with_community: 'ze społecznością',
     },
+
+    read_more: 'Czytaj więcej',
 
     footer: {
         web_developer: "Web developer",

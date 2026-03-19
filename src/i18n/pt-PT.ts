@@ -86,9 +86,14 @@ export default {
                 role: "Operário",
                 description: "Manutenção e limpeza de máquinas de produção.",
             },
-            'peon-administrativo': {
-                role: "Operário - Administrativo",
-                description: "Manutenção e limpeza de máquinas de produção – Registrando faturas, emitindo notas de entrega e realizando outras tarefas administrativas.",
+            'peon-administrativo-desarollador': {
+                role: "Operário - Assistente Administrativo - Desenvolvedor",
+                description: `
+                    <p>Manutenção e limpeza de máquinas de produção.</p>
+                    <p>Tarefas administrativas, incluindo registo de faturas, elaboração de guias de remessa e outras atividades de escritório.</p>
+                    <p>Além disso, desenvolvi uma <strong>aplicação web para a empresa</strong> para gerir as encomendas dos clientes, agilizando o registo e o acompanhamento das encomendas, melhorando a eficiência operacional e proporcionando uma experiência mais fluida tanto para os clientes como para a equipa de gestão.</p>
+                    <p>Atualmente, continuo responsável pela <strong>manutenção, melhoria contínua e atualização da aplicação</strong>, implementando novas funcionalidades e melhorias solicitadas pela empresa para garantir um funcionamento ótimo e a sua evolução constante.</p>
+                `,
             },
         },
     },
@@ -154,6 +159,8 @@ export default {
         programming: 'programação',
         with_community: 'com a comunidade',
     },
+
+    read_more: 'Ler mais',
 
     footer: {
         web_developer: "Desenvolvedor web",

@@ -3,30 +3,34 @@ const { creador, translate, locale } = Astro.props;
 
 const EXPERIENCES = [
     {
-        id: 'angular',
+        id: "angular",
         company: "Diputació de Barcelona",
-        role: translate.trajectory.experiences['angular'].role,
+        role: translate.trajectory.experiences["angular"].role,
         start: `${translate.months.june.slice(0, 3)} 2023`,
         end: `${translate.months.may.slice(0, 3)} 2024`,
-        description: translate.trajectory.experiences['angular'].description,
+        description: translate.trajectory.experiences["angular"].description,
         interShip: true,
     },
     {
-        id: 'peon',
+        id: "peon",
         company: "Espais i Negocis S.L.",
-        role: translate.trajectory.experiences['peon'].role,
+        role: translate.trajectory.experiences["peon"].role,
         start: `${translate.months.june.slice(0, 3)} 2024`,
         end: `${translate.months.august.slice(0, 3)} 2024`,
-        description: translate.trajectory.experiences['peon'].description,
+        description: translate.trajectory.experiences["peon"].description,
         interShip: false,
     },
     {
-        id: 'peon-administrativo',
+        id: "peon-administrativo-desarollador",
         company: "Jose Fusté S.A.",
-        role: translate.trajectory.experiences['peon-administrativo'].role,
+        role: translate.trajectory.experiences[
+            "peon-administrativo-desarollador"
+        ].role,
         start: `${translate.months.september.slice(0, 3)} 2024`,
         end: translate.trajectory.actually,
-        description: translate.trajectory.experiences['peon-administrativo'].description,
+        description:
+            translate.trajectory.experiences["peon-administrativo-desarollador"]
+                .description,
         interShip: false,
     },
 ];
@@ -35,10 +39,14 @@ const EXPERIENCES = [
 <div class="flex w-full flex-col pt-(--header-h) overflow-x-hidden">
     <div class="w-full flex justify-center items-center mb-10">
         <div class="flex w-full flex-col justify-center items-center">
-            <h1 class="text-center max-[235px]:text-2xl text-4xl dark:selection:bg-white selection:bg-blue-700 dark:selection:text-blue-700 selection:text-white dark:text-white text-black font-extrabold">
+            <h1
+                class="text-center max-[235px]:text-2xl text-4xl dark:selection:bg-white selection:bg-blue-700 dark:selection:text-blue-700 selection:text-white dark:text-white text-black font-extrabold"
+            >
                 {translate.trajectory.title}
             </h1>
-            <span class="dark:text-white/80 text-black/80 text-sm mt-2 dark:selection:text-yellow-500 dark:selection:bg-transparent selection:text-blue-500 selection:bg-transparent">
+            <span
+                class="dark:text-white/80 text-black/80 text-sm mt-2 dark:selection:text-yellow-500 dark:selection:bg-transparent selection:text-blue-500 selection:bg-transparent"
+            >
                 {translate.work_experience}
             </span>
         </div>
@@ -53,12 +61,15 @@ const EXPERIENCES = [
         </div>
         {
             EXPERIENCES.map((experience, index) => {
-                const { company, role, start, end, description, interShip } = experience;
+                const { company, role, start, end, description, interShip } =
+                    experience;
 
                 return (
                     <article
                         class={`mb-20 md:mb-12 flex w-full items-center max-[180px]:pl-2 pl-5 md:pl-0 ${
-                            index % 2 === 0 ? "justify-start" : "justify-start md:justify-end"
+                            index % 2 === 0
+                                ? "justify-start"
+                                : "justify-start md:justify-end"
                         }`}
                     >
                         <div class="relative w-full md:w-1/2">
@@ -83,26 +94,60 @@ const EXPERIENCES = [
                                 aria-label="Carta de experiencia"
                             >
                                 <div class="w-full flex flex-col">
-                                    <h3 class="text-xl max-[170px]:text-base font-bold dark:text-white text-black/80 selection:bg-yellow-500 selection:text-black" aria-label="Título de la carta de expriencia">
+                                    <h3
+                                        class="text-xl max-[170px]:text-base font-bold dark:text-white text-black/80 selection:bg-yellow-500 selection:text-black"
+                                        aria-label="Título de la carta de expriencia"
+                                    >
                                         {role}
                                     </h3>
-                                    <p class="dark:text-blue-400 text-blue-700 max-[170px]:text-[12px] font-semibold" aria-label="Nombre de la compania de la carta de experiencia">
+                                    <p
+                                        class="dark:text-blue-400 text-blue-700 max-[170px]:text-[12px] font-semibold"
+                                        aria-label="Nombre de la compania de la carta de experiencia"
+                                    >
                                         {company}
                                     </p>
-                                    <p class="text-sm dark:text-gray-400 text-gray-500" aria-label="Fecha inicio - Fecha fin de la carta de experiencia">
+                                    <p
+                                        class="text-sm dark:text-gray-400 text-gray-500"
+                                        aria-label="Fecha inicio - Fecha fin de la carta de experiencia"
+                                    >
                                         {start} – {end}
                                     </p>
-                                    <p class="dark:text-gray-300 text-gray-800 mt-2 text-ellipsis selection:bg-transparent dark:selection:text-blue-500 selection:text-blue-400" aria-label="Descripción de la carta de experiencia">
-                                        {description}
-                                    </p>
+                                    <div class="relative">
+                                        <div
+                                            class="description-wrapper description-collapsed overflow-hidden transition-[max-height] duration-500 ease-in-out"
+                                            data-collapsed="true"
+                                            style="max-height: 112px;"
+                                        >
+                                            <div
+                                                class="description-content dark:text-gray-300 text-gray-800 mt-3 space-y-3 leading-relaxed"
+                                                set:html={description}
+                                            />
+                                        </div>
+
+                                        <button
+                                            class="cursor-pointer read-more-btn mt-2 text-blue-500 hover:underline text-sm hidden justify-center items-center flex-row gap-1"
+                                            type="button"
+                                        >
+                                            <span class="btn-text inline-block min-w-[75px] text-left">
+                                                {translate.read_more}
+                                            </span>
+                                            <i class="chevron-icon icon-[line-md--chevron-small-down] text-md transition-transform duration-300" />
+                                        </button>
+                                    </div>
                                 </div>
-                                { interShip &&
-                                    <div class="w-full flex justify-start items-center mt-5" aria-label="Etiqueta de contrato de prácticas de la carta de experiencia">
+                                {interShip && (
+                                    <div
+                                        class="w-full flex justify-start items-center mt-5"
+                                        aria-label="Etiqueta de contrato de prácticas de la carta de experiencia"
+                                    >
                                         <span class="dark:text-yellow-500 text-yellow-600 text-sm dark:bg-yellow-500/15 bg-yellow-300/20 dark:drop-shadow-none drop-shadow-md drop-shadow-yellow-300 max-[220px]:px-3 max-[220px]:text-[12px] px-2 py-1 md:py-0.5 rounded-full border dark:border-transparent border-yellow-300/60 max-[185px]:px-2 dark:max-[155px]:bg-transparent max-[155px]:bg-transparent max-[155px]:px-0 dark:selection:bg-blue-700 dark:selection:text-white selection:bg-blue-300 selection:text-white">
-                                            {translate.trajectory.intership_message}
+                                            {
+                                                translate.trajectory
+                                                    .intership_message
+                                            }
                                         </span>
                                     </div>
-                                }
+                                )}
                             </div>
                         </div>
                     </article>
@@ -113,29 +158,90 @@ const EXPERIENCES = [
 </div>
 
 <script is:inline>
-    document.addEventListener('DOMContentLoaded', function() {
-        const $timeline_line = document.getElementById('timeline-line');
-        const $experiences_cards = document.querySelectorAll('.experience-card');
+    document.addEventListener("DOMContentLoaded", function () {
+        const $timeline_line = document.getElementById("timeline-line");
+        const $experiences_cards =
+            document.querySelectorAll(".experience-card");
 
-        observar($timeline_line, ['animate-h-full']);
-        
+        if ($timeline_line) {
+            observar($timeline_line, ["animate-h-full"]);
+        }
+
         $experiences_cards.forEach((experienceCard) => {
-            observar(experienceCard, ['animate-fade-in', 'md:animate-zoom-in']);
+            observar(experienceCard, ["animate-fade-in", "md:animate-zoom-in"]);
         });
 
         function observar(element, className) {
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach((entry) => {
-                    if(entry.isIntersecting) {
-                        let element = entry.target;
-                        element.classList.add(...className);
-
-                        observer.unobserve(entry.target);
-                    } 
-                });
-            }, { threshold: 0.1 });
+            const observer = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add(...className);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.1 },
+            );
 
             observer.observe(element);
         }
+
+        document.querySelectorAll(".description-wrapper").forEach((wrapper) => {
+            const content = wrapper.querySelector(".description-content");
+            const button =
+                wrapper.parentElement.querySelector(".read-more-btn");
+
+            if (!content || !button) return;
+
+            const collapsedHeight = 112;
+
+            if (content.scrollHeight > collapsedHeight) {
+                button.classList.remove("hidden");
+                button.classList.add("flex");
+                wrapper.style.maxHeight = collapsedHeight + "px";
+                wrapper.classList.add("description-collapsed");
+                wrapper.dataset.collapsed = "true";
+            } else {
+                wrapper.style.maxHeight = "none";
+                wrapper.classList.remove("description-collapsed");
+                wrapper.dataset.collapsed = "false";
+            }
+
+            button.addEventListener("click", () => {
+                const isCollapsed = wrapper.dataset.collapsed === "true";
+                const text = button.querySelector(".btn-text");
+                const icon = button.querySelector(".chevron-icon");
+
+                icon?.classList.toggle("rotate-180");
+
+                if (isCollapsed) {
+                    wrapper.style.maxHeight = content.scrollHeight + 24 + "px";
+                    wrapper.classList.remove("description-collapsed");
+                    wrapper.dataset.collapsed = "false";
+                    text.textContent = "Leer menos";
+                } else {
+                    wrapper.style.maxHeight = collapsedHeight + "px";
+                    wrapper.classList.add("description-collapsed");
+                    wrapper.dataset.collapsed = "true";
+                    text.textContent = "Leer más";
+                }
+            });
+        });
     });
 </script>
+
+<style>
+    .description-collapsed {
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            black 75%,
+            transparent 100%
+        );
+        mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;
+    }
+</style>
