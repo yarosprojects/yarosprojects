@@ -161,6 +161,7 @@ export default {
     },
 
     read_more: 'Lire plus',
+    read_less: 'Lire moins',
 
     footer: {
         web_developer: "Développeur web",

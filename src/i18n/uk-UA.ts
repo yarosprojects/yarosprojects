@@ -163,6 +163,7 @@ export default {
     },
 
     read_more: 'Читати більше',
+    read_less: 'Читати менше',
 
     footer: {
         web_developer: "Веб-розробник",

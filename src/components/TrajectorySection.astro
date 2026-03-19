@@ -127,6 +127,8 @@ const EXPERIENCES = [
                                         <button
                                             class="cursor-pointer read-more-btn mt-2 text-blue-500 hover:underline text-sm hidden justify-center items-center flex-row gap-1"
                                             type="button"
+                                            data-read-more={translate.read_more}
+                                            data-read-less={translate.read_less}
                                         >
                                             <span class="btn-text inline-block min-w-[75px] text-left">
                                                 {translate.read_more}
@@ -219,12 +221,12 @@ const EXPERIENCES = [
                     wrapper.style.maxHeight = content.scrollHeight + 24 + "px";
                     wrapper.classList.remove("description-collapsed");
                     wrapper.dataset.collapsed = "false";
-                    text.textContent = "Leer menos";
+                    text.textContent = button.dataset.readLess;
                 } else {
                     wrapper.style.maxHeight = collapsedHeight + "px";
                     wrapper.classList.add("description-collapsed");
                     wrapper.dataset.collapsed = "true";
-                    text.textContent = "Leer más";
+                    text.textContent = button.dataset.readMore;
                 }
             });
         });
