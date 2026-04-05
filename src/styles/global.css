@@ -26,6 +26,19 @@ html:not(.dark) {
     font-display: swap;
 }
 
+@utility scrollbar-hidden {
+    /* Firefox */
+    scrollbar-width: none;
+
+    /* IE / Edge */
+    -ms-overflow-style: none;
+
+    /* Chrome / Safari */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 @utility animate-border-reflect {
     animation: borderReflect 8s linear infinite;
 }

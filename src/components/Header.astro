@@ -4,65 +4,114 @@ import { labelsLocales } from "@consts/locales.labels";
 import THEMES from "@consts/themes";
 import { i18n } from "@consts/i18n.files";
 import { getNavContent } from "@consts/nav.content";
-import { email } from '@consts/usefullData';
+import { email } from "@consts/usefullData";
+
+type LocaleItem = (typeof labelsLocales)[keyof typeof labelsLocales];
 
 const locale = Astro.params.locale as Language;
 const translate = i18n[locale];
 const navContent = getNavContent(locale);
----
 
+const groupedLocales = Object.values(labelsLocales).reduce(
+    (acc, locale) => {
+        const group = locale.group;
+
+        if (!acc[group]) acc[group] = [];
+        acc[group].push(locale);
+
+        return acc;
+    },
+    {} as Record<string, (typeof labelsLocales)[keyof typeof labelsLocales][]>,
+);
+
+const mainLocales = Object.entries(groupedLocales).map(([group, locales]) => {
+    if (locales.length === 1) return locales[0];
+
+    return locales.find((l) => l.code.startsWith(group)) || locales[0];
+});
+---
 
 <header
     class="fixed flex-col justify-center items-center inset-0 h-(--header-h) bg-transparent w-full z-9999 py-3 px-1"
     aria-label="Cabecera de la página"
 >
-
     <div
         class="text-base md:text-sm flex flex-col w-full md:w-fit mx-0 px-2 max-[390px]:pl-0 max-[390px]:pr-3 md:px-6 py-1 rounded-full md:mx-auto transition-all max-[250px]:rounded-xl max-[160px]:rounded-md"
         id="navigation"
     >
-        {/* PUEDE SER QUE PARA RESPONSIVE SEA NECESARIO AGREGAR CLASE [RELATIVE] PARA EL <ul> DE ABAJO */}
-        <ul class="flex flex-row max-[450px]:justify-between justify-center items-center w-full">
-            <div 
+        {
+            /* PUEDE SER QUE PARA RESPONSIVE SEA NECESARIO AGREGAR CLASE [RELATIVE] PARA EL <ul> DE ABAJO */
+        }
+        <ul
+            class="flex flex-row max-[450px]:justify-between justify-center items-center w-full"
+        >
+            <div
                 class="absolute top-full hidden left-0 w-full h-auto py-3 mt-2 dark:bg-gray-900 bg-gray-100 dark:drop-shadow-none drop-shadow-md drop-shadow-black/20 max-[285px]:py-6 rounded-md z-9998 px-4"
                 id="responsive-nav"
                 aria-hidden="true"
             >
-                <ul class="flex flex-row justify-between items-center w-full h-full max-[390px]:flex-col max-[390px]:gap-4">
-                {
-                    navContent.map((item) => {
-                        const { label } = item;
+                <ul
+                    class="flex flex-row justify-between items-center w-full h-full max-[390px]:flex-col max-[390px]:gap-4"
+                >
+                    {
+                        navContent.map((item) => {
+                            const { label } = item;
 
-                        return(
-                            <li class="m-0 p-0 group max-[315px]:text-sm text-base transition-all">
-                                <button class="cursor-pointer group-hover:text-blue-500 transition-colors">
-                                    { label }
-                                </button>
-                            </li>
-                        )
-                    })
-                }
-                    <li class="m-0 p-0 group max-[315px]:text-sm text-base transition-all group" id="responsive-contact-item">
-                        <a href={`mailto:${email}`} class="max-[390px]:dark:text-yellow-200 max-[390px]:text-yellow-500 dark:text-white text-black flex flex-row items-center justify-center gap-2 max-[390px]:uppercase cursor-pointer group-hover:text-blue-700 transition-colors">
+                            return (
+                                <li class="m-0 p-0 group max-[315px]:text-sm text-base transition-all">
+                                    <button class="cursor-pointer group-hover:text-blue-500 transition-colors">
+                                        {label}
+                                    </button>
+                                </li>
+                            );
+                        })
+                    }
+                    <li
+                        class="m-0 p-0 group max-[315px]:text-sm text-base transition-all group"
+                        id="responsive-contact-item"
+                    >
+                        <a
+                            href={`mailto:${email}`}
+                            class="max-[390px]:dark:text-yellow-200 max-[390px]:text-yellow-500 dark:text-white text-black flex flex-row items-center justify-center gap-2 max-[390px]:uppercase cursor-pointer group-hover:text-blue-700 transition-colors"
+                        >
                             {translate.nav.contact}
-                            <i class="dark:text-yellow-200/80 transition-colors text-yellow-500/80 group-hover:text-blue-700 icon-[line-md--email-arrow-right] hidden max-[390px]:flex" />
+                            <i
+                                class="dark:text-yellow-200/80 transition-colors text-yellow-500/80 group-hover:text-blue-700 icon-[line-md--email-arrow-right] hidden max-[390px]:flex"
+                            ></i>
                         </a>
                     </li>
                 </ul>
             </div>
-            <button 
-                class="max-[450px]:flex hidden justify-center items-center cursor-pointer transition-colors hover:bg-gray-300/60 dark:hover:bg-gray-800/60 rounded-md mx-3 p-2 outline-none border-none" 
+            <button
+                class="max-[450px]:flex hidden justify-center items-center cursor-pointer transition-colors hover:bg-gray-300/60 dark:hover:bg-gray-800/60 rounded-md mx-3 p-2 outline-none border-none"
                 id="hamburger"
                 aria-label="Hamburger menu"
             >
-                <div class="flex size-5 justify-center items-center flex-col gap-1">
-                    <div class="w-full h-px dark:bg-white bg-black rounded-full"></div>
-                    <div class="w-full h-px dark:bg-white bg-black rounded-full"></div>
-                    <div class="w-full h-px dark:bg-white bg-black rounded-full"></div>
+                <div
+                    class="flex size-5 justify-center items-center flex-col gap-1"
+                >
+                    <div
+                        class="w-full h-px dark:bg-white bg-black rounded-full"
+                    >
+                    </div>
+                    <div
+                        class="w-full h-px dark:bg-white bg-black rounded-full"
+                    >
+                    </div>
+                    <div
+                        class="w-full h-px dark:bg-white bg-black rounded-full"
+                    >
+                    </div>
                 </div>
             </button>
-            <nav class="flex flex-row justify-center items-center animate-fade-in-down max-[450px]:hidden" aria-hidden="false" id="nav">
-                <ul class="w-full flex flex-row justify-center md:justify-between m-0 p-0 text-yellow-100 md:text-white">
+            <nav
+                class="flex flex-row justify-center items-center animate-fade-in-down max-[450px]:hidden"
+                aria-hidden="false"
+                id="nav"
+            >
+                <ul
+                    class="w-full flex flex-row justify-center md:justify-between m-0 p-0 text-yellow-100 md:text-white"
+                >
                     {
                         navContent.map((item) => {
                             const { label } = item;
@@ -70,20 +119,23 @@ const navContent = getNavContent(locale);
                             return (
                                 <li class="m-0 px-2 mx:px-3 py-0 group">
                                     <button class="outline-none border-none group-hover:text-blue-500 transition-colors flex flex-row items-center justify-center gap-1 text-sm font-medium tracking-normal md:tracking-wider">
-                                        { label }
-                                        <span class="mix-blend-multiply"></span>
-                                        <i class="icon-[tdesign--work] hidden md:flex"/>
+                                        {label}
+                                        <span class="mix-blend-multiply" />
+                                        <i class="icon-[tdesign--work] hidden md:flex" />
                                     </button>
                                 </li>
-                            )
+                            );
                         })
                     }
                     <li class="m-0 px-2 md:px-3 py-0 group">
-                        <a href={`mailto:${email}`} 
+                        <a
+                            href={`mailto:${email}`}
                             class="group-hover:text-blue-500 transition-colors flex flex-row items-center justify-center gap-1 text-sm font-medium tracking-normal md:tracking-wider dark:text-white text-black"
                         >
                             {translate.nav.contact}
-                            <i class="icon-[mdi-light--email] hidden md:flex ml-1 text-base" />
+                            <i
+                                class="icon-[mdi-light--email] hidden md:flex ml-1 text-base"
+                            ></i>
                         </a>
                     </li>
                 </ul>
@@ -92,41 +144,50 @@ const navContent = getNavContent(locale);
             {/* THEME SWITCHER & LOCALES BUTTON */}
             <div class="flex flex-row gap-1 justify-center items-center">
                 {/* THEME SWITCHER */}
-                <li class="m-0 p-0 md:ml-10 group relative" aria-label="Theme switcher">
-                    <button 
-                        type="button" 
-                        class="p-2.5 hover:text-black dark:hover:text-white rounded-lg flex justify-center items-center cursor-pointer hover:scale-110 transition-all outline-none border-none" 
+                <li
+                    class="m-0 p-0 md:ml-10 group relative"
+                    aria-label="Theme switcher"
+                >
+                    <button
+                        type="button"
+                        class="p-2.5 hover:text-black dark:hover:text-white rounded-lg flex justify-center items-center cursor-pointer hover:scale-110 transition-all outline-none border-none"
                         id="theme-swithcer"
                         aria-label="Themes switcher button"
                     >
-                        <i class="text-base" id="theme-icon" />
+                        <i class="text-base" id="theme-icon"></i>
                     </button>
 
-                    <div 
+                    <div
                         id="themes-menu"
-                        class={`min-w-[150px] absolute right-0 top-full transition-all dark:bg-gray-900 bg-gray-100 dark:drop-shadow-none drop-shadow-md drop-shadow-black/20 rounded-md z-9997 hidden max-[260px]:-right-10 max-[220px]:-right-13 ${locale === "uk-UA" ? 'max-[220px]:w-full' : ''}`}
+                        class={`min-w-[150px] absolute right-0 top-full transition-all dark:bg-gray-900 bg-gray-100 dark:drop-shadow-none drop-shadow-md drop-shadow-black/20 rounded-md z-9997 hidden max-[260px]:-right-10 max-[220px]:-right-13 ${locale === "uk-UA" ? "max-[220px]:w-full" : ""}`}
                         aria-label="Theme choice menu"
                         aria-hidden="true"
                     >
-                        <ul class="flex flex-col items-center rounded-md w-full p-1 gap-1">
+                        <ul
+                            class="flex flex-col items-center rounded-md w-full p-1 gap-1"
+                        >
                             {
                                 Object.entries(THEMES(locale)).map(
                                     ([key, theme], index, arr) => {
                                         const { id, label, name, icon } = theme;
-                                        return(
+                                        return (
                                             <li
                                                 id={`${id}-theme`}
-                                                class={`w-full flex max-[220px]:flex-wrap justify-between items-center group transition-colors px-3 py-2 rounded-md dark:hover:bg-gray-800 hover:bg-gray-300 ${locale === "uk-UA" ? 'gap-5 max-[220px]:gap-2' :''}`}
+                                                class={`w-full flex max-[220px]:flex-wrap justify-between items-center group transition-colors px-3 py-2 rounded-md dark:hover:bg-gray-800 hover:bg-gray-300 ${locale === "uk-UA" ? "gap-5 max-[220px]:gap-2" : ""}`}
                                                 aria-label={`${label} theme choice`}
                                                 data-themeChoice={`${id}`}
                                             >
-                                                <span class={`select-none text-sm dark:text-white text-black ${locale === "uk-UA" ? 'min-w-[125px]' : ''}`}>
+                                                <span
+                                                    class={`select-none text-sm dark:text-white text-black ${locale === "uk-UA" ? "min-w-[125px]" : ""}`}
+                                                >
                                                     {name}
                                                 </span>
-                                                <i class={`${icon} text-base dark:text-white text-black`} />
+                                                <i
+                                                    class={`${icon} text-base dark:text-white text-black`}
+                                                />
                                             </li>
-                                        )
-                                    }
+                                        );
+                                    },
                                 )
                             }
                         </ul>
@@ -140,39 +201,67 @@ const navContent = getNavContent(locale);
                         class="border-none outline-none flex justify-center max-[450px]:flex-row-reverse flex-row gap-2 items-center md:size-auto max-[450px]:w-auto w-10 h-auto md:px-3 p-2 md:py-2 dark:hover:bg-gray-800 hover:bg-gray-300 rounded-md cursor-pointer transition-all"
                         aria-label="Language choice button"
                     >
-                        <span class="max-[185px]:hidden max-[450px]:text-sm hidden md:flex dark:text-yellow-300 text-black transition-all">
+                        <span
+                            class="max-[185px]:hidden max-[450px]:text-sm hidden md:flex dark:text-yellow-300 text-black transition-all"
+                        >
                             {labelsLocales[locale].name}
                         </span>
-                        <span class={`flex md:hidden! ${labelsLocales[locale].icon}`}></span>
-                        <span class={`hidden! md:flex! ${labelsLocales[locale].icon}`}></span>
+                        <span
+                            class={`flex md:hidden! ${labelsLocales[locale].icon}`}
+                        ></span>
+                        <span
+                            class={`hidden! md:flex! ${labelsLocales[locale].icon}`}
+                        ></span>
                     </button>
-    
+
                     <div
                         id="locales-menu"
-                        class="absolute right-0 top-full hidden transition-all dark:bg-gray-900 bg-gray-100 dark:drop-shadow-none drop-shadow-md drop-shadow-black/20 rounded-md z-9997"
+                        class="absolute right-0 md:min-w-45 top-full max-h-60 overflow-y-auto hidden transition-all dark:bg-gray-900 bg-gray-100 dark:drop-shadow-none drop-shadow-md drop-shadow-black/20 rounded-md z-9997 scrollbar-hidden"
                         aria-label="Language choice menu"
                         aria-hidden="true"
                     >
                         <ul
+                            id="locales-list"
                             class="flex flex-col items-center rounded-md p-1 gap-1"
                         >
                             {
-                                Object.entries(labelsLocales).map(
-                                    ([key, label], index, arr) => (
+                                mainLocales.map((label) =>
+                                    label.multispoken ? (
                                         <li
-                                            class="w-full"
-                                            data-locale={key}
+                                            class="w-full cursor-pointer"
+                                            data-locale={label.code}
                                             aria-label={`Language - ${label.name}`}
                                         >
-                                            <a
-                                                href={`/${label.code}/`}
-                                                class={`rounded-md flex max-[165px]:gap-2 gap-5 text-sm flex-row text-center px-3 py-2 ${label.code === locale ? 'dark:bg-gray-800 bg-gray-300' : ''} dark:hover:bg-gray-800 hover:bg-gray-300 transition-colors w-full cursor-default`}
+                                            <button
+                                                type="button"
+                                                class={`language-option cursor-pointer rounded-md flex justify-center items-center gap-5 text-sm px-3 py-2 ${
+                                                    label.group === locale.split('-')[0]
+                                                        ? "dark:bg-gray-800 bg-gray-300"
+                                                        : ""
+                                                } dark:hover:bg-gray-800 hover:bg-gray-300 transition-colors w-full`}
                                             >
                                                 <span class="dark:text-white text-black">
                                                     {label.name}
                                                 </span>
-                                                <span class="dark:text-white/70 text-right text-black/70 ml-auto">
-                                                    {!label.multispoken ? '' : (label.multispoken && label.country.simple) ? label.country.simple : label.country.complex}
+                                                <i class="icon-[line-md--chevron-right] ml-auto text-[12px] text-white/60" />
+                                            </button>
+                                        </li>
+                                    ) : (
+                                        <li
+                                            class="w-full cursor-pointer"
+                                            data-locale={label.code}
+                                            aria-label={`Language - ${label.name}`}
+                                        >
+                                            <a
+                                                href={`/${label.code}/`}
+                                                class={`cursor-pointer rounded-md flex gap-5 text-sm px-3 py-2 ${
+                                                    label.code === locale
+                                                        ? "dark:bg-gray-800 bg-gray-300"
+                                                        : ""
+                                                } dark:hover:bg-gray-800 hover:bg-gray-300 transition-colors w-full`}
+                                            >
+                                                <span class="dark:text-white text-black">
+                                                    {label.name}
                                                 </span>
                                             </a>
                                         </li>
@@ -186,6 +275,79 @@ const navContent = getNavContent(locale);
         </ul>
     </div>
 </header>
+
+<script is:inline define:vars={{ locale, groupedLocales, labelsLocales }}>
+    document.addEventListener("DOMContentLoaded", () => {
+        const langsList = document.getElementById("locales-list");
+
+        const originalLangs = langsList.innerHTML;
+
+        langsList.addEventListener("click", (e) => {
+            const btn = e.target.closest("button");
+
+            if (!btn) return;
+
+            e.stopPropagation();
+
+            // Return to main list button
+            if (btn.id === "return-to-all") {
+                langsList.innerHTML = originalLangs;
+
+                const items = langsList.querySelectorAll("li");
+
+                items.forEach((li) => {
+                    li.classList.add(
+                        "animate-fade-in-right",
+                        "animate-duration-200",
+                    );
+                });
+
+                setTimeout(() => {
+                    items.forEach((li) => {
+                        li.classList.remove(
+                            "animate-fade-in-right",
+                            "animate-duration-200",
+                        );
+                    });
+                }, 200);
+
+                return;
+            }
+
+            // Sublist
+            if (btn.classList.contains("language-option")) {
+                const li = btn.closest("li");
+                const localeKey = li.dataset.locale;
+                const selected = labelsLocales[localeKey];
+
+                const group = selected.group;
+                const children = groupedLocales[group];
+
+                langsList.innerHTML = `
+                    <div class="w-full flex justify-start items-center px-3 py-1.5">
+                        <button id="return-to-all" class="text-white/40 cursor-pointer text-left flex items-center gap-2 hover:text-white/60">
+                            <i class="icon-[material-symbols--arrow-left-alt]"></i>
+                            ${selected.name}
+                        </button>    
+                    </div>
+                    ${children
+                        .map(
+                            (child) => `
+                                <li class="w-full animate-fade-in-left animate-duration-200">
+                                    <a href="/${child.code}/"
+                                    class="${child.code === locale ? 'dark:bg-gray-800 bg-gray-300' : ''} flex gap-5 px-3 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-800">
+                                        <span>${child.name}</span>
+                                        <span class="ml-auto text-white/50">${child.country.simple || child.country.complex}</span>
+                                    </a>
+                                </li>
+                            `,
+                        )
+                        .join("")}
+                    `;
+            }
+        });
+    });
+</script>
 
 <style>
     #navigation {

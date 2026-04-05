@@ -135,13 +135,13 @@ export default {
     },
 
     about_me: {
-        iam: '',
+        iam: 'Я',
         and: 'і',
         and_ua: 'та',
         graduated_in: 'фахівець з',
         web_develpemn_specialist: 'веб-розробки',
         with_experience_left: 'з досвідом роботи з широким спектром мов програмування',
-        with_experience_right: 'і інших технологій',
+        with_experience_right: 'і інших технологій.',
         i_like_create: 'Мені подобається створювати',
         innovative: 'інноваційні',
         projects: 'проєкти',

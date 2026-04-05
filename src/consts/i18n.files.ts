@@ -5,5 +5,16 @@ import uk_UA from "@src/i18n/uk-UA";
 import pt_PT from "@i18n/pt-PT";
 import fr_FR from "@i18n/fr-FR";
 import pl_PL from "@i18n/pl-PL";
+import de_DE from "@i18n/de-DE";
+import it_IT from "@i18n/it-IT";
+import ge_GE from "@i18n/ge-GE";
+import et_EE from "@i18n/et-EE";
+import lt_LT from "@i18n/lt-LT";
+import lv_LV from "@i18n/lv-LV";
+import ro_RO from "@i18n/ro-RO";
+import ro_MD from "@i18n/ro-MD";
+import bg_BG from "@i18n/bg-BG";
+import pt_BR from "@i18n/pt-BR";
+import de_AT from "@i18n/de-AT";
 
-export const i18n = { "es-ES": es_ES, "ca-ES": ca_ES, "en-EN": en_EN, "uk-UA": uk_UA, 'pt-PT': pt_PT, "fr-FR": fr_FR, "pl-PL": pl_PL };
+export const i18n = { "es-ES": es_ES, "ca-ES": ca_ES, "en-EN": en_EN, "uk-UA": uk_UA, 'pt-PT': pt_PT, "fr-FR": fr_FR, "pl-PL": pl_PL, "de-DE": de_DE, "it-IT": it_IT, "ge-GE": ge_GE, "et-EE": et_EE, "lt-LT": lt_LT, "lv-LV": lv_LV, "ro-RO": ro_RO, "ro-MD": ro_MD, "bg-BG": bg_BG, "pt-BR": pt_BR, "de-AT": de_AT } as const;
