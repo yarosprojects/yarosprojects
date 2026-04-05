@@ -216,7 +216,7 @@ const mainLocales = Object.entries(groupedLocales).map(([group, locales]) => {
 
                     <div
                         id="locales-menu"
-                        class="absolute right-0 md:min-w-45 top-full max-h-60 overflow-y-auto hidden transition-all dark:bg-gray-900 bg-gray-100 dark:drop-shadow-none drop-shadow-md drop-shadow-black/20 rounded-md z-9997 scrollbar-hidden"
+                        class="absolute right-0 min-w-45 top-full max-h-60 overflow-y-auto hidden transition-all dark:bg-gray-900 bg-gray-100 dark:drop-shadow-none drop-shadow-md drop-shadow-black/20 rounded-md z-9997 scrollbar-hidden"
                         aria-label="Language choice menu"
                         aria-hidden="true"
                     >
@@ -325,7 +325,7 @@ const mainLocales = Object.entries(groupedLocales).map(([group, locales]) => {
 
                 langsList.innerHTML = `
                     <div class="w-full flex justify-start items-center px-3 py-1.5">
-                        <button id="return-to-all" class="text-white/40 cursor-pointer text-left flex items-center gap-2 hover:text-white/60">
+                        <button id="return-to-all" class="text-sm text-white/40 cursor-pointer text-left flex items-center gap-2 hover:text-white/60">
                             <i class="icon-[material-symbols--arrow-left-alt]"></i>
                             ${selected.name}
                         </button>    
@@ -335,7 +335,7 @@ const mainLocales = Object.entries(groupedLocales).map(([group, locales]) => {
                             (child) => `
                                 <li class="w-full animate-fade-in-left animate-duration-200">
                                     <a href="/${child.code}/"
-                                    class="${child.code === locale ? 'dark:bg-gray-800 bg-gray-300' : ''} flex gap-5 px-3 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-800">
+                                    class="${child.code === locale ? 'dark:bg-gray-800 bg-gray-300' : ''} flex gap-5 px-3 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-800 text-sm">
                                         <span>${child.name}</span>
                                         <span class="ml-auto text-white/50">${child.country.simple || child.country.complex}</span>
                                     </a>
