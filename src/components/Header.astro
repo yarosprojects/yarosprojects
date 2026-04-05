@@ -235,10 +235,10 @@ const mainLocales = Object.entries(groupedLocales).map(([group, locales]) => {
                                             <button
                                                 type="button"
                                                 class={`language-option cursor-pointer rounded-md flex justify-center items-center gap-5 text-sm px-3 py-2 ${
-                                                    label.group === locale.split('-')[0]
+                                                    labelsLocales[locale].group === label.group
                                                         ? "dark:bg-gray-800 bg-gray-300"
                                                         : ""
-                                                } dark:hover:bg-gray-800 hover:bg-gray-300 transition-colors w-full`}
+                                                } dark:hover:bg-gray-800/70 hover:bg-gray-300/70 transition-colors w-full`}
                                             >
                                                 <span class="dark:text-white text-black">
                                                     {label.name}
@@ -258,7 +258,7 @@ const mainLocales = Object.entries(groupedLocales).map(([group, locales]) => {
                                                     label.code === locale
                                                         ? "dark:bg-gray-800 bg-gray-300"
                                                         : ""
-                                                } dark:hover:bg-gray-800 hover:bg-gray-300 transition-colors w-full`}
+                                                } dark:hover:bg-gray-800/70 hover:bg-gray-300/70 transition-colors w-full`}
                                             >
                                                 <span class="dark:text-white text-black">
                                                     {label.name}
@@ -333,9 +333,9 @@ const mainLocales = Object.entries(groupedLocales).map(([group, locales]) => {
                     ${children
                         .map(
                             (child) => `
-                                <li class="w-full animate-fade-in-left animate-duration-200">
+                                <li class="w-full animate-fade-in-left animate-duration-200 ${child.group === "en" ? 'min-w-55' : ''}">
                                     <a href="/${child.code}/"
-                                    class="${child.code === locale ? 'dark:bg-gray-800 bg-gray-300' : ''} flex gap-5 px-3 py-2 rounded-md hover:bg-gray-300 dark:hover:bg-gray-800 text-sm">
+                                    class="${child.code === locale ? 'dark:bg-gray-800 bg-gray-300' : ''} flex gap-5 px-3 py-2 rounded-md hover:bg-gray-300/70 dark:hover:bg-gray-800/70 text-sm">
                                         <span>${child.name}</span>
                                         <span class="ml-auto text-white/50">${child.country.simple || child.country.complex}</span>
                                     </a>

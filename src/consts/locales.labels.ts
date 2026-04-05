@@ -28,11 +28,23 @@ export const labelsLocales = {
         name: 'english',
         label: 'en-UK',
         country: {
-            simple: 'UK',
+            simple: '',
             complex: 'UNITED KINGDOM',
         },
         multispoken: true,
         icon: 'fi fi-gb',
+        group: 'en',
+    },
+    'en-US': {
+        code: 'en-US',
+        name: 'english',
+        label: 'en-US',
+        country: {
+            simple: '',
+            complex: 'UNITED STATES',
+        },
+        multispoken: false,
+        icon: 'fi fi-us',
         group: 'en',
     },
     'uk-UA': {

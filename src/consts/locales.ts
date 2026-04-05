@@ -1,2 +1,2 @@
-export const idiomas = ['es-ES', 'ca-ES', 'en-EN', 'ua-UK', 'pt-PT', 'fr-FR', 'pl-PL', 'de-DE', 'it-IT', 'ge-GE', 'et-EE', 'lt-LT', 'lv-LV', 'ro-RO', 'ro-MD', 'bg-BG', 'pt-BR', 'de-AT'] as const;
+export const idiomas = ['es-ES', 'ca-ES', 'en-EN', 'en-US', 'uk-UA', 'pt-PT', 'fr-FR', 'pl-PL', 'de-DE', 'it-IT', 'ge-GE', 'et-EE', 'lt-LT', 'lv-LV', 'ro-RO', 'ro-MD', 'bg-BG', 'pt-BR', 'de-AT'] as const;
 export const idiomaPorDefecto = 'es-ES';

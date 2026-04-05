@@ -1,6 +1,7 @@
 import es_ES from "@i18n/es-ES";
 import ca_ES from "@i18n/ca-ES";
 import en_EN from "@src/i18n/en-EN";
+import en_US from "@i18n/en-US";
 import uk_UA from "@src/i18n/uk-UA";
 import pt_PT from "@i18n/pt-PT";
 import fr_FR from "@i18n/fr-FR";
@@ -17,4 +18,4 @@ import bg_BG from "@i18n/bg-BG";
 import pt_BR from "@i18n/pt-BR";
 import de_AT from "@i18n/de-AT";
 
-export const i18n = { "es-ES": es_ES, "ca-ES": ca_ES, "en-EN": en_EN, "uk-UA": uk_UA, 'pt-PT': pt_PT, "fr-FR": fr_FR, "pl-PL": pl_PL, "de-DE": de_DE, "it-IT": it_IT, "ge-GE": ge_GE, "et-EE": et_EE, "lt-LT": lt_LT, "lv-LV": lv_LV, "ro-RO": ro_RO, "ro-MD": ro_MD, "bg-BG": bg_BG, "pt-BR": pt_BR, "de-AT": de_AT } as const;
+export const i18n = { "es-ES": es_ES, "ca-ES": ca_ES, "en-EN": en_EN, "en-US": en_US, "uk-UA": uk_UA, 'pt-PT': pt_PT, "fr-FR": fr_FR, "pl-PL": pl_PL, "de-DE": de_DE, "it-IT": it_IT, "ge-GE": ge_GE, "et-EE": et_EE, "lt-LT": lt_LT, "lv-LV": lv_LV, "ro-RO": ro_RO, "ro-MD": ro_MD, "bg-BG": bg_BG, "pt-BR": pt_BR, "de-AT": de_AT } as const;
