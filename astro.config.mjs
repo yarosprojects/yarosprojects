@@ -2,7 +2,7 @@
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import { idiomas, idiomaPorDefecto } from './src/consts/locales';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
 import svelte from '@astrojs/svelte';
 
 import angular from '@analogjs/astro-angular';
