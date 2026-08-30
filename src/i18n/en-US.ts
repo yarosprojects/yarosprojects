@@ -13,7 +13,7 @@ export default {
         november: 'November',
         december: 'December'
     },
-
+    return_to_home: 'Back to home',
     cities: {
         psip: "Palau-solità i Plegamans",
         barcelona: "Barcelona",
@@ -25,6 +25,7 @@ export default {
 
     countries: {
         spain: "Spain",
+        ukraine: "Ukraine",
     },
 
     creator_name: "Yaroslav Klymko",
@@ -39,9 +40,11 @@ export default {
     },
 
     nav: {
+        home: 'Home',
         intro: 'Intro',
         experience: 'Experience',
         projects: 'Projects',
+        certificates: 'Licenses & Credentials',
         about_me: 'About me',
         contact: 'Contact',
     },
@@ -130,7 +133,63 @@ export default {
         fullstack: 'Fullstack',
         others: 'Others',
     },
-
+    cap_mercancias: {
+        title: 'European CPC Freight',
+        description: 'European Driver Certificate of Professional Competence (CPC) for freight transport (CPC | Code 95).',
+    },
+    links_titles: {
+        driving_licenses: 'Driver\'s Licenses',
+        academic_formation: 'Education',
+        certificates: 'Certifications & Courses',
+    },
+    driving_licenses: {
+        label: 'Digital Driver\'s License Verification',
+        title: 'Driver\'s Licenses',
+        subtitle: 'Validated driving credentials and official categorization of authorized vehicles.',
+        enabled_categories: 'Enabled Categories',
+        total_label: 'Total',
+        categories_enum: {
+            one: 'category',
+            other: 'categories',
+        },
+        european_community_model: 'European Community models',
+        tocuh_or_click: 'Tap or click to flip the card',
+        driving_license: 'Driver\'s License',
+        spanish_kingdom: 'Kingdom of Spain',
+        last_names: 'Last Name',
+        name: 'First Name',
+        date_and_place_of_birth: 'Date and Place of Birth',
+        valid_from: 'Valid From',
+        valid_until: 'Valid Until',
+        issuing_authority: 'Issuing Authority',
+        number: 'Number',
+        observations: 'Restrictions / Endorsements',
+        driving_license_categories: {
+            b: {
+                category: 'Class B License',
+                title: 'Passenger Cars and Light Vehicles',
+                description: 'Authorizes driving motor vehicles with a maximum authorized mass not exceeding 7,700 lbs (3,500 kg), designed to transport no more than 8 passengers in addition to the driver, with a light trailer attached up to 1,650 lbs (750 kg).',
+            },
+            c1: {
+                category: 'Class C1 License',
+                title: 'Medium-Duty Trucks up to 16,500 lbs GVWR',
+                description: 'Authorizes driving motor vehicles other than category D1 or D, with a maximum authorized mass exceeding 7,700 lbs (3,500 kg) up to 16,500 lbs (7,500 kg), with a trailer attached up to 1,650 lbs (750 kg).',
+            },
+            c: {
+                category: 'Class C License',
+                title: 'Heavy Trucks over 7,700 lbs GVWR',
+                description: 'Authorizes driving motor vehicles other than category D1 or D, with a maximum authorized mass exceeding 7,700 lbs (3,500 kg), with a trailer attached up to 1,650 lbs (750 kg).',
+            },
+            common_notes: {
+                c_95_initial: 'Valid Initial / Periodic Qualification for Freight Transport (Code 95).',
+            }
+        }
+    },
+    creator_name_variants: {
+        first_name: "Yaroslav",
+        last_name: "Klymko",
+        full_name: "Yaroslav Klymko",
+    },
     about_me: {
         iam: 'I am',
         and: 'and',
@@ -158,7 +217,122 @@ export default {
         programming: 'programming',
         with_community: 'with the community',
     },
-
+    academic_formation_web: {
+        page_title: "Academic Formation",
+        hero_tag: "ACADEMIC MATRIX // DEGREES & QUALIFICATIONS",
+        hero_title_part1: "Educational Background & ",
+        hero_title_part2: "Academic Qualifications",
+        hero_description: "Formal education roadmap, technical associate degrees, and international credential evaluations.",
+        verified_student: "VERIFIED STUDENT",
+        national_registry: "NATIONAL REGISTRY",
+        institution: "INSTITUTION",
+        expedition: "ISSUE DATE",
+        european_level: "EUROPEAN LEVEL",
+        accumulated_credits: "ACCUMULATED CREDITS",
+        homologated: "Officially Evaluated",
+        official_degree: "Official Degree",
+        degrees: {
+            gs_daw: {
+                code: "GS DAW",
+                level: "Advanced Technical Degree",
+                title: "Advanced Technician in Web Application Development (DAW)",
+                institution: "Institut La Guineueta / Generalitat de Catalunya",
+                period: "2022 - 2024",
+                description: "Specialization in frontend and backend development, web architecture, API integration, and relational/non-relational database management.",
+                status: "Completed (Official)"
+            },
+            gm_smx: {
+                code: "GM SMX",
+                level: "Intermediate Technical Degree",
+                title: "Technician in Computer Systems and Networks (SMR/SMX)",
+                institution: "Institut La Guineueta",
+                period: "2020 - 2022",
+                description: "Training in hardware assembly and maintenance, local area networks (LAN), operating system administration, and network services.",
+                status: "Completed (Official)"
+            },
+            bach: {
+                code: "BACH",
+                level: "Upper Secondary Education",
+                title: "High School Diploma (Officially Evaluated)",
+                institution: "Ministry of Education of Ukraine / Evaluated by the Ministry of Education of Spain",
+                period: "2018 - 2020",
+                description: "Full Secondary Education Diploma earned in Ukraine, officially evaluated as equivalent to the Spanish High School Diploma (Bachiller).",
+                status: "Officially Evaluated"
+            },
+            eso: {
+                code: "ESO",
+                level: "Middle / Junior High School",
+                title: "Compulsory Secondary Education Diploma (ESO)",
+                institution: "Institut Ramon Casas i Carbó",
+                period: "2014 - 2018",
+                description: "Compulsory Secondary Education Diploma earned in Spain.",
+                status: "Completed"
+            }
+        }
+    },
+    additional_courses_web: {
+        page_title: "Additional Courses and Certifications",
+        hero_tag: "ACCREDITATIONS & CONTINUING EDUCATION",
+        hero_title_part1: "Specialization & ",
+        hero_title_part2: "Certifications",
+        hero_description: "Record of additional competencies, operational licenses, and certified technical training.",
+        stats: {
+            total_hours: "Total Hours",
+            certifications: "Certifications",
+            accreditation_status: "Accreditation Status",
+            status_value: "100% Valid"
+        },
+        card_banner: {
+            tag: "SYSTEM_VERIFICATION // CREDENTIAL_HUB",
+            title: "Academic Record & Validated Certification",
+            description: "All credentials presented are officially endorsed, carry an active registration number, and comply with European and industrial standards.",
+            status_active: "STATUS: ACTIVE",
+            csv: "CSV: 8891-VERIFIED"
+        },
+        hours_accredited: "Accredited",
+        courses: {
+            cap_95: {
+                code: "CPC 95",
+                level: "Certificate of Professional Competence",
+                title: "Commercial Driver CPC Goods (Code 95)",
+                institution: "DGT / Department of Transportation",
+                hours: "140h",
+                year: "2024",
+                description: "Mandatory qualification for commercial freight vehicle drivers operating in the European Union.",
+                tags: ["Transportation", "EU Standards", "Professional"]
+            },
+            prl_60h: {
+                code: "OSHA 60H",
+                level: "Workplace Safety",
+                title: "Basic Occupational Safety & Health Course",
+                institution: "Technical Training Center",
+                hours: "60h",
+                year: "2023",
+                description: "Risk assessment in industrial and workplace environments, preventive safety measures, and emergency response protocols.",
+                tags: ["Safety", "OSHA Compliance", "Regulations"]
+            },
+            carret: {
+                code: "FORKLIFT",
+                level: "Operator Certification",
+                title: "Forklift Operator Certification",
+                institution: "Logistics Training Center",
+                hours: "20h",
+                year: "2023",
+                description: "Safe operation of sit-down counterbalance forklifts, reach trucks, electric pallet jacks, and order pickers (UNE 58451 standard).",
+                tags: ["Logistics", "UNE 58451", "Heavy Equipment"]
+            },
+            dev_cloud: {
+                code: "DEV-CLOUD",
+                level: "Technical Certification",
+                title: "Web Development & Cloud Infrastructure",
+                institution: "Specialized Platform",
+                hours: "120h",
+                year: "2023",
+                description: "Deployment of modern web architectures, container management using Docker, CI/CD pipelines, and cloud services.",
+                tags: ["Docker", "Cloud", "CI/CD"]
+            }
+        }
+    },
     read_more: 'Read more',
     read_less: 'Read less',
 

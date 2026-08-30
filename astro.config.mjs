@@ -23,6 +23,7 @@ export default defineConfig({
   redirects: {
       '/': `/${idiomaPorDefecto}/`,
   },
+  trailingSlash: 'always',
 
   vite: {
       plugins: [tailwindcss()],

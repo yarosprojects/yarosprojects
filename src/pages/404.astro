@@ -2,16 +2,48 @@
 import "@styles/global.css";
 import type { Language } from "../types/language.type";
 import { idiomas } from "@src/consts/locales";
-import es_ES from "@i18n/es-ES";
+import bg_BG from "@i18n/bg-BG";
 import ca_ES from "@i18n/ca-ES";
+import de_AT from "@i18n/de-AT";
+import de_DE from "@i18n/de-DE";
 import en_EN from "@i18n/en-EN";
-import uk_UA from "@i18n/uk-UA";
-import pt_PT from "@i18n/pt-PT";
+import en_US from "@i18n/en-US";
+import es_ES from "@i18n/es-ES";
+import et_EE from "@i18n/et-EE";
 import fr_FR from "@i18n/fr-FR";
+import it_IT from "@i18n/it-IT";
+import ka_GE from "@i18n/ka-GE";
+import lt_LT from "@i18n/lt-LT";
+import lv_LV from "@i18n/lv-LV";
 import pl_PL from "@i18n/pl-PL";
+import pt_BR from "@i18n/pt-BR";
+import pt_PT from "@i18n/pt-PT";
+import ro_MD from "@i18n/ro-MD";
+import ro_RO from "@i18n/ro-RO";
+import uk_UA from "@i18n/uk-UA";
 
 const locale = (Astro.params?.locale as Language) || getLocale404(Astro.url.pathname);
-const i18n = { "es-ES": es_ES, "ca-ES": ca_ES, "en-EN": en_EN, "uk-UA": uk_UA, "pt-PT": pt_PT, "fr-FR": fr_FR, "pl-PL": pl_PL };
+const i18n = {
+  "bg-BG": bg_BG,
+  "ca-ES": ca_ES,
+  "de-AT": de_AT,
+  "de-DE": de_DE,
+  "en-EN": en_EN,
+  "en-US": en_US,
+  "es-ES": es_ES,
+  "et-EE": et_EE,
+  "fr-FR": fr_FR,
+  "it-IT": it_IT,
+  "ka-GE": ka_GE,
+  "lt-LT": lt_LT,
+  "lv-LV": lv_LV,
+  "pl-PL": pl_PL,
+  "pt-BR": pt_BR,
+  "pt-PT": pt_PT,
+  "ro-MD": ro_MD,
+  "ro-RO": ro_RO,
+  "uk-UA": uk_UA
+};
 const translate = i18n[locale];
 
 

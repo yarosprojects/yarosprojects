@@ -1,15 +1,15 @@
 ---
 import "@styles/global.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
-import Header from '@src/components/Header.astro';
+import Header from "@src/components/Header.astro";
 import Footer from "@src/components/Footer.astro";
 import type { Language } from "../types/language.type";
-import Analytics from '@vercel/analytics/astro';
-import { preview } from "astro";
+import Analytics from "@vercel/analytics/astro";
+import { ClientRouter } from "astro:transitions";
 
 const locale = Astro.params.locale as Language;
 const { title } = Astro.props;
-const previewImage = new URL('/img/preview.png', Astro.site).href;
+const previewImage = new URL("/img/preview.png", Astro.site).href;
 ---
 
 <!doctype html>
@@ -19,113 +19,178 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/x-icon" href="/yk_round.ico" />
-		<meta name="description" content="My personal web page where I store and showcase all the projects I've built — web apps, experiments, and creative ideas." />
-		<meta name="keywords" content="Yaros, Yaros projects, Yaros proyectos, portfolio, portfolio Yaroslav Klymko, portfolio Yaros projects, web development, projects, frontend, Yaroslav Klymko desarollador web, Yaroslav Klymko web developer" />
+		<meta
+			name="description"
+			content="My personal web page where I store and showcase all the projects I've built — web apps, experiments, and creative ideas."
+		/>
+		<meta
+			name="keywords"
+			content="Yaros, Yaros projects, Yaros proyectos, portfolio, portfolio Yaroslav Klymko, portfolio Yaros projects, web development, projects, frontend, Yaroslav Klymko desarollador web, Yaroslav Klymko web developer"
+		/>
 		<meta name="author" content="Yaroslav Klymko" />
-		<meta property="og:title" content="Yaros (Yaroslav Klymko) | Personal Projects" />
-		<meta property="og:description" content="Explore my personal projects, web experiments, and creative builds. Yaroslav Klymko projects" />
+		<meta
+			property="og:title"
+			content="Yaros (Yaroslav Klymko) | Personal Projects"
+		/>
+		<meta
+			property="og:description"
+			content="Explore my personal projects, web experiments, and creative builds. Yaroslav Klymko projects"
+		/>
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://yarosprojects.github.io/es-ES/" />
+		<meta
+			property="og:url"
+			content="https://yarosprojects.github.io/es-ES/"
+		/>
 		<meta property="og:image" content={previewImage} />
-		<meta property="og:image:alt" content="Preview of Yaros' (Yaroslav Klymko) personal projects site" />
-		<meta property="og:site_name" content="Yaros (Yaroslav Klymko) Projects" />
+		<meta
+			property="og:image:alt"
+			content="Preview of Yaros' (Yaroslav Klymko) personal projects site"
+		/>
+		<meta
+			property="og:site_name"
+			content="Yaros (Yaroslav Klymko) Projects"
+		/>
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Yaros (Yaroslav Klymko) | Personal Projects" />
-		<meta name="twitter:description" content="Explore my web projects and creative experiments. | Yaros (Yaroslav Klymko) projects" />
+		<meta
+			name="twitter:title"
+			content="Yaros (Yaroslav Klymko) | Personal Projects"
+		/>
+		<meta
+			name="twitter:description"
+			content="Explore my web projects and creative experiments. | Yaros (Yaroslav Klymko) projects"
+		/>
 		<meta name="twitter:image" content={previewImage} />
-		<!-- <meta name="twitter:creator" content="@tu_usuario_twitter" /> I don't have twitter (X) account -->
 		<link rel="canonical" href="https://yarosprojects.github.io/es-ES/" />
 
 		<title>{title}</title>
 
+		<ClientRouter />
 		<Analytics />
 	</head>
-	<body class="bg-slate-50 dark:bg-slate-950 relative">
-		<div class="fixed top-0 left-0 w-0 dark:bg-yellow-500 bg-yellow-600 dark:h-0.5 h-1 z-9998 transition-[width] duration-200 ease-linear" id="web-progress"></div>
-		
+	<body
+		class="bg-slate-50 dark:bg-slate-950 relative flex flex-col w-full min-h-screen"
+	>
+		<div
+			class="fixed top-0 left-0 w-0 dark:bg-yellow-500 bg-yellow-600 dark:h-0.5 h-1 z-9998 transition-[width] duration-200 ease-linear"
+			id="web-progress"
+		>
+		</div>
+
 		<Header />
-		<slot />
+		<main class="w-full flex flex-col overflow-x-hidden flex-1">
+			<slot />
+		</main>
 		<Footer />
 
-		<button class="fixed outline-none border-none right-6 bottom-10 flex justify-center items-center m-0 rounded-full dark:bg-gray-800 shadow-lg bg-gray-100 dark:drop-shadow-white/20 active:scale-90 drop-shadow-md drop-shadow-black/50 p-1 select-none hover:scale-115 transition-all z-9999 cursor-pointer pointer-events-none opacity-0" aria-label="Botón de desplazamiento para arriba" id="scrollTopBtn">
+		<button
+			class="fixed outline-none border-none right-6 bottom-10 flex justify-center items-center m-0 rounded-full dark:bg-gray-800 shadow-lg bg-gray-100 dark:drop-shadow-white/20 active:scale-90 drop-shadow-md drop-shadow-black/50 p-1 select-none hover:scale-115 transition-all z-9999 cursor-pointer pointer-events-none opacity-0"
+			aria-label="Botón de desplazamiento para arriba"
+			id="scrollTopBtn"
+		>
 			<div class="flex justify-center items-center size-8">
-				<span class="icon-[material-symbols--arrow-upward-rounded] text-xl font-extrabold dark:text-yellow-400 text-black"></span>
+				<span
+					class="icon-[material-symbols--arrow-upward-rounded] text-xl font-extrabold dark:text-yellow-400 text-black"
+				></span>
 			</div>
 		</button>
 	</body>
 </html>
 
 <script is:inline>
-	document.addEventListener('DOMContentLoaded', function() {
-		const $web_progress = document.getElementById('web-progress');
-		const navButtons = document.querySelectorAll('#nav ul li button');
-		const sectionsWrapper = document.getElementById('sections-wrapper');
-		const sections = sectionsWrapper ? Array.from(sectionsWrapper.children).filter(sec => !sec.hasAttribute('data-skip-nav')) : [];
-		const $scrollTopBtn = document.getElementById('scrollTopBtn');
-		const $locales_btn = document.getElementById('locales-btn');
-		const $theme_btn = document.getElementById('theme-swithcer');
-        const $locales_menu = document.getElementById('locales-menu');
-		const $theme_menu = document.getElementById('themes-menu');
-		const $responsive_nav = document.getElementById('responsive-nav');
-		const $hamburger_btn = document.getElementById('hamburger');
-		const $responsive_nav_items = document.querySelectorAll('#responsive-nav ul li button');
-		const $footer_links = document.querySelectorAll('#footer-links button');
-		const $blurredArea = document.getElementById('blurred-area');
+	document.addEventListener("astro:page-load", function () {
+		const $web_progress = document.getElementById("web-progress");
+		const navButtons = document.querySelectorAll("#nav ul li button");
+		const sectionsWrapper = document.getElementById("sections-wrapper");
+		const sections = sectionsWrapper
+			? Array.from(sectionsWrapper.children)?.filter(
+					(sec) => !sec.hasAttribute("data-skip-nav"),
+				)
+			: [];
+		const $scrollTopBtn = document.getElementById("scrollTopBtn");
+		const $locales_btn = document.getElementById("locales-btn");
+		const $theme_btn = document.getElementById("theme-swithcer");
+		const $locales_menu = document.getElementById("locales-menu");
+		const $theme_menu = document.getElementById("themes-menu");
+		const $responsive_nav = document.getElementById("responsive-nav");
+		const $hamburger_btn = document.getElementById("hamburger");
+		const $responsive_nav_items = document.querySelectorAll(
+			"#responsive-nav ul li button",
+		);
+		const $footer_links = document.querySelectorAll("#footer-links button");
+		const $blurredArea = document.getElementById("blurred-area");
 
 		let hamburgerClicked = false;
 		let locales_opened = false;
 		let themes_opened = false;
-		let savedTheme = localStorage.getItem('theme') || 'dark';
+		let savedTheme = localStorage.getItem("theme") || "dark";
 		applyTheme(savedTheme);
 
-		if (savedTheme === 'system') {
-			window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-				applyTheme('system');
-			});
+		if (savedTheme === "system") {
+			window
+				.matchMedia("(prefers-color-scheme: dark)")
+				.addEventListener("change", () => {
+					applyTheme("system");
+				});
 		}
 
 		hamburgerOnClick();
-		checkResponsiveNavAvailability()
-        window.addEventListener('resize', hamburgerOnClick);
-        window.addEventListener('resize', navCheckIfHidden);
-		window.addEventListener('resize', checkResponsiveNavAvailability);
+		checkResponsiveNavAvailability();
+		window.addEventListener("resize", hamburgerOnClick);
+		window.addEventListener("resize", navCheckIfHidden);
+		window.addEventListener("resize", checkResponsiveNavAvailability);
 
-		window.addEventListener('resize', function() {
-			if(window.innerWidth >= 450) {
-				if(!$blurredArea.classList.contains('hidden')) $blurredArea.classList.add('hidden');
-				$blurredArea.classList.remove('animate-fade-in');
-				$blurredArea.classList.remove('animate-fade-out');
-				if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
+		window.addEventListener("resize", function () {
+			if (window.innerWidth >= 450) {
+				if ($blurredArea && !$blurredArea.classList.contains("hidden"))
+					$blurredArea.classList.add("hidden");
+				$blurredArea?.classList.remove(
+					"animate-fade-in",
+					"animate-fade-out",
+				);
+				$hamburger_btn?.classList.remove(
+					"bg-gray-300/60",
+					"dark:bg-gray-800/60",
+				);
 			}
 		});
 
 		checkActiveSection(window.scrollY);
-		window.addEventListener('scroll', () => checkActiveSection(window.scrollY));
+		window.addEventListener("scroll", () =>
+			checkActiveSection(window.scrollY),
+		);
 
 		navButtons.forEach((btn, index) => {
-			btn.addEventListener('click', () => {
+			btn.addEventListener("click", () => {
 				const section = sections[index];
-				if (section) {
-					section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-				}
+				if (section)
+					section.scrollIntoView({
+						behavior: "smooth",
+						block: "start",
+					});
 			});
 		});
 
 		$responsive_nav_items.forEach((responsive_btn, index) => {
-			responsive_btn.addEventListener('click', () => {
+			responsive_btn.addEventListener("click", () => {
 				const section = sections[index];
-				if(section) {
-					section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				if (section) {
+					section.scrollIntoView({
+						behavior: "smooth",
+						block: "start",
+					});
 					hamburgerClicked = false;
-                    if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
-                    if($responsive_nav.classList.contains('animate-fade-in-down')) $responsive_nav.classList.remove('animate-fade-in-down');
-					if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
-					if(window.innerWidth <= 768) {
-						$blurredArea.classList.remove('animate-fade-in');
-						$blurredArea.classList.add('animate-fade-out');
-						setTimeout(function() {
-							$blurredArea.classList.remove('animate-fade-out');
-							$blurredArea.classList.add('hidden');
+					$responsive_nav?.classList.add("hidden");
+					$responsive_nav?.classList.remove("animate-fade-in-down");
+					$hamburger_btn?.classList.remove(
+						"bg-gray-300/60",
+						"dark:bg-gray-800/60",
+					);
+					if (window.innerWidth <= 768 && $blurredArea) {
+						$blurredArea.classList.remove("animate-fade-in");
+						$blurredArea.classList.add("animate-fade-out");
+						setTimeout(function () {
+							$blurredArea.classList.remove("animate-fade-out");
+							$blurredArea.classList.add("hidden");
 						}, 100);
 					}
 				}
@@ -133,288 +198,409 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 		});
 
 		$footer_links.forEach((footer_link, index) => {
-			footer_link.addEventListener('click', function() {
+			footer_link.addEventListener("click", function () {
 				const section = sections[index];
-				if(section) {
-					section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-				}
+				if (section)
+					section.scrollIntoView({
+						behavior: "smooth",
+						block: "start",
+					});
 			});
 		});
 
-
-		// SCROLL TOP BUTTON ON CLICK
-		$scrollTopBtn.addEventListener('click', function() {
-			window.scrollTo({
-				top: 0,
-				behavior: 'smooth'
-			});
+		$scrollTopBtn?.addEventListener("click", function () {
+			window.scrollTo({ top: 0, behavior: "smooth" });
 		});
 
-
-		// SCROLL BAR
-		window.addEventListener('scroll', () => {
+		window.addEventListener("scroll", () => {
+			if (!$web_progress) return;
 			const scrollTop = window.scrollY;
 			const docHeight = document.body.scrollHeight - window.innerHeight;
-			const scrollPercent = (scrollTop / docHeight) * 100;
-
+			const scrollPercent =
+				docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
 			$web_progress.style.width = `${scrollPercent}%`;
 		});
 
-		// SCROLL TOP BUTTON SHOW
 		let lastScroll = 0;
-		window.addEventListener('scroll', function() {
+		window.addEventListener("scroll", function () {
+			if (!$scrollTopBtn) return;
 			const max = 400;
 			const currentScroll = window.scrollY;
-			
-			if(currentScroll > lastScroll && currentScroll > max) {
-				$scrollTopBtn.classList.remove('pointer-events-none');
-				$scrollTopBtn.classList.remove('opacity-0');
-			} else {
-				if(currentScroll < lastScroll && currentScroll <= max) {
-					$scrollTopBtn.classList.add('pointer-events-none');
-					$scrollTopBtn.classList.add('opacity-0');
-				}
+
+			if (currentScroll > lastScroll && currentScroll > max) {
+				$scrollTopBtn.classList.remove(
+					"pointer-events-none",
+					"opacity-0",
+				);
+			} else if (currentScroll < lastScroll && currentScroll <= max) {
+				$scrollTopBtn.classList.add("pointer-events-none", "opacity-0");
 			}
 
 			lastScroll = currentScroll;
 		});
 
-		// HAMBURGER BUTTON CLICK EVENT
-		$hamburger_btn.addEventListener('click', function(event) {
-            event.stopPropagation();
-            hamburgerClicked = !hamburgerClicked;
+		$hamburger_btn?.addEventListener("click", function (event) {
+			event.stopPropagation();
+			hamburgerClicked = !hamburgerClicked;
 
-			setMenuMargin(locales_opened, $locales_menu);
-			setMenuMargin(themes_opened, $theme_menu);
-            if(hamburgerClicked) {
-                locales_opened = false;
-				themes_opened = false;
-                $responsive_nav.classList.remove('hidden');
-                $responsive_nav.classList.add('animate-fade-in-down', 'animate-duration-100');
-                if(!$hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.add('bg-gray-300/60', 'dark:bg-gray-800/60');
-				if($theme_btn.classList.contains('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white')) $theme_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
-				if(!$theme_btn.classList.contains('text-black/80', 'dark:text-white/80')) $theme_btn.classList.add('text-black/80', 'dark:text-white/80');
-                $locales_menu.classList.remove('mt-3', 'mt-1');
+			if ($locales_menu) setMenuMargin(locales_opened, $locales_menu);
+			if ($theme_menu) setMenuMargin(themes_opened, $theme_menu);
 
-				if($locales_btn.classList.contains('dark:bg-gray-800', 'bg-gray-300')) {
-					$locales_btn.classList.remove('dark:bg-gray-800', 'bg-gray-300');
-					if(window.innerWidth > 768) setLocalesBtnBg();
-				}
-                $locales_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
-                $locales_menu.classList.add('hidden');
-				$theme_menu.setAttribute('aria-hidden', true);
-				$locales_menu.setAttribute('aria-hidden', true);
-				$responsive_nav.setAttribute('aria-hidden', false);
-				$theme_menu.classList.remove('mt-3', 'mt-1');
-                $theme_menu.classList.remove('dark:bg-gray-800/60');
-                $theme_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
-                $theme_menu.classList.add('hidden');
-				if(window.innerWidth <= 768) $blurredArea.classList.remove('hidden');
-            } else {
-                $responsive_nav.classList.add('hidden');
-                $responsive_nav.classList.remove('animate-fade-in-down', 'animate-duration-100');
-                if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
-				$responsive_nav.setAttribute('aria-hidden', true);
-				$blurredArea.classList.remove('animate-fade-in');
-				$blurredArea.classList.add('animate-fade-out');
-				setTimeout(function() {
-					$blurredArea.classList.remove('animate-fade-out');
-					$blurredArea.classList.add('hidden');
-				}, 100);
-            }
-        });
-
-        document.addEventListener('click', function(event) {
-            if(hamburgerClicked) {
-                if (!event.composedPath().includes($responsive_nav) &&
-                    !event.composedPath().includes($hamburger_btn)) {
-                    hamburgerClicked = false;
-                    $responsive_nav.classList.add('hidden');
-                    $responsive_nav.classList.remove('animate-fade-in-down', 'animate-duration-100');
-                    if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
-					$responsive_nav.setAttribute('aria-hidden', true);
-					$blurredArea.classList.remove('animate-fade-in');
-					$blurredArea.classList.add('animate-fade-out');
-					setTimeout(function() {
-						$blurredArea.classList.remove('animate-fade-out');
-						$blurredArea.classList.add('hidden');
-					}, 100);
-                }
-            }
-        });
-
-		if(window.innerWidth >= 768) setLocalesBtnBg();
-/*
-        window.addEventListener('scroll', function() {
-            if(window.innerWidth >= 768) setLocalesBtnBg();
-        });
-        window.addEventListener('resize', function() { 
-            setLocalesBtnBg();
-        });
-        
-*/
-        $locales_btn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            locales_opened = !locales_opened;
-            
-            setMenuMargin(locales_opened, $locales_menu);
-            if(locales_opened) {
-                const scrollY = window.scrollY;
-                hamburgerClicked = false;
-				themes_opened = false;
-                if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
-				if($responsive_nav.classList.contains('animate-fade-in-down', 'animate-duration-100')) $responsive_nav.classList.remove('animate-fade-in-down', 'animate-duration-100');
-				if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
-				if(!$theme_menu.classList.contains('hidden')) $theme_menu.classList.add('hidden');
-				if($theme_btn.classList.contains('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white')) $theme_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
-				if(!$theme_btn.classList.contains('text-black/80', 'dark:text-white/80')) $theme_btn.classList.add('text-black/80', 'dark:text-white/80');
-				$locales_menu.setAttribute('aria-hidden', false);
-				$theme_menu.setAttribute('aria-hidden', true);
-				$responsive_nav.setAttribute('aria-hidden', true);
-                $locales_menu.classList.add(scrollY > 250 ? 'mt-3' : 'mt-1');
-				if($locales_btn.classList.contains('bg-gray-300/50', 'dark:bg-gray-800/60')) $locales_btn.classList.remove('bg-gray-300/50', 'dark:bg-gray-800/60');
-                $locales_btn.classList.add('dark:bg-gray-800', 'bg-gray-300');
-                $locales_menu.classList.remove('hidden');
-                $locales_menu.classList.add('animate-fade-in-down', 'animate-duration-100');
-				if(!$blurredArea.classList.contains('hidden')) $blurredArea.classList.add('hidden');
-            } else {
-                $locales_menu.classList.remove('mt-3', 'mt-1');
-                $locales_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
-                $locales_menu.classList.add('hidden');
-				$locales_menu.setAttribute('aria-hidden', true);
-				if($locales_btn.classList.contains('dark:bg-gray-800', 'bg-gray-300')) {
-					$locales_btn.classList.remove('dark:bg-gray-800', 'bg-gray-300');
-					if(window.innerWidth > 768) setLocalesBtnBg();
-				}
-            }
-        });
-
-		$theme_btn.addEventListener('click', function(e) {
-			e.stopPropagation();
-			themes_opened = !themes_opened;
-
-			setMenuMargin(themes_opened, $theme_menu);
-			if(themes_opened) {
-				const scrollY = window.scrollY;
-				hamburgerClicked = false;
+			if (hamburgerClicked) {
 				locales_opened = false;
-				if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
-				if($responsive_nav.classList.contains('animate-fade-in-down', 'animate-duration-100')) $responsive_nav.classList.remove('animate-fade-in-down', 'animate-duration-100');
-				if($hamburger_btn.classList.contains('bg-gray-300/60', 'dark:bg-gray-800/60')) $hamburger_btn.classList.remove('bg-gray-300/60', 'dark:bg-gray-800/60');
-				if(!$locales_menu.classList.contains('hidden')) $locales_menu.classList.add('hidden');
-				if($locales_menu.classList.contains('animate-fade-in-down', 'animate-duration-100')) $locales_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
+				themes_opened = false;
+				$responsive_nav?.classList.remove("hidden");
+				$responsive_nav?.classList.add(
+					"animate-fade-in-down",
+					"animate-duration-100",
+				);
+				$hamburger_btn?.classList.add(
+					"bg-gray-300/60",
+					"dark:bg-gray-800/60",
+				);
+				$theme_btn?.classList.remove(
+					"dark:bg-gray-800/60",
+					"bg-gray-300",
+					"text-black",
+					"dark:text-white",
+				);
+				$theme_btn?.classList.add(
+					"text-black/80",
+					"dark:text-white/80",
+				);
+				$locales_menu?.classList.remove(
+					"mt-3",
+					"mt-1",
+					"animate-fade-in-down",
+					"animate-duration-100",
+				);
+				$locales_menu?.classList.add("hidden");
+				$locales_btn?.classList.remove(
+					"dark:bg-gray-800",
+					"bg-gray-300",
+				);
 
-				if($locales_btn.classList.contains('dark:bg-gray-800', 'bg-gray-300')) {
-					$locales_btn.classList.remove('dark:bg-gray-800', 'bg-gray-300');
-					if(window.innerWidth > 768) setLocalesBtnBg();
-				}
-				$theme_menu.classList.add(scrollY > 250 ? 'mt-3' : 'mt-1');
-				$theme_btn.classList.add('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
-				$theme_menu.classList.remove('hidden');
-				$theme_menu.classList.add('animate-fade-in-down', 'animate-duration-100');
-				$theme_menu.setAttribute('aria-hidden', false);
-				$locales_menu.setAttribute('aria-hidden', true);
-				$responsive_nav.setAttribute('aria-hidden', true);
-				if(!$blurredArea.classList.contains('hidden')) $blurredArea.classList.add('hidden');
+				if (window.innerWidth > 768) setLocalesBtnBg();
+
+				$theme_menu?.setAttribute("aria-hidden", "true");
+				$locales_menu?.setAttribute("aria-hidden", "true");
+				$responsive_nav?.setAttribute("aria-hidden", "false");
+				$theme_menu?.classList.remove(
+					"mt-3",
+					"mt-1",
+					"dark:bg-gray-800/60",
+					"animate-fade-in-down",
+					"animate-duration-100",
+				);
+				$theme_menu?.classList.add("hidden");
+
+				if (window.innerWidth <= 768)
+					$blurredArea?.classList.remove("hidden");
 			} else {
-				$theme_menu.classList.remove('mt-3', 'mt-1');
-				$theme_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
-				$theme_btn.classList.add('text-black/80', 'dark:text-white/80');
-                $theme_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
-                $theme_menu.classList.add('hidden');
-				$theme_menu.setAttribute('aria-hidden', true);
+				$responsive_nav?.classList.add("hidden");
+				$responsive_nav?.classList.remove(
+					"animate-fade-in-down",
+					"animate-duration-100",
+				);
+				$hamburger_btn?.classList.remove(
+					"bg-gray-300/60",
+					"dark:bg-gray-800/60",
+				);
+				$responsive_nav?.setAttribute("aria-hidden", "true");
+				if ($blurredArea) {
+					$blurredArea.classList.remove("animate-fade-in");
+					$blurredArea.classList.add("animate-fade-out");
+					setTimeout(function () {
+						$blurredArea.classList.remove("animate-fade-out");
+						$blurredArea.classList.add("hidden");
+					}, 100);
+				}
 			}
 		});
 
-        document.addEventListener('click', function(e) {
-            if (
-                locales_opened &&
-                !$locales_menu.contains(e.target) &&
-                e.target !== $locales_btn
-            ) {
-                locales_opened = false;
-                $locales_menu.classList.remove('mt-3', 'mt-1');
-                $locales_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
-                $locales_menu.classList.add('hidden');
-				$locales_menu.setAttribute('aria-hidden', true);
-				if($locales_btn.classList.contains('dark:bg-gray-800', 'bg-gray-300')) {
-					$locales_btn.classList.remove('dark:bg-gray-800', 'bg-gray-300');
-					if(window.innerWidth > 768) setLocalesBtnBg();
+		document.addEventListener("click", function (event) {
+			if (hamburgerClicked && $responsive_nav && $hamburger_btn) {
+				if (
+					!event.composedPath().includes($responsive_nav) &&
+					!event.composedPath().includes($hamburger_btn)
+				) {
+					hamburgerClicked = false;
+					$responsive_nav.classList.add("hidden");
+					$responsive_nav.classList.remove(
+						"animate-fade-in-down",
+						"animate-duration-100",
+					);
+					$hamburger_btn.classList.remove(
+						"bg-gray-300/60",
+						"dark:bg-gray-800/60",
+					);
+					$responsive_nav.setAttribute("aria-hidden", "true");
+					if ($blurredArea) {
+						$blurredArea.classList.remove("animate-fade-in");
+						$blurredArea.classList.add("animate-fade-out");
+						setTimeout(function () {
+							$blurredArea.classList.remove("animate-fade-out");
+							$blurredArea.classList.add("hidden");
+						}, 100);
+					}
 				}
-            }
-        });
+			}
+		});
 
-		document.addEventListener('click', function(e) {
-            if (
-                themes_opened &&
-                !$theme_menu.contains(e.target) &&
-                e.target !== $theme_btn
-            ) {
-                themes_opened = false;
-                $theme_menu.classList.remove('mt-3', 'mt-1');
-				$theme_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
-				$theme_btn.classList.add('text-black/80', 'dark:text-white/80');
-                $theme_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
-                $theme_menu.classList.add('hidden');
-				$theme_menu.setAttribute('aria-hidden', true);
-            }
-        });
+		if (window.innerWidth >= 768) setLocalesBtnBg();
 
+		$locales_btn?.addEventListener("click", function (e) {
+			e.stopPropagation();
+			locales_opened = !locales_opened;
 
-		// THEME CHOICE
-		document.querySelectorAll('[data-themeChoice]').forEach(el => {
-            el.addEventListener('click', () => {
-                const chosenTheme = el.getAttribute('data-themeChoice');
-                localStorage.setItem('theme', chosenTheme);
-                applyTheme(chosenTheme);
-            });
-        });
+			if ($locales_menu) setMenuMargin(locales_opened, $locales_menu);
+			if (locales_opened) {
+				const scrollY = window.scrollY;
+				hamburgerClicked = false;
+				themes_opened = false;
+				$responsive_nav?.classList.add("hidden");
+				$responsive_nav?.classList.remove(
+					"animate-fade-in-down",
+					"animate-duration-100",
+				);
+				$hamburger_btn?.classList.remove(
+					"bg-gray-300/60",
+					"dark:bg-gray-800/60",
+				);
+				$theme_menu?.classList.add("hidden");
+				$theme_btn?.classList.remove(
+					"dark:bg-gray-800/60",
+					"bg-gray-300",
+					"text-black",
+					"dark:text-white",
+				);
+				$theme_btn?.classList.add(
+					"text-black/80",
+					"dark:text-white/80",
+				);
+
+				$locales_menu?.setAttribute("aria-hidden", "false");
+				$theme_menu?.setAttribute("aria-hidden", "true");
+				$responsive_nav?.setAttribute("aria-hidden", "true");
+
+				$locales_menu?.classList.add(scrollY > 250 ? "mt-3" : "mt-1");
+				$locales_btn.classList.remove(
+					"bg-gray-300/50",
+					"dark:bg-gray-800/60",
+				);
+				$locales_btn.classList.add("dark:bg-gray-800", "bg-gray-300");
+				$locales_menu?.classList.remove("hidden");
+				$locales_menu?.classList.add(
+					"animate-fade-in-down",
+					"animate-duration-100",
+				);
+				$blurredArea?.classList.add("hidden");
+			} else {
+				$locales_menu?.classList.remove(
+					"mt-3",
+					"mt-1",
+					"animate-fade-in-down",
+					"animate-duration-100",
+				);
+				$locales_menu?.classList.add("hidden");
+				$locales_menu?.setAttribute("aria-hidden", "true");
+				$locales_btn.classList.remove(
+					"dark:bg-gray-800",
+					"bg-gray-300",
+				);
+				if (window.innerWidth > 768) setLocalesBtnBg();
+			}
+		});
+
+		$theme_btn?.addEventListener("click", function (e) {
+			e.stopPropagation();
+			themes_opened = !themes_opened;
+
+			if ($theme_menu) setMenuMargin(themes_opened, $theme_menu);
+			if (themes_opened) {
+				const scrollY = window.scrollY;
+				hamburgerClicked = false;
+				locales_opened = false;
+				$responsive_nav?.classList.add("hidden");
+				$responsive_nav?.classList.remove(
+					"animate-fade-in-down",
+					"animate-duration-100",
+				);
+				$hamburger_btn?.classList.remove(
+					"bg-gray-300/60",
+					"dark:bg-gray-800/60",
+				);
+				$locales_menu?.classList.add("hidden");
+				$locales_menu?.classList.remove(
+					"animate-fade-in-down",
+					"animate-duration-100",
+				);
+
+				$locales_btn?.classList.remove(
+					"dark:bg-gray-800",
+					"bg-gray-300",
+				);
+				if (window.innerWidth > 768) setLocalesBtnBg();
+
+				$theme_menu?.classList.add(scrollY > 250 ? "mt-3" : "mt-1");
+				$theme_btn.classList.add(
+					"dark:bg-gray-800/60",
+					"bg-gray-300",
+					"text-black",
+					"dark:text-white",
+				);
+				$theme_menu?.classList.remove("hidden");
+				$theme_menu?.classList.add(
+					"animate-fade-in-down",
+					"animate-duration-100",
+				);
+				$theme_menu?.setAttribute("aria-hidden", "false");
+				$locales_menu?.setAttribute("aria-hidden", "true");
+				$responsive_nav?.setAttribute("aria-hidden", "true");
+				$blurredArea?.classList.add("hidden");
+			} else {
+				$theme_menu?.classList.remove(
+					"mt-3",
+					"mt-1",
+					"animate-fade-in-down",
+					"animate-duration-100",
+				);
+				$theme_btn.classList.remove(
+					"dark:bg-gray-800/60",
+					"bg-gray-300",
+					"text-black",
+					"dark:text-white",
+				);
+				$theme_btn.classList.add("text-black/80", "dark:text-white/80");
+				$theme_menu?.classList.add("hidden");
+				$theme_menu?.setAttribute("aria-hidden", "true");
+			}
+		});
+
+		document.addEventListener("click", function (e) {
+			if (locales_opened && $locales_menu && $locales_btn) {
+				if (
+					!$locales_menu.contains(e.target) &&
+					e.target !== $locales_btn
+				) {
+					locales_opened = false;
+					$locales_menu.classList.remove(
+						"mt-3",
+						"mt-1",
+						"animate-fade-in-down",
+						"animate-duration-100",
+					);
+					$locales_menu.classList.add("hidden");
+					$locales_menu.setAttribute("aria-hidden", "true");
+					$locales_btn.classList.remove(
+						"dark:bg-gray-800",
+						"bg-gray-300",
+					);
+					if (window.innerWidth > 768) setLocalesBtnBg();
+				}
+			}
+		});
+
+		document.addEventListener("click", function (e) {
+			if (themes_opened && $theme_menu && $theme_btn) {
+				if (
+					!$theme_menu.contains(e.target) &&
+					e.target !== $theme_btn
+				) {
+					themes_opened = false;
+					$theme_menu.classList.remove(
+						"mt-3",
+						"mt-1",
+						"animate-fade-in-down",
+						"animate-duration-100",
+					);
+					$theme_btn.classList.remove(
+						"dark:bg-gray-800/60",
+						"bg-gray-300",
+						"text-black",
+						"dark:text-white",
+					);
+					$theme_btn.classList.add(
+						"text-black/80",
+						"dark:text-white/80",
+					);
+					$theme_menu.classList.add("hidden");
+					$theme_menu.setAttribute("aria-hidden", "true");
+				}
+			}
+		});
+
+		document
+			.querySelectorAll("[data-themechoice], [data-themeChoice]")
+			?.forEach((el) => {
+				el.addEventListener("click", () => {
+					const chosenTheme =
+						el.getAttribute("data-themechoice") ||
+						el.getAttribute("data-themeChoice");
+					if (!chosenTheme) return;
+					localStorage.setItem("theme", chosenTheme);
+					applyTheme(chosenTheme);
+				});
+			});
 
 		function checkResponsiveNavAvailability() {
-			if(window.innerWidth >= 450) {
-				if(!$responsive_nav.classList.contains('hidden')) $responsive_nav.classList.add('hidden');
-				$responsive_nav.classList.remove('animate-fade-in-down');
+			if (window.innerWidth >= 450 && $responsive_nav) {
+				$responsive_nav.classList.add("hidden");
+				$responsive_nav.classList.remove("animate-fade-in-down");
 				hamburgerClicked = false;
-				if($hamburger_btn.classList.contains('bg-gray-900')) $hamburger_btn.classList.remove('bg-gray-900');
-				$responsive_nav.setAttribute('aria-hidden', true);
+				$hamburger_btn?.classList.remove("bg-gray-900");
+				$responsive_nav.setAttribute("aria-hidden", "true");
 			}
 		}
 
-        function setLocalesBtnBg() {
-            if(window.scrollY > 50) {
-				$locales_btn.classList.remove('dark:bg-gray-800/60', 'dark:bg-gray-800', 'bg-gray-300/50');
-            } else {
-                if(locales_opened) {
-					$locales_btn.classList.add('dark:bg-gray-800', 'bg-gray-300');
+		function setLocalesBtnBg() {
+			if (!$locales_btn) return;
+			if (window.scrollY > 50) {
+				$locales_btn.classList.remove(
+					"dark:bg-gray-800/60",
+					"dark:bg-gray-800",
+					"bg-gray-300/50",
+				);
+			} else {
+				if (locales_opened) {
+					$locales_btn.classList.add(
+						"dark:bg-gray-800",
+						"bg-gray-300",
+					);
 				} else {
-					if(window.innerWidth > 768) {
-						$locales_btn.classList.add('dark:bg-gray-800/60', 'bg-gray-300/50')
+					if (window.innerWidth > 768) {
+						$locales_btn.classList.add(
+							"dark:bg-gray-800/60",
+							"bg-gray-300/50",
+						);
 					} else {
-						$locales_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300/50')
+						$locales_btn.classList.remove(
+							"dark:bg-gray-800/60",
+							"bg-gray-300/50",
+						);
 					}
 				}
-            }
-        }
+			}
+		}
 
-		// SET MARGIN OF ELEMENT MENU
-        function setMenuMargin(menuIsOpen, el) {
-            if(menuIsOpen) {
-                let lastScroll = 0
-                window.addEventListener('scroll', function() {
-                    const currentScroll = window.scrollY;
-                    if(currentScroll > lastScroll && currentScroll > 50) {
-                        el.classList.remove('mt-1');
-                        el.classList.add('mt-3');
-                    } else {
-                        el.classList.remove('mt-3');
-                        el.classList.add('mt-1');
-                    }
-                });
-            }
-        }
+		function setMenuMargin(menuIsOpen, el) {
+			if (menuIsOpen && el) {
+				let lastScroll = 0;
+				window.addEventListener("scroll", function () {
+					const currentScroll = window.scrollY;
+					if (currentScroll > lastScroll && currentScroll > 50) {
+						el.classList.remove("mt-1");
+						el.classList.add("mt-3");
+					} else {
+						el.classList.remove("mt-3");
+						el.classList.add("mt-1");
+					}
+				});
+			}
+		}
 
-		// CHECK ACTIVE SECTION
 		function checkActiveSection(scrollY = window.scrollY) {
+			if (!sections.length) return;
 			const scrollPos = scrollY + window.innerHeight / 4;
 			let activeFound = false;
 
@@ -424,111 +610,163 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 
 				if (scrollPos >= top && scrollPos < bottom) {
 					navButtons.forEach((item) => {
-						item.classList.remove('dark:text-blue-500', 'text-blue-700');
-						item.classList.add('dark:text-white', 'text-black');
+						item.classList.remove(
+							"dark:text-blue-500",
+							"text-blue-700",
+						);
+						item.classList.add("dark:text-white", "text-black");
 					});
-					navButtons[index].classList.remove('dark:text-white', 'text-black');
-					navButtons[index].classList.add('dark:text-blue-500', 'text-blue-700');
+					if (navButtons[index]) {
+						navButtons[index].classList.remove(
+							"dark:text-white",
+							"text-black",
+						);
+						navButtons[index].classList.add(
+							"dark:text-blue-500",
+							"text-blue-700",
+						);
+					}
 					$responsive_nav_items.forEach((item) => {
-						item.classList.remove('dark:text-blue-500', 'text-blue-700');
-						item.classList.add('dark:text-white', 'text-black');
+						item.classList.remove(
+							"dark:text-blue-500",
+							"text-blue-700",
+						);
+						item.classList.add("dark:text-white", "text-black");
 					});
-					$responsive_nav_items[index].classList.remove('dark:text-white', 'text-black');
-					$responsive_nav_items[index].classList.add('dark:text-blue-500', 'text-blue-700');
+					if ($responsive_nav_items[index]) {
+						$responsive_nav_items[index].classList.remove(
+							"dark:text-white",
+							"text-black",
+						);
+						$responsive_nav_items[index].classList.add(
+							"dark:text-blue-500",
+							"text-blue-700",
+						);
+					}
 					activeFound = true;
 				}
 			});
 
 			if (!activeFound) {
 				navButtons.forEach((item) => {
-					item.classList.remove('dark:text-blue-500', 'text-blue-700');
-					item.classList.add('dark:text-white', 'text-black');
+					item.classList.remove(
+						"dark:text-blue-500",
+						"text-blue-700",
+					);
+					item.classList.add("dark:text-white", "text-black");
 				});
 				$responsive_nav_items.forEach((item) => {
-					item.classList.remove('dark:text-blue-500', 'text-blue-700');
-					item.classList.add('dark:text-white', 'text-black');
+					item.classList.remove(
+						"dark:text-blue-500",
+						"text-blue-700",
+					);
+					item.classList.add("dark:text-white", "text-black");
 				});
 			}
 		}
 
 		function hamburgerOnClick() {
-            if(window.innerWidth < 450) {
-                $hamburger_btn.setAttribute('aria-hidden', false);
-            } else {
-                $hamburger_btn.setAttribute('aria-hidden', true);
-            }
-        }
+			if (window.innerWidth < 450) {
+				$hamburger_btn?.setAttribute("aria-hidden", "false");
+			} else {
+				$hamburger_btn?.setAttribute("aria-hidden", "true");
+			}
+		}
 
 		function navCheckIfHidden() {
-            const $nav = document.querySelector('#nav');
-            if(window.innerWidth < 450) {
-                $nav.setAttribute('aria-hidden', true);
-            } else {
-                $nav.setAttribute('aria-hidden', false);
-            }
-        }
+			const $nav = document.querySelector("#nav");
+			if (window.innerWidth < 450) {
+				$nav?.setAttribute("aria-hidden", "true");
+			} else {
+				$nav?.setAttribute("aria-hidden", "false");
+			}
+		}
 
-		// APPLY THEME ON CHOOSE
 		function applyTheme(theme) {
 			const html = document.documentElement;
 			setThemeIcon(theme);
 			setActiveTheme(theme);
 			checkActiveSection();
-			if (theme === 'dark') {
-				html.classList.add('dark');
-			} else if (theme === 'light') {
-				html.classList.remove('dark');
-			} else { // system
-				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-					html.classList.add('dark');
+			if (theme === "dark") {
+				html.classList.add("dark");
+			} else if (theme === "light") {
+				html.classList.remove("dark");
+			} else {
+				if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+					html.classList.add("dark");
 				} else {
-					html.classList.remove('dark');
+					html.classList.remove("dark");
 				}
 			}
 
-			// Cerrar menú de temas
 			themes_opened = false;
-			$theme_menu.classList.remove('mt-3', 'mt-1');
-			$theme_btn.classList.remove('dark:bg-gray-800/60', 'bg-gray-300', 'text-black', 'dark:text-white');
-			$theme_btn.classList.add('text-black/80', 'dark:text-white/80');
-			$theme_menu.classList.remove('animate-fade-in-down', 'animate-duration-100');
-			$theme_menu.classList.add('hidden');
-			$theme_menu.setAttribute('aria-hidden', true);
+			$theme_menu?.classList.remove(
+				"mt-3",
+				"mt-1",
+				"dark:bg-gray-800/60",
+				"animate-fade-in-down",
+				"animate-duration-100",
+			);
+			$theme_btn?.classList.remove(
+				"dark:bg-gray-800/60",
+				"bg-gray-300",
+				"text-black",
+				"dark:text-white",
+			);
+			$theme_btn?.classList.add("text-black/80", "dark:text-white/80");
+			$theme_menu?.classList.add("hidden");
+			$theme_menu?.setAttribute("aria-hidden", "true");
 		}
 
-		// SET THEME ICON ON CHOOSE THEME
 		function setThemeIcon(theme) {
-			const icon = document.getElementById('theme-icon');
-			icon.classList.remove('icon-[carbon--light]', 'icon-[material-symbols--dark-mode-outline-rounded]', 'icon-[ion--md-desktop]');
+			const icon = document.getElementById("theme-icon");
+			if (!icon) return;
+			icon.classList.remove(
+				"icon-[carbon--light]",
+				"icon-[material-symbols--dark-mode-outline-rounded]",
+				"icon-[ion--md-desktop]",
+			);
 
-			if (theme === 'dark') {
-				icon.classList.add('icon-[material-symbols--dark-mode-outline-rounded]');
+			if (theme === "dark") {
+				icon.classList.add(
+					"icon-[material-symbols--dark-mode-outline-rounded]",
+				);
 				setThemeBtnLabel("dark");
-			} else if (theme === 'light') {
-				icon.classList.add('icon-[carbon--light]');
+			} else if (theme === "light") {
+				icon.classList.add("icon-[carbon--light]");
 				setThemeBtnLabel("light");
-			} else { // system
-				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-					icon.classList.add('icon-[ion--md-desktop]');
-					setThemeBtnLabel("dark");
-				} else {
-					icon.classList.add('icon-[ion--md-desktop]');
-					setThemeBtnLabel("light");
-				}
+			} else {
+				icon.classList.add("icon-[ion--md-desktop]");
+				setThemeBtnLabel(
+					window.matchMedia("(prefers-color-scheme: dark)").matches
+						? "dark"
+						: "light",
+				);
 			}
 		}
 
 		function setActiveTheme(theme) {
-			const tema = document.querySelector(`[data-themechoice=${theme}]`);
-			document.querySelectorAll('[data-themechoice]').forEach(tema => {
-				tema.classList.remove('dark:bg-gray-800', 'bg-gray-300');
-			});
-			tema.classList.add('dark:bg-gray-800', 'bg-gray-300');
+			const selectorTarget = Array.from(
+				document.querySelectorAll(
+					"[data-themechoice], [data-themeChoice]",
+				),
+			).find(
+				(el) =>
+					(el.getAttribute("data-themechoice") ||
+						el.getAttribute("data-themeChoice")) === theme,
+			);
+
+			document
+				.querySelectorAll("[data-themechoice], [data-themeChoice]")
+				?.forEach((el) => {
+					el.classList.remove("dark:bg-gray-800", "bg-gray-300");
+				});
+
+			selectorTarget?.classList.add("dark:bg-gray-800", "bg-gray-300");
 		}
 
-
 		function setThemeBtnLabel(theme) {
-			$theme_btn.setAttribute('data-theme', theme);
+			$theme_btn?.setAttribute("data-theme", theme);
 		}
 	});
 </script>
@@ -539,15 +777,14 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 		--nav-color: rgb(20, 26, 49);
 		--drawBg: rgba(231, 231, 231, 0.5);
 		--nav-border-color: transparent;
-		--nav-shadow: 
+		--nav-shadow:
 			0px 5px 50px -5px rgba(0, 0, 0, 0.1),
 			0px 0px 0 1px rgba(0, 0, 0, 0.3);
 	}
 
-
 	html.dark {
 		--drawBg: rgb(20, 26, 49);
-		--nav-border-color: rgb(255, 255, 255, .2);
+		--nav-border-color: rgb(255, 255, 255, 0.2);
 		--nav-shadow: none;
 	}
 
@@ -556,7 +793,6 @@ const previewImage = new URL('/img/preview.png', Astro.site).href;
 			scroll-behavior: auto;
 		}
 	}
-
 
 	html.dark ::-webkit-scrollbar {
 		width: 5px;

@@ -13,7 +13,7 @@ export default {
         november: 'November',
         december: 'Dezember'
     },
-
+    return_to_home: 'Zurück zur Startseite',
     cities: {
         psip: "Palau-solità i Plegamans",
         barcelona: "Barcelona",
@@ -25,6 +25,7 @@ export default {
 
     countries: {
         spain: "Spanien",
+        ukraine: "Ukraine",
     },
 
     creator_name: "Yaroslav Klymko",
@@ -39,9 +40,11 @@ export default {
     },
 
     nav: {
+        home: 'Startseite',
         intro: 'Intro',
         experience: 'Erfahrung',
         projects: 'Projekte',
+        certificates: 'Bewilligungen & Nachweise',
         about_me: 'Über mich',
         contact: 'Kontakt',
     },
@@ -130,7 +133,63 @@ export default {
         fullstack: 'Fullstack',
         others: 'Andere',
     },
-
+    cap_mercancias: {
+        title: 'C95 Güterkraftverkehr',
+        description: 'Fahrerqualifizierungsnachweis (FQN) für den Güterkraftverkehr (C95 | Code 95).',
+    },
+    links_titles: {
+        driving_licenses: 'Führerscheine',
+        academic_formation: 'Akademische Ausbildung',
+        certificates: 'Zusätzliche Kurse und Zertifizierungen',
+    },
+    driving_licenses: {
+        label: 'Digitale Führerscheinprüfung',
+        title: 'Führerscheine',
+        subtitle: 'Validierte Lenkberechtigungen und offizielle Kategorisierung der zugelassenen Fahrzeuge.',
+        enabled_categories: 'Freigeschaltete Kategorien',
+        total_label: 'Gesamt',
+        categories_enum: {
+            one: 'Kategorie',
+            other: 'Kategorien'
+        },
+        european_community_model: 'Führerscheinmuster der Europäischen Gemeinschaft',
+        tocuh_or_click: 'Tippen oder klicken Sie, um die Karte zu drehen',
+        driving_license: 'Führerschein',
+        spanish_kingdom: 'Königreich Spanien',
+        last_names: 'Familienname',
+        name: 'Vorname',
+        date_and_place_of_birth: 'Geburtsdatum und -ort',
+        valid_from: 'Gültig ab',
+        valid_until: 'Gültig bis',
+        issuing_authority: 'Ausstellungsbehörde',
+        number: 'Nummer',
+        observations: 'Hinweise',
+        driving_license_categories: {
+            b: {
+                category: 'Klasse B',
+                title: 'Personenkraftwagen und leichte Fahrzeuge',
+                description: 'Berechtigt zum Lenken von Kraftfahrzeugen mit einer zulässigen Gesamtmasse von nicht mehr als 3.500 kg, die zur Beförderung von nicht mehr als 8 Personen außer dem Lenker ausgelegt sind, mit einem leichten Anhänger bis zu 750 kg.',
+            },
+            c1: {
+                category: 'Klasse C1',
+                title: 'LKW bis 7.500 kg höchste zulässige Gesamtmasse',
+                description: 'Berechtigt zum Lenken von Kraftfahrzeugen (ausgenommen solche der Klassen D1 oder D) mit einer zulässigen Gesamtmasse von mehr als 3.500 kg, aber nicht mehr als 7.500 kg, mit einem Anhänger bis zu 750 kg.',
+            },
+            c: {
+                category: 'Klasse C',
+                title: 'LKW mit mehr als 3.500 kg höchste zulässige Gesamtmasse',
+                description: 'Berechtigt zum Lenken von Kraftfahrzeugen (ausgenommen solche der Klassen D1 oder D) mit einer zulässigen Gesamtmasse von mehr als 3.500 kg, mit einem Anhänger bis zu 750 kg.',
+            },
+            common_notes: {
+                c_95_initial: 'Gültige Grundqualifikation / Weiterbildung für den Güterkraftverkehr (Code 95).',
+            }
+        }
+    },
+    creator_name_variants: {
+        first_name: "Yaroslav",
+        last_name: "Klymko",
+        full_name: "Yaroslav Klymko",
+    },
     about_me: {
         iam: 'Ich bin',
         and: 'und',
@@ -158,7 +217,122 @@ export default {
         programming: 'Programmierung',
         with_community: 'mit der Community',
     },
-
+    academic_formation_web: {
+        page_title: "Titulació Acadèmica",
+        hero_tag: "ACADEMIC MATRIX // DEGREES & QUALIFICATIONS",
+        hero_title_part1: "Historial i ",
+        hero_title_part2: "Titulació Acadèmica",
+        hero_description: "Full de ruta formatiu reglat, graus tècnics superiors i equivalències d'homologació internacional.",
+        verified_student: "VERIFIED STUDENT",
+        national_registry: "REGISTRE NACIONAL",
+        institution: "INSTITUCIÓ",
+        expedition: "EXPEDICIÓ",
+        european_level: "NIVELL EUROPEU",
+        accumulated_credits: "CRÈDITS ACUMULATS",
+        homologated: "Homologat",
+        official_degree: "Titulació Oficial",
+        degrees: {
+            gs_daw: {
+                code: "GS DAW",
+                level: "Tècnic Superior",
+                title: "Tècnic Superior en Desenvolupament d'Aplicacions Web (DAW)",
+                institution: "Institut La Guineueta / Generalitat de Catalunya",
+                period: "2022 - 2024",
+                description: "Especialització en desenvolupament frontend, backend, arquitectures web, integració d'APIs i gestió de bases de dades relacionals i no relacionals.",
+                status: "Finalitzat (Oficial)"
+            },
+            gm_smx: {
+                code: "GM SMX",
+                level: "Tècnic",
+                title: "Tècnic en Sistemes Microinformàtics i Xarxes (SMX)",
+                institution: "Institut La Guineueta",
+                period: "2020 - 2022",
+                description: "Formació en muntatge i manteniment d'equips, xarxes d'àrea local, administració de sistemes operatius i serveis de xarxa.",
+                status: "Finalitzat (Oficial)"
+            },
+            bach: {
+                code: "BACH",
+                level: "Postobligatòria",
+                title: "Títol de Batxiller (Homologat)",
+                institution: "Ministeri d'Educació d'Ucraïna / Homologat pel Ministeri d'Educació d'Espanya",
+                period: "2018 - 2020",
+                description: "Títol d'Educació Secundària Completa obtingut a Ucraïna, homologat oficialment al Títol de Batxiller del sistema educatiu espanyol.",
+                status: "Homologated"
+            },
+            eso: {
+                code: "ESO",
+                level: "Obligatòria",
+                title: "Graduat en Educació Secundària Obligatòria (ESO)",
+                institution: "Institut Ramon Casas i Carbó",
+                period: "2014 - 2018",
+                description: "Títol d'Educació Secundària Obligatòria obtingut a Espanya.",
+                status: "Finalitzat"
+            }
+        }
+    },
+    additional_courses_web: {
+        page_title: "Zusatzkurse und Zertifizierungen",
+        hero_tag: "AKKREDITIERUNGEN & WEITERBILDUNG",
+        hero_title_part1: "Spezialisierung und ",
+        hero_title_part2: "Zertifizierungen",
+        hero_description: "Evidenz zusätzlicher Kompetenzen, Betriebsbewilligungen und anerkannter technischer Ausbildungen.",
+        stats: {
+            total_hours: "Gesamtstunden",
+            certifications: "Zertifizierungen",
+            accreditation_status: "Akkreditierungsstatus",
+            status_value: "100% Gültig"
+        },
+        card_banner: {
+            tag: "SYSTEM_VERIFICATION // CREDENTIAL_HUB",
+            title: "Studienevidenz und validierte Zertifizierung",
+            description: "Alle angeführten Akkreditierungen sind offiziell bestätigt, weisen eine aktive Registrierungsnummer auf und entsprechen den europäischen sowie industriellen Richtlinien.",
+            status_active: "STATUS: AKTIV",
+            csv: "CSV: 8891-VERIFIED"
+        },
+        hours_accredited: "Anerkannt",
+        courses: {
+            cap_95: {
+                code: "C95",
+                level: "Fahrerqualifizierungsnachweis",
+                title: "C95 Güterbeförderung (Schlüsselzahl 95)",
+                institution: "BMK / Bundesministerium für Klimaschutz & Transport",
+                hours: "140 Std.",
+                year: "2024",
+                description: "Verpflichtender Nachweis für das gewerbsmäßige Lenken von Kraftfahrzeugen zur Güterbeförderung in der Europäischen Union.",
+                tags: ["Transport", "EU-Norm", "Gewerblich"]
+            },
+            prl_60h: {
+                code: "ASchG 60H",
+                level: "Arbeitnehmerschutz",
+                title: "Grundkurs Arbeitnehmerschutz und Unfallverhütung",
+                institution: "Technisches Ausbildungszentrum",
+                hours: "60 Std.",
+                year: "2023",
+                description: "Evaluierung von Arbeitsstoffen und Risiken im Betrieb, Schutzmaßnahmen und Verhalten im Notfall (ASchG).",
+                tags: ["Sicherheit", "ASchG", "Vorschriften"]
+            },
+            carret: {
+                code: "STAPLER",
+                level: "Staplerschein",
+                title: "Führer von Hubstaplern (Staplerschein)",
+                institution: "Logistik-Schulungszentrum",
+                hours: "20 Std.",
+                year: "2023",
+                description: "Sichere Handhabung von Frontstaplern, Schubmaststaplern, Elektro-Niederhubwagen und Hubstaplern gemäß Fachkenntnisnachweis-Verordnung.",
+                tags: ["Logistik", "Staplerschein", "Maschinen"]
+            },
+            dev_cloud: {
+                code: "DEV-CLOUD",
+                level: "Technische Zertifizierung",
+                title: "Webentwicklung & Cloud-Infrastruktur",
+                institution: "Spezialisierte Plattform",
+                hours: "120 Std.",
+                year: "2023",
+                description: "Implementierung moderner Webarchitekturen, Container-Management mit Docker, CI/CD und Cloud-Dienste.",
+                tags: ["Docker", "Cloud", "CI/CD"]
+            }
+        }
+    },
     read_more: 'Mehr lesen',
     read_less: 'Weniger lesen',
 

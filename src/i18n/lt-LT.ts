@@ -13,7 +13,7 @@ export default {
         november: 'lapkritis',
         december: 'gruodis'
     },
-
+    return_to_home: 'Grįžti į pradžią',
     cities: {
         psip: "Palau-solità i Plegamans",
         barcelona: "Barselona",
@@ -25,6 +25,7 @@ export default {
 
     countries: {
         spain: "Ispanija",
+        ukraine: "Ukraina",
     },
 
     creator_name: "Yaroslav Klymko",
@@ -39,9 +40,11 @@ export default {
     },
 
     nav: {
+        home: 'Pagrindinis',
         intro: 'Įvadas',
         experience: 'Patirtis',
         projects: 'Projektai',
+        certificates: 'Leidimai ir akreditacijos',
         about_me: 'Apie mane',
         contact: 'Kontaktai',
     },
@@ -130,7 +133,64 @@ export default {
         fullstack: 'Fullstack',
         others: 'Kiti',
     },
-
+    cap_mercancias: {
+        title: '95 kodas krovinių vežimui',
+        description: 'Vairuotojo profesinės kvalifikacijos pažymėjimas krovinių vežimui (95 kodas).',
+    },
+    links_titles: {
+        driving_licenses: 'Vairuotojo pažymėjimai',
+        academic_formation: 'Išsilavinimas',
+        certificates: 'Papildomi kursai ir sertifikatai',
+    },
+    driving_licenses: {
+        label: 'Skaitmeninis vairuotojo pažymėjimo patikrinimas',
+        title: 'Vairuotojo pažymėjimai',
+        subtitle: 'Patvirtinti vairavimo leidimai ir oficialus leidžiamų transporto priemonių skirstymas į kategorijas.',
+        enabled_categories: 'Įgalintos kategorijos',
+        total_label: 'Iš viso',
+        categories_enum: {
+            one: 'kategorija',
+            few: 'kategorijos',
+            many: 'kategorijų',
+        },
+        european_community_model: 'Europos Bendrijos modeliai',
+        tocuh_or_click: 'Palieskite arba spustelėkite, kad apverstumėte kortelę',
+        driving_license: 'Vairuotojo pažymėjimas',
+        spanish_kingdom: 'Ispanijos Karalystė',
+        last_names: 'Pavardė',
+        name: 'Vardas',
+        date_and_place_of_birth: 'Gimimo data ir vieta',
+        valid_from: 'Galioja nuo',
+        valid_until: 'Galioja iki',
+        issuing_authority: 'Išdavusi įstaiga',
+        number: 'Numeris',
+        observations: 'Pastabos',
+        driving_license_categories: {
+            b: {
+                category: 'B kategorija',
+                title: 'Automobiliai ir lengvosios transporto priemonės',
+                description: 'Leidžia vairuoti automobilius, kurių didžiausioji leidžiamoji masė ne didesnė kaip 3 500 kg ir kurie skirti bei suprojektuoti vežti ne daugiau kaip 8 keleivius be vairuotojo, su sujungta lengvąja priekaba iki 750 kg.',
+            },
+            c1: {
+                category: 'C1 kategorija',
+                title: 'Krovininiai automobiliai iki 7 500 kg d.l.m.',
+                description: 'Leidžia vairuoti ne D1 ir D kategorijų automobilius, kurių didžiausioji leidžiamoji masė didesnė kaip 3 500 kg, bet ne didesnė kaip 7 500 kg, su sujungta priekaba iki 750 kg.',
+            },
+            c: {
+                category: 'C kategorija',
+                title: 'Krovininiai automobiliai virš 3 500 kg d.l.m.',
+                description: 'Leidžia vairuoti ne D1 ir D kategorijų automobilius, kurių didžiausioji leidžiamoji masė didesnė kaip 3 500 kg, su sujungta priekaba iki 750 kg.',
+            },
+            common_notes: {
+                c_95_initial: 'Galiojanti pradinė / periodinė profesinė kvalifikacija (95 kodas) kroviniams vežti.',
+            }
+        }
+    },
+    creator_name_variants: {
+        first_name: "Yaroslav",
+        last_name: "Klymko",
+        full_name: "Yaroslav Klymko",
+    },
     about_me: {
         iam: 'Esu',
         and: 'ir',
@@ -158,7 +218,122 @@ export default {
         programming: 'programavimui',
         with_community: 'su bendruomene',
     },
-
+    academic_formation_web: {
+        page_title: "Aukštasis ir akademinis išsilavinimas",
+        hero_tag: "ACADEMIC MATRIX // DEGREES & QUALIFICATIONS",
+        hero_title_part1: "Išsilavinimo istorija ir ",
+        hero_title_part2: "Kvalifikacijos laipsniai",
+        hero_description: "Formaliojo švietimo kelias, aukštesniojo techninio lygio kvalifikacijos ir tarptautinis pripažinimas.",
+        verified_student: "VERIFIED STUDENT",
+        national_registry: "VALSTYBINIS REGISTRAS",
+        institution: "MOKYMO ĮSTAIGA",
+        expedition: "IŠDAVIMO DATA",
+        european_level: "EUROPINIS LYGIS",
+        accumulated_credits: "SURAURIKTI KREDITAI",
+        homologated: "Nostrifikuotas / Pripažintas",
+        official_degree: "Oficiali kvalifikacija",
+        degrees: {
+            gs_daw: {
+                code: "GS DAW",
+                level: "Aukštesnysis technikas / Profesinis išsilavinimas",
+                title: "Informatikos aukštesniojo lygio technikas, specializacija – interneto programų kūrimas (DAW)",
+                institution: "Institut La Guineueta / Generalitat de Catalunya",
+                period: "2022 - 2024",
+                description: "Specializacija vartotojo sąsajos (frontend) ir serverio dalies (backend) kūrimo, interneto architektūrų, API integracijos bei relacinių ir nerelacinių duomenų bazių valdymo srityse.",
+                status: "Baigta (Oficiali)"
+            },
+            gm_smx: {
+                code: "GM SMX",
+                level: "Vidurinio lygio technikas",
+                title: "Kompiuterinės įrangos sistemų ir tinklų technikas (SMR/SMX)",
+                institution: "Institut La Guineueta",
+                period: "2020 - 2022",
+                description: "Mokymai kompiuterinės įrangos surinkimo ir priežiūros, vietinių tinklų (LAN), operacinių sistemų administravimo ir tinklo paslaugų srityse.",
+                status: "Baigta (Oficiali)"
+            },
+            bach: {
+                code: "BACH",
+                level: "Vidurinis išsilavinimas",
+                title: "Brandos atestatas (Nostrifikuotas)",
+                institution: "Ukrainos švietimo ministerija / Oficialiai pripažintas Ispanijos švietimo ministerijos",
+                period: "2018 - 2020",
+                description: "Ukrainoje įgytas pilno vidurinio mokslo atestatas, oficialiai pripažintas ir prilygintas Ispanijos vidurinio mokslo (Bachiller) laipsniui.",
+                status: "Nostrifikuotas / Pripažintas"
+            },
+            eso: {
+                code: "ESO",
+                level: "Pagrindinis išsilavinimas",
+                title: "Pagrindinio išsilavinimo pažymėjimas (ESO)",
+                institution: "Institut Ramon Casas i Carbó",
+                period: "2014 - 2018",
+                description: "Privalomasis pagrindinio mokslo baigimo pažymėjimas, įgytas Ispanijoje.",
+                status: "Baigta"
+            }
+        }
+    },
+    additional_courses_web: {
+        page_title: "Papildomi kursai ir sertifikatai",
+        hero_tag: "AKREDITAVIMAI IR TĘSTINIS MOKYMAS",
+        hero_title_part1: "Specializacija ir ",
+        hero_title_part2: "Sertifikatai",
+        hero_description: "Papildomų kompetencijų, operatoriaus licencijų ir patvirtintų techninių mokymų registras.",
+        stats: {
+            total_hours: "Iš viso valandų",
+            certifications: "Sertifikatai",
+            accreditation_status: "Akreditavimo būsena",
+            status_value: "100% Galiojantis"
+        },
+        card_banner: {
+            tag: "SYSTEM_VERIFICATION // CREDENTIAL_HUB",
+            title: "Akademinė byla ir patvirtintas sertifikavimas",
+            description: "Visi pateikti akreditavimai yra oficialiai patvirtinti, turi aktyvų registracijos numerį ir atitinka Europos bei pramonės standartus.",
+            status_active: "BŪSENA: AKTYVUS",
+            csv: "CSV: 8891-VERIFIED"
+        },
+        hours_accredited: "Akredituotos",
+        courses: {
+            cap_95: {
+                code: "95 KODAS",
+                level: "Profesinės kvalifikacijos sertifikatas",
+                title: "Krovinių vežimo 95 kodas",
+                institution: "DGT / Transporto ministerija",
+                hours: "140 val.",
+                year: "2024",
+                description: "Privaloma kvalifikacija profesiniam krovinių vežimo keliais transporto priemonių vairavimui Europos Sąjungoje.",
+                tags: ["Transportas", "ES reglamentas", "Profesionalus"]
+            },
+            prl_60h: {
+                code: "DSS 60H",
+                level: "Rizikos prevencija",
+                title: "Darbuotojų saugos ir sveikatos bazinis kursas",
+                institution: "Techninio mokymo centras",
+                hours: "60 val.",
+                year: "2023",
+                description: "Rizikos vertinimas pramoninėje ir darbo aplinkoje, prevencinės priemonės ir veiksmai ekstremalių situacijų metu.",
+                tags: ["Saugumas", "DSS", "Taisyklės"]
+            },
+            carret: {
+                code: "KELTUVAS",
+                level: "Operatoriaus pažymėjimas",
+                title: "Auto- ir elektrinių krautuvų operatorius",
+                institution: "Logistikos mokymo centras",
+                hours: "20 val.",
+                year: "2023",
+                description: "Saugus frontalinių, pasiekiančiųjų krautuvų, elektrinių padėklų vežimėlių ir rietuvų valdymas (UNE 58451).",
+                tags: ["Logistika", "UNE 58451", "Technika"]
+            },
+            dev_cloud: {
+                code: "DEV-CLOUD",
+                level: "Techninis sertifikavimas",
+                title: "Celine / Tinklalapių kūrimas ir debesų infrastruktūra",
+                institution: "Specializuota platforma",
+                hours: "120 val.",
+                year: "2023",
+                description: "Modernizuotų interneto architektūrų diegimas, konteinerių valdymas su Docker, CI/CD ir debesijos paslaugos.",
+                tags: ["Docker", "Cloud", "CI/CD"]
+            }
+        }
+    },
     read_more: 'Skaityti daugiau',
     read_less: 'Skaityti mažiau',
 

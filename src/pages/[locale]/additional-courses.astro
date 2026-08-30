@@ -1,0 +1,210 @@
+---
+import Layout from "@layouts/Layout.astro";
+import fotoPerfil from "../../../public/img/about-image.png";
+import type { Language } from "@src/types/language.type";
+import { i18n } from "@src/consts/i18n.files";
+
+export function getStaticPaths() {
+    return [
+        { params: { locale: "es-ES" } },
+        { params: { locale: "ca-ES" } },
+        { params: { locale: "en-EN" } },
+        { params: { locale: "en-US" } },
+        { params: { locale: "uk-UA" } },
+        { params: { locale: "fr-FR" } },
+        { params: { locale: "pt-PT" } },
+        { params: { locale: "pl-PL" } },
+        { params: { locale: "de-DE" } },
+        { params: { locale: "it-IT" } },
+        { params: { locale: "ka-GE" } },
+        { params: { locale: "et-EE" } },
+        { params: { locale: "lt-LT" } },
+        { params: { locale: "lv-LV" } },
+        { params: { locale: "ro-RO" } },
+        { params: { locale: "ro-MD" } },
+        { params: { locale: "bg-BG" } },
+        { params: { locale: "pt-BR" } },
+        { params: { locale: "de-AT" } },
+    ];
+}
+
+const locale = Astro.params.locale as Language;
+const translate = i18n[locale];
+
+const stats = [
+    { label: translate.additional_courses_web.stats.total_hours, value: "350+", icon: "icon-[mdi--clock-fast]" },
+    { label: translate.additional_courses_web.stats.certifications, value: "04", icon: "icon-[mdi--certificate-outline]" },
+    { label: translate.additional_courses_web.stats.accreditation_status, value: translate.additional_courses_web.stats.status_value, icon: "icon-[mdi--shield-check-outline]" },
+];
+
+const coursesList = [
+    {
+        code: translate.additional_courses_web.courses.cap_95.code,
+        level: translate.additional_courses_web.courses.cap_95.level,
+        title: translate.additional_courses_web.courses.cap_95.title,
+        institution: translate.additional_courses_web.courses.cap_95.institution,
+        hours: translate.additional_courses_web.courses.cap_95.hours,
+        year: translate.additional_courses_web.courses.cap_95.year,
+        description: translate.additional_courses_web.courses.cap_95.description,
+        icon: "icon-[mdi--truck-check-outline]",
+        tags: translate.additional_courses_web.courses.cap_95.tags,
+        featured: true,
+    },
+    {
+        code: translate.additional_courses_web.courses.prl_60h.code,
+        level: translate.additional_courses_web.courses.prl_60h.level,
+        title: translate.additional_courses_web.courses.prl_60h.title,
+        institution: translate.additional_courses_web.courses.prl_60h.institution,
+        hours: translate.additional_courses_web.courses.prl_60h.hours,
+        year: translate.additional_courses_web.courses.prl_60h.year,
+        description: translate.additional_courses_web.courses.prl_60h.description,
+        icon: "icon-[mdi--hard-hat]",
+        tags: translate.additional_courses_web.courses.prl_60h.tags,
+        featured: false,
+    },
+    {
+        code: translate.additional_courses_web.courses.carret.code,
+        level: translate.additional_courses_web.courses.carret.level,
+        title: translate.additional_courses_web.courses.carret.title,
+        institution: translate.additional_courses_web.courses.carret.institution,
+        hours: translate.additional_courses_web.courses.carret.hours,
+        year: translate.additional_courses_web.courses.carret.year,
+        description: translate.additional_courses_web.courses.carret.description,
+        icon: "icon-[mdi--forklift]",
+        tags: translate.additional_courses_web.courses.carret.tags,
+        featured: false,
+    },
+    {
+        code: translate.additional_courses_web.courses.dev_cloud.code,
+        level: translate.additional_courses_web.courses.dev_cloud.level,
+        title: translate.additional_courses_web.courses.dev_cloud.title,
+        institution: translate.additional_courses_web.courses.dev_cloud.institution,
+        hours: translate.additional_courses_web.courses.dev_cloud.hours,
+        year: translate.additional_courses_web.courses.dev_cloud.year,
+        description: translate.additional_courses_web.courses.dev_cloud.description,
+        icon: "icon-[mdi--cloud-tags]",
+        tags: translate.additional_courses_web.courses.dev_cloud.tags,
+        featured: true,
+    },
+];
+---
+
+<Layout title={translate.additional_courses_web.page_title}>
+    <div class="relative w-full min-h-screen overflow-hidden">
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[350px] bg-linear-to-b from-emerald-500/10 via-emerald-500/5 to-transparent blur-3xl pointer-events-none"></div>
+
+        <div class="relative pt-(--header-h) max-w-5xl mx-auto px-4 sm:px-6 my-12">
+            <div class="flex flex-col items-start gap-4 mb-12">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-mono tracking-wide">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    {translate.additional_courses_web.hero_tag}
+                </div>
+                
+                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight dark:text-white text-black leading-tight">
+                    {translate.additional_courses_web.hero_title_part1}<span class="bg-linear-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">{translate.additional_courses_web.hero_title_part2}</span>
+                </h1>
+                
+                <p class="text-base sm:text-lg dark:text-gray-400 text-gray-600 max-w-2xl font-normal leading-relaxed">
+                    {translate.additional_courses_web.hero_description}
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
+                {stats.map((s) => (
+                    <div class="group relative rounded-2xl border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 p-5 backdrop-blur-md transition-all duration-300 hover:border-emerald-500/40 hover:bg-emerald-500/2">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-mono dark:text-gray-400 text-gray-500 uppercase tracking-wider">{s.label}</span>
+                            <i class={`${s.icon} text-lg text-emerald-400 group-hover:scale-110 transition-transform`} />
+                        </div>
+                        <div class="text-2xl font-bold font-mono dark:text-white text-black mt-2">
+                            {s.value}
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div class="relative w-full rounded-3xl border border-emerald-500/30 bg-linear-to-br from-black/80 via-slate-950 to-emerald-950/40 p-6 sm:p-8 backdrop-blur-xl mb-16 overflow-hidden shadow-2xl group">
+                <div class="absolute -right-16 -top-16 w-64 h-64 bg-emerald-500/20 rounded-full blur-3xl group-hover:bg-emerald-500/30 transition-all duration-700 pointer-events-none"></div>
+
+                <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div class="space-y-3 max-w-xl">
+                        <div class="flex items-center gap-2 font-mono text-xs text-emerald-400">
+                            <i class="icon-[mdi--terminal] text-base" />
+                            <span>{translate.additional_courses_web.card_banner.tag}</span>
+                        </div>
+                        <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                            {translate.additional_courses_web.card_banner.title}
+                        </h2>
+                        <p class="text-xs sm:text-sm text-gray-300 leading-relaxed font-sans">
+                            {translate.additional_courses_web.card_banner.description}
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full md:w-auto shrink-0">
+                        <div class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/5 border border-white/10 font-mono text-xs text-gray-300">
+                            <img src={fotoPerfil.src} alt="Foto de perfil" class="w-10 h-10 rounded-lg object-cover border border-emerald-500/40" />
+                            <div class="flex flex-col">
+                                <span class="text-white font-bold">{translate.additional_courses_web.card_banner.status_active}</span>
+                                <span class="text-[10px] text-emerald-400">{translate.additional_courses_web.card_banner.csv}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {coursesList.map((course) => (
+                    <div class={`group relative rounded-2xl border transition-all duration-300 p-6 flex flex-col justify-between backdrop-blur-sm ${
+                        course.featured 
+                            ? "border-emerald-500/30 bg-emerald-500/3 hover:border-emerald-500/60" 
+                            : "border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-emerald-500/40"
+                    }`}>
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-4">
+                                <span class="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                                    {course.code}
+                                </span>
+                                
+                                <span class="text-xs font-mono text-gray-400 flex items-center gap-1">
+                                    <i class="icon-[mdi--calendar-blank-outline]" />
+                                    {course.year}
+                                </span>
+                            </div>
+
+                            <h3 class="text-lg font-bold dark:text-white text-black mb-1 group-hover:text-emerald-400 transition-colors">
+                                {course.title}
+                            </h3>
+
+                            <p class="text-xs font-medium text-emerald-500/90 mb-3 flex items-center gap-1.5">
+                                <i class="icon-[mdi--domain]" />
+                                {course.institution}
+                            </p>
+
+                            <p class="text-xs sm:text-sm dark:text-gray-300 text-gray-600 leading-relaxed mb-6">
+                                {course.description}
+                            </p>
+                        </div>
+
+                        <div class="pt-4 border-t border-black/5 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
+                            <div class="flex items-center gap-1.5 text-xs font-mono font-semibold dark:text-gray-200 text-gray-800">
+                                <i class={`${course.icon} text-base text-emerald-400`} />
+                                <span>{course.hours} {translate.additional_courses_web.hours_accredited}</span>
+                            </div>
+
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                {course.tags.map((tag: string) => (
+                                    <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-black/5 dark:bg-white/5 dark:text-gray-400 text-gray-600 border border-black/5 dark:border-white/5">
+                                        #{tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+
+                    </div>
+                ))}
+            </div>
+
+        </div>
+    </div>
+</Layout>

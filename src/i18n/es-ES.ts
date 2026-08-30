@@ -13,8 +13,7 @@ export default {
         november: 'Noviembre',
         december: 'Diciembre'
     },
-
-
+    return_to_home: 'Volver a inicio',
     cities: {
         psip: "Palau-solità i Plegamans",
         barcelona: "Barcelona",
@@ -26,6 +25,7 @@ export default {
 
     countries: {
         spain: "España",
+        ukraine: "Ucrania",
     },
 
     creator_name: "Yaroslav Klymko",
@@ -40,9 +40,11 @@ export default {
     },
 
     nav: {
+        home: 'Inicio',
         intro: 'Intro',
         experience: 'Experiencia',
         projects: 'Proyectos',
+        certificates: 'Permisos y Acreditaciones',
         about_me: 'Sobre mí',
         contact: 'Contacto',
     },
@@ -131,7 +133,64 @@ export default {
         fullstack: 'Fullstack',
         others: 'Otros',
     },
-
+    cap_mercancias: {
+        title: 'CAP Mercancías',
+        description: 'Certificado de Aptitud Profesional (CAP) para transporte de mercancías (CAP | código 95).',
+    },
+    
+    links_titles: {
+        driving_licenses: 'Licencias de conducción',
+        academic_formation: 'Fomarción académica',
+        certificates: 'Cursos adicionales y certificaciones',
+    },
+    driving_licenses: {
+        label: 'Verificación Digital de Permisos',
+        title: 'Licencias de conducción',
+        subtitle: 'Acreditaciones de conducción validadas y categorización oficial de vehículos autorizados.',
+        enabled_categories: 'Categorías Habilitadas',
+        total_label: 'Total',
+        categories_enum: {
+            one: 'licencia',
+            other: 'licencias',
+        },
+        european_community_model: 'Modelos de las comunidades europeas',
+        tocuh_or_click: 'Toque o haga clic para voltear el carnet',
+        driving_license: 'Permiso de conducción',
+        spanish_kingdom: 'Reino de España',
+        last_names: 'Apellidos',
+        name: 'Nombre',
+        date_and_place_of_birth: 'Fecha y lugar de nacimiento',
+        valid_from: 'Válido desde',
+        valid_until: 'Válido hasta',
+        issuing_authority: 'Autoridad que expide',
+        number: 'Número',
+        observations: 'Observaciones',
+        driving_license_categories: {
+            b: {
+                category: 'Permiso B',
+                title: 'Turismos y vehículos ligeros',
+                description: 'Autoriza la conducción de automóviles cuya masa máxima autorizada no exceda de 3.500 kg y diseñados para el transporte de no más de 8 pasajeros con remolque ligero enganchado de hasta 750kg.',
+            },
+            c1: {
+                category: 'Permiso C1',
+                title: 'Camiones rígidos 7.500 kg máximo de MMA',
+                description: 'Autoriza la conducción de automóviles distintos de los de la clase D1 o D, cuya masa máxima autorizada no exceda de 7.500 kg. con un remolque enganchado de hasta 750kg.',
+            },
+            c: {
+                category: 'Permiso C',
+                title: 'Camiones rígidos de más de 3.500 kg de MMA',
+                description: 'Autoriza la conducción de automóviles distintos de los de la clase D1 o D, cuya masa máxima autorizada exceda de 3.500 kg. con un remolque enganchado de hasta 750kg',
+            },
+            common_notes: {
+                c_95_initial: 'Cualificación Inicial / Continua en vigor para transporte de mercancías (CAP | código 95).',
+            }
+        }
+    },
+    creator_name_variants: {
+        first_name: "Yaroslav",
+        last_name: "Klymko",
+        full_name: "Yaroslav Klymko",
+    },
     about_me: {
         iam: 'Soy',
         and: 'y',
@@ -160,6 +219,122 @@ export default {
         with_community: 'con la comunidad',
     },
 
+    academic_formation_web: {
+        page_title: "Titulación Académica",
+        hero_tag: "ACADEMIC MATRIX // DEGREES & QUALIFICATIONS",
+        hero_title_part1: "Historial y ",
+        hero_title_part2: "Titulación Académica",
+        hero_description: "Hoja de ruta formativa reglada, grados técnicos superiores y equivalencias de homologación internacional.",
+        verified_student: "VERIFIED STUDENT",
+        national_registry: "REGISTRO NACIONAL",
+        institution: "INSTITUCIÓN",
+        expedition: "EXPEDICIÓN",
+        european_level: "NIVEL EUROPEO",
+        accumulated_credits: "CRÉDITOS ACUMULADOS",
+        homologated: "Homologado",
+        official_degree: "Titulación Oficial",
+        degrees: {
+            gs_daw: {
+                code: "GS DAW",
+                level: "Técnico Superior",
+                title: "Técnico Superior en Desarrollo de Aplicaciones Web (DAW)",
+                institution: "Institut La Guineueta / Generalitat de Catalunya",
+                period: "2022 - 2024",
+                description: "Especialización en desarrollo frontend, backend, arquitecturas web, integración de APIs y gestión de bases de datos relacionales y no relacionales.",
+                status: "Finalizado (Oficial)"
+            },
+            gm_smx: {
+                code: "GM SMX",
+                level: "Técnico Medio",
+                title: "Técnico en Sistemas Microinformáticos y Redes (SMR)",
+                institution: "Institut La Guineueta",
+                period: "2020 - 2022",
+                description: "Formación en montaje y mantenimiento de equipos, redes de área local, administración de sistemas operativos y servicios de red.",
+                status: "Finalizado (Oficial)"
+            },
+            bach: {
+                code: "BACH",
+                level: "Postobligatoria",
+                title: "Título de Bachiller (Homologado)",
+                institution: "Ministerio de Educación de Ucrania / Homologado por el Ministerio de Educación de España",
+                period: "2018 - 2020",
+                description: "Título de Educación Secundaria Completa obtenido en Ucrania, homologado oficialmente al Título de Bachiller del sistema educativo español.",
+                status: "Homologado"
+            },
+            eso: {
+                code: "ESO",
+                level: "Obligatoria",
+                title: "Graduado en Educación Secundaria Obligatoria (ESO)",
+                institution: "Institut Ramon Casas i Carbó",
+                period: "2014 - 2018",
+                description: "Título de Educación Secundaria Obligatoria obtenido en España.",
+                status: "Finalizado"
+            }
+        }
+    },
+    additional_courses_web: {
+        page_title: "Cursos Adicionales y Certificaciones",
+        hero_tag: "ACREDITACIONES & FORMACIÓN CONTINUA",
+        hero_title_part1: "Especialización y ",
+        hero_title_part2: "Certificaciones",
+        hero_description: "Registro de competencias adicionales, licencias operativas y capacitaciones técnicas homologadas.",
+        stats: {
+            total_hours: "Horas Totales",
+            certifications: "Certificaciones",
+            accreditation_status: "Estado de Acreditación",
+            status_value: "100% Válido"
+        },
+        card_banner: {
+            tag: "SYSTEM_VERIFICATION // CREDENTIAL_HUB",
+            title: "Expediente Académico y Certificación Validada",
+            description: "Todas las acreditaciones presentadas cuentan con respaldo oficial, número de registro activo y cumplimiento de normativas europeas e industriales.",
+            status_active: "ESTADO: ACTIVO",
+            csv: "CSV: 8891-VERIFIED"
+        },
+        hours_accredited: "Acreditadas",
+        courses: {
+            cap_95: {
+                code: "CAP 95",
+                level: "Certificado de Aptitud Profesional",
+                title: "CAP Mercancías (Código 95)",
+                institution: "DGT / Ministerio de Transportes",
+                hours: "140h",
+                year: "2024",
+                description: "Certificación obligatoria para la conducción profesional de vehículos de transporte de mercancías por carretera en la Unión Europea.",
+                tags: ["Transporte", "Normativa UE", "Profesional"]
+            },
+            prl_60h: {
+                code: "PRL 60H",
+                level: "Prevención de Riesgos",
+                title: "Curso Básico de Prevención de Riesgos Laborales",
+                institution: "Centro de Formación Técnica",
+                hours: "60h",
+                year: "2023",
+                description: "Evaluación de riesgos en entornos industriales y de trabajo, medidas preventivas y actuación de emergencia.",
+                tags: ["Seguridad", "PRL", "Normativa"]
+            },
+            carret: {
+                code: "CARRET",
+                level: "Carné Operativo",
+                title: "Operador de Carretillas Elevadoras",
+                institution: "Centro Formativo Logístico",
+                hours: "20h",
+                year: "2023",
+                description: "Manejo seguro de carretillas elevadoras frontales, retráctiles, transpaletas eléctricas y apiladores (UNE 58451).",
+                tags: ["Logística", "UNE 58451", "Maquinaria"]
+            },
+            dev_cloud: {
+                code: "DEV-CLOUD",
+                level: "Certificación Técnica",
+                title: "Desarrollo Web & Cloud Infrastructure",
+                institution: "Plataforma Especializada",
+                hours: "120h",
+                year: "2023",
+                description: "Despliegue de arquitecturas web modernizadas, gestión de contenedores con Docker, CI/CD y servicios cloud.",
+                tags: ["Docker", "Cloud", "CI/CD"]
+            }
+        }
+    },
     read_more: 'Leer más',
     read_less: 'Leer menos',
 

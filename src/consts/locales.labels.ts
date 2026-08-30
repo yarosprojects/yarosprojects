@@ -119,8 +119,8 @@ export const labelsLocales = {
         icon: 'fi fi-it',
         group: 'it',
     },
-    'ge-GE': {
-        code: 'ge-GE',
+    'ka-GE': {
+        code: 'ka-GE',
         name: 'ქართული',
         label: 'ge',
         country: {

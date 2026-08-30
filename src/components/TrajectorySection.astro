@@ -160,7 +160,7 @@ const EXPERIENCES = [
 </div>
 
 <script is:inline>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("astro:page-load", function () {
         const $timeline_line = document.getElementById("timeline-line");
         const $experiences_cards =
             document.querySelectorAll(".experience-card");

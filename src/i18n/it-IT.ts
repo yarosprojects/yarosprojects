@@ -13,7 +13,7 @@ export default {
         november: 'Novembre',
         december: 'Dicembre'
     },
-
+    return_to_home: 'Torna alla home page',
     cities: {
         psip: "Palau-solità i Plegamans",
         barcelona: "Barcellona",
@@ -25,6 +25,7 @@ export default {
 
     countries: {
         spain: "Spagna",
+        ukraine: "Ucraina",
     },
 
     creator_name: "Yaroslav Klymko",
@@ -39,9 +40,11 @@ export default {
     },
 
     nav: {
+        home: 'Home',
         intro: 'Intro',
         experience: 'Esperienza',
         projects: 'Progetti',
+        certificates: 'Permessi e Accreditamenti',
         about_me: 'Chi sono',
         contact: 'Contatto',
     },
@@ -130,7 +133,63 @@ export default {
         fullstack: 'Fullstack',
         others: 'Altri',
     },
-
+    cap_mercancias: {
+        title: 'CQC Merci',
+        description: 'Carta di Qualificazione del Conducente (CQC) per il trasporto di merci (CQC | Codice 95).',
+    },
+    links_titles: {
+        driving_licenses: 'Patenti di guida',
+        academic_formation: 'Formazione accademica',
+        certificates: 'Corsi aggiuntivi e certificazioni',
+    },
+    driving_licenses: {
+        label: 'Verifica digitale della patente di guida',
+        title: 'Patenti di guida',
+        subtitle: 'Accreditamenti de guida convalidati e categorizzazione ufficiale dei veicoli autorizzati.',
+        enabled_categories: 'Categorie abilitate',
+        total_label: 'Totale',
+        categories_enum: {
+            one: 'patente',
+            other: 'patenti',
+        },
+        european_community_model: 'Modelli della Comunità Europea',
+        tocuh_or_click: 'Tocca o fai clic per girare la tessera',
+        driving_license: 'Patente di guida',
+        spanish_kingdom: 'Regno di Spagna',
+        last_names: 'Cognome',
+        name: 'Nome',
+        date_and_place_of_birth: 'Data e luogo di nascita',
+        valid_from: 'Valido dal',
+        valid_until: 'Valido fino al',
+        issuing_authority: 'Autorità di rilascio',
+        number: 'Numero',
+        observations: 'Osservazioni',
+        driving_license_categories: {
+            b: {
+                category: 'Patente B',
+                title: 'Autoveicoli e veicoli leggeri',
+                description: 'Autorizza la guida di autoveicoli la cui massa massima autorizzata non supera i 3.500 kg, progettati e costruiti per il trasporto di non più di 8 passeggeri oltre al conducente, con un rimorchio leggero agganciato fino a 750 kg.',
+            },
+            c1: {
+                category: 'Patente C1',
+                title: 'Autocarri fino a 7.500 kg di MMA',
+                description: 'Autorizza la guida di autoveicoli diversi da quelli delle categorie D1 o D, la cui massa massima autorizzata supera i 3.500 kg ma non supera i 7.500 kg, con un rimorchio agganciato fino a 750 kg.',
+            },
+            c: {
+                category: 'Patente C',
+                title: 'Autocarri di oltre 3.500 kg di MMA',
+                description: 'Autorizza la guida di autoveicoli diversi da quelli delle categorie D1 o D, la cui massa massima autorizzata supera i 3.500 kg, con un rimorchio agganciato fino a 750 kg.',
+            },
+            common_notes: {
+                c_95_initial: 'Qualificazione iniziale / periodica in vigore per il trasporto di merci (Codice 95).',
+            }
+        }
+    },
+    creator_name_variants: {
+        first_name: "Yaroslav",
+        last_name: "Klymko",
+        full_name: "Yaroslav Klymko",
+    },
     about_me: {
         iam: 'Sono',
         and: 'e',
@@ -158,7 +217,122 @@ export default {
         programming: 'programmazione',
         with_community: 'con la community',
     },
-
+    academic_formation_web: {
+        page_title: "Titolo di Studio",
+        hero_tag: "ACADEMIC MATRIX // DEGREES & QUALIFICATIONS",
+        hero_title_part1: "Percorso e ",
+        hero_title_part2: "Titoli di Studio",
+        hero_description: "Percorso formativo ufficiale, titoli tecnici superiori ed equipollenze di omologazione internazionale.",
+        verified_student: "VERIFIED STUDENT",
+        national_registry: "REGISTRO NAZIONALE",
+        institution: "ISTITUTO",
+        expedition: "RILASCIO",
+        european_level: "LIVELLO EUROPEO",
+        accumulated_credits: "CREDITI ACCUMULATI",
+        homologated: "Omologato / Riconosciuto",
+        official_degree: "Titolo Ufficiale",
+        degrees: {
+            gs_daw: {
+                code: "GS DAW",
+                level: "Tecnico Superiore",
+                title: "Tecnico Superiore nello Sviluppo di Applicazioni Web (DAW)",
+                institution: "Institut La Guineueta / Generalitat de Catalunya",
+                period: "2022 - 2024",
+                description: "Specializzazione in sviluppo frontend, backend, architetture web, integrazione di API e gestione di database relazionali e non relazionali.",
+                status: "Completato (Ufficiale)"
+            },
+            gm_smx: {
+                code: "GM SMX",
+                level: "Tecnico di Secondo Livello",
+                title: "Tecnico in Sistemi Microinformatici e Reti (SMR/SMX)",
+                institution: "Institut La Guineueta",
+                period: "2020 - 2022",
+                description: "Formazione in assemblaggio e manutenzione di hardware, reti di area locale (LAN), amministrazione di sistemi operativi e servizi di rete.",
+                status: "Completato (Ufficiale)"
+            },
+            bach: {
+                code: "BACH",
+                level: "Istruzione Secondaria Superiore",
+                title: "Diploma di Maturità (Omologato)",
+                institution: "Ministero dell'Istruzione dell'Ucraina / Omologato dal Ministero dell'Istruzione della Spagna",
+                period: "2018 - 2020",
+                description: "Diploma di Istruzione Secondaria Completa conseguito in Ucraina, omologato ufficialmente al Diploma di Maturità (Bachiller) del sistema educativo spagnolo.",
+                status: "Omologato / Riconosciuto"
+            },
+            eso: {
+                code: "ESO",
+                level: "Istruzione Secondaria Di Primo Grado / Obbligatoria",
+                title: "Diploma di Istruzione Secondaria Obbligatoria (ESO)",
+                institution: "Institut Ramon Casas i Carbó",
+                period: "2014 - 2018",
+                description: "Diploma di Istruzione Secondaria Obbligatoria conseguito in Spagna.",
+                status: "Completato"
+            }
+        }
+    },
+    additional_courses_web: {
+        page_title: "Corsi Addizionali e Certificazioni",
+        hero_tag: "ACCREDITAMENTI & FORMAZIONE CONTINUA",
+        hero_title_part1: "Specializzazione e ",
+        hero_title_part2: "Certificazioni",
+        hero_description: "Registro delle competenze aggiuntive, licenze operative e qualifiche tecniche omologate.",
+        stats: {
+            total_hours: "Ore Totali",
+            certifications: "Certificazioni",
+            accreditation_status: "Stato dell'Accreditamento",
+            status_value: "100% Valido"
+        },
+        card_banner: {
+            tag: "SYSTEM_VERIFICATION // CREDENTIAL_HUB",
+            title: "Fascicolo Accademico e Certificazione Validata",
+            description: "Tutti gli accreditamenti presentati sono ufficialmente riconosciuti, dotati di numero di registro attivo e conformi alle normative europee e industriali.",
+            status_active: "STATO: ATTIVO",
+            csv: "CSV: 8891-VERIFIED"
+        },
+        hours_accredited: "Accreditate",
+        courses: {
+            cap_95: {
+                code: "CQC 95",
+                level: "Carta di Qualificazione del Conducente",
+                title: "CQC Merci (Codice 95)",
+                institution: "DGT / Ministero dei Trasporti",
+                hours: "140h",
+                year: "2024",
+                description: "Certificazione obbligatoria per la guida professionale di veicoli adibiti al trasporto di merci su strada nell'Unione Europea.",
+                tags: ["Trasporto", "Normativa UE", "Professionale"]
+            },
+            prl_60h: {
+                code: "RSPP 60H",
+                level: "Prevenzione Rischi",
+                title: "Corso Base di Sicurezza e Salute sul Lavoro",
+                institution: "Centro di Formazione Tecnica",
+                hours: "60h",
+                year: "2023",
+                description: "Valutazione dei rischi in ambienti industriali e di lavoro, misure preventive e gestione delle emergenze.",
+                tags: ["Sicurezza", "Sicurezza sul Lavoro", "Normativa"]
+            },
+            carret: {
+                code: "CARREL",
+                level: "Patentino Operativo",
+                title: "Carrellista / Conduttore di Carrelli Elevatori",
+                institution: "Centro Formativo Logistico",
+                hours: "20h",
+                year: "2023",
+                description: "Utilizzo in sicurezza di carrelli elevatori frontali, retrattili, transpallet elettrici e stoccatori (UNE 58451 / Accordi Stato-Regioni).",
+                tags: ["Logistica", "UNE 58451", "Macchinari"]
+            },
+            dev_cloud: {
+                code: "DEV-CLOUD",
+                level: "Certificazione Tecnica",
+                title: "Sviluppo Web & Cloud Infrastructure",
+                institution: "Piattaforma Specializzata",
+                hours: "120h",
+                year: "2023",
+                description: "Implementazione di architetture web moderne, gestione di container con Docker, CI/CD e servizi cloud.",
+                tags: ["Docker", "Cloud", "CI/CD"]
+            }
+        }
+    },
     read_more: 'Leggi di più',
     read_less: 'Leggi di meno',
 

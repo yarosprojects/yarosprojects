@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="100%" height="100%">
+  <g fill="none" stroke="#881337" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.15">
+    <!-- Corona Real Superior -->
+    <path d="M 130,90 Q 200,60 270,90 L 285,120 Q 200,135 115,120 Z" />
+    <path d="M 130,90 C 130,40 270,40 270,90" />
+    <path d="M 160,83 C 160,50 240,50 240,83" />
+    <path d="M 185,78 C 185,55 215,55 215,78" />
+    <circle cx="200" cy="38" r="8" fill="#881337" />
+    <path d="M 200,30 L 200,18 M 194,24 L 206,24" stroke-width="3" />
+    <circle cx="120" cy="105" r="4" />
+    <circle cx="160" cy="110" r="4" />
+    <circle cx="200" cy="112" r="5" fill="#881337" />
+    <circle cx="240" cy="110" r="4" />
+    <circle cx="280" cy="105" r="4" />
+
+    <!-- Columnas de Hércules -->
+    <!-- Columna Izquierda -->
+    <path d="M 75,170 L 105,170 M 80,180 L 100,180 M 82,180 L 82,340 M 98,180 L 98,340 M 75,340 L 105,340 M 70,350 L 110,350" />
+    <!-- Cinta Plus Ultra Izq -->
+    <path d="M 65,240 C 90,230 90,260 115,250" stroke-width="6" />
+    <!-- Corona Imperial (Columna Izq) -->
+    <path d="M 78,170 Q 90,150 102,170 Z" />
+
+    <!-- Columna Derecha -->
+    <path d="M 295,170 L 325,170 M 300,180 L 320,180 M 302,180 L 302,340 M 318,180 L 318,340 M 295,340 L 325,340 M 290,350 L 330,350" />
+    <!-- Cinta Plus Ultra Der -->
+    <path d="M 285,240 C 310,230 310,260 335,250" stroke-width="6" />
+    <!-- Corona Real (Columna Der) -->
+    <path d="M 298,170 Q 310,155 322,170 Z" />
+
+    <!-- Escudo Central (Cuarteles) -->
+    <rect x="120" y="150" width="160" height="190" rx="10" />
+    <path d="M 120,280 Q 200,380 280,280" />
+    
+    <!-- Divisores de Cuarteles -->
+    <line x1="200" y1="150" x2="200" y2="310" />
+    <line x1="120" y1="230" x2="280" y2="230" />
+
+    <!-- 1º Cuartel: Castilla (Castillo) -->
+    <path d="M 145,210 L 145,180 L 153,180 L 153,175 L 167,175 L 167,180 L 175,180 L 175,210 Z" />
+    <path d="M 155,210 L 155,195 Q 160,190 165,195 L 165,210" />
+
+    <!-- 2º Cuartel: León (León rampante) -->
+    <path d="M 240,215 C 230,215 225,200 235,190 C 230,185 245,170 255,180 C 260,185 250,195 255,205 C 250,210 245,220 240,215 Z" />
+
+    <!-- 3º Cuartel: Aragón (Barras) -->
+    <line x1="140" y1="230" x2="140" y2="290" stroke-width="3" />
+    <line x1="155" y1="230" x2="155" y2="300" stroke-width="3" />
+    <line x1="170" y1="230" x2="170" y2="300" stroke-width="3" />
+    <line x1="185" y1="230" x2="185" y2="290" stroke-width="3" />
+
+    <!-- 4º Cuartel: Navarra (Cadenas / Estrella) -->
+    <path d="M 240,240 L 240,300 M 210,270 L 270,270 M 218,248 L 262,292 M 218,292 L 262,248" />
+    <circle cx="240" cy="270" r="6" fill="#881337" />
+
+    <!-- Granada (Base del escudo) -->
+    <path d="M 190,310 Q 200,335 210,310" />
+
+    <!-- Escusón Central: Borbón-Anjou (Flores de Lis) -->
+    <ellipse cx="200" cy="230" rx="18" ry="24" fill="#f6cfd9" stroke-width="3" />
+    <path d="M 200,218 L 200,226 M 196,222 L 204,222" />
+    <path d="M 193,236 L 193,242 M 190,239 L 196,239" />
+    <path d="M 207,236 L 207,242 M 204,239 L 210,239" />
+  </g>
+</svg>

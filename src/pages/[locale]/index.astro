@@ -5,6 +5,7 @@ import type { Language } from "@src/types/language.type";
 import IntroSection from '@components/IntroSection.astro';
 import TrajectorySection from '@components/TrajectorySection.astro';
 import Projects from "@src/components/Projects.astro";
+import Certificates from "@src/components/Certificates.astro";
 import AboutMe from "@src/components/AboutMe.astro";
 
 export function getStaticPaths() {
@@ -19,7 +20,7 @@ export function getStaticPaths() {
         { params: { locale: "pl-PL" } },
         { params: { locale: "de-DE" } },
         { params: { locale: "it-IT" } },
-        { params: { locale: "ge-GE" } },
+        { params: { locale: "ka-GE" } },
         { params: { locale: "et-EE" } },
         { params: { locale: "lt-LT" } },
         { params: { locale: "lv-LV" } },
@@ -59,6 +60,11 @@ const creador = translate.creator_name;
             <Projects creador={creador} translate={translate} locale={locale} />
         </section>
 
+        {/* CERTIFICATES SECTION */}
+        <section class="pt-10 pb-20" data-section="certificates" aria-label="Projects section">
+            <Certificates creador={creador} translate={translate} locale={locale} />
+        </section>
+
         {/* CONTACT SECTION */}
         <section class="mb-60 pt-10" data-section="about-me" aria-label="About me section">
             <AboutMe creador={creador} translate={translate} locale={locale} />
@@ -68,7 +74,7 @@ const creador = translate.creator_name;
 
 {/*
 <script is:inline>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('astro:page-load', function() {
         setTimeout(function() {
             document.getElementById('greetings_iam').classList.remove('invisible');
         }, 500);

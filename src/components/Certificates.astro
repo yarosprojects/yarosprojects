@@ -1,0 +1,96 @@
+---
+const { creador, translate, locale } = Astro.props;
+import { i18n } from "@src/consts/i18n.files";
+import type { Language } from "@src/types/language.type";
+const DOMAIN_URL = "yarosprojects.dev";
+import accreditationImg from "../../public/img/accreditations.png";
+
+const t = i18n[locale as Language];
+const certificates = [
+  {
+    title: t.links_titles.driving_licenses,
+    href: `/${locale}/driving-licenses/`,
+    icon: "mdi--car",
+    description: "Licencias de conducción obtenidas en diferentes países.",
+  },
+  {
+    title: t.links_titles.academic_formation,
+    href: `/${locale}/academic-formation/`,
+    icon: "mdi--school",
+    description: "Formación académica en diferentes áreas.",
+  },
+  {
+    title: t.links_titles.certificates,
+    href: `/${locale}/additional-courses/`,
+    icon: "mdi--book-open-page-variant",
+    description: "Cursos adicionales realizados en línea.",
+  },
+];
+---
+
+<div
+    class="pt-(--header-h) w-full flex justify-center items-center px-2 md:px-0"
+>
+    <div
+        class="w-full max-[235px]:flex-col md:max-w-3xl mx-0 md:mx-auto flex justify-start max-[235px]:items-start items-center flex-row gap-4"
+    >
+        <i
+            class="icon-[game-icons--graduate-cap] max-[235px]:text-xl text-5xl dark:text-white/80 text-black/80"
+        ></i>
+        <h1
+            class="text-left max-[235px]:text-2xl text-3xl dark:text-white text-black font-bold dark:selection:bg-white dark:selection:text-blue-700 selection:bg-blue-700 selection:text-white"
+        >
+            {translate.nav.certificates}
+        </h1>
+    </div>
+</div>
+<div class="flex w-full flex-col px-2 md:px-0">
+    <div
+        class="relative w-full md:max-w-3xl mx-0 md:mx-auto flex flex-col md:flex-row gap-7 justify-between items-start my-10"
+        id="projects-container group"
+    >
+        <div
+            id="projects-container"
+            class="grid grid-cols-2 gap-3 group
+           md:flex md:flex-col md:gap-5 md:justify-start md:items-start"
+        >
+            {
+                certificates.map(certificate => {
+                    return (
+                        <a
+                            href={certificate.href}
+                            class="group/chevron text-black dark:text-white aspect-square rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 flex flex-col justify-between items-start text-left cursor-pointer transition-all duration-300 hover:border-blue-500/50 hover:scale-[1.02] group-hover:opacity-50 hover:opacity-100! md:aspect-auto md:p-0 md:bg-transparent md:border-none md:rounded-none md:flex-row md:justify-start md:items-center"
+                        >
+                            <i class={`icon-[${certificate.icon}] text-3xl md:hidden`}></i>
+
+                            <span class="font-medium"> {certificate.title} </span>
+
+                            <i
+                                class="icon-[line-md--chevron-right] self-end transition-transform group-hover/chevron:translate-x-1 md:self-auto"
+                            ></i>
+                        </a>
+                    )
+                })
+            }
+        </div>
+        <div class="relative hidden md:block">
+            <img
+                src={accreditationImg.src}
+                alt="accreditations"
+                class="max-w-[420px] saturate-500 relative z-10"
+            />
+            <img
+                src={accreditationImg.src}
+                alt="accreditations image reflex"
+                aria-hidden="true"
+                class="absolute top-[95%] left-10 max-w-[500px] scale-y-[-1] -rotate-20 opacity-10 blur-[1px] pointer-events-none translate-x-10 mask-[linear-gradient(to_bottom,black,transparent)][-webkit-mask-image:linear-gradient(to_bottom,black,transparent)]"
+            />
+        </div>
+        <img
+            src={accreditationImg.src}
+            alt="accreditations image reflex"
+            aria-hidden="true"
+            class="md:hidden absolute top-0 -right-50 max-w-[650px] -rotate-20 opacity-25 blur-[3px] pointer-events-none -z-10"
+        />
+    </div>
+</div>

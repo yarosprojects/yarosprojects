@@ -88,13 +88,13 @@ import lightImage from '../../public/img/light-trident.png';
 </div>
 
 <script is:inline>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('astro:page-load', function() {
         const $image = document.getElementById('about-me-image');
         const $aboutTitle = document.getElementById('about-title');
         const $decorativeLine = document.getElementById('decorative-bottom-line');
 
         window.addEventListener('resize', function() {
-            $image.querySelector('img').classList.add('md:scale-200', 'opacity-0');
+            $image.querySelector('img')?.classList.add('md:scale-200', 'opacity-0');
             if(this.window.innerWidth > 768) {
                 $image.querySelector('img').classList.remove('md:scale-200');
             } else {

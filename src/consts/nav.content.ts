@@ -14,10 +14,12 @@ export const getNavContent = (locale: Language) => {
             visible: true,
         },
         {
+            label: translate.nav.certificates, // Certificados
+            visible: true,
+        },
+        {
             label: translate.nav.about_me, // Sobre mí
             visible: true,
         },
-
-        // ...
     ]
 }

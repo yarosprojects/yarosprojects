@@ -13,8 +13,7 @@ export default {
         november: 'Novembre',
         december: 'Desembre'
     },
-
-
+    return_to_home: 'Tornar a l\'inici',
     cities: {
         psip: "Palau-solità i Plegamans",
         barcelona: "Barcelona",
@@ -26,6 +25,7 @@ export default {
 
     countries: {
         spain: "Espanya",
+        ukraine: "Ucraïna",
     },
 
 
@@ -41,9 +41,11 @@ export default {
     },
 
     nav: {
+        home: 'Inici',
         intro: 'Intro',
         experience: 'Experiència',
         projects: 'Projectes',
+        certificates: 'Permisos i Acreditacions',
         about_me: 'Sobre mi',
         contact: 'Contacte',
     },
@@ -133,7 +135,63 @@ export default {
         fullstack: 'Fullstack',
         others: 'Altres',
     },
-
+    cap_mercancias: {
+        title: 'CAP Mercaderies',
+        description: 'Certificat d\'Aptitut Professional per al transport de mercaderies (CAP | codi 95).',
+    },
+    links_titles: {
+        driving_licenses: 'Llicències de conducció',
+        academic_formation: 'Fomarció acadèmica',
+        certificates: 'Cursos adiccionals i certificacions',
+    },
+    driving_licenses: {
+        label: 'Verificació digital dels permisos de conduir',
+        title: 'Permisos de conduir',
+        subtitle: 'Acreditacions de conducció validades i categorització oficial de vehicles autoritzats',
+        enabled_categories: 'Categoríes Habilitades',
+        total_label: 'Total',
+        categories_enum: {
+            one: 'categoria',
+            other: 'categories',
+        },
+        european_community_model: 'Models de les comunitats europees',
+        tocuh_or_click: 'Toqueu o feu clic per girar el carnet',
+        driving_license: 'Permís de conduir',
+        spanish_kingdom: 'Regne d\'Espanya',
+        last_names: 'Cognoms',
+        name: 'Nom',
+        date_and_place_of_birth: 'Data i lloc de naixement',
+        valid_from: 'Vàlid des de',
+        valid_until: 'Vàlid fins a',
+        issuing_authority: 'Autoritat expedidora',
+        number: 'Número',
+        observations: 'Observacions',
+        driving_license_categories: {
+            b: {
+                category: 'Permís B',
+                title: 'Turismes i vehicles lleugers',
+                description: 'Autoritza la conducció d\'automòbils la massa màxima autoritzada dels quals no excedeixi de 3.500 kg i dissenyats per al transport de no més de 8 passatgers a més del conductor, amb un remolc lleuger enganxat de fins a 750 kg.',
+            },
+            c1: {
+                category: 'Permís C1',
+                title: 'Camions rígids de 7.500 kg màxim de MMA',
+                description: 'Autoritza la conducció d\'automòbils diferents dels de la classe D1 o D, la massa màxima autoritzada dels quals excedeixi de 3.500 kg i no excedeixi de 7.500 kg, amb un remolc enganxat de fins a 750 kg.',
+            },
+            c: {
+                category: 'Permís C',
+                title: 'Camions rígids de més de 3.500 kg de MMA',
+                description: 'Autoritza la conducció d\'automòbils diferents dels de la classe D1 o D, la massa màxima autoritzada dels quals excedeixi de 3.500 kg, amb un remolc enganxat de fins a 750 kg.',
+            },
+            common_notes: {
+                c_95_initial: 'Qualificació inicial / contínua en vigor per al transport de mercaderies (CAP | codi 95).',
+            }
+        }
+    },
+    creator_name_variants: {
+        first_name: "Yaroslav",
+        last_name: "Klymko",
+        full_name: "Yaroslav Klymko",
+    },
     about_me: {
         iam: 'Sóc',
         and: 'i',
@@ -161,7 +219,122 @@ export default {
         programming: 'programació',
         with_community: 'amb la comunitat',
     },
-
+    academic_formation_web: {
+        page_title: "Titulació Acadèmica",
+        hero_tag: "ACADEMIC MATRIX // DEGREES & QUALIFICATIONS",
+        hero_title_part1: "Historial i ",
+        hero_title_part2: "Titulació Acadèmica",
+        hero_description: "Full de ruta formatiu reglat, graus tècnics superiors i equivalències d'homologació internacional.",
+        verified_student: "VERIFIED STUDENT",
+        national_registry: "REGISTRE NACIONAL",
+        institution: "INSTITUCIÓ",
+        expedition: "EXPEDICIÓ",
+        european_level: "NIVELL EUROPEU",
+        accumulated_credits: "CRÈDITS ACUMULATS",
+        homologated: "Homologat",
+        official_degree: "Titulació Oficial",
+        degrees: {
+            gs_daw: {
+                code: "GS DAW",
+                level: "Tècnic Superior",
+                title: "Tècnic Superior en Desenvolupament d'Aplicacions Web (DAW)",
+                institution: "Institut La Guineueta / Generalitat de Catalunya",
+                period: "2022 - 2024",
+                description: "Especialització en desenvolupament frontend, backend, arquitectures web, integració d'APIs i gestió de bases de dades relacionals i no relacionals.",
+                status: "Finalitzat (Oficial)"
+            },
+            gm_smx: {
+                code: "GM SMX",
+                level: "Tècnic",
+                title: "Tècnic en Sistemes Microinformàtics i Xarxes (SMX)",
+                institution: "Institut La Guineueta",
+                period: "2020 - 2022",
+                description: "Formació en muntatge i manteniment d'equips, xarxes d'àrea local, administració de sistemes operatius i serveis de xarxa.",
+                status: "Finalitzat (Oficial)"
+            },
+            bach: {
+                code: "BACH",
+                level: "Postobligatòria",
+                title: "Títol de Batxiller (Homologat)",
+                institution: "Ministeri d'Educació d'Ucraïna / Homologat pel Ministeri d'Educació d'Espanya",
+                period: "2018 - 2020",
+                description: "Títol d'Educació Secundària Completa obtingut a Ucraïna, homologat oficialment al Títol de Batxiller del sistema educatiu espanyol.",
+                status: "Homologated"
+            },
+            eso: {
+                code: "ESO",
+                level: "Obligatòria",
+                title: "Graduat en Educació Secundària Obligatòria (ESO)",
+                institution: "Institut Ramon Casas i Carbó",
+                period: "2014 - 2018",
+                description: "Títol d'Educació Secundària Obligatòria obtingut a Espanya.",
+                status: "Finalitzat"
+            }
+        }
+    },
+    additional_courses_web: {
+        page_title: "Cursos Addicionals i Certificacions",
+        hero_tag: "ACREDITACIONS I FORMACIÓ CONTINUA",
+        hero_title_part1: "Especialització i ",
+        hero_title_part2: "Certificacions",
+        hero_description: "Registre de competències addicionals, llicències operatives i capacitacions tècniques homologades.",
+        stats: {
+            total_hours: "Hores Totals",
+            certifications: "Certificacions",
+            accreditation_status: "Estat d'Acreditació",
+            status_value: "100% Vàlid"
+        },
+        card_banner: {
+            tag: "SYSTEM_VERIFICATION // CREDENTIAL_HUB",
+            title: "Expedient Acadèmic i Certificació Validada",
+            description: "Totes les acreditacions presentades compten amb suport oficial, número de registre actiu i compliment de normatives europees i industrials.",
+            status_active: "ESTAT: ACTIU",
+            csv: "CSV: 8891-VERIFIED"
+        },
+        hours_accredited: "Acreditades",
+        courses: {
+            cap_95: {
+                code: "CAP 95",
+                level: "Certificat d'Aptitud Professional",
+                title: "CAP Mercaderies (Codi 95)",
+                institution: "DGT / Ministeri de Transports",
+                hours: "140h",
+                year: "2024",
+                description: "Certificació obligatòria per a la conducció professional de vehicles de transport de mercaderies per carretera a la Unió Europea.",
+                tags: ["Transport", "Normativa UE", "Professional"]
+            },
+            prl_60h: {
+                code: "PRL 60H",
+                level: "Prevenció de Riscos",
+                title: "Curs Bàsic de Prevenció de Riscos Laborals",
+                institution: "Centre de Formació Tècnica",
+                hours: "60h",
+                year: "2023",
+                description: "Avaluació de riscos en entorns industrials i de treball, mesures preventives i actuació d'emergència.",
+                tags: ["Seguretat", "PRL", "Normativa"]
+            },
+            carret: {
+                code: "CARRET",
+                level: "Carnet Operatiu",
+                title: "Operador de Carretons Elevadors",
+                institution: "Centre Formatiu Logístic",
+                hours: "20h",
+                year: "2023",
+                description: "Manegament segur de carretons elevadors frontals, retràctils, transpalets elèctrics i apiladors (UNE 58451).",
+                tags: ["Logística", "UNE 58451", "Maquinària"]
+            },
+            dev_cloud: {
+                code: "DEV-CLOUD",
+                level: "Certificació Tècnica",
+                title: "Desenvolupament Web & Cloud Infrastructure",
+                institution: "Plataforma Especialitzada",
+                hours: "120h",
+                year: "2023",
+                description: "Desplegament d'arquitectures web modernitzades, gestió de contenidors amb Docker, CI/CD i serveis cloud.",
+                tags: ["Docker", "Cloud", "CI/CD"]
+            }
+        }
+    },
     read_more: 'Llegir més',
     read_less: 'Llegir menys',
 

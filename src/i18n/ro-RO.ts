@@ -13,7 +13,7 @@ export default {
         november: 'noiembrie',
         december: 'decembrie'
     },
-
+    return_to_home: 'Înapoi la prima pagină',
     cities: {
         psip: "Palau-solità i Plegamans",
         barcelona: "Barcelona",
@@ -25,6 +25,7 @@ export default {
 
     countries: {
         spain: "Spania",
+        ukraine: "Ucraina",
     },
 
     creator_name: "Yaroslav Klymko",
@@ -39,9 +40,11 @@ export default {
     },
 
     nav: {
+        home: 'Acasă',
         intro: 'Introducere',
         experience: 'Experiență',
         projects: 'Proiecte',
+        certificates: 'Permise și Acreditări',
         about_me: 'Despre mine',
         contact: 'Contact',
     },
@@ -130,7 +133,64 @@ export default {
         fullstack: 'Fullstack',
         others: 'Altele',
     },
-
+    cap_mercancias: {
+        title: 'CPC Marfă',
+        description: 'Certificat de Calificare Profesională a Conducătorului Auto (CPC) pentru transportul de marfă (Cod 95).',
+    },
+    links_titles: {
+        driving_licenses: 'Permise de conducere',
+        academic_formation: 'Studii academice',
+        certificates: 'Cursuri suplimentare și certificări',
+    },
+    driving_licenses: {
+        label: 'Verificarea digitală a permisului de conducere',
+        title: 'Permise de conducere',
+        subtitle: 'Acreditări de conducere validate și categorisirea oficială a vehiculelor autorizate.',
+        enabled_categories: 'Categorii activate',
+        total_label: 'Total',
+        categories_enum: {
+            one: 'categorie',
+            few: 'categorii',
+            other: 'de categorii',
+        },
+        european_community_model: 'Modele ale Comunității Europene',
+        tocuh_or_click: 'Atingeți sau faceți clic pentru a roti cardul',
+        driving_license: 'Permis de conducere',
+        spanish_kingdom: 'Regatul Spaniei',
+        last_names: 'Numele',
+        name: 'Prenumele',
+        date_and_place_of_birth: 'Data și locul nașterii',
+        valid_from: 'Valabil de la',
+        valid_until: 'Valabil până la',
+        issuing_authority: 'Autoritatea emitentă',
+        number: 'Număr',
+        observations: 'Observații',
+        driving_license_categories: {
+            b: {
+                category: 'Categoria B',
+                title: 'Autoturisme și vehicule ușoare',
+                description: 'Autorizează conducerea autovehiculului a cărui masă totală maximă autorizată nu depășește 3.500 kg și care este conceput și construit pentru transportul a maximum 8 pasageri în afara conducătorului auto, cu o remorcă ușoară atașată de până la 750 kg.',
+            },
+            c1: {
+                category: 'Subcategoria C1',
+                title: 'Autocamioane cu masa maximă autorizată de până la 7.500 kg',
+                description: 'Autorizează conducerea autovehiculelor, altele decât cele din subcategoria D1 sau categoria D, a căror masă totală maximă autorizată depășește 3.500 kg, dar nu depășește 7.500 kg, cu o remorcă atașată de până la 750 kg.',
+            },
+            c: {
+                category: 'Categoria C',
+                title: 'Autocamioane cu masa maximă autorizată de peste 3.500 kg',
+                description: 'Autorizează conducerea autovehiculelor, altele decât cele din subcategoria D1 sau categoria D, a căror masă totală maximă autorizată depășește 3.500 kg, cu o remorcă atașată de până la 750 kg.',
+            },
+            common_notes: {
+                c_95_initial: 'Calificare inițială / periodică în vigoare pentru transportul de marfă (Codul 95).',
+            }
+        }
+    },
+    creator_name_variants: {
+        first_name: "Yaroslav",
+        last_name: "Klymko",
+        full_name: "Yaroslav Klymko",
+    },
     about_me: {
         iam: 'Sunt',
         and: 'și',
@@ -158,7 +218,122 @@ export default {
         programming: 'programare',
         with_community: 'cu comunitatea',
     },
-
+    academic_formation_web: {
+        page_title: "Studii Academice",
+        hero_tag: "ACADEMIC MATRIX // DEGREES & QUALIFICATIONS",
+        hero_title_part1: "Parcurs și ",
+        hero_title_part2: "Calificări Academice",
+        hero_description: "Foaia de parcurs a instruirii formale, diplome tehnice superioare și echivalări de omologare internațională.",
+        verified_student: "VERIFIED STUDENT",
+        national_registry: "REGISTRUL NAȚIONAL",
+        institution: "INSTITUȚIE",
+        expedition: "DATA ELIBERĂRII",
+        european_level: "NIVEL EUROPEAN",
+        accumulated_credits: "CREDITE ACUMULATE",
+        homologated: "Echivalat / Recunoscut",
+        official_degree: "Diplomă Oficială",
+        degrees: {
+            gs_daw: {
+                code: "GS DAW",
+                level: "Tehnician Superior / Învățământ Postliceal",
+                title: "Tehnician Superior în Dezvoltarea Aplicațiilor Web (DAW)",
+                institution: "Institut La Guineueta / Generalitat de Catalunya",
+                period: "2022 - 2024",
+                description: "Specializare în dezvoltare frontend, backend, arhitecturi web, integrare API și gestionarea bazelor de date relaționale și nerelaționale.",
+                status: "Finalizat (Oficial)"
+            },
+            gm_smx: {
+                code: "GM SMX",
+                level: "Tehnician / Învățământ Profesional și Tehnic",
+                title: "Tehnician în Sisteme Microinformatice și Rețele (SMR/SMX)",
+                institution: "Institut La Guineueta",
+                period: "2020 - 2022",
+                description: "Instruire în asamblarea și întreținerea echipamentelor, rețele locale (LAN), administrarea sistemelor de operare și serviciilor de rețea.",
+                status: "Finalizat (Oficial)"
+            },
+            bach: {
+                code: "BACH",
+                level: "Învățământ Liceal",
+                title: "Diplomă de Bacalaureat (Echivalată)",
+                institution: "Ministerul Educației din Ucraina / Echivalată de Ministerul Educației din Spania",
+                period: "2018 - 2020",
+                description: "Diplomă de studii secundare complete obținută în Ucraina, echivalată oficial cu Diploma de Bacalaureat (Bachiller) din sistemul educațional spaniol.",
+                status: "Echivalat / Recunoscut"
+            },
+            eso: {
+                code: "ESO",
+                level: "Învățământ Gimnazial / Obligatoriu",
+                title: "Diplomă de Învățământ Secundar Obligatoriu (ESO)",
+                institution: "Institut Ramon Casas i Carbó",
+                period: "2014 - 2018",
+                description: "Diplomă de învățământ secundar obligatoriu obținută în Spania.",
+                status: "Finalizat"
+            }
+        }
+    },
+    additional_courses_web: {
+        page_title: "Cursuri Suplimentare și Certificări",
+        hero_tag: "ACREDITĂRI ȘI FORMARE CONTINUĂ",
+        hero_title_part1: "Specializare și ",
+        hero_title_part2: "Certificări",
+        hero_description: "Registrul competențelor suplimentare, licențelor operative și formărilor tehnice omologate.",
+        stats: {
+            total_hours: "Ore Totale",
+            certifications: "Certificări",
+            accreditation_status: "Stadiu Acreditare",
+            status_value: "100% Valabil"
+        },
+        card_banner: {
+            tag: "SYSTEM_VERIFICATION // CREDENTIAL_HUB",
+            title: "Dosar Academic și Certificare Validată",
+            description: "Toate acreditările prezentate beneficiază de suport oficial, număr de înregistrare activ și respectă normele europene și industriale.",
+            status_active: "STATUT: ACTIV",
+            csv: "CSV: 8891-VERIFIED"
+        },
+        hours_accredited: "Acreditate",
+        courses: {
+            cap_95: {
+                code: "CPC 95",
+                level: "Certificat de Calificare Profesională",
+                title: "CPC Marfă (Cod 95)",
+                institution: "DGT / Ministerul Transporturilor",
+                hours: "140h",
+                year: "2024",
+                description: "Certificare obligatorie pentru conducerea profesională a vehiculelor de transport marfă pe drumurile publice din Uniunea Europeană.",
+                tags: ["Transport", "Normativă UE", "Profesional"]
+            },
+            prl_60h: {
+                code: "SSM 60H",
+                level: "Prevenirea Riscurilor",
+                title: "Curs de Bază în Securitate și Sănătate în Muncă",
+                institution: "Centrul de Formare Tehnică",
+                hours: "60h",
+                year: "2023",
+                description: "Evaluarea riscurilor în mediul industrial și la locul de muncă, măsuri preventive și intervenția în situații de urgență.",
+                tags: ["Securitate", "SSM", "Normativă"]
+            },
+            carret: {
+                code: "STIVUITOR",
+                level: "Autorizație Operativă",
+                title: "Operator Stivuitor (Stivuitorist)",
+                institution: "Centrul de Formare Logistică",
+                hours: "20h",
+                year: "2023",
+                description: "Manevrarea în siguranță a stivuitoarelor frontale, retractabile, transpaletelor electrice și electrostivuitoarelor (UNE 58451 / ISCIR).",
+                tags: ["Logistică", "UNE 58451", "Utilaje"]
+            },
+            dev_cloud: {
+                code: "DEV-CLOUD",
+                level: "Certificare Tehnică",
+                title: "Dezvoltare Web & Infrastructură Cloud",
+                institution: "Platformă Specializată",
+                hours: "120h",
+                year: "2023",
+                description: "Implementarea arhitecturilor web modernizate, gestionarea containerelor cu Docker, CI/CD și servicii cloud.",
+                tags: ["Docker", "Cloud", "CI/CD"]
+            }
+        }
+    },
     read_more: 'Citește mai mult',
     read_less: 'Citește mai puțin',
 

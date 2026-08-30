@@ -200,7 +200,7 @@ const cfgs_started_at = 2022;
 
     gsap.registerPlugin(SplitText);
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('astro:page-load', function() {
         const name = document.querySelector('.gsap-animation-name');
         const split = new SplitText(name, { type: 'chars' });
 
@@ -215,13 +215,13 @@ const cfgs_started_at = 2022;
 </script>
 
 <script is:inline>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('astro:page-load', function() {
         const $showMorFrameworksBtn = document.getElementById('show-frameworks-more');
         const $framweworksContainer = document.getElementById('frameworks-container');
         const $languagesContainer = document.getElementById('languages-container');
-        const $language_cards = $languagesContainer.querySelectorAll('.language-card');
+        const $language_cards = $languagesContainer?.querySelectorAll('.language-card');
         const $frameworksOverlay = document.getElementById('frameworks-overlay');
-        const $frameworksCards = $framweworksContainer.querySelectorAll('.framework-card');
+        const $frameworksCards = $framweworksContainer?.querySelectorAll('.framework-card');
 
         // FRAMEWORKS
         let frameworksShowed = false;
@@ -265,7 +265,7 @@ const cfgs_started_at = 2022;
             })
         });
 
-        $language_cards.forEach(card => {
+        $language_cards?.forEach(card => {
             observer.observe(card);
         })
 
