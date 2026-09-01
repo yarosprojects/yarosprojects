@@ -257,7 +257,7 @@ export default {
                 level: "Wykształcenie Średnie Ogólnokształcące",
                 title: "Świadectwo Dojrzałości / Matura (Nostryfikowane)",
                 institution: "Ministerstwo Edukacji Ukrainy / Nostryfikowane przez Ministerstwo Edukacji Hiszpanii",
-                period: "2018 - 2020",
+                period: "2020 - 2022",
                 description: "Świadectwo ukończenia pełnego wykształcenia średniego uzyskane na Ukrainie, oficjalnie uznane (nostryfikowane) jako odpowiednik hiszpańskiego świadectwa dojrzałości (Bachiller).",
                 status: "Nostryfikowany / Uznany"
             },
@@ -266,7 +266,7 @@ export default {
                 level: "Wykształcenie Podstawowe / Gimnazjalne",
                 title: "Świadectwo Ukończenia Obowiązkowej Edukacji Średniej (ESO)",
                 institution: "Institut Ramon Casas i Carbó",
-                period: "2014 - 2018",
+                period: "2016 - 2021",
                 description: "Świadectwo ukończenia obowiązkowej edukacji średniej (ESO) uzyskane w Hiszpanii.",
                 status: "Ukończone"
             }

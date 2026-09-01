@@ -257,7 +257,7 @@ export default {
                 level: "Upper Secondary Education",
                 title: "High School Diploma / Baccalaureate (Accredited)",
                 institution: "Ministry of Education of Ukraine / Officially accredited by the Ministry of Education of Spain",
-                period: "2018 - 2020",
+                period: "2020 - 2022",
                 description: "Complete Secondary Education Degree obtained in Ukraine, officially accredited as equivalent to the Spanish Baccalaureate (Bachiller).",
                 status: "Officially Accredited"
             },
@@ -266,7 +266,7 @@ export default {
                 level: "Compulsory Secondary Education",
                 title: "Graduate in Compulsory Secondary Education (ESO)",
                 institution: "Institut Ramon Casas i Carbó",
-                period: "2014 - 2018",
+                period: "2016 - 2021",
                 description: "Compulsory Secondary Education Diploma obtained in Spain.",
                 status: "Completed"
             }

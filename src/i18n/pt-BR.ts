@@ -255,7 +255,7 @@ export default {
                 level: "Ensino Médio",
                 title: "Diploma de Ensino Médio (Homologado)",
                 institution: "Ministério da Educação da Ucrânia / Homologado pelo Ministério da Educação da Espanha",
-                period: "2018 - 2020",
+                period: "2020 - 2022",
                 description: "Diploma de Ensino Médio completo obtido na Ucrânia, homologado oficialmente ao equivalente do Ensino Médio (Bachiller) do sistema educacional espanhol.",
                 status: "Homologado / Revalidado"
             },
@@ -264,7 +264,7 @@ export default {
                 level: "Ensino Fundamental II / Obrigatório",
                 title: "Certificado de Ensino Secundário Obrigatório (ESO)",
                 institution: "Institut Ramon Casas i Carbó",
-                period: "2014 - 2018",
+                period: "2016 - 2021",
                 description: "Diploma de Educação Secundária Obrigatória (ESO) obtido na Espanha.",
                 status: "Concluído"
             }

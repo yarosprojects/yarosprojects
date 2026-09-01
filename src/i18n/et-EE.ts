@@ -255,7 +255,7 @@ export default {
                 level: "Gümnaasiharidus / Keskharidus",
                 title: "Gümnaasiumi lõputunnistus (Tunnustatud)",
                 institution: "Ukraina Haridusministeerium / Hispaania Haridusministeeriumi poolt tunnustatud",
-                period: "2018 - 2020",
+                period: "2020 - 2022",
                 description: "Ukrainas omandatud üldkeskharidus, mis on ametlikult võrdsustatud Hispaania gümnaasiumi lõputunnistusega (Bachiller).",
                 status: "Võrdsustatud / Tunnustatud"
             },
@@ -264,7 +264,7 @@ export default {
                 level: "Põhiharidus",
                 title: "Põhikooli lõputunnistus (ESO)",
                 institution: "Institut Ramon Casas i Carbó",
-                period: "2014 - 2018",
+                period: "2016 - 2021",
                 description: "Hispaanias omandatud kohustuslik põhiharidus.",
                 status: "Lõpetatud"
             }

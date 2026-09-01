@@ -255,7 +255,7 @@ export default {
                 level: "Upper Secondary Education",
                 title: "High School Diploma (Officially Evaluated)",
                 institution: "Ministry of Education of Ukraine / Evaluated by the Ministry of Education of Spain",
-                period: "2018 - 2020",
+                period: "2020 - 2022",
                 description: "Full Secondary Education Diploma earned in Ukraine, officially evaluated as equivalent to the Spanish High School Diploma (Bachiller).",
                 status: "Officially Evaluated"
             },
@@ -264,7 +264,7 @@ export default {
                 level: "Middle / Junior High School",
                 title: "Compulsory Secondary Education Diploma (ESO)",
                 institution: "Institut Ramon Casas i Carbó",
-                period: "2014 - 2018",
+                period: "2016 - 2021",
                 description: "Compulsory Secondary Education Diploma earned in Spain.",
                 status: "Completed"
             }

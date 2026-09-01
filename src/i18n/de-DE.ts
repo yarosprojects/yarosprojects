@@ -255,7 +255,7 @@ export default {
                 level: "Sekundarstufe II",
                 title: "Zeugnis der Allgemeinen Hochschulreife / Abitur (Anerkannt)",
                 institution: "Ministerium für Bildung der Ukraine / Anerkannt vom spanischen Bildungsministerium",
-                period: "2018 - 2020",
+                period: "2020 - 2022",
                 description: "In der Ukraine erworbener allgemeiner Sekundarschulabschluss, offiziell als gleichwertig zum spanischen Abitur (Bachiller) anerkannt.",
                 status: "Anerkannt"
             },
@@ -264,7 +264,7 @@ export default {
                 level: "Sekundarstufe I / Pflichtschule",
                 title: "Mittlerer Schulabschluss / Sekundarstufe I (ESO)",
                 institution: "Institut Ramon Casas i Carbó",
-                period: "2014 - 2018",
+                period: "2016 - 2021",
                 description: "In Spanien erworbener Abschluss der Sekundarstufe I.",
                 status: "Abgeschlossen"
             }

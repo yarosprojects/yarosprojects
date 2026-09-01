@@ -257,7 +257,7 @@ export default {
                 level: "Postobligatòria",
                 title: "Títol de Batxiller (Homologat)",
                 institution: "Ministeri d'Educació d'Ucraïna / Homologat pel Ministeri d'Educació d'Espanya",
-                period: "2018 - 2020",
+                period: "2020 - 2022",
                 description: "Títol d'Educació Secundària Completa obtingut a Ucraïna, homologat oficialment al Títol de Batxiller del sistema educatiu espanyol.",
                 status: "Homologated"
             },
@@ -266,7 +266,7 @@ export default {
                 level: "Obligatòria",
                 title: "Graduat en Educació Secundària Obligatòria (ESO)",
                 institution: "Institut Ramon Casas i Carbó",
-                period: "2014 - 2018",
+                period: "2016 - 2021",
                 description: "Títol d'Educació Secundària Obligatòria obtingut a Espanya.",
                 status: "Finalitzat"
             }

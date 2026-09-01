@@ -256,7 +256,7 @@ export default {
                 level: "Învățământ Liceal",
                 title: "Diplomă de Bacalaureat / Atestat (Echivalat)",
                 institution: "Ministerul Educației din Ucraina / Recunoscut de Ministerul Educației din Spania",
-                period: "2018 - 2020",
+                period: "2020 - 2022",
                 description: "Atestat de studii medii complete obținut în Ucraina, echivalat oficial cu Diploma de Bacalaureat (Bachiller) din sistemul educațional spaniol.",
                 status: "Echivalat / Recunoscut"
             },
@@ -265,7 +265,7 @@ export default {
                 level: "Învățământ Gimnazial / Obligatoriu",
                 title: "Certificat de Studii Gimnaziale Obligatorii (ESO)",
                 institution: "Institut Ramon Casas i Carbó",
-                period: "2014 - 2018",
+                period: "2016 - 2021",
                 description: "Certificat de absolvire a învățământului secundar obligatoriu obținut în Spania.",
                 status: "Finalizat"
             }

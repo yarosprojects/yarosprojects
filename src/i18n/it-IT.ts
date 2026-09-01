@@ -255,7 +255,7 @@ export default {
                 level: "Istruzione Secondaria Superiore",
                 title: "Diploma di Maturità (Omologato)",
                 institution: "Ministero dell'Istruzione dell'Ucraina / Omologato dal Ministero dell'Istruzione della Spagna",
-                period: "2018 - 2020",
+                period: "2020 - 2022",
                 description: "Diploma di Istruzione Secondaria Completa conseguito in Ucraina, omologato ufficialmente al Diploma di Maturità (Bachiller) del sistema educativo spagnolo.",
                 status: "Omologato / Riconosciuto"
             },
@@ -264,7 +264,7 @@ export default {
                 level: "Istruzione Secondaria Di Primo Grado / Obbligatoria",
                 title: "Diploma di Istruzione Secondaria Obbligatoria (ESO)",
                 institution: "Institut Ramon Casas i Carbó",
-                period: "2014 - 2018",
+                period: "2016 - 2021",
                 description: "Diploma di Istruzione Secondaria Obbligatoria conseguito in Spagna.",
                 status: "Completato"
             }

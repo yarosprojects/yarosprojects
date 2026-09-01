@@ -256,7 +256,7 @@ export default {
                 level: "Vispārējā vidējā izglītība",
                 title: "Atestāts par vispārējo vidējo izglītību (Nostrificēts)",
                 institution: "Ukrainas Izglītības ministrija / Oficiāli atzinusi Spānijas Izglītības ministrija",
-                period: "2018 - 2020",
+                period: "2020 - 2022",
                 description: "Ukrainā iegūts pilnas vispārējās vidējās izglītības dokuments, kas oficiāli pielīdzināts (nostrificēts) Spānijas vidējās izglītības (Bachiller) līmenim.",
                 status: "Nostrificēts / Atzīts"
             },
@@ -265,7 +265,7 @@ export default {
                 level: "Pamatizglītība",
                 title: "Apliecība par pamatizglītību (ESO)",
                 institution: "Institut Ramon Casas i Carbó",
-                period: "2014 - 2018",
+                period: "2016 - 2021",
                 description: "Spānijā iegūts obligātās pamatizglītības dokuments.",
                 status: "Pabeigts"
             }

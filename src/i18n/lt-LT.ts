@@ -256,7 +256,7 @@ export default {
                 level: "Vidurinis išsilavinimas",
                 title: "Brandos atestatas (Nostrifikuotas)",
                 institution: "Ukrainos švietimo ministerija / Oficialiai pripažintas Ispanijos švietimo ministerijos",
-                period: "2018 - 2020",
+                period: "2020 - 2022",
                 description: "Ukrainoje įgytas pilno vidurinio mokslo atestatas, oficialiai pripažintas ir prilygintas Ispanijos vidurinio mokslo (Bachiller) laipsniui.",
                 status: "Nostrifikuotas / Pripažintas"
             },
@@ -265,7 +265,7 @@ export default {
                 level: "Pagrindinis išsilavinimas",
                 title: "Pagrindinio išsilavinimo pažymėjimas (ESO)",
                 institution: "Institut Ramon Casas i Carbó",
-                period: "2014 - 2018",
+                period: "2016 - 2021",
                 description: "Privalomasis pagrindinio mokslo baigimo pažymėjimas, įgytas Ispanijoje.",
                 status: "Baigta"
             }

@@ -256,7 +256,7 @@ export default {
                 level: "Enseignement Secondaire",
                 title: "Diplôme du Baccalauréat (Homologué)",
                 institution: "Ministère de l'Éducation d'Ukraine / Homologué par le Ministère de l'Éducation d'Espagne",
-                period: "2018 - 2020",
+                period: "2020 - 2022",
                 description: "Diplôme de fin d'études secondaires obtenu en Ukraine, homologué officiellement au Baccalauréat du système éducatif espagnol.",
                 status: "Homologué / Reconnu"
             },
@@ -265,7 +265,7 @@ export default {
                 level: "Enseignement Obligatoire (Collège)",
                 title: "Diplôme d'Enseignement Secondaire Obligatoire (ESO)",
                 institution: "Institut Ramon Casas i Carbó",
-                period: "2014 - 2018",
+                period: "2016 - 2021",
                 description: "Diplôme d'enseignement secondaire obligatoire obtenu en Espagne.",
                 status: "Terminé"
             }
